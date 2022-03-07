@@ -54,5 +54,13 @@ export default StyleSheet.create({
     color: "#788eec",
     fontWeight: "bold",
     fontSize: 16
-  }
+  },
+  green: {
+    color: 'green',
+    fontSize: 14
+  },
+  red: {
+    color: 'red',
+    fontSize: 14
+  },
 })
