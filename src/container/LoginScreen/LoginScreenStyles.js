@@ -6,14 +6,21 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   title: {
-
+    flex: 1,
+    alignItems: 'center',
+    padding: 20,
+  },
+  titleText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: 'green'
   },
   logo: {
     flex: 1,
-    height: 120,
+    height: 90,
     width: 90,
     alignSelf: "center",
-    margin: 30
+    margin: 10
   },
   input: {
     height: 48,

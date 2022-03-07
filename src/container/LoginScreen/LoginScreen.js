@@ -43,10 +43,14 @@ export default function LoginScreen({navigation}) {
       <KeyboardAwareScrollView
         style={{ flex: 1, width: '100%' }}
         keyboardShouldPersistTaps="always">
-        <Image
-          style={styles.logo}
-          source={require('../../../assets/icon.png')}
-        />
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Healthy App</Text>
+          <Image
+            style={styles.logo}
+            source={require('../../../assets/icon.png')}
+          />
+        </View>
+
         <TextInput
           style={styles.input}
           placeholder='E-mail'
