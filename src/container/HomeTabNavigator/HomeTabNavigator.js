@@ -7,8 +7,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../HomeScreen/HomeScreen';
 import BasicButton from '../../components/BasicButton/BasicButton';
 
-export default function HomeTabNavigator() {
-
+export default function HomeTabNavigator(props) {
   function GoalsScreen() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -21,10 +20,11 @@ export default function HomeTabNavigator() {
 
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Account" component={HomeScreen} />
+      <Tab.Screen
+        name="Account"
+        children={() => <HomeScreen {...props} />}
+      />
       <Tab.Screen name="Goals" component={GoalsScreen} />
     </Tab.Navigator>
   );
 }
-
-

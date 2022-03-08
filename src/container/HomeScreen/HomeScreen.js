@@ -8,10 +8,11 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import BasicButton from "../../components/BasicButton/BasicButton";
 
-export default function HomeScreen() {
-  // console.log('Home Screen, props is:', props);
-  const [user, setUser] = useState(fire_auth.currentUser)
-  const greeting = 'Welcome, ' + user.email;
+export default function HomeScreen(props) {
+
+  // const [user, setUser] = useState(fire_auth.currentUser);
+  console.log('At home screen with props:', props);
+  const greeting = 'Welcome, ' + props.extraData.nickname;
   const onLogoutPress = () => {
     fire_auth.signOut().then(() => {
       console.log('User signed out with info:', fire_auth.currentUser);

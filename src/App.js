@@ -37,6 +37,7 @@ export default function App() {
           });
       } else {
         setLoading(false);
+        setUser(null);
       }
     });
     return () => { isMounted = false };
@@ -47,7 +48,6 @@ export default function App() {
       <Stack.Navigator initialRouteName={'Login'}>
         {user ? (
           <Stack.Screen name="Home">{(props) => <HomeTabNavigator {...props} extraData={user} setUser={setUser} />}</Stack.Screen>
-          // <Stack.Screen name="Home" component={HomeTabNavigator(user)} />
         ) : (
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
