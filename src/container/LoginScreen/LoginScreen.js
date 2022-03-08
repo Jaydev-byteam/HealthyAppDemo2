@@ -3,7 +3,10 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
+
+// importing custom dumb components
 import PageTitle from '../../components/PageTitle/PageTitle';
+import BasicButton from '../../components/BasicButton/BasicButton';
 
 export default function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
@@ -65,9 +68,9 @@ export default function LoginScreen({navigation}) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
-        <TouchableOpacity style={styles.button} onPress={() => onLoginPress()}>
-          <Text style={styles.buttonTitle}>Log in</Text>
-        </TouchableOpacity>
+        <BasicButton
+          buttonText="Log in"
+          onPressButton={onLoginPress} />
         <View style={styles.footerView}>
           <Text style={styles.footerText}>
             Don't have an account?{' '}
