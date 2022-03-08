@@ -5,6 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     padding: 20,
+    marginTop: 50,
   },
   logo: {
     flex: 1,
@@ -14,8 +15,8 @@ export default StyleSheet.create({
     margin: 10,
   },
   titleText: {
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: 'green',
+    color: 'white',
   },
 });

@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from "./container/LoginScreen/LoginScreen";
 import RegistrationScreen from "./container/RegistrationScreen/RegistrationScreen";
 import HomeScreen from "./container/HomeScreen/HomeScreen";
+import HomeTabNavigator from "./container/HomeTabNavigator/HomeTabNavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
   // }
 
   useEffect(() => {
+    let isMounted = true;
     const usersRef = fstore.collection('users');
     fire_auth.onAuthStateChanged((user) => {
       if (user) {
@@ -35,15 +37,17 @@ export default function App() {
           });
       } else {
         setLoading(false);
+        setUser(null);
       }
     });
+    return () => { isMounted = false };
   }, []);
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName={'Login'} screenOptions={{headerShown: false}}>
         {user ? (
-          <Stack.Screen name="Home">{(props) => <HomeScreen {...props} extraData={user} setUser={setUser} />}</Stack.Screen>
+          <Stack.Screen name="Home">{(props) => <HomeTabNavigator {...props} extraData={user} setUser={setUser} />}</Stack.Screen>
         ) : (
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
