@@ -4,6 +4,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import BasicButton from "../../components/BasicButton/BasicButton";
 
 export default function RegistrationScreen({navigation}) {
   // establish the state variables for registration
@@ -19,29 +20,8 @@ export default function RegistrationScreen({navigation}) {
   let uppercase = /[A-Z]/;
   let specials = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
-  const passwordValidation = pw => {
-    let errors = '';
-    if (pw.length < 8) {
-      errors += 'Password must be at least 8 characters. ';
-    }
-    if (!lowercase.test(password)) {
-      errors += 'Password must contain a lowercase letter. ';
-    }
-    if (!uppercase.test(password)) {
-      errors += 'Password must contain an uppercase letter. ';
-    }
-    if (!specials.test(password)) {
-      errors +=
-        'Password must contain one special character (not a letter or number.) ';
-    }
-    return errors;
-  };
-
   const onRegisterPress = () => {
-    if (passwordValidation(password) !== '') {
-      alert(passwordValidation(password));
-      return;
-    }
+
     if (password !== confirmPassword) {
       alert("Passwords don't match.");
       return;
@@ -118,29 +98,29 @@ export default function RegistrationScreen({navigation}) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
-
-        <Text style={password.length < 8 ? styles.red : styles.green}>
-          Password must be at least 8 characters long.
-        </Text>
-        <Text style={!lowercase.test(password) ? styles.red : styles.green}>
-          Password must contain a lowercase letter.
-        </Text>
-        <Text style={!uppercase.test(password) ? styles.red : styles.green}>
-          Password must contain an uppercase letter.
-        </Text>
-        <Text style={!specials.test(password) ? styles.red : styles.green}>
+        <View style={styles.validationView}>
+          <Text style={password.length < 8 ? styles.red : styles.green}>
+            Password must be at least 8 characters long.
+          </Text>
+          <Text style={!lowercase.test(password) ? styles.red : styles.green}>
+            Password must contain a lowercase letter.
+          </Text>
+          <Text style={!uppercase.test(password) ? styles.red : styles.green}>
+            Password must contain an uppercase letter.
+          </Text>
+          <Text style={!specials.test(password) ? styles.red : styles.green}>
             Password must contain at least one special character.
-        </Text>
-        <Text style={password !== confirmPassword ? styles.red : styles.green}>
-          Password and confirmation must match.
-        </Text>
+          </Text>
+          <Text style={!password || password !== confirmPassword ? styles.red : styles.green}>
+            Password and confirmation must match.
+          </Text>
+        </View>
 
         {nickname && email && password && password === confirmPassword ? (
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => onRegisterPress()}>
-            <Text style={styles.buttonTitle}>Create account</Text>
-          </TouchableOpacity>
+          <BasicButton
+            buttonText="Create account"
+            onPressButton={onRegisterPress}
+          />
         ) : null}
 
         <View style={styles.footerView}>

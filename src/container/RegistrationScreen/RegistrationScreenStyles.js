@@ -44,7 +44,7 @@ export default StyleSheet.create({
   footerView: {
     flex: 1,
     alignItems: "center",
-    marginTop: 20
+    margin: 20
   },
   footerText: {
     fontSize: 16,
@@ -55,9 +55,18 @@ export default StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16
   },
+  validationView: {
+    flex: 1,
+    alignItems: "flex-start",
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 30,
+    marginRight: 30,
+  },
   green: {
     color: 'green',
-    fontSize: 14
+    fontSize: 14,
+    marginBottom: 10,
   },
   red: {
     color: 'red',
