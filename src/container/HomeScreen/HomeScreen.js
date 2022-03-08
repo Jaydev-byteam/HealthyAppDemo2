@@ -6,6 +6,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 // import custom components
 import PageTitle from "../../components/PageTitle/PageTitle";
+import BasicButton from "../../components/BasicButton/BasicButton";
 
 export default function HomeScreen(props) {
   console.log('Home Screen, props are:', props);
@@ -23,9 +24,9 @@ export default function HomeScreen(props) {
         {/*<Text>Home Screen</Text>*/}
         {/*<Text>Welcome, {props.extraData.nickname}</Text>*/}
         <PageTitle pageName={greeting} />
-        <TouchableOpacity style={styles.button} onPress={() => onLogoutPress()}>
-          <Text style={styles.buttonTitle}>Log out</Text>
-        </TouchableOpacity>
+        <BasicButton
+          buttonText="Log out"
+          onPressButton={onLogoutPress} />
       </KeyboardAwareScrollView>
     </View>
   );

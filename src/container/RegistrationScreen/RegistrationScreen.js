@@ -4,6 +4,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import BasicButton from "../../components/BasicButton/BasicButton";
 
 export default function RegistrationScreen({navigation}) {
   // establish the state variables for registration
@@ -116,11 +117,10 @@ export default function RegistrationScreen({navigation}) {
         </View>
 
         {nickname && email && password && password === confirmPassword ? (
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => onRegisterPress()}>
-            <Text style={styles.buttonTitle}>Create account</Text>
-          </TouchableOpacity>
+          <BasicButton
+            buttonText="Create account"
+            onPressButton={onRegisterPress}
+          />
         ) : null}
 
         <View style={styles.footerView}>
