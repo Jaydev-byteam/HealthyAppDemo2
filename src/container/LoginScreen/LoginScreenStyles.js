@@ -4,17 +4,18 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: '#550096',
   },
-  title: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 20,
-  },
-  titleText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'green',
-  },
+  // title: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   padding: 20,
+  // },
+  // titleText: {
+  //   fontSize: 16,
+  //   fontWeight: 'bold',
+  //   color: 'green',
+  // },
   logo: {
     flex: 1,
     height: 90,
@@ -24,7 +25,7 @@ export default StyleSheet.create({
   },
   input: {
     height: 48,
-    borderRadius: 5,
+    borderRadius: 10,
     overflow: 'hidden',
     backgroundColor: 'white',
     marginTop: 10,
@@ -34,9 +35,9 @@ export default StyleSheet.create({
     paddingLeft: 16,
   },
   button: {
-    backgroundColor: '#788eec',
-    marginLeft: 30,
-    marginRight: 30,
+    backgroundColor: '#998896',
+    marginLeft: 60,
+    marginRight: 60,
     marginTop: 20,
     height: 48,
     borderRadius: 5,
@@ -45,7 +46,7 @@ export default StyleSheet.create({
   },
   buttonTitle: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   footerView: {
