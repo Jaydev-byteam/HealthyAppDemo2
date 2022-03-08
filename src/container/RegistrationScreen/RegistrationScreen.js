@@ -4,7 +4,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import BasicButton from "../../components/BasicButton/BasicButton";
+import BasicButton from '../../components/BasicButton/BasicButton';
 
 export default function RegistrationScreen({navigation}) {
   // establish the state variables for registration
@@ -21,7 +21,6 @@ export default function RegistrationScreen({navigation}) {
   let specials = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
   const onRegisterPress = () => {
-
     if (password !== confirmPassword) {
       alert("Passwords don't match.");
       return;
@@ -111,7 +110,12 @@ export default function RegistrationScreen({navigation}) {
           <Text style={!specials.test(password) ? styles.red : styles.green}>
             Password must contain at least one special character.
           </Text>
-          <Text style={!password || password !== confirmPassword ? styles.red : styles.green}>
+          <Text
+            style={
+              !password || password !== confirmPassword
+                ? styles.red
+                : styles.green
+            }>
             Password and confirmation must match.
           </Text>
         </View>
