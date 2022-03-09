@@ -42,17 +42,18 @@ export default StyleSheet.create({
   },
   footerView: {
     flex: 1,
-    alignItems: "center",
-    margin: 20
+    alignItems: 'center',
+    marginTop: 20,
   },
   footerText: {
     fontSize: 16,
-    color: '#2e2e2d'
+    color: '#b690d4',
+    fontWeight: 'bold'
   },
   footerLink: {
-    color: "#788eec",
-    fontWeight: "bold",
-    fontSize: 16
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   validationView: {
     flex: 1,
@@ -63,12 +64,12 @@ export default StyleSheet.create({
     marginRight: 30,
   },
   green: {
-    color: 'green',
+    color: 'seagreen',
     fontSize: 14,
     marginBottom: 10,
   },
   red: {
-    color: 'red',
+    color: 'orangered',
     fontSize: 14
   },
 })
