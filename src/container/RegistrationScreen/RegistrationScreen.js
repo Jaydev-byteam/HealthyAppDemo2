@@ -3,8 +3,11 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
+
+// import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
+import InputField from "../../components/InputField/InputField";
 
 export default function RegistrationScreen({navigation}) {
   // establish the state variables for registration
@@ -58,15 +61,25 @@ export default function RegistrationScreen({navigation}) {
         style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
         <PageTitle />
-        <TextInput
-          style={styles.input}
-          placeholder="Nickname"
-          placeholderTextColor="#aaaaaa"
-          onChangeText={text => setNickname(text)}
-          value={nickname}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
+        {/*<TextInput*/}
+        {/*  style={styles.input}*/}
+        {/*  placeholder="Nickname"*/}
+        {/*  placeholderTextColor="#aaaaaa"*/}
+        {/*  onChangeText={text => setNickname(text)}*/}
+        {/*  value={nickname}*/}
+        {/*  underlineColorAndroid="transparent"*/}
+        {/*  autoCapitalize="none"*/}
+        {/*/>*/}
+        <InputField
+          placeholderText='Nickname'
+          textChangeFunction={text => setNickname(text)}
+          field={nickname}
         />
+        {/*<InputField*/}
+        {/*  placeholderText='Email'*/}
+        {/*  textChangeFunction={text => setEmail(text)}*/}
+        {/*  field={email}*/}
+        {/*/>*/}
         <TextInput
           style={styles.input}
           placeholder="E-mail"
@@ -77,6 +90,11 @@ export default function RegistrationScreen({navigation}) {
           autoCapitalize="none"
           keyboardType="email-address"
         />
+        {/*<InputField*/}
+        {/*  placeholderText='Password'*/}
+        {/*  textChangeFunction={text => setPassword(text)}*/}
+        {/*  field={password}*/}
+        {/*/>*/}
         <TextInput
           style={styles.input}
           placeholderTextColor="#aaaaaa"
@@ -87,6 +105,11 @@ export default function RegistrationScreen({navigation}) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+        {/*<InputField*/}
+        {/*  placeholderText='Confirm Password'*/}
+        {/*  textChangeFunction={text => setEmail(text)}*/}
+        {/*  field={confirmPassword}*/}
+        {/*/>*/}
         <TextInput
           style={styles.input}
           placeholderTextColor="#aaaaaa"
