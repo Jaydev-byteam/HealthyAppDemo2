@@ -6,16 +6,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
-  // title: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   padding: 20,
-  // },
-  // titleText: {
-  //   fontSize: 16,
-  //   fontWeight: 'bold',
-  //   color: 'green',
-  // },
   logo: {
     flex: 1,
     height: 90,
@@ -33,21 +23,6 @@ export default StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     paddingLeft: 16,
-  },
-  button: {
-    backgroundColor: '#998896',
-    marginLeft: 60,
-    marginRight: 60,
-    marginTop: 20,
-    height: 48,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonTitle: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
   },
   footerView: {
     flex: 1,

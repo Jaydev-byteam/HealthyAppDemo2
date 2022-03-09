@@ -26,7 +26,7 @@ export default function HomeScreen(props) {
         {/*<Text>Home Screen</Text>*/}
         {/*<Text>Welcome, {props.extraData.nickname}</Text>*/}
         <PageTitle pageName={greeting} />
-        <Text style={{textAlign: 'center'}}>Current email: {props.extraData.email}</Text>
+        <Text style={styles.accountInfo}>Current email: {props.extraData.email}</Text>
         <BasicButton
           buttonText="Log out"
           onPressButton={onLogoutPress} />
