@@ -7,7 +7,7 @@ import {fstore, fire_auth} from '../../database/FirebaseDefault';
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
-import InputField from "../../components/InputField/InputField";
+import InputField from '../../components/InputField/InputField';
 
 export default function RegistrationScreen({navigation}) {
   // establish the state variables for registration
@@ -71,55 +71,58 @@ export default function RegistrationScreen({navigation}) {
         {/*  autoCapitalize="none"*/}
         {/*/>*/}
         <InputField
-          placeholderText='Nickname'
-          textChangeFunction={text => setNickname(text)}
-          field={nickname}
+          placeholder={"Nickname"}
+          onChangeText={text => setNickname(text)}
+          value={nickname}
         />
-        {/*<InputField*/}
-        {/*  placeholderText='Email'*/}
-        {/*  textChangeFunction={text => setEmail(text)}*/}
-        {/*  field={email}*/}
-        {/*/>*/}
-        <TextInput
-          style={styles.input}
-          placeholder="E-mail"
-          placeholderTextColor="#aaaaaa"
+        <InputField
+          placeholder={"Email"}
           onChangeText={text => setEmail(text)}
           value={email}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
           keyboardType="email-address"
         />
-        {/*<InputField*/}
-        {/*  placeholderText='Password'*/}
-        {/*  textChangeFunction={text => setPassword(text)}*/}
-        {/*  field={password}*/}
+        {/*<TextInput*/}
+        {/*  style={styles.input}*/}
+        {/*  placeholder="E-mail"*/}
+        {/*  placeholderTextColor="#aaaaaa"*/}
+        {/*  onChangeText={text => setEmail(text)}*/}
+        {/*  value={email}*/}
+        {/*  underlineColorAndroid="transparent"*/}
+        {/*  autoCapitalize="none"*/}
+        {/*  keyboardType="email-address"*/}
         {/*/>*/}
-        <TextInput
-          style={styles.input}
-          placeholderTextColor="#aaaaaa"
-          secureTextEntry
-          placeholder="Password"
+        <InputField
+          placeholder='Password'
           onChangeText={text => setPassword(text)}
           value={password}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
-        />
-        {/*<InputField*/}
-        {/*  placeholderText='Confirm Password'*/}
-        {/*  textChangeFunction={text => setEmail(text)}*/}
-        {/*  field={confirmPassword}*/}
-        {/*/>*/}
-        <TextInput
-          style={styles.input}
-          placeholderTextColor="#aaaaaa"
           secureTextEntry
-          placeholder="Confirm Password"
+        />
+        {/*<TextInput*/}
+        {/*  style={styles.input}*/}
+        {/*  placeholderTextColor="#aaaaaa"*/}
+        {/*  secureTextEntry*/}
+        {/*  placeholder="Password"*/}
+        {/*  onChangeText={text => setPassword(text)}*/}
+        {/*  value={password}*/}
+        {/*  underlineColorAndroid="transparent"*/}
+        {/*  autoCapitalize="none"*/}
+        {/*/>*/}
+        <InputField
+          placeholder='Confirm Password'
           onChangeText={text => setConfirmPassword(text)}
           value={confirmPassword}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
+          secureTextEntry
         />
+        {/*<TextInput*/}
+        {/*  style={styles.input}*/}
+        {/*  placeholderTextColor="#aaaaaa"*/}
+        {/*  secureTextEntry*/}
+        {/*  placeholder="Confirm Password"*/}
+        {/*  onChangeText={text => setConfirmPassword(text)}*/}
+        {/*  value={confirmPassword}*/}
+        {/*  underlineColorAndroid="transparent"*/}
+        {/*  autoCapitalize="none"*/}
+        {/*/>*/}
         <View style={styles.validationView}>
           <Text style={password.length < 8 ? styles.red : styles.green}>
             Password must be at least 8 characters long.
@@ -135,7 +138,7 @@ export default function RegistrationScreen({navigation}) {
           </Text>
           <Text
             style={
-              (!password || (password !== confirmPassword))
+              !password || password !== confirmPassword
                 ? styles.red
                 : styles.green
             }>
@@ -143,7 +146,10 @@ export default function RegistrationScreen({navigation}) {
           </Text>
         </View>
 
-        {nickname && email && (password.length > 7) && (password === confirmPassword) ? (
+        {nickname &&
+        email &&
+        password.length > 7 &&
+        password === confirmPassword ? (
           <BasicButton
             buttonText="Create account"
             onPressButton={onRegisterPress}
