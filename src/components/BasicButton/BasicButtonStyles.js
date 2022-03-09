@@ -2,18 +2,18 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   button: {
-    backgroundColor: '#788eec',
-    marginLeft: 30,
-    marginRight: 30,
+    backgroundColor: '#998896',
+    marginLeft: 60,
+    marginRight: 60,
     marginTop: 20,
     height: 48,
-    borderRadius: 5,
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonTitle: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

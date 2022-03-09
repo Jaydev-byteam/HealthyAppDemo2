@@ -112,7 +112,7 @@ export default function RegistrationScreen({navigation}) {
           </Text>
           <Text
             style={
-              !password || password !== confirmPassword
+              (!password || (password !== confirmPassword))
                 ? styles.red
                 : styles.green
             }>
@@ -120,7 +120,7 @@ export default function RegistrationScreen({navigation}) {
           </Text>
         </View>
 
-        {nickname && email && password && password === confirmPassword ? (
+        {nickname && email && password && (password === confirmPassword) ? (
           <BasicButton
             buttonText="Create account"
             onPressButton={onRegisterPress}
