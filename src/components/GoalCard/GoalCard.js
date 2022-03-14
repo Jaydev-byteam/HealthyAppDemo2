@@ -16,7 +16,9 @@ export default function GoalCard(props) {
         backgroundColor={'none'}
         strokeWidth={10}
       />
-      <TouchableHighlight style={styles.logoButton}>
+      <TouchableHighlight
+        onPress={() => props.navigation.navigate(props.destination)}
+      >
         <Image style={styles.logo} source={props.image} />
       </TouchableHighlight>
       {/*</View>*/}
