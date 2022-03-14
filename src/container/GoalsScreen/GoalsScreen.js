@@ -3,11 +3,10 @@ import {View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './GoalsScreenStyles';
-import {cityBackground} from '../../../assets/images';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import StepsScreen from "../StepsScreen/StepsScreen";
 
 function StepsScreen({navigation}) {
   return (
@@ -61,9 +60,9 @@ function GoalsScreenMain({navigation}) {
 
 const GoalsStack = createNativeStackNavigator();
 
-export default function GoalsScreen({ navigation }) {
+export default function GoalsScreen({ navigation, user }) {
   return (
-    <GoalsStack.Navigator>
+    <GoalsStack.Navigator initialRouteName="Goals"  >
       <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />
       <GoalsStack.Screen name="Steps" component={StepsScreen} />
       <GoalsStack.Screen name="Sleep" component={SleepScreen} />
