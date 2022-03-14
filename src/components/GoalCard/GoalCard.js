@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, Image, View, TouchableHighlight} from 'react-native';
+import {ProgressCircle} from 'react-native-svg-charts';
 import styles from './GoalCardStyles';
 import images from '../../../assets/images/';
 
@@ -7,6 +8,12 @@ import images from '../../../assets/images/';
 export default function GoalCard(props) {
   return (
     <View style={styles.card}>
+      <ProgressCircle
+        style={styles.progress}
+        progress={props.goalProgress}
+        progressColor={'aqua'}
+        strokeWidth={10}
+      />
       <TouchableHighlight
         style={styles.logoButton}
       >
@@ -17,5 +24,6 @@ export default function GoalCard(props) {
         {props.goalAmount} {props.goalUnit}
       </Text>
     </View>
+
   );
 }

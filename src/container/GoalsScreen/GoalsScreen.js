@@ -18,6 +18,7 @@ export default function GoalsScreen() {
             goalTitle={'Steps'}
             goalAmount={'5,000'}
             goalUnit={'steps/day'}
+            goalProgress={0.7}
           />
         </View>
       </KeyboardAwareScrollView>

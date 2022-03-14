@@ -30,4 +30,8 @@ export default StyleSheet.create({
     color: '#b690d4',
     fontWeight: 'bold',
   },
+  progress: {
+    height: 110,
+    width: 110,
+  },
 });
