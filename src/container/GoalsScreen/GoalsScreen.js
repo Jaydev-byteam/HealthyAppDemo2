@@ -65,9 +65,7 @@ export default function GoalsScreen({ navigation, user }) {
     <GoalsStack.Navigator
       initialRouteName="Goals"
       screenOptions={{
-        headerStyle: {
-          backgroundColor: '#550096',
-        },
+        headerShown: false,
       }}
     >
       <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />

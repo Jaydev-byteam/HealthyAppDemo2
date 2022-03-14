@@ -8,7 +8,17 @@ export default StyleSheet.create({
   },
   backButton: {
     flex: 1,
+    alignSelf: 'flex-start',
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    marginTop: 40,
+    marginLeft: 20,
+  },
+  backButtonText: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 36,
+    marginLeft: 12,
   }
+
 });
