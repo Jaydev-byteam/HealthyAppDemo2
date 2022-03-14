@@ -8,20 +8,18 @@ import images from '../../../assets/images/';
 export default function GoalCard(props) {
   return (
     <View style={styles.card}>
-      <View style={styles.graphic}>
-        <ProgressCircle
-          style={styles.progress}
-          progress={props.goalProgress}
-          progressColor={'aqua'}
-          backgroundColor={'#550096'}
-          strokeWidth={10}
-        />
-        <TouchableHighlight
-          style={styles.logoButton}
-        >
-          <Image style={styles.logo} source={props.image} />
-        </TouchableHighlight>
-      </View>
+      {/*<View style={styles.graphic}>*/}
+      <ProgressCircle
+        style={styles.progress}
+        progress={props.goalProgress}
+        progressColor={'aqua'}
+        backgroundColor={'none'}
+        strokeWidth={10}
+      />
+      <TouchableHighlight style={styles.logoButton}>
+        <Image style={styles.logo} source={props.image} />
+      </TouchableHighlight>
+      {/*</View>*/}
 
       <View style={styles.cardInfo}>
         <Text style={styles.goalTitle}>{props.goalTitle}</Text>
@@ -29,8 +27,6 @@ export default function GoalCard(props) {
           {props.goalAmount} {props.goalUnit}
         </Text>
       </View>
-
     </View>
-
   );
 }

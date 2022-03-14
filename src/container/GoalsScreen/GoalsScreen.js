@@ -13,16 +13,16 @@ export default function GoalsScreen() {
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Goals Page'} />
         <View style={{flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'center', alignItems: 'center'}}>
+          flexDirection: 'column',
+          justifyContent: 'space-around', alignItems: 'center'}}>
 
           <GoalCard
-            style={styles.card}
+            style={styles.goalCard}
             image={images.stepsIcon}
             goalTitle={'Steps'}
             goalAmount={'5,000'}
             goalUnit={'steps/day'}
-            goalProgress={0.4}
+            goalProgress={0.98}
           />
           <GoalCard
             style={styles.card}

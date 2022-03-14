@@ -6,9 +6,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
-  card: {
+  goalCard: {
     backgroundColor: 'yellow',
-    marginBottom: 5,
+    margin: 10,
   },
   // imageBackground: {
   //   flex: 1,

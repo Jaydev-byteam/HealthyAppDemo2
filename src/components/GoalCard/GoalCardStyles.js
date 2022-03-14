@@ -2,10 +2,11 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   card: {
-    // flex: 1,
-    // alignItems: 'center',
+    flex: 1,
+    alignItems: 'center',
     height: 170,
     width: 160,
+    marginBottom: 30,
   },
   graphic: {
     width: 160,
@@ -13,22 +14,11 @@ export default StyleSheet.create({
   },
   logo: {
     // flex: 1,
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 90,
+    height: 90,
+    marginTop: 15,
+    borderRadius: 45,
     resizeMode: 'contain',
-  },
-  logoButton: {
-    // flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 100,
-    width: 100,
-    borderRadius: 55,
-    // backgroundColor: 'white',
-    position: 'absolute',
-    left: 10,
-    top: 10,
   },
   cardInfo: {
     position: 'absolute',
@@ -39,7 +29,7 @@ export default StyleSheet.create({
   },
   goalTitle: {
     color: 'white',
-    marginVertical: 6,
+    marginBottom: 0,
     fontWeight: 'bold',
   },
   goalAmount: {
@@ -50,8 +40,6 @@ export default StyleSheet.create({
     height: 120,
     width: 120,
     position: 'absolute',
-    left: 0,
-    alignSelf: 'center',
     top: 0,
   },
 });
