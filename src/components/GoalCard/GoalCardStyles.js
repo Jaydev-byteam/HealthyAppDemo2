@@ -3,7 +3,16 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   card: {
     flex: 1,
-    alignItems: 'center',
+    // alignItems: 'center',
+    height: 170,
+    width: 160,
+
+
+  },
+  graphic: {
+    width: 160,
+    left: 25,
+
   },
   logo: {
     flex: 1,
@@ -13,13 +22,24 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   logoButton: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
-    height: 96,
-    width: 96,
-    borderRadius: 48,
-    borderColor: 'white',
-    borderWidth: 2,
+    height: 110,
+    width: 110,
+    borderRadius: 55,
+    // borderColor: 'white',
+    // borderWidth: 2,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+  },
+  cardInfo: {
+    position: 'absolute',
+    width: 160,
+    left: 0,
+    bottom: 0,
+
+    alignItems: 'center',
   },
   goalTitle: {
     color: 'white',
@@ -33,5 +53,8 @@ export default StyleSheet.create({
   progress: {
     height: 110,
     width: 110,
+    position: 'absolute',
+    left: 0,
+    top: 0,
   },
 });

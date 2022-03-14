@@ -6,9 +6,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
-  imageBackground: {
-    flex: 1,
-    justifyContent: "center",
-  },
-
-})
+  // imageBackground: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  // },
+});
