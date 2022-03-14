@@ -6,4 +6,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
+  backButton: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  }
 });

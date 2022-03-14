@@ -6,17 +6,17 @@ import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import StepsScreen from "../StepsScreen/StepsScreen";
+import StepsScreen from "../StepsScreen/StepsScreen";
 
-function StepsScreen({navigation}) {
-  return (
-    <View style={styles.container}>
-      <KeyboardAwareScrollView>
-        <PageTitle pageName={'Steps Goal'} />
-      </KeyboardAwareScrollView>
-    </View>
-  );
-}
+// function StepsScreen({navigation}) {
+//   return (
+//     <View style={styles.container}>
+//       <KeyboardAwareScrollView>
+//         <PageTitle pageName={'Steps Goal'} />
+//       </KeyboardAwareScrollView>
+//     </View>
+//   );
+// }
 
 function SleepScreen({navigation}) {
   return (
@@ -62,7 +62,14 @@ const GoalsStack = createNativeStackNavigator();
 
 export default function GoalsScreen({ navigation, user }) {
   return (
-    <GoalsStack.Navigator initialRouteName="Goals"  >
+    <GoalsStack.Navigator
+      initialRouteName="Goals"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#550096',
+        },
+      }}
+    >
       <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />
       <GoalsStack.Screen name="Steps" component={StepsScreen} />
       <GoalsStack.Screen name="Sleep" component={SleepScreen} />
