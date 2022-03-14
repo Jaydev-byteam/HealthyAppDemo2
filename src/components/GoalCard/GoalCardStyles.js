@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   card: {
-    flex: 1,
+    // flex: 1,
     // alignItems: 'center',
     height: 170,
     width: 160,
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     left: 25,
   },
   logo: {
-    flex: 1,
+    // flex: 1,
     width: 80,
     height: 80,
     borderRadius: 40,
@@ -20,15 +20,15 @@ export default StyleSheet.create({
   },
   logoButton: {
     // flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    height: 110,
-    width: 110,
+    height: 100,
+    width: 100,
     borderRadius: 55,
-    // borderColor: 'white',
-    // borderWidth: 2,
+    // backgroundColor: 'white',
     position: 'absolute',
-    left: 0,
-    top: 0,
+    left: 10,
+    top: 10,
   },
   cardInfo: {
     position: 'absolute',
@@ -47,10 +47,10 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   progress: {
-    height: 110,
-    width: 110,
+    height: 120,
+    width: 120,
     position: 'absolute',
-    // left: 0,
+    left: 0,
     alignSelf: 'center',
     top: 0,
   },
