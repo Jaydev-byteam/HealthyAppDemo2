@@ -11,16 +11,29 @@ export default function GoalsScreen() {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-      {/*  <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>*/}
-          <PageTitle pageName={'Goals Page'} />
+        <PageTitle pageName={'Goals Page'} />
+        <View style={{flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'center', alignItems: 'center'}}>
+
           <GoalCard
+            style={styles.card}
             image={images.stepsIcon}
             goalTitle={'Steps'}
             goalAmount={'5,000'}
             goalUnit={'steps/day'}
-            goalProgress={0.7}
+            goalProgress={0.4}
           />
-        {/*</View>*/}
+          <GoalCard
+            style={styles.card}
+            image={images.sleepTime}
+            goalTitle={'Sleep Time'}
+            goalAmount={'7.5'}
+            goalUnit={'hours/day'}
+            goalProgress={0.8}
+          />
+
+        </View>
       </KeyboardAwareScrollView>
     </View>
   );

@@ -3,7 +3,8 @@
 const Images = {
   cityBackground: require('./cityBackground.jpeg'),
   fuzzyBackground: require('./fuzzyAbstractBackground.jpeg'),
-  stepsIcon: require('./stepsIcon.png')
+  stepsIcon: require('./stepsIcon2.jpeg'),
+  sleepTime: require('./sleep-icon2.png'),
 }
 
 module.exports = Images;

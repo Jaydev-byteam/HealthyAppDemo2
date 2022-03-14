@@ -6,6 +6,10 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
+  card: {
+    backgroundColor: 'yellow',
+    marginBottom: 5,
+  },
   // imageBackground: {
   //   flex: 1,
   //   justifyContent: 'center',

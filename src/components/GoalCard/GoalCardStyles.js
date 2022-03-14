@@ -6,13 +6,10 @@ export default StyleSheet.create({
     // alignItems: 'center',
     height: 170,
     width: 160,
-
-
   },
   graphic: {
     width: 160,
     left: 25,
-
   },
   logo: {
     flex: 1,
@@ -38,7 +35,6 @@ export default StyleSheet.create({
     width: 160,
     left: 0,
     bottom: 0,
-
     alignItems: 'center',
   },
   goalTitle: {
@@ -54,7 +50,8 @@ export default StyleSheet.create({
     height: 110,
     width: 110,
     position: 'absolute',
-    left: 0,
+    // left: 0,
+    alignSelf: 'center',
     top: 0,
   },
 });
