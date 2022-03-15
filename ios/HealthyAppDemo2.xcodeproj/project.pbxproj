@@ -43,6 +43,7 @@
 		6B20BD34047A6F7C38A2A7EF /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HealthyAppDemo2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8297597E27E109DC00384C94 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		DA6B3B91623C52D17FCAC54C /* libPods-HealthyAppDemo2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HealthyAppDemo2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA21493543F4EB79CA368379 /* Pods-HealthyAppDemo2-HealthyAppDemo2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyAppDemo2-HealthyAppDemo2Tests.release.xcconfig"; path = "Target Support Files/Pods-HealthyAppDemo2-HealthyAppDemo2Tests/Pods-HealthyAppDemo2-HealthyAppDemo2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -123,6 +124,7 @@
 		824BA65A27DFDF9F00403FF7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				8297597E27E109DC00384C94 /* FontAwesome.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -165,7 +167,6 @@
 			children = (
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

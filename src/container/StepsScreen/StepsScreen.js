@@ -21,7 +21,7 @@ const successWeek = [true, false, true, false, true, false, true];
 export default function StepsScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView >
         <PageTitle pageName={'Hit Daily Steps'} showIcon={false} />
         <Text style={styles.goalAmount}>Goal: {stepsGoal} steps/day</Text>
         <Text style={styles.dailySteps}>Daily Steps: {dailySteps}</Text>

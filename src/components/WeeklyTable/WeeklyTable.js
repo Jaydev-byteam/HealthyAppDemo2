@@ -6,16 +6,16 @@ import { Table, TableWrapper, Row, Col } from 'react-native-table-component';
 
 export default function WeeklyTable({weeklyResult}) {
   const daysOfTheWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const marks = weeklyResult.map(day => day ? '&#10003;' : '');
+  const marks = weeklyResult.map(day => day ? '*'  : '');
 
 
   return (
-    <View style={styles.container}>
-      <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+    // <View style={styles.container}>
+      <Table borderStyle={styles.table}>
         <Row data={daysOfTheWeek} style={styles.head} textStyle={styles.text}/>
         <Row data={marks} textStyle={styles.text}/>
       </Table>
-    </View>
+    // </View>
   );
 
 

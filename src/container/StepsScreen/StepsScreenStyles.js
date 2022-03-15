@@ -6,6 +6,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
+
   goalAmount: {
     color: '#b690d4',
     fontWeight: 'bold',
@@ -22,9 +23,11 @@ export default StyleSheet.create({
   card: {
     flex: 1,
     alignItems: 'center',
+    alignSelf: 'center',
     height: 200,
     width: 200,
     marginVertical: 20,
+    // backgroundColor: 'yellow'
   },
   progress: {
     height: 160,
