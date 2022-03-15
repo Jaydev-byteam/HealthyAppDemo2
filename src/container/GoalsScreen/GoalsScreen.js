@@ -8,16 +8,6 @@ import images from '../../../assets/images/';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import StepsScreen from "../StepsScreen/StepsScreen";
 
-// function StepsScreen({navigation}) {
-//   return (
-//     <View style={styles.container}>
-//       <KeyboardAwareScrollView>
-//         <PageTitle pageName={'Steps Goal'} />
-//       </KeyboardAwareScrollView>
-//     </View>
-//   );
-// }
-
 function SleepScreen({navigation}) {
   return (
     <View style={styles.container}>
@@ -32,7 +22,7 @@ function GoalsScreenMain({navigation}) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName={'Goals Page'} />
+        <PageTitle pageName={'Goals Page'} showIcon={false} />
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Steps'}

@@ -23,6 +23,7 @@
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
     "react-native-svg-charts": "^5.4.0",
+    "react-native-table-component": "^1.2.2",
     "react-native-vector-icons": "^9.1.0"
   },
   "devDependencies": {

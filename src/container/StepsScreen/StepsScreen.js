@@ -11,10 +11,12 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './StepsScreenStyles';
 import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
+import WeeklyTable from "../../components/WeeklyTable/WeeklyTable";
 
 const weeklyAverageSteps = 0;
 const stepsGoal = 5000;
 const dailySteps = 3456;
+const successWeek = [true, false, true, false, true, false, true];
 
 export default function StepsScreen({navigation}) {
   return (
@@ -36,6 +38,7 @@ export default function StepsScreen({navigation}) {
         </View>
         <Text style={styles.dailySteps}>{weeklyAverageSteps} steps/day</Text>
         <Text style={styles.goalAmount}>(Average of last 7 days)</Text>
+        <WeeklyTable weeklyResult={successWeek} />
       </KeyboardAwareScrollView>
     </View>
   );
