@@ -7,6 +7,7 @@ import HomeTabNavigator from "../HomeTabNavigator/HomeTabNavigator";
 import LoginScreen from "../LoginScreen/LoginScreen";
 import RegistrationScreen from "../RegistrationScreen/RegistrationScreen";
 
+
 const Stack = createNativeStackNavigator();
 
 export default function Router({user}) {

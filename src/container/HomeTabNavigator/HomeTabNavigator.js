@@ -10,15 +10,6 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import GoalsScreen from "../GoalsScreen/GoalsScreen";
 
 export default function HomeTabNavigator(props) {
-  // function GoalsScreen() {
-  //   return (
-  //     <KeyboardAwareScrollView>
-  //       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-  //         <PageTitle pageName={'Goals Page'} />
-  //       </View>
-  //     </KeyboardAwareScrollView>
-  //   );
-  // }
 
   const Tab = createBottomTabNavigator();
 

@@ -6,9 +6,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
-  imageBackground: {
-    flex: 1,
-    justifyContent: "center",
+  goalCard: {
+    backgroundColor: 'yellow',
+    margin: 10,
   },
-
-})
+  // imageBackground: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  // },
+});
