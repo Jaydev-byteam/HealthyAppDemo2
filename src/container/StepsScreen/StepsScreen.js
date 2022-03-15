@@ -6,23 +6,19 @@ import styles from './StepsScreenStyles';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
 const weeklyAverageSteps = 0;
+const stepsGoal = 5000;
+const dailySteps = 0;
 
 export default function StepsScreen({navigation}) {
   return (
     <View style={styles.container}>
-      {/*<View style={styles.backButton}>*/}
-      {/*  <TouchableOpacity onPress={() => navigation.navigate('Goals')}>*/}
-      {/*    <Text style={styles.backButtonText}>&#8629;</Text>*/}
-      {/*  </TouchableOpacity>*/}
-      {/*</View>*/}
-      <KeyboardAwareScrollView contentContainerStyle={styles.pageContent}>
-        {/*<View style={styles.backButton}>*/}
-        {/*  <TouchableOpacity onPress={() => navigation.navigate('Goals')}>*/}
-        {/*    <Text style={styles.backButtonText}>&#8629;</Text>*/}
-        {/*  </TouchableOpacity>*/}
-        {/*</View>*/}
-        <Text style={styles.title}>
-          Hit Daily Steps
+      <KeyboardAwareScrollView >
+        <PageTitle pageName={'Hit Daily Steps'} showIcon={false} />
+        <Text style={styles.goalAmount}>
+          Goal: {stepsGoal} steps/day
+        </Text>
+        <Text style={styles.dailySteps}>
+          Daily Steps: {dailySteps}
         </Text>
       </KeyboardAwareScrollView>
     </View>

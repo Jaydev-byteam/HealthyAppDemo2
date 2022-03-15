@@ -6,30 +6,18 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
-  pageContent: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  backButton: {
-    flex: 1,
-    alignSelf: 'flex-start',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    backgroundColor: 'blue',
-    marginTop: 40,
-    marginLeft: 20,
-  },
-  backButtonText: {
+  goalAmount: {
+    color: '#b690d4',
     fontWeight: 'bold',
-    color: 'white',
-    fontSize: 36,
-    marginLeft: 12,
+    textAlign: 'center',
+    fontSize: 18,
+    marginBottom: 6,
   },
-  title: {
-    fontWeight: 'bold',
+  dailySteps: {
     color: 'white',
-    fontSize: 24,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 14,
   }
 
 });
