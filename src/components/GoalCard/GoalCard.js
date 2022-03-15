@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Image, View, TouchableHighlight} from 'react-native';
+import {Text, Image, View, TouchableWithoutFeedback} from 'react-native';
 import {ProgressCircle} from 'react-native-svg-charts';
 import styles from './GoalCardStyles';
 import images from '../../../assets/images/';
@@ -16,11 +16,11 @@ export default function GoalCard(props) {
         backgroundColor={'none'}
         strokeWidth={10}
       />
-      <TouchableHighlight
+      <TouchableWithoutFeedback
         onPress={() => props.navigation.navigate(props.destination)}
       >
         <Image style={styles.logo} source={props.image} />
-      </TouchableHighlight>
+      </TouchableWithoutFeedback>
       {/*</View>*/}
 
       <View style={styles.cardInfo}>

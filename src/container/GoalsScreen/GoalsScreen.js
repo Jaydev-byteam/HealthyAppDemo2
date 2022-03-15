@@ -34,7 +34,6 @@ function GoalsScreenMain({navigation}) {
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Goals Page'} />
         <GoalCard
-          style={styles.goalCard}
           image={images.stepsIcon}
           goalTitle={'Steps'}
           goalAmount={'5,000'}
@@ -44,7 +43,6 @@ function GoalsScreenMain({navigation}) {
           destination={'Steps'}
         />
         <GoalCard
-          style={styles.card}
           image={images.sleepTime}
           goalTitle={'Sleep Time'}
           goalAmount={'7.5'}

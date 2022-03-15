@@ -16,7 +16,9 @@ export default function StepsScreen({navigation}) {
         </TouchableOpacity>
       </View>
       <KeyboardAwareScrollView>
-
+        <Text style={styles.title}>
+          Hit Daily Steps
+        </Text>
       </KeyboardAwareScrollView>
     </View>
   );

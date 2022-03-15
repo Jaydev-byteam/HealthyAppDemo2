@@ -19,6 +19,11 @@ export default StyleSheet.create({
     color: 'white',
     fontSize: 36,
     marginLeft: 12,
+  },
+  title: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 24,
   }
 
 });
