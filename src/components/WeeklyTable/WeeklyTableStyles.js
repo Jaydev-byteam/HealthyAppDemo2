@@ -2,13 +2,27 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   table: {
-    borderWidth: 2,
+    marginVertical: 20
+  },
+  column: {
+    width: 50,
+    borderWidth: 1,
     borderColor: '#b690d4',
   },
-  head: {height: 40, width: 350},
+  cell: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   text: {
-    margin: 6,
     color: 'white',
-    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  checkmark: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginVertical: 15,
   },
 });

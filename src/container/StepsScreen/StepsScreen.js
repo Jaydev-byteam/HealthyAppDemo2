@@ -13,7 +13,7 @@ import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from "../../components/WeeklyTable/WeeklyTable";
 
-const weeklyAverageSteps = 0;
+const weeklyAverageSteps = 3456;
 const stepsGoal = 5000;
 const dailySteps = 3456;
 const successWeek = [true, false, true, false, true, false, true];
@@ -28,7 +28,7 @@ export default function StepsScreen({navigation}) {
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}
-            progress={dailySteps/stepsGoal}
+            progress={weeklyAverageSteps/stepsGoal}
             progressColor={'aqua'}
             backgroundColor={'none'}
             strokeWidth={12}
