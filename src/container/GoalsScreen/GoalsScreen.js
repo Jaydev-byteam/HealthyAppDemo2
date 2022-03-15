@@ -34,7 +34,6 @@ function GoalsScreenMain({navigation}) {
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Goals Page'} />
         <GoalCard
-          style={styles.goalCard}
           image={images.stepsIcon}
           goalTitle={'Steps'}
           goalAmount={'5,000'}
@@ -44,7 +43,6 @@ function GoalsScreenMain({navigation}) {
           destination={'Steps'}
         />
         <GoalCard
-          style={styles.card}
           image={images.sleepTime}
           goalTitle={'Sleep Time'}
           goalAmount={'7.5'}
@@ -65,11 +63,17 @@ export default function GoalsScreen({ navigation, user }) {
     <GoalsStack.Navigator
       initialRouteName="Goals"
       screenOptions={{
-        headerShown: false,
+        headerTransparent: true,
+        headerTitle: '',
+        headerBackTitle: '',
+        headerTintColor: 'white',
       }}
     >
       <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />
-      <GoalsStack.Screen name="Steps" component={StepsScreen} />
+      <GoalsStack.Screen
+        name="Steps"
+        component={StepsScreen}
+      />
       <GoalsStack.Screen name="Sleep" component={SleepScreen} />
     </GoalsStack.Navigator>
   );
