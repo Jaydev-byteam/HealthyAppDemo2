@@ -6,11 +6,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#550096',
   },
+  pageContent: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
   backButton: {
     flex: 1,
     alignSelf: 'flex-start',
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    backgroundColor: 'blue',
     marginTop: 40,
     marginLeft: 20,
   },

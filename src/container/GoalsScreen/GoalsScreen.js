@@ -63,11 +63,17 @@ export default function GoalsScreen({ navigation, user }) {
     <GoalsStack.Navigator
       initialRouteName="Goals"
       screenOptions={{
-        headerShown: false,
+        headerTransparent: true,
+        headerTitle: '',
+        headerBackTitle: '',
+        headerTintColor: 'white',
       }}
     >
       <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />
-      <GoalsStack.Screen name="Steps" component={StepsScreen} />
+      <GoalsStack.Screen
+        name="Steps"
+        component={StepsScreen}
+      />
       <GoalsStack.Screen name="Sleep" component={SleepScreen} />
     </GoalsStack.Navigator>
   );

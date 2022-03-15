@@ -10,12 +10,17 @@ const weeklyAverageSteps = 0;
 export default function StepsScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <View style={styles.backButton}>
-        <TouchableOpacity onPress={() => navigation.navigate('Goals')}>
-          <Text style={styles.backButtonText}>&#8629;</Text>
-        </TouchableOpacity>
-      </View>
-      <KeyboardAwareScrollView>
+      {/*<View style={styles.backButton}>*/}
+      {/*  <TouchableOpacity onPress={() => navigation.navigate('Goals')}>*/}
+      {/*    <Text style={styles.backButtonText}>&#8629;</Text>*/}
+      {/*  </TouchableOpacity>*/}
+      {/*</View>*/}
+      <KeyboardAwareScrollView contentContainerStyle={styles.pageContent}>
+        {/*<View style={styles.backButton}>*/}
+        {/*  <TouchableOpacity onPress={() => navigation.navigate('Goals')}>*/}
+        {/*    <Text style={styles.backButtonText}>&#8629;</Text>*/}
+        {/*  </TouchableOpacity>*/}
+        {/*</View>*/}
         <Text style={styles.title}>
           Hit Daily Steps
         </Text>
