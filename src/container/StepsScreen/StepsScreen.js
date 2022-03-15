@@ -28,7 +28,7 @@ export default function StepsScreen({navigation}) {
             style={styles.progress}
             progress={dailySteps/stepsGoal}
             progressColor={'aqua'}
-            backgroundColor={'white'}
+            backgroundColor={'none'}
             strokeWidth={12}
           />
 
