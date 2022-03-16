@@ -7,7 +7,7 @@ import styles from './SleepScreenStyles';
 import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
-import EditSleepGoal from "../../components/EditSleepGoal/EditSleepGoal";
+import EditSleepGoal from '../../components/EditSleepGoal/EditSleepGoal';
 
 const weeklyAveSleep = 450;
 // define a hardcoded bedtime as a Date object with current date, set time to 10:30 PM
@@ -38,7 +38,7 @@ const minutesToHours = minutes => {
 };
 
 // helper function to convert bedtime date object to HH:MM AM/PM string
-const bedtimeString = (bedtimeDate) => {
+const bedtimeString = bedtimeDate => {
   // define hours and minutes
   let hours = bedtimeDate.getHours();
   let minutes = bedtimeDate.getMinutes();
@@ -56,7 +56,7 @@ const bedtimeString = (bedtimeDate) => {
     minText = minutes.toString();
   }
   return hours.toString() + ':' + minText + ' ' + ampm;
-}
+};
 
 export default function SleepScreen({navigation}) {
   // define state variable for the sleep amount objective
@@ -65,17 +65,18 @@ export default function SleepScreen({navigation}) {
   const [bed, setBed] = useState(bedtime);
   // convert bedtime into a clocktime string
 
-
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Sleep More'} showIcon={false} />
-        <Text style={styles.goalAmount}>Bedtime: {bedtimeString(bedtime)}</Text>
-        <Text style={styles.goalAmount}>Goal: {minutesToHours(sleepGoal)} hours/night</Text>
+        <Text style={styles.goalAmount}>Bedtime: {bedtimeString(bed)}</Text>
+        <Text style={styles.goalAmount}>
+          Goal: {minutesToHours(sleep)} hours/night
+        </Text>
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}
-            progress={weeklyAveSleep / sleepGoal}
+            progress={weeklyAveSleep / sleep}
             progressColor={'aqua'}
             backgroundColor={'none'}
             strokeWidth={12}
@@ -87,7 +88,12 @@ export default function SleepScreen({navigation}) {
         </Text>
         <Text style={styles.goalAmount}>(Average of last 7 days)</Text>
         <WeeklyTable weeklyResult={successWeek} />
-        <EditSleepGoal currentBedtime={bedtime} bedtimeString={bedtimeString} />
+        <EditSleepGoal
+          currentBedtime={bed}
+          bedtimeString={bedtimeString}
+          updateBedtime={setBed}
+          updateSleep={setSleep}
+        />
       </KeyboardAwareScrollView>
     </View>
   );

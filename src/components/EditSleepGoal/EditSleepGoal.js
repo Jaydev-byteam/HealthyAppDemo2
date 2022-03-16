@@ -10,6 +10,7 @@ export default function EditSleepGoal({
   currentGoal,
   currentBedtime,
   updateSleep,
+  updateBedtime,
   bedtimeString,
 }) {
   // initialize state variables for new goal bedtime and sleep duration
@@ -17,12 +18,12 @@ export default function EditSleepGoal({
   const [newBed, setNewBed] = useState(currentBedtime);
   // state variable to show bedtime picker
   const [showPicker, setShowPicker] = useState(false);
-  const dummyBedtime = new Date();
-  const today = new Date();
-  dummyBedtime.setHours(22, 30);
-  let dummyBedtimeString = bedtimeString(dummyBedtime);
-  console.log('Dummy bedtime string is: ', dummyBedtimeString);
-  console.log('Dummy bedtime object is: ', dummyBedtime);
+  // const dummyBedtime = new Date();
+  // const today = new Date();
+  // dummyBedtime.setHours(22, 30);
+  // let dummyBedtimeString = bedtimeString(dummyBedtime);
+  console.log('newBed string is: ', bedtimeString(newBed));
+  console.log('Dummy bedtime object is: ', newBed);
 
   const addToGoal = () => {
     if (newGoal + 15 <= 720) {
@@ -39,27 +40,39 @@ export default function EditSleepGoal({
     }
   };
 
+  const bedtimePress = () => {
+    if (showPicker) {
+      console.log('In bedtime press, newBed is: ', newBed);
+      updateBedtime(newBed);
+    }
+    setShowPicker(!showPicker);
+  }
+
   return (
-    <>
-      <View style={styles.container}>
-        <Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>
-        <Text style={styles.bedtime}>{bedtimeString(dummyBedtime)}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>
+      <Text style={styles.bedtime}>{bedtimeString(currentBedtime)}</Text>
 
-        <BasicButton
-          buttonText={'Change Bedtime'}
-          onPressButton={() => setShowPicker(!showPicker)}
-        />
+      <BasicButton
+        buttonText={showPicker ? 'Save New Bedtime' : 'Change Bedtime'}
+        onPressButton={bedtimePress}
+      />
 
-        {showPicker && (
+      {showPicker && (
+        <View style={styles.timePicker}>
           <RNDateTimePicker
-            value={dummyBedtime}
+            value={newBed}
             mode="time"
             display="spinner"
             minuteInterval={10}
+            onChange={(event, value) => setNewBed(value)}
             style={styles.datePicker}
           />
-        )}
-      </View>
-    </>
+        </View>
+      )}
+      <Text style={styles.title}>
+        How much sleep do you need to feel rested?
+      </Text>
+    </View>
   );
 }

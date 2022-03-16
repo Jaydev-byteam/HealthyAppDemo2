@@ -36,6 +36,9 @@ export default StyleSheet.create({
   datePicker: {
     backgroundColor: 'white',
     width: 300,
-
+  },
+  timePicker: {
+    marginTop: 30,
+    borderRadius: 20,
   }
 });
