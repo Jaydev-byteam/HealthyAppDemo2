@@ -10,7 +10,13 @@ export default StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
-    marginVertical: 20,
+    marginVertical: 5,
+  },
+  bedtime: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginVertical: 5,
   },
   editBar: {
     flex: 1,

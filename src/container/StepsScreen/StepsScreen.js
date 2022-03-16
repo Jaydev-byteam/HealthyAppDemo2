@@ -1,12 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  Image,
-} from 'react-native';
+import {useState} from 'react';
+import {View, Text, Image} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './StepsScreenStyles';
