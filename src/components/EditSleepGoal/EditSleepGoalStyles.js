@@ -33,4 +33,9 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+  datePicker: {
+    backgroundColor: 'white',
+    width: 300,
+
+  }
 });
