@@ -27,7 +27,6 @@ export default StyleSheet.create({
     height: 200,
     width: 200,
     marginVertical: 20,
-    // backgroundColor: 'yellow'
   },
   progress: {
     height: 160,

@@ -40,5 +40,20 @@ export default StyleSheet.create({
   timePicker: {
     marginTop: 30,
     borderRadius: 20,
-  }
+  },
+  editBar: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: 'none',
+  },
+  button: {
+    backgroundColor: '#550096',
+  },
+  note: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });

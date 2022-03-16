@@ -89,10 +89,12 @@ export default function SleepScreen({navigation}) {
         <Text style={styles.goalAmount}>(Average of last 7 days)</Text>
         <WeeklyTable weeklyResult={successWeek} />
         <EditSleepGoal
+          currentGoal={sleep}
           currentBedtime={bed}
           bedtimeString={bedtimeString}
           updateBedtime={setBed}
           updateSleep={setSleep}
+          minutesToHours={minutesToHours}
         />
       </KeyboardAwareScrollView>
     </View>

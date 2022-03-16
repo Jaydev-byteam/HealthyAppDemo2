@@ -12,6 +12,7 @@ export default function EditSleepGoal({
   updateSleep,
   updateBedtime,
   bedtimeString,
+  minutesToHours,
 }) {
   // initialize state variables for new goal bedtime and sleep duration
   const [newGoal, setNewGoal] = useState(currentGoal);
@@ -48,6 +49,11 @@ export default function EditSleepGoal({
     setShowPicker(!showPicker);
   }
 
+  const updateGoal = () => {
+    console.log('In updateGoal, newGoal is:', newGoal)
+    updateSleep(newGoal);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>
@@ -64,7 +70,7 @@ export default function EditSleepGoal({
             value={newBed}
             mode="time"
             display="spinner"
-            minuteInterval={10}
+            minuteInterval={15}
             onChange={(event, value) => setNewBed(value)}
             style={styles.datePicker}
           />
@@ -73,6 +79,14 @@ export default function EditSleepGoal({
       <Text style={styles.title}>
         How much sleep do you need to feel rested?
       </Text>
+      <View style={styles.editBar}>
+        <Icon.Button name={'minus'} style={styles.button} onPress={subtractFromGoal}/>
+        <Text style={styles.note}>{minutesToHours(newGoal)}</Text>
+        <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>
+      </View>
+      {(newGoal !== currentGoal) &&
+        <BasicButton buttonText={'Submit New Goal'} onPressButton={updateGoal} />
+      }
     </View>
   );
 }
