@@ -14,7 +14,7 @@ export default StyleSheet.create({
     fontSize: 18,
     marginBottom: 6,
   },
-  dailySteps: {
+  dailySleep: {
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold',
