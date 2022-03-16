@@ -7,16 +7,8 @@ import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import StepsScreen from "../StepsScreen/StepsScreen";
+import SleepScreen from "../SleepScreen/SleepScreen";
 
-function SleepScreen({navigation}) {
-  return (
-    <View style={styles.container}>
-      <KeyboardAwareScrollView>
-        <PageTitle pageName={'Sleep Time Goal'} />
-      </KeyboardAwareScrollView>
-    </View>
-  )
-}
 
 function GoalsScreenMain({navigation}) {
   return (
