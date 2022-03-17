@@ -18,20 +18,20 @@ export default function HomeTabNavigator(props) {
       <Tab.Screen
         name="Account"
         children={() => <HomeScreen {...props} />}
-        // options={{
-        //   tabBarIcon: ({size, color}) => (
-        //     <Icon name={'user'} color={color} size={size} />
-        //   ),
-        // }}
+        options={{
+          tabBarIcon: ({size, color}) => (
+            <Icon name={'home'} color={'#708090'} size={30} />
+          ),
+        }}
       />
       <Tab.Screen
         name="Goals"
         component={GoalsScreen}
-        // options={{
-        //   tabBarIcon: ({size, color}) => (
-        //     <Icon name={'User'} color={color} size={size} />
-        //   ),
-        // }}
+        options={{
+          tabBarIcon: ({size, color}) => (
+            <Icon name={'star'} color={'#708090'} size={30} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );

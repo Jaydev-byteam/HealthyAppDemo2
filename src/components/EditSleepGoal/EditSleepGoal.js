@@ -83,6 +83,7 @@ export default function EditSleepGoal({
         <Icon.Button name={'minus'} style={styles.button} onPress={subtractFromGoal}/>
         <Text style={styles.note}>{minutesToHours(newGoal)}</Text>
         <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>
+
       </View>
       {(newGoal !== currentGoal) &&
         <BasicButton buttonText={'Submit New Goal'} onPressButton={updateGoal} />
