@@ -1,12 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  Image,
-} from 'react-native';
+import {useState, useEffect} from 'react';
+import {View, Text, Image} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './StepsScreenStyles';
@@ -14,11 +8,14 @@ import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditGoal from '../../components/EditGoal/EditGoal';
+import { fstore } from "../../database/FirebaseDefault";
 
 const weeklyAverageSteps = 3456;
 const stepsGoal = 5000;
 const dailySteps = 3456;
 const successWeek = [true, false, true, false, true, false, true];
+
+
 
 export default function StepsScreen({navigation}) {
   const [steps, setSteps] = useState(stepsGoal);

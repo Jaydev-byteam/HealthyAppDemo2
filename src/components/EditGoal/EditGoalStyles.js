@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: '#550096',
   },
   title: {
-    color: "white",
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
     marginVertical: 20,
@@ -23,8 +23,8 @@ export default StyleSheet.create({
     backgroundColor: '#550096',
   },
   note: {
-    color: "white",
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
-  }
+  },
 });
