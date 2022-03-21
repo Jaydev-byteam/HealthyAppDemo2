@@ -5,12 +5,14 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import StepsScreen from "../StepsScreen/StepsScreen";
-import SleepScreen from "../SleepScreen/SleepScreen";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import StepsScreen from '../StepsScreen/StepsScreen';
+import SleepScreen from '../SleepScreen/SleepScreen';
+import { fstore } from "../../database/FirebaseDefault";
 
-
-function GoalsScreenMain({navigation}) {
+function GoalsScreenMain({navigation, id}) {
+  console.log('In Goals Screen Main, navigation is: ', navigation);
+  console.log('GSM User is:', id);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -40,23 +42,42 @@ function GoalsScreenMain({navigation}) {
 
 const GoalsStack = createNativeStackNavigator();
 
-export default function GoalsScreen({ navigation, user }) {
+export default function GoalsScreen({navigation, user}) {
+  const userData
+  // console.log('In Goals Screen with props:', props);
+  console.log('In Goals Screen, navigation is: ', navigation);
+  console.log('GS User is:', user);
+  useEffect
   return (
     <GoalsStack.Navigator
-      initialRouteName="Goals"
+      initialRouteName="GoalsMain"
       screenOptions={{
         headerTransparent: true,
         headerTitle: '',
         headerBackTitle: '',
         headerTintColor: 'white',
-      }}
-    >
-      <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />
-      <GoalsStack.Screen
-        name="Steps"
-        component={StepsScreen}
-      />
-      <GoalsStack.Screen name="Sleep" component={SleepScreen} />
+      }}>
+      {/*<GoalsStack.Screen name="GoalsMain"*/}
+      {/*  component={GoalsScreenMain}*/}
+      {/*/>*/}
+      <GoalsStack.Screen name="GoalsMain">
+        {(navigation) => (
+          <GoalsScreenMain id={user.id} navigation={navigation} />
+        )}
+      </GoalsStack.Screen>
+      {/*<GoalsStack.Screen name="Steps"*/}
+      {/*  component={StepsScreen}*/}
+      {/*/>*/}
+      <GoalsStack.Screen name="Steps">
+        {(props) => (
+          <StepsScreen user={user} navigation={navigation} />
+        )}
+      </GoalsStack.Screen>
+      <GoalsStack.Screen name="Sleep">
+        {(props) => (
+          <SleepScreen user={user} navigation={navigation} />
+          )}
+      </GoalsStack.Screen>
     </GoalsStack.Navigator>
   );
 }

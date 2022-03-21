@@ -7,10 +7,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 // import components
 import HomeScreen from '../HomeScreen/HomeScreen';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import GoalsScreen from "../GoalsScreen/GoalsScreen";
+import GoalsScreen from '../GoalsScreen/GoalsScreen';
 
 export default function HomeTabNavigator(props) {
-
   const Tab = createBottomTabNavigator();
 
   return (
@@ -26,6 +25,7 @@ export default function HomeTabNavigator(props) {
       />
       <Tab.Screen
         name="Goals"
+        //
         children={() => <GoalsScreen {...props} />}
         options={{
           tabBarIcon: ({size, color}) => (
