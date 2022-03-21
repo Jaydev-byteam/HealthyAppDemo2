@@ -1,18 +1,24 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import StepsScreen from '../StepsScreen/StepsScreen';
-import SleepScreen from '../SleepScreen/SleepScreen';
-import { fstore } from "../../database/FirebaseDefault";
+import {fire_auth, fstore} from '../../database/FirebaseDefault';
+import {getStepsGoal} from '../../constants/FirebaseGet';
 
-function GoalsScreenMain({navigation, id}) {
-  console.log('In Goals Screen Main, navigation is: ', navigation);
-  console.log('GSM User is:', id);
+export default function GoalsScreenMain({navigation, id}) {
+  // set state variables for the goals and data for steps and sleep
+  const [stepsGoal, setStepsGoal] = useState(0);
+
+
+  useEffect(() => {
+    getStepsGoal(setStepsGoal);
+    console.log('In useEffect stepsGoal:', stepsGoal);
+  }, []);
+
+  console.log('stepsGoal is:', stepsGoal);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -20,7 +26,7 @@ function GoalsScreenMain({navigation, id}) {
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Steps'}
-          goalAmount={'5,000'}
+          goalAmount={stepsGoal}
           goalUnit={'steps/day'}
           goalProgress={0.98}
           navigation={navigation}
@@ -37,47 +43,5 @@ function GoalsScreenMain({navigation, id}) {
         />
       </KeyboardAwareScrollView>
     </View>
-  );
-}
-
-const GoalsStack = createNativeStackNavigator();
-
-export default function GoalsScreen({navigation, user}) {
-  const userData
-  // console.log('In Goals Screen with props:', props);
-  console.log('In Goals Screen, navigation is: ', navigation);
-  console.log('GS User is:', user);
-  useEffect
-  return (
-    <GoalsStack.Navigator
-      initialRouteName="GoalsMain"
-      screenOptions={{
-        headerTransparent: true,
-        headerTitle: '',
-        headerBackTitle: '',
-        headerTintColor: 'white',
-      }}>
-      {/*<GoalsStack.Screen name="GoalsMain"*/}
-      {/*  component={GoalsScreenMain}*/}
-      {/*/>*/}
-      <GoalsStack.Screen name="GoalsMain">
-        {(navigation) => (
-          <GoalsScreenMain id={user.id} navigation={navigation} />
-        )}
-      </GoalsStack.Screen>
-      {/*<GoalsStack.Screen name="Steps"*/}
-      {/*  component={StepsScreen}*/}
-      {/*/>*/}
-      <GoalsStack.Screen name="Steps">
-        {(props) => (
-          <StepsScreen user={user} navigation={navigation} />
-        )}
-      </GoalsStack.Screen>
-      <GoalsStack.Screen name="Sleep">
-        {(props) => (
-          <SleepScreen user={user} navigation={navigation} />
-          )}
-      </GoalsStack.Screen>
-    </GoalsStack.Navigator>
   );
 }
