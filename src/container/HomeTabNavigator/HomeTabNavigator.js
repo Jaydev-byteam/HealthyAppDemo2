@@ -26,7 +26,7 @@ export default function HomeTabNavigator(props) {
       />
       <Tab.Screen
         name="Goals"
-        component={GoalsScreen}
+        children={() => <GoalsScreen {...props} />}
         options={{
           tabBarIcon: ({size, color}) => (
             <Icon name={'star'} color={'#708090'} size={30} />

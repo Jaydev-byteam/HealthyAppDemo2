@@ -11,11 +11,11 @@ import BasicButton from "../../components/BasicButton/BasicButton";
 export default function HomeScreen(props) {
   function getUserStepsGoal(documentSnapshot) {
     const stepsGoal = documentSnapshot.get('steps');
-    console.log('User is', props.extraData.nickname, 'steps goal is:', stepsGoal);
+    console.log('User is', props.user.nickname, 'steps goal is:', stepsGoal);
   }
   fstore
     .collection('users')
-    .doc(props.extraData.id)
+    .doc(props.user.id)
     .collection('goals')
     .doc('steps')
     .get()
@@ -23,7 +23,7 @@ export default function HomeScreen(props) {
 
   // const [user, setUser] = useState(fire_auth.currentUser);
   console.log('At home screen with props:', props);
-  const greeting = 'Welcome, ' + props.extraData.nickname;
+  const greeting = 'Welcome, ' + props.user.nickname;
   const onLogoutPress = () => {
     fire_auth.signOut().then(() => {
       console.log('User signed out with info:', fire_auth.currentUser);
@@ -37,7 +37,7 @@ export default function HomeScreen(props) {
         {/*<Text>Home Screen</Text>*/}
         {/*<Text>Welcome, {props.extraData.nickname}</Text>*/}
         <PageTitle pageName={greeting} />
-        <Text style={styles.accountInfo}>Current email: {props.extraData.email}</Text>
+        <Text style={styles.accountInfo}>Current email: {props.user.email}</Text>
         <BasicButton
           buttonText={"Log out"}
           onPressButton={onLogoutPress} />

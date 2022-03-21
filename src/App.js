@@ -47,7 +47,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={'Login'} screenOptions={{headerShown: false}}>
         {user ? (
-          <Stack.Screen name="Home">{(props) => <HomeTabNavigator {...props} extraData={user} setUser={setUser} />}</Stack.Screen>
+          <Stack.Screen name="Home">{(props) => <HomeTabNavigator {...props} user={user} setUser={setUser} />}</Stack.Screen>
         ) : (
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
