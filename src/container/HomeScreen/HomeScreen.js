@@ -9,6 +9,17 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import BasicButton from "../../components/BasicButton/BasicButton";
 
 export default function HomeScreen(props) {
+  function getUserStepsGoal(documentSnapshot) {
+    const stepsGoal = documentSnapshot.get('steps');
+    console.log('User is', props.extraData.nickname, 'steps goal is:', stepsGoal);
+  }
+  fstore
+    .collection('users')
+    .doc(props.extraData.id)
+    .collection('goals')
+    .doc('steps')
+    .get()
+    .then(documentSnapshot => getUserStepsGoal(documentSnapshot));
 
   // const [user, setUser] = useState(fire_auth.currentUser);
   console.log('At home screen with props:', props);
