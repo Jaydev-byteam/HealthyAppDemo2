@@ -14,8 +14,8 @@ export default function GoalsScreenMain({navigation, id}) {
 
 
   useEffect(() => {
+
     getStepsGoal(setStepsGoal);
-    console.log('In useEffect stepsGoal:', stepsGoal);
   }, []);
 
   console.log('stepsGoal is:', stepsGoal);
