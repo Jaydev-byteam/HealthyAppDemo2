@@ -18,7 +18,7 @@ const successWeek = [true, false, true, false, true, false, true];
 
 
 
-export default function StepsScreen({navigation, user}) {
+export default function StepsScreen() {
 
   const [steps, setSteps] = useState(stepsGoal);
 
