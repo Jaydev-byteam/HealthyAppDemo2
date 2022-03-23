@@ -1,6 +1,3 @@
-
-
-
 export const styleConstants = {
   button_background: '#998896',
   light_text: 'white',
@@ -11,5 +8,6 @@ export const styleConstants = {
   table_border: '#b690d4',
   success_color: 'seagreen',
   error_color: 'orangered',
-  progress_color: 'aqua'
-}
+  progress_color: 'aqua',
+  icon_color: '#708090',
+};
