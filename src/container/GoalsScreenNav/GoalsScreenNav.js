@@ -9,7 +9,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import StepsScreen from '../StepsScreen/StepsScreen';
 import SleepScreen from '../SleepScreen/SleepScreen';
 import GoalsScreenMain from "../GoalsScreen/GoalsScreen";
-import { getStepsGoal } from "../../constants/FirebaseGet";
+import { getStepsGoal } from "../../database/FirebaseGet";
 import { fire_auth, fstore } from "../../database/FirebaseDefault";
 import {
   collection,
