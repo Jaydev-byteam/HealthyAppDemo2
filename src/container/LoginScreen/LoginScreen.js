@@ -20,24 +20,6 @@ export default function LoginScreen({navigation}) {
   const onLoginPress = () => {
     fire_auth
       .signInWithEmailAndPassword(email, password)
-      .then(response => {
-        const uid = response.user.uid;
-        const usersRef = fstore.collection('users');
-        usersRef
-          .doc(uid)
-          .get()
-          .then(firestoreDocument => {
-            if (!firestoreDocument.exists) {
-              alert('User does not exist.');
-              return;
-            }
-            const user = firestoreDocument.data();
-            navigation.navigate('Home', {user});
-          })
-          .catch(error => {
-            alert(error);
-          });
-      })
       .catch(error => {
         alert(error);
       });
@@ -49,16 +31,6 @@ export default function LoginScreen({navigation}) {
         style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
         <PageTitle />
-        {/*<TextInput*/}
-        {/*  style={styles.input}*/}
-        {/*  placeholder="E-mail"*/}
-        {/*  placeholderTextColor="#aaaaaa"*/}
-        {/*  onChangeText={text => setEmail(text)}*/}
-        {/*  value={email}*/}
-        {/*  underlineColorAndroid="transparent"*/}
-        {/*  autoCapitalize="none"*/}
-        {/*  keyboardType={'email-address'}*/}
-        {/*/>*/}
         <InputField
           placeholder={"Email"}
           onChangeText={text => setEmail(text)}
@@ -71,16 +43,6 @@ export default function LoginScreen({navigation}) {
           value={password}
           secureTextEntry
         />
-        {/*<TextInput*/}
-        {/*  style={styles.input}*/}
-        {/*  placeholderTextColor="#aaaaaa"*/}
-        {/*  secureTextEntry*/}
-        {/*  placeholder="Password"*/}
-        {/*  onChangeText={text => setPassword(text)}*/}
-        {/*  value={password}*/}
-        {/*  underlineColorAndroid="transparent"*/}
-        {/*  autoCapitalize="none"*/}
-        {/*/>*/}
         <BasicButton
           buttonText="Log in"
           onPressButton={onLoginPress} />

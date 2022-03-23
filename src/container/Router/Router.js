@@ -5,13 +5,16 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import LoginScreen from '../LoginScreen/LoginScreen';
 import RegistrationScreen from '../RegistrationScreen/RegistrationScreen';
-import HomeScreen from "../HomeScreen/HomeScreen";
-import Icon from "react-native-vector-icons/FontAwesome";
-import GoalsScreenNav from "../GoalsScreenNav/GoalsScreenNav";
-import { styleConstants } from "../../_constants/StyleConstants";
+import HomeScreen from '../HomeScreen/HomeScreen';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {styleConstants} from '../../_constants/StyleConstants';
+import GoalsScreenMain from '../GoalsScreen/GoalsScreen';
+import StepsScreen from '../StepsScreen/StepsScreen';
+import SleepScreen from '../SleepScreen/SleepScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const GoalsStack = createNativeStackNavigator();
 
 export default function Router({isSignedIn}) {
   return (
@@ -19,7 +22,7 @@ export default function Router({isSignedIn}) {
       <Stack.Navigator
         initialRouteName={'Login'}
         screenOptions={{headerShown: false}}>
-        { isSignedIn ? (
+        {isSignedIn ? (
           <Stack.Screen name="Home">
             {props => (
               //
@@ -29,16 +32,46 @@ export default function Router({isSignedIn}) {
                   children={() => <HomeScreen {...props} />}
                   options={{
                     tabBarIcon: ({size, color}) => (
-                      <Icon name={'home'} color={styleConstants.icon_color} size={30} />
+                      <Icon
+                        name={'home'}
+                        color={styleConstants.icon_color}
+                        size={30}
+                      />
                     ),
                   }}
                 />
                 <Tab.Screen
                   name="Goals"
-                  children={() => <GoalsScreenNav {...props} />}
+                  children={() => (
+                    // <GoalsScreenNav {...props} />
+                    <GoalsStack.Navigator
+                      initialRouteName="GoalsMain"
+                      screenOptions={{
+                        headerTransparent: true,
+                        headerTitle: '',
+                        headerBackTitle: '',
+                        headerTintColor: 'white',
+                      }}>
+                      <GoalsStack.Screen name="GoalsMain">
+                        {navigation => (
+                          <GoalsScreenMain navigation={navigation} />
+                        )}
+                      </GoalsStack.Screen>
+                      <GoalsStack.Screen name="Steps">
+                        {navigation => <StepsScreen navigation={navigation} />}
+                      </GoalsStack.Screen>
+                      <GoalsStack.Screen name="Sleep">
+                        {navigation => <SleepScreen navigation={navigation} />}
+                      </GoalsStack.Screen>
+                    </GoalsStack.Navigator>
+                  )}
                   options={{
                     tabBarIcon: ({size, color}) => (
-                      <Icon name={'star'} color={styleConstants.icon_color} size={30} />
+                      <Icon
+                        name={'star'}
+                        color={styleConstants.icon_color}
+                        size={30}
+                      />
                     ),
                   }}
                 />
