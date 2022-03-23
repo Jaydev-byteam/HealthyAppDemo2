@@ -61,15 +61,6 @@ export default function RegistrationScreen({navigation}) {
         style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
         <PageTitle />
-        {/*<TextInput*/}
-        {/*  style={styles.input}*/}
-        {/*  placeholder="Nickname"*/}
-        {/*  placeholderTextColor="#aaaaaa"*/}
-        {/*  onChangeText={text => setNickname(text)}*/}
-        {/*  value={nickname}*/}
-        {/*  underlineColorAndroid="transparent"*/}
-        {/*  autoCapitalize="none"*/}
-        {/*/>*/}
         <InputField
           placeholder={"Nickname"}
           onChangeText={text => setNickname(text)}
@@ -81,66 +72,36 @@ export default function RegistrationScreen({navigation}) {
           value={email}
           keyboardType="email-address"
         />
-        {/*<TextInput*/}
-        {/*  style={styles.input}*/}
-        {/*  placeholder="E-mail"*/}
-        {/*  placeholderTextColor="#aaaaaa"*/}
-        {/*  onChangeText={text => setEmail(text)}*/}
-        {/*  value={email}*/}
-        {/*  underlineColorAndroid="transparent"*/}
-        {/*  autoCapitalize="none"*/}
-        {/*  keyboardType="email-address"*/}
-        {/*/>*/}
         <InputField
           placeholder='Password'
           onChangeText={text => setPassword(text)}
           value={password}
           secureTextEntry
         />
-        {/*<TextInput*/}
-        {/*  style={styles.input}*/}
-        {/*  placeholderTextColor="#aaaaaa"*/}
-        {/*  secureTextEntry*/}
-        {/*  placeholder="Password"*/}
-        {/*  onChangeText={text => setPassword(text)}*/}
-        {/*  value={password}*/}
-        {/*  underlineColorAndroid="transparent"*/}
-        {/*  autoCapitalize="none"*/}
-        {/*/>*/}
         <InputField
           placeholder='Confirm Password'
           onChangeText={text => setConfirmPassword(text)}
           value={confirmPassword}
           secureTextEntry
         />
-        {/*<TextInput*/}
-        {/*  style={styles.input}*/}
-        {/*  placeholderTextColor="#aaaaaa"*/}
-        {/*  secureTextEntry*/}
-        {/*  placeholder="Confirm Password"*/}
-        {/*  onChangeText={text => setConfirmPassword(text)}*/}
-        {/*  value={confirmPassword}*/}
-        {/*  underlineColorAndroid="transparent"*/}
-        {/*  autoCapitalize="none"*/}
-        {/*/>*/}
         <View style={styles.validationView}>
-          <Text style={password.length < 8 ? styles.red : styles.green}>
+          <Text style={password.length < 8 ? styles.error : styles.success}>
             Password must be at least 8 characters long.
           </Text>
-          <Text style={!lowercase.test(password) ? styles.red : styles.green}>
+          <Text style={!lowercase.test(password) ? styles.error : styles.success}>
             Password must contain a lowercase letter.
           </Text>
-          <Text style={!uppercase.test(password) ? styles.red : styles.green}>
+          <Text style={!uppercase.test(password) ? styles.error : styles.success}>
             Password must contain an uppercase letter.
           </Text>
-          <Text style={!specials.test(password) ? styles.red : styles.green}>
+          <Text style={!specials.test(password) ? styles.error : styles.success}>
             Password must contain at least one special character.
           </Text>
           <Text
             style={
               !password || password !== confirmPassword
-                ? styles.red
-                : styles.green
+                ? styles.error
+                : styles.success
             }>
             Password and confirmation must match.
           </Text>

@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#550096',
+    backgroundColor: styleConstants.background_color,
   },
   logo: {
     flex: 1,
@@ -17,7 +18,7 @@ export default StyleSheet.create({
     height: 48,
     borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: styleConstants.input_background,
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 30,
@@ -31,11 +32,11 @@ export default StyleSheet.create({
   },
   footerText: {
     fontSize: 16,
-    color: '#b690d4',
+    color: styleConstants.subhead_text,
     fontWeight: 'bold'
   },
   footerLink: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontWeight: 'bold',
     fontSize: 16,
   },

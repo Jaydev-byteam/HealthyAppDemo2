@@ -8,6 +8,7 @@ import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditSleepGoal from '../../components/EditSleepGoal/EditSleepGoal';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 const weeklyAveSleep = 450;
 // define a hardcoded bedtime as a Date object with current date, set time to 10:30 PM
@@ -79,7 +80,7 @@ export default function SleepScreen({navigation, user}) {
           <ProgressCircle
             style={styles.progress}
             progress={weeklyAveSleep / sleep}
-            progressColor={'aqua'}
+            progressColor={styleConstants.progress_color}
             backgroundColor={'none'}
             strokeWidth={12}
           />

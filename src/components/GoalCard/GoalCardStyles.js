@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   card: {
@@ -28,12 +29,12 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   goalTitle: {
-    color: 'white',
+    color: styleConstants.light_text,
     marginBottom: 0,
     fontWeight: 'bold',
   },
   goalAmount: {
-    color: '#b690d4',
+    color: styleConstants.subhead_text,
     fontWeight: 'bold',
   },
   progress: {

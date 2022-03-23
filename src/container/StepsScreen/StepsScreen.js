@@ -8,7 +8,8 @@ import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditGoal from '../../components/EditGoal/EditGoal';
-import { fstore } from "../../database/FirebaseDefault";
+import { styleConstants } from "../../_constants/StyleConstants";
+
 
 const weeklyAverageSteps = 3456;
 const stepsGoal = 5000;
@@ -35,7 +36,7 @@ export default function StepsScreen({navigation, user}) {
           <ProgressCircle
             style={styles.progress}
             progress={weeklyAverageSteps / steps}
-            progressColor={'aqua'}
+            progressColor={styleConstants.progress_color}
             backgroundColor={'none'}
             strokeWidth={12}
           />

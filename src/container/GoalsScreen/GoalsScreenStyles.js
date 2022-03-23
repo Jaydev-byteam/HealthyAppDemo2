@@ -1,17 +1,10 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#550096',
+    backgroundColor: styleConstants.background_color,
   },
-  // goalCard: {
-  //   backgroundColor: 'yellow',
-  //   margin: 10,
-  // },
-  // // imageBackground: {
-  // //   flex: 1,
-  // //   justifyContent: 'center',
-  // // },
 });
