@@ -2,12 +2,15 @@ import {fstore, fire_auth} from './FirebaseDefault';
 import {EmptyStepsGoalObject} from '../_constants/EmptyObjectConstants';
 
 export const getStepsGoal = setStepsGoal => {
+  let userID = fire_auth.currentUser.uid;
   const stepGoalDoc = fstore
-    .collection(`users/${fire_auth.currentUser.uid}/goals`)
+    .collection('users')
+    .doc(userID)
+    .collection('goals')
     .doc('steps');
-  // let stepsObj = {dailyStepGoal: 0};
   stepGoalDoc.onSnapshot(docSnapshot => {
     if (docSnapshot.exists) {
+      console.log('in getStepsGoal, doc data is:', docSnapshot.data());
       setStepsGoal(docSnapshot.data().dailyStepGoal);
     }
     err => {
@@ -17,8 +20,11 @@ export const getStepsGoal = setStepsGoal => {
 };
 
 export const getStepsScores = setStepScores => {
+  let userID = fire_auth.currentUser.uid;
   const stepScoreDoc = fstore
-    .collection(`users/${fire_auth.currentUser.uid}/scores`)
+    .collection('users')
+    .doc(userID)
+    .collection('scores')
     .doc('steps');
   let stepScoreObj = EmptyStepsGoalObject;
   stepScoreDoc.onSnapshot(docSnapshot => {
