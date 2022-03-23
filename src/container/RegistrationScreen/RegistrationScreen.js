@@ -3,7 +3,11 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
-import {lowercaseTest, uppercaseTest, specialsTest} from "../../_utility_functions/RegexFunctions";
+import {
+  lowercaseTest,
+  uppercaseTest,
+  specialsTest,
+} from '../../_utilities/RegexFunctions';
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -20,9 +24,6 @@ export default function RegistrationScreen({navigation}) {
   const onFooterLinkPress = () => {
     navigation.navigate('Login');
   };
-  let lowercase = /[a-z]/;
-  let uppercase = /[A-Z]/;
-  let specials = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
   const onRegisterPress = () => {
     if (password !== confirmPassword) {
@@ -63,24 +64,24 @@ export default function RegistrationScreen({navigation}) {
         keyboardShouldPersistTaps="always">
         <PageTitle />
         <InputField
-          placeholder={"Nickname"}
+          placeholder={'Nickname'}
           onChangeText={text => setNickname(text)}
           value={nickname}
         />
         <InputField
-          placeholder={"Email"}
+          placeholder={'Email'}
           onChangeText={text => setEmail(text)}
           value={email}
           keyboardType="email-address"
         />
         <InputField
-          placeholder='Password'
+          placeholder="Password"
           onChangeText={text => setPassword(text)}
           value={password}
           secureTextEntry
         />
         <InputField
-          placeholder='Confirm Password'
+          placeholder="Confirm Password"
           onChangeText={text => setConfirmPassword(text)}
           value={confirmPassword}
           secureTextEntry
@@ -89,10 +90,12 @@ export default function RegistrationScreen({navigation}) {
           <Text style={password.length < 8 ? styles.error : styles.success}>
             Password must be at least 8 characters long.
           </Text>
-          <Text style={!lowercaseTest(password) ? styles.error : styles.success}>
+          <Text
+            style={!lowercaseTest(password) ? styles.error : styles.success}>
             Password must contain a lowercase letter.
           </Text>
-          <Text style={!uppercaseTest(password) ? styles.error : styles.success}>
+          <Text
+            style={!uppercaseTest(password) ? styles.error : styles.success}>
             Password must contain an uppercase letter.
           </Text>
           <Text style={!specialsTest(password) ? styles.error : styles.success}>
