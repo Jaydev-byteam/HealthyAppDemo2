@@ -3,6 +3,7 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
+import {lowercaseTest, uppercaseTest, specialsTest} from "../../_utility_functions/RegexFunctions";
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -88,13 +89,13 @@ export default function RegistrationScreen({navigation}) {
           <Text style={password.length < 8 ? styles.error : styles.success}>
             Password must be at least 8 characters long.
           </Text>
-          <Text style={!lowercase.test(password) ? styles.error : styles.success}>
+          <Text style={!lowercaseTest(password) ? styles.error : styles.success}>
             Password must contain a lowercase letter.
           </Text>
-          <Text style={!uppercase.test(password) ? styles.error : styles.success}>
+          <Text style={!uppercaseTest(password) ? styles.error : styles.success}>
             Password must contain an uppercase letter.
           </Text>
-          <Text style={!specials.test(password) ? styles.error : styles.success}>
+          <Text style={!specialsTest(password) ? styles.error : styles.success}>
             Password must contain at least one special character.
           </Text>
           <Text
