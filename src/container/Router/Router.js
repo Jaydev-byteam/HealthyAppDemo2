@@ -9,16 +9,16 @@ import RegistrationScreen from '../RegistrationScreen/RegistrationScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function Router({user}) {
+export default function Router({isSignedIn}) {
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={'Login'}
         screenOptions={{headerShown: false}}>
-        {user ? (
+        { isSignedIn ? (
           <Stack.Screen name="Home">
             {props => (
-              <HomeTabNavigator {...props} user={user} setUser={setUser} />
+              <HomeTabNavigator {...props} />
             )}
           </Stack.Screen>
         ) : (

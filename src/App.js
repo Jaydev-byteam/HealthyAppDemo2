@@ -1,51 +1,36 @@
-import { fstore, fire_auth } from './database/FirebaseDefault';
+import {fstore, fire_auth} from './database/FirebaseDefault';
 import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LoginScreen from "./container/LoginScreen/LoginScreen";
-import RegistrationScreen from "./container/RegistrationScreen/RegistrationScreen";
-import HomeScreen from "./container/HomeScreen/HomeScreen";
-import HomeTabNavigator from "./container/HomeTabNavigator/HomeTabNavigator";
+import LoginScreen from './container/LoginScreen/LoginScreen';
+import RegistrationScreen from './container/RegistrationScreen/RegistrationScreen';
+import HomeTabNavigator from './container/HomeTabNavigator/HomeTabNavigator';
+import Router from "./container/Router/Router";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-
-  // if (loading) {
-  //   return (
-  //     <></>
-  //   )
-  // }
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    let isMounted = true;
-    const usersRef = fstore.collection('users');
-    fire_auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-        setLoading(false);
-      } else {
-        setLoading(false);
-        setUser(null);
-      }
-    });
-    return () => { isMounted = false };
+    return fire_auth.onAuthStateChanged(onAuthStateChangedListener);
   }, []);
+  // handle user state change
+  const onAuthStateChangedListener = user => {
+    setIsSignedIn(!!user);
+    if (loading) {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <></>;
+  }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Login'} screenOptions={{headerShown: false}}>
-        {user ? (
-          <Stack.Screen name="Home">{(props) => <HomeTabNavigator {...props} user={user} setUser={setUser} />}</Stack.Screen>
-        ) : (
-          <>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Registration" component={RegistrationScreen} />
-          </>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Router isSignedIn={isSignedIn} />
   );
+
 }
