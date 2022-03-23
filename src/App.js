@@ -24,17 +24,8 @@ export default function App() {
     const usersRef = fstore.collection('users');
     fire_auth.onAuthStateChanged((user) => {
       if (user) {
-        usersRef
-          .doc(user.uid)
-          .get()
-          .then((document) => {
-            const userData = document.data();
-            setLoading(false);
-            setUser(userData);
-          })
-          .catch((error) => {
-            setLoading(false);
-          });
+        setUser(user);
+        setLoading(false);
       } else {
         setLoading(false);
         setUser(null);

@@ -40,3 +40,19 @@ export const getStepsScores = setStepScores => {
     };
   });
 };
+
+export const getUserNickname = (setNickname) => {
+  let userID = fire_auth.currentUser.uid;
+  const userDoc = fstore
+    .collection('users')
+    .doc(userID)
+  userDoc.onSnapshot(docSnapshot => {
+    if (docSnapshot.exists) {
+      console.log('in getUserNickname, doc data is:', docSnapshot.data());
+      setNickname(docSnapshot.data().nickname);
+    }
+    err => {
+      console.log('Error in getting user nickname Firestore database:', err);
+    };
+  });
+};
