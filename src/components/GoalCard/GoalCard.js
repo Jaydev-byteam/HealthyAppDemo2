@@ -12,8 +12,7 @@ export default function GoalCard({
   goalAmount,
   goalUnit,
   goalProgress,
-  navigation,
-  destination,
+  onPress,
 }) {
   return (
     <View style={styles.card}>
@@ -25,7 +24,7 @@ export default function GoalCard({
         strokeWidth={10}
       />
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate(destination)}>
+        onPress={onPress}>
         <Image style={styles.logo} source={image} />
       </TouchableWithoutFeedback>
       <View style={styles.cardInfo}>

@@ -2,10 +2,9 @@ import {fstore, fire_auth} from './FirebaseDefault';
 import {EmptyStepsGoalObject} from '../_constants/EmptyObjectConstants';
 
 export const getStepsGoal = setStepsGoal => {
-  let userID = fire_auth.currentUser.uid;
   const stepGoalDoc = fstore
     .collection('users')
-    .doc(userID)
+    .doc(fire_auth.currentUser.uid)
     .collection('goals')
     .doc('steps');
   stepGoalDoc.onSnapshot(docSnapshot => {
@@ -20,10 +19,9 @@ export const getStepsGoal = setStepsGoal => {
 };
 
 export const getStepsScores = setStepScores => {
-  let userID = fire_auth.currentUser.uid;
   const stepScoreDoc = fstore
     .collection('users')
-    .doc(userID)
+    .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('steps');
   let stepScoreObj = EmptyStepsGoalObject;
