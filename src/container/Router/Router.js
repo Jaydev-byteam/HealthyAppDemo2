@@ -12,11 +12,13 @@ import GoalsScreenMain from '../GoalsScreen/GoalsScreen';
 import StepsScreen from '../StepsScreen/StepsScreen';
 import SleepScreen from '../SleepScreen/SleepScreen';
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-const GoalsStack = createNativeStackNavigator();
+
 
 export default function Router({isSignedIn}) {
+  const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
+  const GoalsStack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator
