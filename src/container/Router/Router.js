@@ -45,7 +45,6 @@ export default function Router({isSignedIn}) {
                 <Tab.Screen
                   name="Goals"
                   children={() => (
-                    // <GoalsScreenNav {...props} />
                     <GoalsStack.Navigator
                       initialRouteName="GoalsMain"
                       screenOptions={{
@@ -54,17 +53,9 @@ export default function Router({isSignedIn}) {
                         headerBackTitle: '',
                         headerTintColor: 'white',
                       }}>
-                      <GoalsStack.Screen name="GoalsMain">
-                        {navigation => (
-                          <GoalsScreenMain navigation={navigation} />
-                        )}
-                      </GoalsStack.Screen>
-                      <GoalsStack.Screen name="Steps">
-                        {navigation => <StepsScreen navigation={navigation} />}
-                      </GoalsStack.Screen>
-                      <GoalsStack.Screen name="Sleep">
-                        {navigation => <SleepScreen navigation={navigation} />}
-                      </GoalsStack.Screen>
+                      <GoalsStack.Screen name="GoalsMain" component={GoalsScreenMain} />
+                      <GoalsStack.Screen name="Steps" component={StepsScreen} />
+                      <GoalsStack.Screen name="Sleep" component={SleepScreen} />
                     </GoalsStack.Navigator>
                   )}
                   options={{

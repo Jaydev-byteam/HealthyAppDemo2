@@ -17,7 +17,7 @@ export default function GoalCard(props) {
         strokeWidth={10}
       />
       <TouchableWithoutFeedback
-        onPress={() => props.navigation.navigation.navigate(props.destination)}
+        onPress={() => props.navigation.navigate(props.destination)}
       >
         <Image style={styles.logo} source={props.image} />
       </TouchableWithoutFeedback>
