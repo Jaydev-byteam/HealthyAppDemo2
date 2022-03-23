@@ -9,7 +9,7 @@ import {fire_auth, fstore} from '../../database/FirebaseDefault';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import {EmptyStepsGoalObject} from '../../_constants/EmptyObjectConstants';
 
-export default function GoalsScreenMain({navigation, id}) {
+export default function GoalsScreenMain({navigation}) {
   // set state variables for the goals and data for steps and sleep
   const [stepsGoal, setStepsGoal] = useState(0);
   const [stepsScores, setStepsScores] = useState(EmptyStepsGoalObject);
