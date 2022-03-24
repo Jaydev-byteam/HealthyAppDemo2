@@ -56,3 +56,21 @@ export const getUserNickname = async changeHandler => {
     logError('error getting user nickname', e.stack);
   }
 };
+
+export const getSleepGoal = async (sleepGoalObject) => {
+  await fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('goals')
+    .doc('sleep')
+    .get()
+    .then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        console.log('in getSleepGoal, doc data is:', docSnapshot.data());
+        sleepGoalObject.goals = docSnapshot.data();
+      }
+    })
+    .catch((error) => {
+      logError(error.stack);
+    });
+};

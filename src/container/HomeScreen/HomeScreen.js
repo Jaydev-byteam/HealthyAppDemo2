@@ -20,6 +20,7 @@ export default function HomeScreen(props) {
   };
   useEffect(() => {
     getUserNickname(setNickname);
+
   }, []);
 
   console.log('Home screen nickname:', nickname);
