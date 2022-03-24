@@ -1,8 +1,9 @@
 import {fstore, fire_auth} from './FirebaseDefault';
+import { stepsGoalObject } from "../_constants/EmptyObjectConstants";
 
 import logError from 'react-native/Libraries/Utilities/logError';
 
-export const getStepsGoal = async (stepsGoalObject) => {
+export const getStepsGoal = async () => {
   await fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
@@ -20,7 +21,7 @@ export const getStepsGoal = async (stepsGoalObject) => {
     });
 };
 
-export const getStepsScores = async (stepsGoalObject) => {
+export const getStepsScores = async () => {
   await fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)

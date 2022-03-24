@@ -10,15 +10,26 @@ import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 
 export default function GoalsScreenMain({navigation}) {
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
   };
 
+  // const isDataLoaded = () => {
+  //   if(!dataLoaded) {
+  //     setDataLoaded(true);
+  //   }
+  // }
+
   useEffect(() => {
-    getStepsGoal(stepsGoalObject);
-    getStepsScores(stepsGoalObject);
+    (async () => {
+      await getStepsGoal();
+      await getStepsScores();
+    })();
+
   }, []);
+
   console.log('In GoalsScreen, stepsGoalObject is: ', stepsGoalObject)
   return (
     <View style={styles.container}>

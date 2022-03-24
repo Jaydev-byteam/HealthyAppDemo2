@@ -11,7 +11,7 @@ import BasicButton from "../../components/BasicButton/BasicButton";
 
 export default function HomeScreen(props) {
   const [nickname, setNickname] = useState('')
-  console.log(fire_auth.currentUser)
+  // console.log(fire_auth.currentUser)
   const greeting = 'Welcome, ' + nickname;
   const onLogoutPress = () => {
     fire_auth.signOut().then(() => {
