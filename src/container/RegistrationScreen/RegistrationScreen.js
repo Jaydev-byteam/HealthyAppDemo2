@@ -8,6 +8,7 @@ import {
   uppercaseTest,
   specialsTest,
 } from '../../_utilities/RegexFunctions';
+import {createNewUser} from "../../database/FirebaseAuth";
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -26,35 +27,37 @@ export default function RegistrationScreen({navigation}) {
   };
 
   const onRegisterPress = () => {
+    console.log('onRegisterPress active with email/pw/nickname: ', email, password, nickname);
     if (password !== confirmPassword) {
       alert("Passwords don't match.");
       return;
     }
-    fire_auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(response => {
-        console.log('In create user Registration screen, response is:', response)
-        const uid = response.user.uid;
-        const data = {
-          id: uid,
-          email,
-          nickname,
-        };
-        const usersRef = fstore.collection('users');
-        console.log(usersRef);
-        usersRef
-          .doc(uid)
-          .set(data)
-          .then(() => {
-            console.log('usersRef added:', usersRef);
-          })
-          .catch(error => {
-            alert(error);
-          });
-      })
-      .catch(error => {
-        alert(error);
-      });
+    createNewUser(email, password, nickname);
+    // fire_auth
+    //   .createUserWithEmailAndPassword(email, password)
+    //   .then(response => {
+    //     console.log('In create user Registration screen, response is:', response)
+    //     const uid = response.user.uid;
+    //     const data = {
+    //       id: uid,
+    //       email,
+    //       nickname,
+    //     };
+    //     const usersRef = fstore.collection('users');
+    //     console.log(usersRef);
+    //     usersRef
+    //       .doc(uid)
+    //       .set(data)
+    //       .then(() => {
+    //         console.log('usersRef added:', usersRef);
+    //       })
+    //       .catch(error => {
+    //         alert(error);
+    //       });
+    //   })
+    //   .catch(error => {
+    //     alert(error);
+    //   });
   };
 
   return (
