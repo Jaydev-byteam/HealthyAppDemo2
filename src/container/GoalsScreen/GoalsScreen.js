@@ -16,21 +16,23 @@ export default function GoalsScreenMain({navigation}) {
     navigation.navigate(pageRoute);
   };
 
-  // const isDataLoaded = () => {
-  //   if(!dataLoaded) {
-  //     setDataLoaded(true);
-  //   }
-  // }
+  const isDataLoaded = () => {
+    if(!dataLoaded) {
+      setDataLoaded(true);
+    }
+  }
 
   useEffect(() => {
     (async () => {
       await getStepsGoal();
       await getStepsScores();
+      isDataLoaded();
+      console.log('In useEffect, dataLoaded is:', dataLoaded );
     })();
 
-  }, []);
+  }, [dataLoaded]);
 
-  console.log('In GoalsScreen, stepsGoalObject is: ', stepsGoalObject)
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
