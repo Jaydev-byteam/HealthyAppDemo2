@@ -1,5 +1,6 @@
 import {fstore, fire_auth} from './FirebaseDefault';
 import {EmptyStepsGoalObject} from '../_constants/EmptyObjectConstants';
+import logError from 'react-native/Libraries/Utilities/logError';
 
 export const getStepsGoal = setStepsGoal => {
   const stepGoalDoc = fstore
@@ -39,18 +40,21 @@ export const getStepsScores = setStepScores => {
   });
 };
 
-export const getUserNickname = (setNickname) => {
-  let userID = fire_auth.currentUser.uid;
-  const userDoc = fstore
-    .collection('users')
-    .doc(userID)
-  userDoc.onSnapshot(docSnapshot => {
-    if (docSnapshot.exists) {
-      console.log('in getUserNickname, doc data is:', docSnapshot.data());
-      setNickname(docSnapshot.data().nickname);
-    }
-    err => {
-      console.log('Error in getting user nickname Firestore database:', err);
-    };
-  });
+export const getUserNickname = async changeHandler => {
+  try {
+    const userDoc = await fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .onSnapshot(doc => {
+        if (doc !== null && doc.exists) {
+          console.log('in getUserNickname, doc data is:', doc.data());
+          return 'nickname' in doc.data()
+            ? changeHandler(doc.data().nickname)
+            : changeHandler('');
+        }
+      });
+    return () => userDoc();
+  } catch (e) {
+    logError('error getting user nickname', e.stack);
+  }
 };
