@@ -1,16 +1,24 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import StepsScreen from "../StepsScreen/StepsScreen";
-import SleepScreen from "../SleepScreen/SleepScreen";
+import {fire_auth, fstore} from '../../database/FirebaseDefault';
+import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
+import {EmptyStepsGoalObject} from '../../_constants/EmptyObjectConstants';
 
+export default function GoalsScreenMain({navigation}) {
+  // set state variables for the goals and data for steps and sleep
+  const [stepsGoal, setStepsGoal] = useState(0);
+  const [stepsScores, setStepsScores] = useState(EmptyStepsGoalObject);
 
-function GoalsScreenMain({navigation}) {
+  useEffect(() => {
+    getStepsGoal(setStepsGoal);
+    getStepsScores(setStepsScores);
+  }, []);
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -18,9 +26,9 @@ function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Steps'}
-          goalAmount={'5,000'}
+          goalAmount={stepsGoal}
           goalUnit={'steps/day'}
-          goalProgress={0.98}
+          goalProgress={stepsScores.score / 100}
           navigation={navigation}
           destination={'Steps'}
         />
@@ -35,28 +43,5 @@ function GoalsScreenMain({navigation}) {
         />
       </KeyboardAwareScrollView>
     </View>
-  );
-}
-
-const GoalsStack = createNativeStackNavigator();
-
-export default function GoalsScreen({ navigation, user }) {
-  return (
-    <GoalsStack.Navigator
-      initialRouteName="Goals"
-      screenOptions={{
-        headerTransparent: true,
-        headerTitle: '',
-        headerBackTitle: '',
-        headerTintColor: 'white',
-      }}
-    >
-      <GoalsStack.Screen name="Goals" component={GoalsScreenMain} />
-      <GoalsStack.Screen
-        name="Steps"
-        component={StepsScreen}
-      />
-      <GoalsStack.Screen name="Sleep" component={SleepScreen} />
-    </GoalsStack.Navigator>
   );
 }

@@ -58,7 +58,9 @@ const bedtimeString = bedtimeDate => {
   return hours.toString() + ':' + minText + ' ' + ampm;
 };
 
-export default function SleepScreen({navigation}) {
+export default function SleepScreen({navigation, user}) {
+  console.log('In Sleep Screen with navigation:', navigation);
+  console.log('In Sleep Screen with user', user);
   // define state variable for the sleep amount objective
   const [sleep, setSleep] = useState(sleepGoal);
   // define state variable for the bedtime
