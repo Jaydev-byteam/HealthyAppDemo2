@@ -20,25 +20,22 @@ export const getStepsGoal = async (stepsGoalObject) => {
     });
 };
 
-export const getStepsScores = setStepScores => {
-  const stepScoreDoc = fstore
+export const getStepsScores = async (stepsGoalObject) => {
+  await fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
     .collection('scores')
-    .doc('steps');
-  let stepScoreObj = EmptyStepsGoalObject;
-  stepScoreDoc.onSnapshot(docSnapshot => {
-    if (docSnapshot.exists) {
-      stepScoreObj = docSnapshot.data();
-      setStepScores(stepScoreObj);
-    }
-    err => {
-      console.log(
-        'Error in getting steps scores from Firestore database:',
-        err,
-      );
-    };
-  });
+    .doc('steps')
+    .get()
+    .then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        console.log('in getStepsScores, doc data is:', docSnapshot.data());
+        stepsGoalObject.scores = docSnapshot.data();
+      }
+    })
+    .catch((error) => {
+      logError(error.stack);
+    });
 };
 
 export const getUserNickname = async changeHandler => {
