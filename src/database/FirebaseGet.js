@@ -1,22 +1,23 @@
 import {fstore, fire_auth} from './FirebaseDefault';
-import {EmptyStepsGoalObject} from '../_constants/EmptyObjectConstants';
+
 import logError from 'react-native/Libraries/Utilities/logError';
 
-export const getStepsGoal = setStepsGoal => {
-  const stepGoalDoc = fstore
+export const getStepsGoal = async (stepsGoalObject) => {
+  await fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
     .collection('goals')
-    .doc('steps');
-  stepGoalDoc.onSnapshot(docSnapshot => {
-    if (docSnapshot.exists) {
-      console.log('in getStepsGoal, doc data is:', docSnapshot.data());
-      setStepsGoal(docSnapshot.data().dailyStepGoal);
-    }
-    err => {
-      console.log('Error in getting steps goal from Firestore database:', err);
-    };
-  });
+    .doc('steps')
+    .get()
+    .then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        console.log('in getStepsGoal, doc data is:', docSnapshot.data());
+        stepsGoalObject.goals = docSnapshot.data();
+      }
+    })
+    .catch((error) => {
+      logError(error.stack);
+    });
 };
 
 export const getStepsScores = setStepScores => {
