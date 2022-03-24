@@ -7,22 +7,19 @@ import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import {fire_auth, fstore} from '../../database/FirebaseDefault';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
-import {EmptyStepsGoalObject} from '../../_constants/EmptyObjectConstants';
+import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 
 export default function GoalsScreenMain({navigation}) {
-  // set state variables for the goals and data for steps and sleep
-  const [stepsGoal, setStepsGoal] = useState(0);
-  const [stepsScores, setStepsScores] = useState(EmptyStepsGoalObject);
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
   };
 
   useEffect(() => {
-    getStepsGoal(setStepsGoal);
-    getStepsScores(setStepsScores);
+    getStepsGoal(stepsGoalObject);
+    getStepsScores(stepsGoalObject);
   }, []);
-
+  console.log('In GoalsScreen, stepsGoalObject is: ', stepsGoalObject)
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -30,9 +27,9 @@ export default function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Steps'}
-          goalAmount={stepsGoal}
+          goalAmount={stepsGoalObject.goals.dailyStepGoal}
           goalUnit={'steps/day'}
-          goalProgress={stepsScores.score / 100}
+          goalProgress={stepsGoalObject.scores.score / 100}
           onPress={() => navigateToPage('Steps')}
         />
         <GoalCard

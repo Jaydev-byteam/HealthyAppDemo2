@@ -23,9 +23,9 @@ import { getStepsGoal, getStepsScores} from "../../database/FirebaseGet";
 export default function StepsScreen() {
 
   const [stepsGoal, setStepsGoal] = useState(stepsGoalObject.goals.dailyStepGoal);
-  const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
-  const dailySteps = stepsGoalObject.scores.daily_steps;
-  const successWeek = stepsGoalObject.scores.days_of_the_week;
+  // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
+  // const dailySteps = stepsGoalObject.scores.daily_steps;
+  // const successWeek = stepsGoalObject.scores.days_of_the_week;
 
   useEffect(() => {
     getStepsGoal(stepsGoalObject);

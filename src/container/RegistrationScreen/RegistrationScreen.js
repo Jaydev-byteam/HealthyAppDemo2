@@ -33,6 +33,7 @@ export default function RegistrationScreen({navigation}) {
     fire_auth
       .createUserWithEmailAndPassword(email, password)
       .then(response => {
+        console.log('In create user Registration screen, response is:', response)
         const uid = response.user.uid;
         const data = {
           id: uid,
@@ -46,7 +47,6 @@ export default function RegistrationScreen({navigation}) {
           .set(data)
           .then(() => {
             console.log('usersRef added:', usersRef);
-            navigation.navigate('Home', {user: data});
           })
           .catch(error => {
             alert(error);
