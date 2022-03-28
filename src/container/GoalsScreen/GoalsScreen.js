@@ -6,8 +6,8 @@ import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import {fire_auth, fstore} from '../../database/FirebaseDefault';
-import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
-import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
+import {getStepsGoal, getStepsScores, getSleepGoal, getSleepScores} from '../../database/FirebaseGet';
+import {stepsGoalObject, sleepGoalObject} from '../../_constants/EmptyObjectConstants';
 
 export default function GoalsScreenMain({navigation}) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -26,6 +26,8 @@ export default function GoalsScreenMain({navigation}) {
     (async () => {
       await getStepsGoal();
       await getStepsScores();
+      await getSleepGoal();
+      await getSleepScores();
       isDataLoaded();
       console.log('In useEffect, dataLoaded is:', dataLoaded );
     })();
@@ -48,9 +50,9 @@ export default function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.sleepTime}
           goalTitle={'Sleep Time'}
-          goalAmount={'7.5'}
+          goalAmount={sleepGoalObject.goals.sleep_duration}
           goalUnit={'hours/day'}
-          goalProgress={0.8}
+          goalProgress={sleepGoalObject.scores.score / 100}
           onPress={() => navigateToPage('Sleep')}
         />
       </KeyboardAwareScrollView>
