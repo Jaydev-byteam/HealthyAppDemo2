@@ -8,29 +8,27 @@ import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditGoal from '../../components/EditGoal/EditGoal';
-import { styleConstants } from "../../_constants/StyleConstants";
-import { stepsGoalObject } from "../../_constants/EmptyObjectConstants";
-import { getStepsGoal, getStepsScores} from "../../database/FirebaseGet";
-
+import {styleConstants} from '../../_constants/StyleConstants';
+import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
+import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 
 // const weeklyAverageSteps = 3456;
 // const stepsGoal = 5000;
 // const dailySteps = 3456;
 // const successWeek = [true, false, true, false, true, false, true];
 
-
-
 export default function StepsScreen() {
-
   const [dataLoaded, setDataLoaded] = useState(false);
 
   const isDataLoaded = () => {
-    if(!dataLoaded) {
+    if (!dataLoaded) {
       setDataLoaded(true);
     }
-  }
+  };
 
-  const [stepsGoal, setStepsGoal] = useState(stepsGoalObject.goals.dailyStepGoal);
+  const [stepsGoal, setStepsGoal] = useState(
+    stepsGoalObject.goals.dailyStepGoal,
+  );
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
   // const successWeek = stepsGoalObject.scores.days_of_the_week;
@@ -41,10 +39,9 @@ export default function StepsScreen() {
       await getStepsScores();
       isDataLoaded();
     })();
+  }, [dataLoaded]);
 
-  }, [dataLoaded])
-
-  console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject)
+  console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -58,7 +55,7 @@ export default function StepsScreen() {
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}
-            progress={stepsGoalObject.scores.score/100}
+            progress={stepsGoalObject.scores.score / 100}
             progressColor={styleConstants.progress_color}
             backgroundColor={'none'}
             strokeWidth={12}

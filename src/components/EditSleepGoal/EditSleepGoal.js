@@ -71,7 +71,7 @@ export default function EditSleepGoal({
             mode="time"
             display="spinner"
             minuteInterval={15}
-            onChange={(event, value) => setNewBed(value)}
+            onChange={(event, value) => setNewBed(bedtimeString(value))}
             style={styles.datePicker}
           />
         </View>

@@ -39,3 +39,19 @@ export const bedtimeString = bedtimeDate => {
   }
   return hours.toString() + ':' + minText + ' ' + ampm;
 };
+
+// helper function to convert bedtime string into a date object usable by the RNDatePicker
+
+export const timeStringToDate = timeString => {
+  // break the string into the components of hours, minutes, and AM/PM string
+  let timeArray = timeString.split(' ');
+  let hoursMinutes = timeArray[0].split(':');
+  let hours = parseInt(hoursMinutes[0]);
+  let minutes = parseInt(hoursMinutes[1]);
+  let newDate = new Date();
+  if (timeArray[1] === 'PM') {
+    hours += 12;
+  }
+  newDate.setHours(hours, minutes);
+  return newDate;
+}

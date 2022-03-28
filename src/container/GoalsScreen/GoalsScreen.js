@@ -6,8 +6,17 @@ import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import {fire_auth, fstore} from '../../database/FirebaseDefault';
-import {getStepsGoal, getStepsScores, getSleepGoal, getSleepScores} from '../../database/FirebaseGet';
-import {stepsGoalObject, sleepGoalObject} from '../../_constants/EmptyObjectConstants';
+import {minutesToHours} from "../../_utilities/UtilityFunctions";
+import {
+  getStepsGoal,
+  getStepsScores,
+  getSleepGoal,
+  getSleepScores,
+} from '../../database/FirebaseGet';
+import {
+  stepsGoalObject,
+  sleepGoalObject,
+} from '../../_constants/EmptyObjectConstants';
 
 export default function GoalsScreenMain({navigation}) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -17,10 +26,10 @@ export default function GoalsScreenMain({navigation}) {
   };
 
   const isDataLoaded = () => {
-    if(!dataLoaded) {
+    if (!dataLoaded) {
       setDataLoaded(true);
     }
-  }
+  };
 
   useEffect(() => {
     (async () => {
@@ -29,11 +38,9 @@ export default function GoalsScreenMain({navigation}) {
       await getSleepGoal();
       await getSleepScores();
       isDataLoaded();
-      console.log('In useEffect, dataLoaded is:', dataLoaded );
+      console.log('In useEffect, dataLoaded is:', dataLoaded);
     })();
-
   }, [dataLoaded]);
-
 
   return (
     <View style={styles.container}>
@@ -50,7 +57,7 @@ export default function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.sleepTime}
           goalTitle={'Sleep Time'}
-          goalAmount={sleepGoalObject.goals.sleep_duration}
+          goalAmount={minutesToHours(sleepGoalObject.goals.sleep_duration)}
           goalUnit={'hours/day'}
           goalProgress={sleepGoalObject.scores.score / 100}
           onPress={() => navigateToPage('Sleep')}
