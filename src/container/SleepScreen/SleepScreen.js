@@ -73,8 +73,9 @@ export default function SleepScreen({navigation, user}) {
         <WeeklyTable weeklyResult={sleepGoalObject.scores.days_of_the_week} />
         <EditSleepGoal
           currentGoal={sleepDuration}
-          currentBedtime={bedtimeDate}
+          currentBedtime={bedtime}
           bedtimeString={bedtimeString}
+          timeStringToDate={timeStringToDate}
           updateBedtime={setBedtime}
           updateSleep={setSleepDuration}
           minutesToHours={minutesToHours}
