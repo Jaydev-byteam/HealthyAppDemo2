@@ -22,15 +22,27 @@ import { getStepsGoal, getStepsScores} from "../../database/FirebaseGet";
 
 export default function StepsScreen() {
 
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  const isDataLoaded = () => {
+    if(!dataLoaded) {
+      setDataLoaded(true);
+    }
+  }
+
   const [stepsGoal, setStepsGoal] = useState(stepsGoalObject.goals.dailyStepGoal);
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
   // const successWeek = stepsGoalObject.scores.days_of_the_week;
 
   useEffect(() => {
-    getStepsGoal(stepsGoalObject);
-    getStepsScores(stepsGoalObject);
-  }, [])
+    (async () => {
+      await getStepsGoal();
+      await getStepsScores();
+      isDataLoaded();
+    })();
+
+  }, [dataLoaded])
 
   console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject)
   return (
