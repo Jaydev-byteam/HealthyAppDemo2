@@ -1,5 +1,3 @@
-
-
 // helper function to convert minutes to H:MM format
 export const minutesToHours = minutes => {
   // define two text variables to be concatenated into a time string
@@ -22,6 +20,10 @@ export const minutesToHours = minutes => {
 // helper function to convert bedtime date object to HH:MM AM/PM string
 export const bedtimeString = bedtimeDate => {
   // define hours and minutes
+  console.log(
+    'In bedtimeString, date inputted to the function is:',
+    bedtimeDate,
+  );
   let hours = bedtimeDate.getHours();
   let minutes = bedtimeDate.getMinutes();
   let minText = '';
@@ -54,4 +56,4 @@ export const timeStringToDate = timeString => {
   }
   newDate.setHours(hours, minutes);
   return newDate;
-}
+};
