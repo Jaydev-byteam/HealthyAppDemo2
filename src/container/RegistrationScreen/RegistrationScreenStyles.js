@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#550096',
+    backgroundColor: styleConstants.background_color,
   },
 
   logo: {
@@ -18,28 +19,14 @@ export default StyleSheet.create({
     height: 48,
     borderRadius: 5,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: styleConstants.input_background,
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 30,
     marginRight: 30,
     paddingLeft: 16
   },
-  button: {
-    backgroundColor: '#788eec',
-    marginLeft: 30,
-    marginRight: 30,
-    marginTop: 20,
-    height: 48,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: 'center'
-  },
-  buttonTitle: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: "bold"
-  },
+
   footerView: {
     flex: 1,
     alignItems: 'center',
@@ -47,11 +34,11 @@ export default StyleSheet.create({
   },
   footerText: {
     fontSize: 16,
-    color: '#b690d4',
+    color: styleConstants.subhead_text,
     fontWeight: 'bold'
   },
   footerLink: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontWeight: 'bold',
     fontSize: 16,
   },
@@ -63,13 +50,13 @@ export default StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
   },
-  green: {
-    color: 'seagreen',
+  success: {
+    color: styleConstants.success_color,
     fontSize: 14,
     marginBottom: 10,
   },
-  red: {
-    color: 'orangered',
+  error: {
+    color: styleConstants.error_color,
     fontSize: 14
   },
 })

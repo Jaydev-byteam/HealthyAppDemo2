@@ -1,12 +1,9 @@
 import * as React from 'react';
-import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // import components
 import HomeScreen from '../HomeScreen/HomeScreen';
-import PageTitle from '../../components/PageTitle/PageTitle';
 import GoalsScreenNav from '../GoalsScreenNav/GoalsScreenNav';
 
 export default function HomeTabNavigator(props) {

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   table: {
@@ -7,7 +8,7 @@ export default StyleSheet.create({
   column: {
     width: 50,
     borderWidth: 1,
-    borderColor: '#b690d4',
+    borderColor: styleConstants.table_border,
   },
   cell: {
     display: 'flex',
@@ -15,12 +16,12 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontWeight: 'bold',
     fontSize: 16,
   },
   checkmark: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontWeight: 'bold',
     fontSize: 16,
     marginVertical: 15,

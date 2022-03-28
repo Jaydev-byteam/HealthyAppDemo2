@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   button: {
-    backgroundColor: '#998896',
+    backgroundColor: styleConstants.button_background,
     marginLeft: 60,
     marginRight: 60,
     marginTop: 20,
@@ -12,7 +13,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   buttonTitle: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontSize: 18,
     fontWeight: 'bold',
   },

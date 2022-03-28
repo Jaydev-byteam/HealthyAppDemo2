@@ -1,21 +1,22 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#550096',
+    backgroundColor: styleConstants.background_color,
   },
 
   goalAmount: {
-    color: '#b690d4',
+    color: styleConstants.subhead_text,
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 18,
     marginBottom: 6,
   },
   dailySteps: {
-    color: 'white',
+    color: styleConstants.light_text,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 14,
@@ -27,7 +28,6 @@ export default StyleSheet.create({
     height: 200,
     width: 200,
     marginVertical: 20,
-    // backgroundColor: 'yellow'
   },
   progress: {
     height: 160,
@@ -39,7 +39,6 @@ export default StyleSheet.create({
     width: 120,
     height: 120,
     marginTop: 20,
-    // marginLeft: 20,
     borderRadius: 60,
     resizeMode: 'contain',
   },

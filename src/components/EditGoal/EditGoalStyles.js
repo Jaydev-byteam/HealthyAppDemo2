@@ -1,13 +1,14 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#550096',
+    backgroundColor: styleConstants.background_color,
   },
   title: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontWeight: 'bold',
     fontSize: 16,
     marginVertical: 20,
@@ -20,10 +21,10 @@ export default StyleSheet.create({
     backgroundColor: 'none',
   },
   button: {
-    backgroundColor: '#550096',
+    backgroundColor: styleConstants.background_color,
   },
   note: {
-    color: 'white',
+    color: styleConstants.light_text,
     fontWeight: 'bold',
     fontSize: 16,
   },

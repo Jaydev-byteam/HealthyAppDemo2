@@ -1,42 +1,57 @@
 import {fstore, fire_auth} from './FirebaseDefault';
-import {EmptyStepsGoalObject} from '../_constants/EmptyObjectConstants';
+import {stepsGoalObject, userObject} from '../_constants/EmptyObjectConstants';
 
-export const getStepsGoal = setStepsGoal => {
-  let userID = fire_auth.currentUser.uid;
-  const stepGoalDoc = fstore
+import logError from 'react-native/Libraries/Utilities/logError';
+
+export const getStepsGoal = async () => {
+  await fstore
     .collection('users')
-    .doc(userID)
+    .doc(fire_auth.currentUser.uid)
     .collection('goals')
-    .doc('steps');
-  stepGoalDoc.onSnapshot(docSnapshot => {
-    if (docSnapshot.exists) {
-      console.log('in getStepsGoal, doc data is:', docSnapshot.data());
-      setStepsGoal(docSnapshot.data().dailyStepGoal);
-    }
-    err => {
-      console.log('Error in getting steps goal from Firestore database:', err);
-    };
-  });
+    .doc('steps')
+    .get()
+    .then(docSnapshot => {
+      if (docSnapshot.exists) {
+        console.log('in getStepsGoal, doc data is:', docSnapshot.data());
+        stepsGoalObject.goals = docSnapshot.data();
+      }
+    })
+    .catch(error => {
+      logError(error.stack);
+    });
 };
 
-export const getStepsScores = setStepScores => {
-  let userID = fire_auth.currentUser.uid;
-  const stepScoreDoc = fstore
+export const getStepsScores = async () => {
+  await fstore
     .collection('users')
-    .doc(userID)
+    .doc(fire_auth.currentUser.uid)
     .collection('scores')
-    .doc('steps');
-  let stepScoreObj = EmptyStepsGoalObject;
-  stepScoreDoc.onSnapshot(docSnapshot => {
-    if (docSnapshot.exists) {
-      stepScoreObj = docSnapshot.data();
-      setStepScores(stepScoreObj);
-    }
-    err => {
-      console.log(
-        'Error in getting steps scores from Firestore database:',
-        err,
-      );
-    };
-  });
+    .doc('steps')
+    .get()
+    .then(docSnapshot => {
+      if (docSnapshot.exists) {
+        console.log('in getStepsScores, doc data is:', docSnapshot.data());
+        stepsGoalObject.scores = docSnapshot.data();
+      }
+    })
+    .catch(error => {
+      logError(error.stack);
+    });
+};
+
+export const getUserNickname = async () => {
+  await fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .get()
+    .then(doc => {
+      if (doc !== null && doc.exists) {
+        console.log('in getUserNickname, doc data nickname is:', doc.data().nickname);
+        userObject.nickname= doc.data().nickname;
+        console.log('in getUserNickname, userObject is:', userObject.nickname);
+      }
+    })
+    .catch(e => {
+      logError('error getting user nickname', e.stack);
+    });
 };

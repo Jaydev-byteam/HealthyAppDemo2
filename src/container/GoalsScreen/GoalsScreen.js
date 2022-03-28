@@ -7,17 +7,31 @@ import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import {fire_auth, fstore} from '../../database/FirebaseDefault';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
-import {EmptyStepsGoalObject} from '../../_constants/EmptyObjectConstants';
+import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 
 export default function GoalsScreenMain({navigation}) {
-  // set state variables for the goals and data for steps and sleep
-  const [stepsGoal, setStepsGoal] = useState(0);
-  const [stepsScores, setStepsScores] = useState(EmptyStepsGoalObject);
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  const navigateToPage = pageRoute => {
+    navigation.navigate(pageRoute);
+  };
+
+  const isDataLoaded = () => {
+    if(!dataLoaded) {
+      setDataLoaded(true);
+    }
+  }
 
   useEffect(() => {
-    getStepsGoal(setStepsGoal);
-    getStepsScores(setStepsScores);
-  }, []);
+    (async () => {
+      await getStepsGoal();
+      await getStepsScores();
+      isDataLoaded();
+      console.log('In useEffect, dataLoaded is:', dataLoaded );
+    })();
+
+  }, [dataLoaded]);
+
 
   return (
     <View style={styles.container}>
@@ -26,11 +40,10 @@ export default function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Steps'}
-          goalAmount={stepsGoal}
+          goalAmount={stepsGoalObject.goals.dailyStepGoal}
           goalUnit={'steps/day'}
-          goalProgress={stepsScores.score / 100}
-          navigation={navigation}
-          destination={'Steps'}
+          goalProgress={stepsGoalObject.scores.score / 100}
+          onPress={() => navigateToPage('Steps')}
         />
         <GoalCard
           image={images.sleepTime}
@@ -38,8 +51,7 @@ export default function GoalsScreenMain({navigation}) {
           goalAmount={'7.5'}
           goalUnit={'hours/day'}
           goalProgress={0.8}
-          navigation={navigation}
-          destination={'Sleep'}
+          onPress={() => navigateToPage('Sleep')}
         />
       </KeyboardAwareScrollView>
     </View>

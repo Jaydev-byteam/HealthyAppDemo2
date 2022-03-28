@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
   titleContainer: {
@@ -17,6 +18,6 @@ export default StyleSheet.create({
   titleText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: styleConstants.light_text,
   },
 });
