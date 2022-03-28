@@ -1,5 +1,5 @@
 import {fstore, fire_auth} from './FirebaseDefault';
-import { stepsGoalObject } from "../_constants/EmptyObjectConstants";
+import {stepsGoalObject, userObject} from '../_constants/EmptyObjectConstants';
 
 import logError from 'react-native/Libraries/Utilities/logError';
 
@@ -10,13 +10,13 @@ export const getStepsGoal = async () => {
     .collection('goals')
     .doc('steps')
     .get()
-    .then((docSnapshot) => {
+    .then(docSnapshot => {
       if (docSnapshot.exists) {
         console.log('in getStepsGoal, doc data is:', docSnapshot.data());
         stepsGoalObject.goals = docSnapshot.data();
       }
     })
-    .catch((error) => {
+    .catch(error => {
       logError(error.stack);
     });
 };
@@ -28,32 +28,30 @@ export const getStepsScores = async () => {
     .collection('scores')
     .doc('steps')
     .get()
-    .then((docSnapshot) => {
+    .then(docSnapshot => {
       if (docSnapshot.exists) {
         console.log('in getStepsScores, doc data is:', docSnapshot.data());
         stepsGoalObject.scores = docSnapshot.data();
       }
     })
-    .catch((error) => {
+    .catch(error => {
       logError(error.stack);
     });
 };
 
-export const getUserNickname = async changeHandler => {
-  try {
-    const userDoc = await fstore
-      .collection('users')
-      .doc(fire_auth.currentUser.uid)
-      .onSnapshot(doc => {
-        if (doc !== null && doc.exists) {
-          console.log('in getUserNickname, doc data is:', doc.data());
-          return 'nickname' in doc.data()
-            ? changeHandler(doc.data().nickname)
-            : changeHandler('');
-        }
-      });
-    return () => userDoc();
-  } catch (e) {
-    logError('error getting user nickname', e.stack);
-  }
+export const getUserNickname = async () => {
+  await fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .get()
+    .then(doc => {
+      if (doc !== null && doc.exists) {
+        console.log('in getUserNickname, doc data nickname is:', doc.data().nickname);
+        userObject.nickname= doc.data().nickname;
+        console.log('in getUserNickname, userObject is:', userObject.nickname);
+      }
+    })
+    .catch(e => {
+      logError('error getting user nickname', e.stack);
+    });
 };
