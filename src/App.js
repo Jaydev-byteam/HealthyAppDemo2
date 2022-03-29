@@ -1,34 +1,16 @@
-import {fstore, fire_auth} from './database/FirebaseDefault';
-import React, {useEffect, useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LoginScreen from './container/LoginScreen/LoginScreen';
-import RegistrationScreen from './container/RegistrationScreen/RegistrationScreen';
-import HomeTabNavigator from './container/HomeTabNavigator/HomeTabNavigator';
+import {fire_auth} from './database/FirebaseDefault';
+import React, {useEffect, useState, useRef} from 'react';
 import Router from './container/Router/Router';
+import {AppState} from 'react-native';
 import {MDHealthKitManager} from './_utilities/HealthKit';
-import BasicButton from "./components/BasicButton/BasicButton";
-
-const Stack = createNativeStackNavigator();
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import BasicButton from './components/BasicButton/BasicButton';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const appState = useRef(AppState.currentState);
 
-  useEffect(() => {
-    return fire_auth.onAuthStateChanged(onAuthStateChangedListener);
-  }, []);
   // handle user state change
   const onAuthStateChangedListener = user => {
     setIsSignedIn(!!user);
@@ -36,6 +18,23 @@ export default function App() {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    return fire_auth.onAuthStateChanged(onAuthStateChangedListener);
+  }, []);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (
+        appState.current.match(/inactive|background/) &&
+        nextAppState === 'active'
+      ) {
+        console.log('Healthy App has been activated');
+      }
+    });
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   if (loading) {
     return <></>;
@@ -45,7 +44,7 @@ export default function App() {
     <>
       <Router isSignedIn={isSignedIn} />
       <BasicButton
-        buttonText={"Allow Permissions"}
+        buttonText={'Allow Permissions'}
         onPressButton={() => MDHealthKitManager.requestAuthorization()}
       />
     </>

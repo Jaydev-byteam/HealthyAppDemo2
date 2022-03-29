@@ -1,14 +1,19 @@
-import {fire_auth, fstore } from "./FirebaseDefault";
+import {fire_auth, fstore} from './FirebaseDefault';
 
 export const updateCurrentSteps = value => {
+  // grab a timestamp
+  const timestamp = Date.now();
+  let isoTimestamp = timestamp.toISOString();
+  let unixTimestamp = Math.floor(timestamp / 1000);
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
-    .collection('scores')
-    .doc('steps')
+    .collection('current_day_steps')
+    .doc(isoTimestamp)
     .set(
       {
-        daily_steps: value,
+        unix_timestamp: unixTimestamp,
+        steps: value,
       },
       {merge: true},
     )

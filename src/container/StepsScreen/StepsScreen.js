@@ -13,7 +13,7 @@ import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
-import { completion, tenDayCompletion } from "../../_utilities/HealthKitSteps";
+import {completion, tenDayCompletion} from '../../_utilities/HealthKitSteps';
 
 // const weeklyAverageSteps = 3456;
 // const stepsGoal = 5000;
@@ -32,7 +32,6 @@ export default function StepsScreen() {
       setDataLoaded(true);
     }
   };
-
 
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
@@ -60,7 +59,8 @@ export default function StepsScreen() {
           Daily Steps: {stepsGoalObject.scores.daily_steps.toLocaleString()}
         </Text>
         <Text style={styles.dailySteps}>
-          Total Last 10 days: {stepsGoalObject.scores.ten_day_steps.toLocaleString()}
+          Total Last 10 days:{' '}
+          {stepsGoalObject.scores.ten_day_steps.toLocaleString()}
         </Text>
         <View style={styles.card}>
           <ProgressCircle
