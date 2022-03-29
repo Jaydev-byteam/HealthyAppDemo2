@@ -20,10 +20,7 @@ export default function EditSleepGoal({
   const [newBedtime, setNewBedtime] = useState(currentBedtime);
   // state variable to show bedtime picker
   const [showPicker, setShowPicker] = useState(false);
-  // const dummyBedtime = new Date();
-  // const today = new Date();
-  // dummyBedtime.setHours(22, 30);
-  // let dummyBedtimeString = bedtimeString(dummyBedtime);
+
   console.log('In EditSleepGoal, newBed string is: ', newBedtime);
   console.log('In EditSleepGoal, newBed object is: ', timeStringToDate(newBedtime));
 
