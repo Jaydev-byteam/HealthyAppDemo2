@@ -22,6 +22,9 @@ import { MDHealthKitManager } from "../../_utilities/HealthKit";
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [currentSteps, setCurrentSteps] = useState(0);
+  const [stepsGoal, setStepsGoal] = useState(
+    stepsGoalObject.goals.dailyStepGoal,
+  );
 
   const isDataLoaded = () => {
     if (!dataLoaded) {
@@ -53,9 +56,7 @@ export default function StepsScreen() {
     MDHealthKitManager.RNCurrentStepCount();
   }
 
-  const [stepsGoal, setStepsGoal] = useState(
-    stepsGoalObject.goals.dailyStepGoal,
-  );
+
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
   // const successWeek = stepsGoalObject.scores.days_of_the_week;
