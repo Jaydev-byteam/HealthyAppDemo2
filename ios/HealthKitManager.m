@@ -16,6 +16,6 @@
 RCT_EXTERN_METHOD(requestAuthorization)
 
 // export step method
-RCT_EXTERN_METHOD(RNCurrentStepCount)
+RCT_EXTERN_METHOD(RNCurrentStepCount: (RCTResponseSenderBlock)callback)
 
 @end

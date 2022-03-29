@@ -12,7 +12,8 @@ import {styleConstants} from '../../_constants/StyleConstants';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import BasicButton from '../../components/BasicButton/BasicButton';
-import { MDHealthKitManager } from "../../_utilities/HealthKit";
+import {MDHealthKitManager} from '../../_utilities/HealthKit';
+import {completion} from '../../_utilities/HealthKitSteps';
 
 // const weeklyAverageSteps = 3456;
 // const stepsGoal = 5000;
@@ -21,7 +22,7 @@ import { MDHealthKitManager } from "../../_utilities/HealthKit";
 
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [currentSteps, setCurrentSteps] = useState(0);
+  // const [currentSteps, setCurrentSteps] = useState(0);
   const [stepsGoal, setStepsGoal] = useState(
     stepsGoalObject.goals.dailyStepGoal,
   );
@@ -52,10 +53,9 @@ export default function StepsScreen() {
   //   // }
   // };
 
-  const updateHKSteps = () => {
-    MDHealthKitManager.RNCurrentStepCount();
-  }
-
+  // const updateHKSteps = () => {
+  //   MDHealthKitManager.RNCurrentStepCount();
+  // }
 
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
@@ -64,6 +64,7 @@ export default function StepsScreen() {
   useEffect(() => {
     (async () => {
       await getStepsGoal();
+      await completion();
       await getStepsScores();
       isDataLoaded();
     })();
@@ -80,11 +81,11 @@ export default function StepsScreen() {
         <Text style={styles.dailySteps}>
           Daily Steps: {stepsGoalObject.scores.daily_steps.toLocaleString()}
         </Text>
-        <BasicButton
-          buttonText={'Get current steps from HK'}
-          onPressButton={updateHKSteps}
-        />
-        <Text style={styles.dailySteps}>Current Steps: {currentSteps}</Text>
+        {/*<BasicButton*/}
+        {/*  buttonText={'Get current steps from HK'}*/}
+        {/*  onPressButton={updateHKSteps}*/}
+        {/*/>*/}
+        {/*<Text style={styles.dailySteps}>Current Steps: {stepsGoalObject.sc}</Text>*/}
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}

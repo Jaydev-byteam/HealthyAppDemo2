@@ -1,0 +1,21 @@
+import {fire_auth, fstore } from "./FirebaseDefault";
+
+export const updateCurrentSteps = value => {
+  fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('scores')
+    .doc('steps')
+    .set(
+      {
+        daily_steps: value,
+      },
+      {merge: true},
+    )
+    .then(res => {
+      console.log('Firestore updated with current step data value: ', value);
+    })
+    .catch(err => {
+      console.error(`Error updating current steps ${err}`);
+    });
+};

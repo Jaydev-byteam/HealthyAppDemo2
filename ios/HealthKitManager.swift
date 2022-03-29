@@ -44,7 +44,7 @@ class HealthKitManager: NSObject {
   @objc
   func getTenDaysBefore() -> Date {
     let userCalendar = Calendar.current
-    let tenDaysAgo = userCalendar.date(byAdding: .day, value: -10, to: Date())!
+    let tenDaysAgo = userCalendar.date(byAdding: .day, value: -10, to: getStartOfDay())!
     return tenDaysAgo
   }
  
@@ -53,35 +53,36 @@ class HealthKitManager: NSObject {
   
   
   
-//  @objc
-//  func RNCurrentStepCount(_ callback: @escaping RCTResponseSenderBlock) {
-//    let defaultValue: Int = 42
-//    DispatchQueue.main.async {
-//      let predicate = HKQuery.predicateForSamples(
-//        withStart: self.getStartOfDay(),
-//        end: self.getCurrentDay(),
-//        options:.strictStartDate)
-//      let query = HKStatisticsQuery(quantityType: self.stepType,
-//                                  quantitySamplePredicate: predicate,
-//                                  options: .cumulativeSum) { _, result, error in
-//        guard let result = result, let sum = result.sumQuantity() else {
-//          callback([defaultValue])
-//          print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
-//          return
-//        }
-//        let steps = sum.doubleValue(for: HKUnit.count())
-//        print("In RNCurrentStepCount with steps")
-//        callback([steps])
-//      }
-//        self.healthStore.execute(query)
-//    }
-//  }
-  
   @objc
-  func RNCurrentStepCount() {
-    print("Current date and time is \(getCurrentDay())")
-    print("Ten days ago is \(getTenDaysBefore())")
+  func RNCurrentStepCount(_ completion: @escaping RCTResponseSenderBlock) {
+    DispatchQueue.main.async {
+      let predicate = HKQuery.predicateForSamples(
+        withStart: self.getStartOfDay(),
+        end: self.getCurrentDay(),
+        options:.strictStartDate)
+      let query = HKStatisticsQuery(quantityType: self.stepType,
+                                  quantitySamplePredicate: predicate,
+                                  options: .cumulativeSum) { _, result, error in
+        guard let result = result, let sum = result.sumQuantity() else {
+          completion([])
+          print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
+          return
+        }
+        let steps = sum.doubleValue(for: HKUnit.count())
+        print("In RNCurrentStepCount with steps: \(steps)")
+        completion([steps])
+      }
+        self.healthStore.execute(query)
+    }
   }
+  
+//  @objc
+//  func RNCurrentStepCount() {
+//    print("Current date and time is \(getCurrentDay())")
+//    print("Start of current date is \(getStartOfDay())")
+//    let defaultValue: Int = 42
+//
+//  }
     
   @objc
   static func requiresMainQueueSetup() -> Bool {
