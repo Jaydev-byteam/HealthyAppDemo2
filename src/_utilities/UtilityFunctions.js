@@ -1,5 +1,3 @@
-
-
 // helper function to convert minutes to H:MM format
 export const minutesToHours = minutes => {
   // define two text variables to be concatenated into a time string
@@ -22,6 +20,10 @@ export const minutesToHours = minutes => {
 // helper function to convert bedtime date object to HH:MM AM/PM string
 export const bedtimeString = bedtimeDate => {
   // define hours and minutes
+  console.log(
+    'In bedtimeString, date inputted to the function is:',
+    bedtimeDate,
+  );
   let hours = bedtimeDate.getHours();
   let minutes = bedtimeDate.getMinutes();
   let minText = '';
@@ -38,4 +40,20 @@ export const bedtimeString = bedtimeDate => {
     minText = minutes.toString();
   }
   return hours.toString() + ':' + minText + ' ' + ampm;
+};
+
+// helper function to convert bedtime string into a date object usable by the RNDatePicker
+
+export const timeStringToDate = timeString => {
+  // break the string into the components of hours, minutes, and AM/PM string
+  let timeArray = timeString.split(' ');
+  let hoursMinutes = timeArray[0].split(':');
+  let hours = parseInt(hoursMinutes[0]);
+  let minutes = parseInt(hoursMinutes[1]);
+  let newDate = new Date();
+  if (timeArray[1] === 'PM') {
+    hours += 12;
+  }
+  newDate.setHours(hours, minutes);
+  return newDate;
 };

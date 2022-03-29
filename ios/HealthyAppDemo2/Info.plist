@@ -39,10 +39,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Healthy App would like to access your step count.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Healthy App would like to access your step count.</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -12,19 +12,17 @@ export default function EditSleepGoal({
   updateSleep,
   updateBedtime,
   bedtimeString,
+  timeStringToDate,
   minutesToHours,
 }) {
   // initialize state variables for new goal bedtime and sleep duration
   const [newGoal, setNewGoal] = useState(currentGoal);
-  const [newBed, setNewBed] = useState(currentBedtime);
+  const [newBedtime, setNewBedtime] = useState(currentBedtime);
   // state variable to show bedtime picker
   const [showPicker, setShowPicker] = useState(false);
-  // const dummyBedtime = new Date();
-  // const today = new Date();
-  // dummyBedtime.setHours(22, 30);
-  // let dummyBedtimeString = bedtimeString(dummyBedtime);
-  console.log('newBed string is: ', bedtimeString(newBed));
-  console.log('Dummy bedtime object is: ', newBed);
+
+  console.log('In EditSleepGoal, newBed string is: ', newBedtime);
+  console.log('In EditSleepGoal, newBed object is: ', timeStringToDate(newBedtime));
 
   const addToGoal = () => {
     if (newGoal + 15 <= 720) {
@@ -43,8 +41,8 @@ export default function EditSleepGoal({
 
   const bedtimePress = () => {
     if (showPicker) {
-      console.log('In bedtime press, newBed is: ', newBed);
-      updateBedtime(newBed);
+      console.log('In bedtime press, newBed is: ', newBedtime);
+      updateBedtime(newBedtime);
     }
     setShowPicker(!showPicker);
   }
@@ -57,7 +55,7 @@ export default function EditSleepGoal({
   return (
     <View style={styles.container}>
       <Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>
-      <Text style={styles.bedtime}>{bedtimeString(currentBedtime)}</Text>
+      <Text style={styles.bedtime}>{currentBedtime}</Text>
 
       <BasicButton
         buttonText={showPicker ? 'Save New Bedtime' : 'Change Bedtime'}
@@ -67,11 +65,11 @@ export default function EditSleepGoal({
       {showPicker && (
         <View style={styles.timePicker}>
           <RNDateTimePicker
-            value={newBed}
+            value={timeStringToDate(newBedtime)}
             mode="time"
             display="spinner"
             minuteInterval={15}
-            onChange={(event, value) => setNewBed(value)}
+            onChange={(event, value) => setNewBedtime(bedtimeString(value))}
             style={styles.datePicker}
           />
         </View>
