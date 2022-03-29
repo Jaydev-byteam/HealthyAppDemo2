@@ -42,6 +42,7 @@ export default function GoalsScreenMain({navigation}) {
     })();
   }, [dataLoaded]);
 
+  console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject );
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

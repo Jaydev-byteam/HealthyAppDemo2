@@ -19,3 +19,23 @@ export const updateCurrentSteps = value => {
       console.error(`Error updating current steps ${err}`);
     });
 };
+
+export const tenDaySteps = value => {
+  fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('scores')
+    .doc('steps')
+    .set(
+      {
+        ten_day_steps: value,
+      },
+      {merge: true},
+    )
+    .then(res => {
+      console.log('Firestore updated with ten-day step data value: ', value);
+    })
+    .catch(err => {
+      console.error(`Error updating ten-day steps ${err}`);
+    });
+};

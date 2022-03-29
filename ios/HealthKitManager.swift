@@ -76,6 +76,29 @@ class HealthKitManager: NSObject {
     }
   }
   
+  @objc
+  func RNTenDayStepCount(_ tenDayCompletion: @escaping RCTResponseSenderBlock) {
+    DispatchQueue.main.async {
+      let predicate = HKQuery.predicateForSamples(
+        withStart: self.getTenDaysBefore(),
+        end: self.getCurrentDay(),
+        options:.strictStartDate)
+      let query = HKStatisticsQuery(quantityType: self.stepType,
+                                  quantitySamplePredicate: predicate,
+                                  options: .cumulativeSum) { _, result, error in
+        guard let result = result, let sum = result.sumQuantity() else {
+          tenDayCompletion([])
+          print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
+          return
+        }
+        let steps = sum.doubleValue(for: HKUnit.count())
+        print("In RNTenDayStepCount with steps: \(steps)")
+        tenDayCompletion([steps])
+      }
+        self.healthStore.execute(query)
+    }
+  }
+  
 //  @objc
 //  func RNCurrentStepCount() {
 //    print("Current date and time is \(getCurrentDay())")

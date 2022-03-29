@@ -13,7 +13,7 @@ import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
-import {completion} from '../../_utilities/HealthKitSteps';
+import { completion, tenDayCompletion } from "../../_utilities/HealthKitSteps";
 
 // const weeklyAverageSteps = 3456;
 // const stepsGoal = 5000;
@@ -33,29 +33,6 @@ export default function StepsScreen() {
     }
   };
 
-  // const updateHKSteps = () => {
-  //   // if (Platform.OS === 'ios') {
-  //   // current daily step count functions
-  //   (async () => {
-  //     await MDHealthKitManager.RNCurrentStepCount(
-  //       async value => {
-  //         if (value === null || value === undefined || isNaN(value)) {
-  //           await setCurrentSteps(0);
-  //         }
-  //         if (!isNaN(value)) {
-  //           await setCurrentSteps(value);
-  //         } else {
-  //           await setCurrentSteps(0);
-  //         }
-  //       },
-  //     );
-  //   })();
-  //   // }
-  // };
-
-  // const updateHKSteps = () => {
-  //   MDHealthKitManager.RNCurrentStepCount();
-  // }
 
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
@@ -65,6 +42,7 @@ export default function StepsScreen() {
     (async () => {
       await getStepsGoal();
       await completion();
+      await tenDayCompletion();
       await getStepsScores();
       isDataLoaded();
     })();
@@ -81,11 +59,9 @@ export default function StepsScreen() {
         <Text style={styles.dailySteps}>
           Daily Steps: {stepsGoalObject.scores.daily_steps.toLocaleString()}
         </Text>
-        {/*<BasicButton*/}
-        {/*  buttonText={'Get current steps from HK'}*/}
-        {/*  onPressButton={updateHKSteps}*/}
-        {/*/>*/}
-        {/*<Text style={styles.dailySteps}>Current Steps: {stepsGoalObject.sc}</Text>*/}
+        <Text style={styles.dailySteps}>
+          Total Last 10 days: {stepsGoalObject.scores.ten_day_steps.toLocaleString()}
+        </Text>
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}

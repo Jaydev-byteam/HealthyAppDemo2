@@ -1,6 +1,6 @@
 import {MDHealthKitManager} from './HealthKit';
 import {Platform} from 'react-native';
-import {updateCurrentSteps} from '../database/FirebaseWrite';
+import {updateCurrentSteps, tenDaySteps} from '../database/FirebaseWrite';
 
 export const completion = () => {
   if (Platform.OS === 'ios') {
@@ -19,3 +19,22 @@ export const completion = () => {
     })();
   }
 };
+
+export const tenDayCompletion = () => {
+  if (Platform.OS === 'ios') {
+    // current daily step count functions
+    (async () => {
+      await MDHealthKitManager.RNTenDayStepCount(async value => {
+        if (value === null || value === undefined || isNaN(value)) {
+          await tenDaySteps(0);
+        }
+        if (!isNaN(value)) {
+          await tenDaySteps(value);
+        } else {
+          await tenDaySteps(0);
+        }
+      });
+    })();
+  }
+
+}
