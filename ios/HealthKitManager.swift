@@ -54,7 +54,7 @@ class HealthKitManager: NSObject {
   
   
   @objc
-  func RNCurrentStepCount(_ completion: @escaping RCTResponseSenderBlock) {
+  func RNCurrentStepCount(_ getHKCurrDaySteps: @escaping RCTResponseSenderBlock) {
     DispatchQueue.main.async {
       let predicate = HKQuery.predicateForSamples(
         withStart: self.getStartOfDay(),
@@ -64,20 +64,20 @@ class HealthKitManager: NSObject {
                                   quantitySamplePredicate: predicate,
                                   options: .cumulativeSum) { _, result, error in
         guard let result = result, let sum = result.sumQuantity() else {
-          completion([])
+          getHKCurrDaySteps([])
           print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
           return
         }
         let steps = sum.doubleValue(for: HKUnit.count())
         print("In RNCurrentStepCount with steps: \(steps)")
-        completion([steps])
+        getHKCurrDaySteps([steps])
       }
         self.healthStore.execute(query)
     }
   }
   
   @objc
-  func RNTenDayStepCount(_ tenDayCompletion: @escaping RCTResponseSenderBlock) {
+  func RNTenDayStepCount(_ getHKTenDayTotSteps: @escaping RCTResponseSenderBlock) {
     DispatchQueue.main.async {
       let predicate = HKQuery.predicateForSamples(
         withStart: self.getTenDaysBefore(),
@@ -87,13 +87,13 @@ class HealthKitManager: NSObject {
                                   quantitySamplePredicate: predicate,
                                   options: .cumulativeSum) { _, result, error in
         guard let result = result, let sum = result.sumQuantity() else {
-          tenDayCompletion([])
+          getHKTenDayTotSteps([])
           print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
           return
         }
         let steps = sum.doubleValue(for: HKUnit.count())
         print("In RNTenDayStepCount with steps: \(steps)")
-        tenDayCompletion([steps])
+        getHKTenDayTotSteps([steps])
       }
         self.healthStore.execute(query)
     }

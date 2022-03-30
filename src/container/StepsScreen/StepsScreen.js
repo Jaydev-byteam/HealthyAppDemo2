@@ -13,7 +13,7 @@ import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
-import {completion, tenDayCompletion} from '../../_utilities/HealthKitSteps';
+import {getHKCurrDaySteps, getHKTenDayTotSteps} from '../../_utilities/HealthKitSteps';
 
 // const weeklyAverageSteps = 3456;
 // const stepsGoal = 5000;
@@ -46,8 +46,8 @@ export default function StepsScreen() {
   }, [dataLoaded]);
 
   useEffect(() => {
-    completion();
-    tenDayCompletion();
+    getHKCurrDaySteps();
+    getHKTenDayTotSteps();
   }, []);
 
 
