@@ -1,8 +1,13 @@
 import {fire_auth, fstore} from './FirebaseDefault';
+import dayjs from "dayjs";
+
+export const unixTimeStamp = () => dayjs().unix(); // seconds
+export const unixTimeStampMilliseconds = () => dayjs().valueOf(); // milliseconds for backend
+export const timeStampISO = () => dayjs().format();
 
 export const updateCurrentSteps = value => {
   // grab a timestamp
-  const timestamp = new Date();
+  const timestamp = dayjs();
   console.log('Date object:', timestamp);
   let isoTimestamp = timestamp.toISOString();
   let unixTimestamp = Math.floor(timestamp.getTime() / 1000);

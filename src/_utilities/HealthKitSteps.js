@@ -1,9 +1,7 @@
 import {MDHealthKitManager} from './HealthKit';
-import {Platform} from 'react-native';
 import {updateCurrentSteps, tenDaySteps} from '../database/FirebaseWrite';
 
 export const completion = () => {
-  if (Platform.OS === 'ios') {
     // current daily step count functions
     (async () => {
       await MDHealthKitManager.RNCurrentStepCount(async value => {
@@ -17,7 +15,6 @@ export const completion = () => {
         }
       });
     })();
-  }
 };
 
 export const tenDayCompletion = () => {
