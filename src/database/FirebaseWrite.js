@@ -4,7 +4,6 @@ export const updateCurrentSteps = value => {
   // grab a timestamp
   const timestamp = new Date();
   console.log('Date object:', timestamp);
-  console.log();
   let isoTimestamp = timestamp.toISOString();
   let unixTimestamp = Math.floor(timestamp.getTime() / 1000);
   fstore
@@ -28,14 +27,20 @@ export const updateCurrentSteps = value => {
 };
 
 export const tenDaySteps = value => {
+  // grab a timestamp
+  const timestamp = new Date();
+  console.log('Date object:', timestamp);
+  let isoTimestamp = timestamp.toISOString();
+  let unixTimestamp = Math.floor(timestamp.getTime() / 1000);
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
-    .collection('scores')
-    .doc('steps')
+    .collection('ten_day_steps')
+    .doc(isoTimestamp)
     .set(
       {
-        ten_day_steps: value,
+        unix_timestamp: unixTimestamp,
+        steps: value,
       },
       {merge: true},
     )

@@ -40,12 +40,16 @@ export default function StepsScreen() {
   useEffect(() => {
     (async () => {
       await getStepsGoal();
-      await completion();
-      await tenDayCompletion();
       await getStepsScores();
       isDataLoaded();
     })();
   }, [dataLoaded]);
+
+  useEffect(() => {
+    completion();
+    tenDayCompletion();
+  }, []);
+
 
   console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
   return (
