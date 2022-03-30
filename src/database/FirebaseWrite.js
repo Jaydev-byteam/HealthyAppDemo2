@@ -2,9 +2,11 @@ import {fire_auth, fstore} from './FirebaseDefault';
 
 export const updateCurrentSteps = value => {
   // grab a timestamp
-  const timestamp = Date.now();
+  const timestamp = new Date();
+  console.log('Date object:', timestamp);
+  console.log();
   let isoTimestamp = timestamp.toISOString();
-  let unixTimestamp = Math.floor(timestamp / 1000);
+  let unixTimestamp = Math.floor(timestamp.getTime() / 1000);
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
