@@ -99,13 +99,32 @@ class HealthKitManager: NSObject {
     }
   }
   
-//  @objc
-//  func RNCurrentStepCount() {
-//    print("Current date and time is \(getCurrentDay())")
-//    print("Start of current date is \(getStartOfDay())")
-//    let defaultValue: Int = 42
-//
-//  }
+  // Fetch 10 days of step data from Health kit
+  func fetchDailyStepCount(_ tenDayCompletion: @escaping RCTResponseSenderBlock) {
+    let predicate = HKQuery.predicateForSamples(
+      withStart: getTenDaysBefore(),
+      end: getCurrentDay(),
+      options:.strictStartDate)
+    var stepsHolder = [String]()
+    let query = HKStatisticsCollectionQuery(quantityType: stepType,
+                                            quantitySamplePredicate: predicate,
+                                            options: [.cumulativeSum, .separateBySource],
+                                            anchorDate: getStartOfDay(),
+                                            intervalComponents: DateComponents(day: 1))
+    query.initialResultsHandler = { query, results, error in
+      guard let statsCollection = results else {
+        // Perform proper error handling here...
+        return
+      }
+      for source in (statsCollection.sources()) {
+        results?.enumerateStatistics(from: self.getTenDaysBefore(), to: self.getCurrentDay(), with: { (result, _) in
+          stepsHolder.append("\(result.startDate) = \(result.sumQuantity(for: source)?.doubleValue(for: HKUnit.count()) ?? 0)")
+        })
+      }
+        tenDayCompletion([stepsHolder])
+    }
+    healthStore.execute(query)
+  }
     
   @objc
   static func requiresMainQueueSetup() -> Bool {
