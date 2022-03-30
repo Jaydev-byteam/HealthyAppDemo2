@@ -2,8 +2,7 @@ import {fire_auth} from './database/FirebaseDefault';
 import React, {useEffect, useState, useRef} from 'react';
 import Router from './container/Router/Router';
 import {AppState} from 'react-native';
-import {MDHealthKitManager} from './_utilities/HealthKit';
-import BasicButton from './components/BasicButton/BasicButton';
+
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -43,10 +42,6 @@ export default function App() {
   return (
     <>
       <Router isSignedIn={isSignedIn} />
-      <BasicButton
-        buttonText={'Allow Permissions'}
-        onPressButton={() => MDHealthKitManager.requestAuthorization()}
-      />
     </>
   );
 }

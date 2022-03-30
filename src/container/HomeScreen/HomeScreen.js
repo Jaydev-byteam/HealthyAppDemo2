@@ -6,6 +6,7 @@ import {getUserNickname} from '../../database/FirebaseGet';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {userObject} from '../../_constants/EmptyObjectConstants';
 
+
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
