@@ -6,6 +6,7 @@ import {getUserNickname} from '../../database/FirebaseGet';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {userObject} from '../../_constants/EmptyObjectConstants';
 import {AppState} from 'react-native';
+import {getHKCurrDaySteps, getHKTenDayTotSteps} from "../../_utilities/HealthKitSteps";
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -26,6 +27,8 @@ export default function HomeScreen(props) {
     ) {
       console.log('Healthy App has come to the foreground!');
       try {
+        getHKCurrDaySteps();
+        getHKTenDayTotSteps();
       } catch (e) {
         logError('error: ', e.stack);
       }
