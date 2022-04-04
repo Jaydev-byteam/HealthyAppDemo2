@@ -6,14 +6,14 @@ export const getHKCurrDaySteps = () => {
   (async () => {
     await MDHealthKitManager.RNCurrentStepCount(async value => {
       if (value === null || value === undefined || isNaN(value)) {
-        // await updateCurrentSteps(0);
+        await updateCurrentSteps(0);
         console.log('In getHKCDS, value was falsy');
       }
       if (!isNaN(value)) {
-        // await updateCurrentSteps(value);
+        await updateCurrentSteps(value);
         console.log('In getHKCDS, data passed is:', value);
       } else {
-        // await updateCurrentSteps(0);
+        await updateCurrentSteps(0);
         console.log(('In getHKCDS else block.'));
       }
     });
