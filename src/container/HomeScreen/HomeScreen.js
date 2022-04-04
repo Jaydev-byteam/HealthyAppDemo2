@@ -55,7 +55,7 @@ export default function HomeScreen(props) {
   }, []);
   useEffect(() => {
     (async () => {
-      getUserNickname();
+      await getUserNickname();
       isDataLoaded();
     })();
   }, [dataLoaded]);
