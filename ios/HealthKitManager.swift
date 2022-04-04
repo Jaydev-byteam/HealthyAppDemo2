@@ -50,9 +50,7 @@ class HealthKitManager: NSObject {
  
   let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
   
-  
-  
-  
+  // function to grab the current day step total and pass to React Native app
   @objc
   func RNCurrentStepCount(_ getHKCurrDaySteps: @escaping RCTResponseSenderBlock) {
     DispatchQueue.main.async {
@@ -76,35 +74,13 @@ class HealthKitManager: NSObject {
     }
   }
   
+  // function to grab array of last ten days step counts and pass to React Native app
   @objc
   func RNTenDayStepCount(_ getHKTenDayTotSteps: @escaping RCTResponseSenderBlock) {
-    DispatchQueue.main.async {
-      let predicate = HKQuery.predicateForSamples(
-        withStart: self.getTenDaysBefore(),
-        end: self.getCurrentDay(),
-        options:.strictStartDate)
-      let query = HKStatisticsQuery(quantityType: self.stepType,
-                                  quantitySamplePredicate: predicate,
-                                  options: .cumulativeSum) { _, result, error in
-        guard let result = result, let sum = result.sumQuantity() else {
-          getHKTenDayTotSteps([])
-          print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
-          return
-        }
-        let steps = sum.doubleValue(for: HKUnit.count())
-        print("In RNTenDayStepCount with steps: \(steps)")
-        getHKTenDayTotSteps([steps])
-      }
-        self.healthStore.execute(query)
-    }
-  }
-  
-  // Fetch 10 days of step data from Health kit
-  func fetchDailyStepCount(_ tenDayCompletion: @escaping RCTResponseSenderBlock) {
     let predicate = HKQuery.predicateForSamples(
       withStart: getTenDaysBefore(),
       end: getCurrentDay(),
-      options:.strictStartDate)
+      options: .strictStartDate)
     var stepsHolder = [String]()
     let query = HKStatisticsCollectionQuery(quantityType: stepType,
                                             quantitySamplePredicate: predicate,
@@ -114,17 +90,79 @@ class HealthKitManager: NSObject {
     query.initialResultsHandler = { query, results, error in
       guard let statsCollection = results else {
         // Perform proper error handling here...
+        getHKTenDayTotSteps([])
+        print("Error in fetching ten day step array with error:\(error?.localizedDescription ?? "UnknownError")")
         return
       }
+      dump(statsCollection)
       for source in (statsCollection.sources()) {
         results?.enumerateStatistics(from: self.getTenDaysBefore(), to: self.getCurrentDay(), with: { (result, _) in
           stepsHolder.append("\(result.startDate) = \(result.sumQuantity(for: source)?.doubleValue(for: HKUnit.count()) ?? 0)")
         })
       }
-        tenDayCompletion([stepsHolder])
+        print("in RNTenDayStepCount, stepsHolder is:")
+        print(stepsHolder)
+        getHKTenDayTotSteps([stepsHolder])
     }
     healthStore.execute(query)
   }
+  
+  
+//  @objc
+//  func RNTenDayStepCount(_ getHKTenDayTotSteps: @escaping RCTResponseSenderBlock) {
+//    DispatchQueue.main.async {
+//      let predicate = HKQuery.predicateForSamples(
+//        withStart: self.getTenDaysBefore(),
+//        end: self.getCurrentDay(),
+//        options:.strictStartDate)
+//      var stepsHolder = [String]()
+//      let query = HKStatisticsCollectionQuery(quantityType: self.stepType,
+//                                  quantitySamplePredicate: predicate,
+//                                              options: [.cumulativeSum, .separateBySource],
+//                                              anchorDate: self.getStartOfDay(),
+//                                              intervalComponents: DateComponents(day: 1))
+//      query.initialResultsHandler = { query, results, error in
+//        guard let statsCollection = results else {
+//          getHKTenDayTotSteps([])
+//          print("Error in fetching ten day step array with error:\(error?.localizedDescription ?? "UnknownError")")
+//          return
+//        }
+//        for source in (statsCollection.sources()) {
+//          results?.enumerateStatistics(from: self.getTenDaysBefore(), to: self.getCurrentDay(), with: { (result, _) in
+//            stepsHolder.append("\(result.startDate) = \(result.sumQuantity(for: source)?.doubleValue(for: HKUnit.count()) ?? 0)")
+//          })
+//        }
+//        getHKTenDayTotSteps([stepsHolder])
+//      }
+//      self.healthStore.execute(query)
+//    }
+//  }
+  
+  // Fetch 10 days of step data from Health kit
+  
+  
+//  @objc
+//    func RNTenDayStepCount(_ tenDayCompletion: @escaping RCTResponseSenderBlock) {
+//      DispatchQueue.main.async {
+//        let predicate = HKQuery.predicateForSamples(
+//          withStart: self.getTenDaysBefore(),
+//          end: self.getCurrentDay(),
+//          options:.strictStartDate)
+//        let query = HKStatisticsQuery(quantityType: self.stepType,
+//                                    quantitySamplePredicate: predicate,
+//                                    options: .cumulativeSum) { _, result, error in
+//          guard let result = result, let sum = result.sumQuantity() else {
+//            tenDayCompletion([])
+//            print("Error in fetching steps count with error:\(error?.localizedDescription ?? "UnknownError")")
+//            return
+//          }
+//          let steps = sum.doubleValue(for: HKUnit.count())
+//          print("In RNTenDayStepCount with steps: \(steps)")
+//          tenDayCompletion([steps])
+//        }
+//          self.healthStore.execute(query)
+//      }
+//    }
     
   @objc
   static func requiresMainQueueSetup() -> Bool {
