@@ -24,15 +24,15 @@ export const getHKTenDayTotSteps = () => {
   // current daily step count functions
   (async () => {
     await MDHealthKitManager.RNTenDayStepCount(async value => {
-      if (value === null || value === undefined || isNaN(value)) {
-        // await tenDaySteps(0);
+      if (value === null || value === undefined || Array.isArray(value) === false) {
+        await tenDaySteps(0);
         console.log('In getHKTDTS, value was falsy');
       }
-      if (!isNaN(value)) {
-        // await tenDaySteps(value);
+      if (Array.isArray(value)) {
+        await tenDaySteps(value);
         console.log('In getHKTDTS, data passed is:', value);
       } else {
-        // await tenDaySteps(0);
+        await tenDaySteps(0);
         console.log('In getHKTDTS else block');
       }
     });
