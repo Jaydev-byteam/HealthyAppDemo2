@@ -43,6 +43,26 @@ export const getStepsScores = async () => {
     });
 };
 
+export const getTodaysSteps = async () => {
+  fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('current_day_steps')
+    .orderBy('unix', 'desc')
+    .limit(1)
+    .get()
+    .then(docSnapshot => {
+      if (docSnapshot.exists) {
+        console.log('in getTodaysSteps, doc data is:', docSnapshot.data());
+      }
+    })
+    .catch(error => {
+      console.log('in getTodaysSteps catch block');
+      logError(error.stack);
+    });
+
+;}
+
 export const getSleepGoal = async () => {
   await fstore
     .collection('users')

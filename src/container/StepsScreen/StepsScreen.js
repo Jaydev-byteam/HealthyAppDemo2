@@ -10,7 +10,7 @@ import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditGoal from '../../components/EditGoal/EditGoal';
 import {styleConstants} from '../../_constants/StyleConstants';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
-import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
+import {getStepsGoal, getStepsScores, getTodaysSteps} from '../../database/FirebaseGet';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
 import {getHKCurrDaySteps, getHKTenDayTotSteps} from '../../_utilities/HealthKitSteps';
@@ -22,7 +22,7 @@ import {getHKCurrDaySteps, getHKTenDayTotSteps} from '../../_utilities/HealthKit
 
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
-  // const [currentSteps, setCurrentSteps] = useState(0);
+  const [currentSteps, setCurrentSteps] = useState(0);
   const [stepsGoal, setStepsGoal] = useState(
     stepsGoalObject.goals.dailyStepGoal,
   );
@@ -33,6 +33,10 @@ export default function StepsScreen() {
     }
   };
 
+  const updateCurrentSteps = (newSteps) => {
+    setCurrentSteps(newSteps);
+  }
+
   // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
   // const dailySteps = stepsGoalObject.scores.daily_steps;
   // const successWeek = stepsGoalObject.scores.days_of_the_week;
@@ -41,13 +45,26 @@ export default function StepsScreen() {
     (async () => {
       await getStepsGoal();
       await getStepsScores();
+      // await getTodaysSteps();
+      // await getHKCurrDaySteps();
+      // await getHKTenDayTotSteps()
       isDataLoaded();
     })();
   }, [dataLoaded]);
 
   useEffect(() => {
-    getHKCurrDaySteps();
-    getHKTenDayTotSteps();
+    (async () => {
+      await MDHealthKitManager.RNCurrentStepCount(async (value) => {
+        if (value === null || value === undefined || isNaN(value)) {
+          await updateCurrentSteps(0);
+        }
+        if (!isNaN(value)) {
+          await updateCurrentSteps(value);
+        } else {
+          await updateCurrentSteps(0);
+        }
+      });
+    })();
   }, []);
 
 
@@ -60,7 +77,7 @@ export default function StepsScreen() {
           Goal: {stepsGoalObject.goals.dailyStepGoal.toLocaleString()} steps/day
         </Text>
         <Text style={styles.dailySteps}>
-          Daily Steps: {stepsGoalObject.scores.daily_steps.toLocaleString()}
+          Daily Steps: {currentSteps}
         </Text>
         <Text style={styles.dailySteps}>
           Total Last 10 days:{' '}

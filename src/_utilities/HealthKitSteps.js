@@ -1,5 +1,6 @@
 import {MDHealthKitManager} from './HealthKit';
 import {updateCurrentSteps, tenDaySteps} from '../database/FirebaseWrite';
+import {stepsGoalObject} from "../_constants/EmptyObjectConstants";
 
 export const getHKCurrDaySteps = () => {
   // current daily step count functions
@@ -12,6 +13,7 @@ export const getHKCurrDaySteps = () => {
       if (!isNaN(value)) {
         await updateCurrentSteps(value);
         console.log('In getHKCDS, data passed is:', value);
+        stepsGoalObject.scores.daily_steps = value;
       } else {
         await updateCurrentSteps(0);
         console.log(('In getHKCDS else block.'));
