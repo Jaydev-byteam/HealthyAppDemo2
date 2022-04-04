@@ -10,15 +10,9 @@ import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditGoal from '../../components/EditGoal/EditGoal';
 import {styleConstants} from '../../_constants/StyleConstants';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
-import {getStepsGoal, getStepsScores, getTodaysSteps} from '../../database/FirebaseGet';
-import BasicButton from '../../components/BasicButton/BasicButton';
+import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
-import {getHKCurrDaySteps, getHKTenDayTotSteps} from '../../_utilities/HealthKitSteps';
 
-// const weeklyAverageSteps = 3456;
-// const stepsGoal = 5000;
-// const dailySteps = 3456;
-// const successWeek = [true, false, true, false, true, false, true];
 
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -37,17 +31,11 @@ export default function StepsScreen() {
     setCurrentSteps(newSteps);
   }
 
-  // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
-  // const dailySteps = stepsGoalObject.scores.daily_steps;
-  // const successWeek = stepsGoalObject.scores.days_of_the_week;
 
   useEffect(() => {
     (async () => {
       await getStepsGoal();
       await getStepsScores();
-      // await getTodaysSteps();
-      // await getHKCurrDaySteps();
-      // await getHKTenDayTotSteps()
       isDataLoaded();
     })();
   }, [dataLoaded]);
@@ -79,10 +67,10 @@ export default function StepsScreen() {
         <Text style={styles.dailySteps}>
           Daily Steps: {currentSteps}
         </Text>
-        <Text style={styles.dailySteps}>
-          Total Last 10 days:{' '}
-          {stepsGoalObject.scores.ten_day_steps.toLocaleString()}
-        </Text>
+        {/*<Text style={styles.dailySteps}>*/}
+        {/*  Total Last 10 days:{' '}*/}
+        {/*  {stepsGoalObject.scores.ten_day_steps.toLocaleString()}*/}
+        {/*</Text>*/}
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}
