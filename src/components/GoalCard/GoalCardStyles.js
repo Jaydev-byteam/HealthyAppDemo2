@@ -11,6 +11,12 @@ export default StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 30,
   },
+  stepCard: {
+    backgroundColor: styleConstants.card_primary,
+  },
+  sleepCard: {
+    backgroundColor: styleConstants.card_sleep,
+  },
   cardTitle: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -28,35 +34,50 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   cardInfo: {
-    position: 'absolute',
-    width: 160,
+    // position: 'absolute',
+    width: 150,
     left: 0,
-    bottom: 0,
+    bottom: 80,
     alignItems: 'center',
+
   },
-  goalTitle: {
-    color: styleConstants.light_text,
-    marginBottom: 0,
+  goalSubhead: {
+    marginBottom: 10,
     fontWeight: 'bold',
+  },
+  stepSubhead: {
+    color: styleConstants.subhead_text
+  },
+  sleepSubhead: {
+    color: styleConstants.sleep_subhead
   },
   goalAmount: {
-    color: styleConstants.subhead_text,
+    // color: styleConstants.dark_text,
     fontWeight: 'bold',
+    fontSize: 24,
+  },
+  sleepTextColor: {
+    color: styleConstants.light_text
+  },
+  stepTextColor: {
+    color: styleConstants.dark_text
   },
   progress: {
-    height: 120,
-    width: 120,
-    position: 'absolute',
-    top: 0,
+    flex: 1,
+    height: 130,
+    width: 130,
+    // position: 'absolute',
+    top: 16,
+    left: 8,
   },
-  stepCardTitle: {
-    width: '100%',
-    marginVertical: 20,
+  cardTitle: {
+    marginTop: 20,
     fontSize: 20,
+    fontWeight: '600',
     color: styleConstants.dark_text
   },
   sleepCardTitle: {
-    marginVertical: 20,
+    marginTop: 20,
     fontSize: 20,
     fontWeight: '600',
     color: styleConstants.light_text
@@ -64,12 +85,28 @@ export default StyleSheet.create({
   cardBody: {
     flex: 1,
     flexDirection: 'row',
+
   },
   cardSegment: {
     flex: 1,
-    backgroundColor: 'red',
-    marginHorizontal: 20,
-    height: 200,
-    width: 200,
-  }
+    // backgroundColor: 'red',
+    marginHorizontal: 10,
+    marginTop: 10,
+    marginBottom: 30,
+    justifyContent: "center",
+  },
+  cardSegmentRight: {
+    alignItems: "center"
+  },
+  cardDivider: {
+    height: '50%',
+    top: 40,
+    borderRightWidth: 2,
+  },
+  stepDivider: {
+    borderRightColor: styleConstants.step_divider,
+  },
+  sleepDivider: {
+    borderRightColor: styleConstants.progress_bg_alt,
+  },
 });

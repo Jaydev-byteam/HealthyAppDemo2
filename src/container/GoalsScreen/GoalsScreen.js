@@ -46,7 +46,7 @@ export default function GoalsScreenMain({navigation}) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName={'Goals Dashboard'} showIcon={false} />
+        <PageTitle pageName={'Goals Dashboard Test Test Test'} showIcon={false} />
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Step Goals'}
@@ -61,6 +61,7 @@ export default function GoalsScreenMain({navigation}) {
           goalAmount={minutesToHours(sleepGoalObject.goals.sleep_duration)}
           goalUnit={'hours/day'}
           goalProgress={sleepGoalObject.scores.score / 100}
+          bedtime={sleepGoalObject.goals.sleep_bedtime}
           onPress={() => navigateToPage('Sleep')}
         />
       </KeyboardAwareScrollView>
