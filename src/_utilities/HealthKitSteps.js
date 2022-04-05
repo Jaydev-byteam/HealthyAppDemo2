@@ -1,6 +1,6 @@
 import {MDHealthKitManager} from './HealthKit';
 import {updateCurrentSteps, tenDaySteps} from '../database/FirebaseWrite';
-import {stepsGoalObject} from "../_constants/EmptyObjectConstants";
+import {stepsGoalObject} from '../_constants/EmptyObjectConstants';
 
 export const getHKCurrDaySteps = () => {
   // current daily step count functions
@@ -16,7 +16,7 @@ export const getHKCurrDaySteps = () => {
         stepsGoalObject.scores.daily_steps = value;
       } else {
         await updateCurrentSteps(0);
-        console.log(('In getHKCDS else block.'));
+        console.log('In getHKCDS else block.');
       }
     });
   })();
@@ -26,7 +26,11 @@ export const getHKTenDayTotSteps = () => {
   // current daily step count functions
   (async () => {
     await MDHealthKitManager.RNTenDayStepCount(async value => {
-      if (value === null || value === undefined || Array.isArray(value) === false) {
+      if (
+        value === null ||
+        value === undefined ||
+        Array.isArray(value) === false
+      ) {
         await tenDaySteps(0);
         console.log('In getHKTDTS, value was falsy');
       }
