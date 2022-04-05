@@ -58,10 +58,13 @@ export default function StepsScreen() {
     <View style={styles.container}>
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Hit Daily Steps'} showIcon={false} />
-        <Text style={styles.goalAmount}>
-          Goal: {stepsGoalObject.goals.dailyStepGoal.toLocaleString()} steps/day
-        </Text>
-        <Text style={styles.dailySteps}>Daily Steps: {currentSteps}</Text>
+        <View style={styles.titleCard}>
+          <Text style={styles.goalAmount}>
+            Goal: {stepsGoalObject.goals.dailyStepGoal.toLocaleString()} steps/day
+          </Text>
+          <Text style={styles.dailySteps}>Daily Steps: {currentSteps}</Text>
+        </View>
+
         {/*<Text style={styles.dailySteps}>*/}
         {/*  Total Last 10 days:{' '}*/}
         {/*  {stepsGoalObject.scores.ten_day_steps.toLocaleString()}*/}

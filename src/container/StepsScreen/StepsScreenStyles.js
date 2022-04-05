@@ -4,8 +4,13 @@ import { styleConstants } from "../../_constants/StyleConstants";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: styleConstants.background_color,
+    backgroundColor: styleConstants.base_background,
+  },
+  titleCard: {
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: styleConstants.light_background,
+    justifyContent: "center",
   },
 
   goalAmount: {
