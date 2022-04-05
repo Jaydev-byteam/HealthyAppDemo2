@@ -11,13 +11,8 @@ import EditGoal from '../../components/EditGoal/EditGoal';
 import {styleConstants} from '../../_constants/StyleConstants';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
-import BasicButton from '../../components/BasicButton/BasicButton';
-import { MDHealthKitManager } from "../../_utilities/HealthKit";
+import {MDHealthKitManager} from '../../_utilities/HealthKit';
 
-// const weeklyAverageSteps = 3456;
-// const stepsGoal = 5000;
-// const dailySteps = 3456;
-// const successWeek = [true, false, true, false, true, false, true];
 
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -32,34 +27,10 @@ export default function StepsScreen() {
     }
   };
 
-  // const updateHKSteps = () => {
-  //   // if (Platform.OS === 'ios') {
-  //   // current daily step count functions
-  //   (async () => {
-  //     await MDHealthKitManager.RNCurrentStepCount(
-  //       async value => {
-  //         if (value === null || value === undefined || isNaN(value)) {
-  //           await setCurrentSteps(0);
-  //         }
-  //         if (!isNaN(value)) {
-  //           await setCurrentSteps(value);
-  //         } else {
-  //           await setCurrentSteps(0);
-  //         }
-  //       },
-  //     );
-  //   })();
-  //   // }
-  // };
-
-  const updateHKSteps = () => {
-    MDHealthKitManager.RNCurrentStepCount();
+  const updateCurrentSteps = (newSteps) => {
+    setCurrentSteps(newSteps);
   }
 
-
-  // const weeklyAverageSteps = stepsGoalObject.scores.average_steps;
-  // const dailySteps = stepsGoalObject.scores.daily_steps;
-  // const successWeek = stepsGoalObject.scores.days_of_the_week;
 
   useEffect(() => {
     (async () => {
@@ -68,6 +39,22 @@ export default function StepsScreen() {
       isDataLoaded();
     })();
   }, [dataLoaded]);
+
+  useEffect(() => {
+    (async () => {
+      await MDHealthKitManager.RNCurrentStepCount(async (value) => {
+        if (value === null || value === undefined || isNaN(value)) {
+          await updateCurrentSteps(0);
+        }
+        if (!isNaN(value)) {
+          await updateCurrentSteps(value);
+        } else {
+          await updateCurrentSteps(0);
+        }
+      });
+    })();
+  }, []);
+
 
   console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
   return (
@@ -78,13 +65,12 @@ export default function StepsScreen() {
           Goal: {stepsGoalObject.goals.dailyStepGoal.toLocaleString()} steps/day
         </Text>
         <Text style={styles.dailySteps}>
-          Daily Steps: {stepsGoalObject.scores.daily_steps.toLocaleString()}
+          Daily Steps: {currentSteps}
         </Text>
-        <BasicButton
-          buttonText={'Get current steps from HK'}
-          onPressButton={updateHKSteps}
-        />
-        <Text style={styles.dailySteps}>Current Steps: {currentSteps}</Text>
+        {/*<Text style={styles.dailySteps}>*/}
+        {/*  Total Last 10 days:{' '}*/}
+        {/*  {stepsGoalObject.scores.ten_day_steps.toLocaleString()}*/}
+        {/*</Text>*/}
         <View style={styles.card}>
           <ProgressCircle
             style={styles.progress}

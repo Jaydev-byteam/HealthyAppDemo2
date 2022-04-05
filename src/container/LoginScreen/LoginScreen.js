@@ -4,10 +4,13 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
 
+
+
 // importing custom dumb components
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import InputField from '../../components/InputField/InputField';
+import { MDHealthKitManager } from "../../_utilities/HealthKit";
 
 export default function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
@@ -50,6 +53,10 @@ export default function LoginScreen({navigation}) {
             </Text>
           </Text>
         </View>
+        <BasicButton
+          buttonText={'Allow Permissions'}
+          onPressButton={() => MDHealthKitManager.requestAuthorization()}
+        />
       </KeyboardAwareScrollView>
     </View>
   );
