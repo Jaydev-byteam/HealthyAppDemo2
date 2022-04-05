@@ -7,6 +7,7 @@ export const styleConstants = {
   base_background: '#F2F2F2',
   light_background: '#FFFFFF',
   subhead_text: '#8F9090',
+  sleep_subhead: '#DADADA',
   input_background: '#FFFFFF',
   input_color: '#8F9090',
   table_border: '#b690d4',

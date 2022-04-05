@@ -5,8 +5,10 @@ export default StyleSheet.create({
   card: {
     flex: 1,
     alignItems: 'center',
-    height: 170,
-    width: 160,
+    borderRadius: 10,
+    // height: 170,
+    // width: 160,
+    marginHorizontal: 10,
     marginBottom: 30,
   },
   graphic: {

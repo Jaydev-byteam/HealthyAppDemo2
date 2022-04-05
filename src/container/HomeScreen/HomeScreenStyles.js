@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: styleConstants.background_color,
+    backgroundColor: styleConstants.base_background,
   },
   input: {
     height: 48,
@@ -19,7 +19,7 @@ export default StyleSheet.create({
     paddingLeft: 16,
   },
   accountInfo: {
-    color: styleConstants.light_text,
+    color: styleConstants.blue_text,
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 10,

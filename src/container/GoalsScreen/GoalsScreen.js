@@ -46,10 +46,10 @@ export default function GoalsScreenMain({navigation}) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName={'Goals Page'} showIcon={false} />
+        <PageTitle pageName={'Goals Dashboard'} showIcon={false} />
         <GoalCard
           image={images.stepsIcon}
-          goalTitle={'Steps'}
+          goalTitle={'Step Goals'}
           goalAmount={stepsGoalObject.goals.dailyStepGoal}
           goalUnit={'steps/day'}
           goalProgress={stepsGoalObject.scores.score / 100}
@@ -57,7 +57,7 @@ export default function GoalsScreenMain({navigation}) {
         />
         <GoalCard
           image={images.sleepTime}
-          goalTitle={'Sleep Time'}
+          goalTitle={'Sleep Goals'}
           goalAmount={minutesToHours(sleepGoalObject.goals.sleep_duration)}
           goalUnit={'hours/day'}
           goalProgress={sleepGoalObject.scores.score / 100}

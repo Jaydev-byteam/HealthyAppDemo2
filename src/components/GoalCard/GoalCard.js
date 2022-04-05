@@ -14,8 +14,25 @@ export default function GoalCard({
   goalProgress,
   onPress,
 }) {
+  const bgColor =
+    goalTitle === 'Step Goals'
+      ? styleConstants.card_primary
+      : styleConstants.card_sleep;
+  const textOne =
+    goalTitle === 'Step Goals'
+      ? styleConstants.dark_text
+      : styleConstants.light_text;
+  const textTwo =
+    goalTitle === 'Step Goals'
+      ? styleConstants.subhead_text
+      : styleConstants.sleep_subhead;
   return (
-    <View style={styles.card}>
+    <View style={styles.card} backgroundColor={bgColor}>
+      <View style={styles.cardTitle}>
+        <Text
+          color={textOne}
+        >{goalTitle}</Text>
+      </View>
       <ProgressCircle
         style={styles.progress}
         progress={goalProgress}
@@ -23,8 +40,7 @@ export default function GoalCard({
         backgroundColor={'none'}
         strokeWidth={10}
       />
-      <TouchableWithoutFeedback
-        onPress={onPress}>
+      <TouchableWithoutFeedback onPress={onPress}>
         <Image style={styles.logo} source={image} />
       </TouchableWithoutFeedback>
       <View style={styles.cardInfo}>

@@ -5,6 +5,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: styleConstants.background_color,
+    backgroundColor: styleConstants.base_background,
   },
 });
