@@ -26,23 +26,45 @@ export default function GoalCard({
     goalTitle === 'Step Goals'
       ? styleConstants.subhead_text
       : styleConstants.sleep_subhead;
+  console.log('In Goal Card, textOne is:', textOne);
   return (
     <View style={styles.card} backgroundColor={bgColor}>
-      <View style={styles.cardTitle}>
-        <Text
-          color={textOne}
-        >{goalTitle}</Text>
+      <Text
+        style={
+          goalTitle === 'Step Goals'
+            ? styles.stepCardTitle
+            : styles.sleepCardTitle
+        }>
+        {goalTitle}
+      </Text>
+      <View style={styles.cardBody}>
+        <View style={styles.cardSegment}>
+          <ProgressCircle
+            style={styles.progress}
+            progress={goalProgress}
+            progressColor={styleConstants.progress_color}
+            backgroundColor={'none'}
+            strokeWidth={10}
+          />
+          <TouchableWithoutFeedback onPress={onPress}>
+            <Image style={styles.logo} source={image} />
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.cardSegment}>
+          <View style={styles.placeholder}></View>
+          {/*<ProgressCircle*/}
+          {/*  style={styles.progress}*/}
+          {/*  progress={goalProgress}*/}
+          {/*  progressColor={styleConstants.progress_color}*/}
+          {/*  backgroundColor={'none'}*/}
+          {/*  strokeWidth={10}*/}
+          {/*/>*/}
+          {/*<TouchableWithoutFeedback onPress={onPress}>*/}
+          {/*  <Image style={styles.logo} source={image} />*/}
+          {/*</TouchableWithoutFeedback>*/}
+        </View>
       </View>
-      <ProgressCircle
-        style={styles.progress}
-        progress={goalProgress}
-        progressColor={styleConstants.progress_color}
-        backgroundColor={'none'}
-        strokeWidth={10}
-      />
-      <TouchableWithoutFeedback onPress={onPress}>
-        <Image style={styles.logo} source={image} />
-      </TouchableWithoutFeedback>
+
       <View style={styles.cardInfo}>
         <Text style={styles.goalTitle}>{goalTitle}</Text>
         <Text style={styles.goalAmount}>

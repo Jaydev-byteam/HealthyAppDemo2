@@ -4,6 +4,7 @@ import { styleConstants } from "../../_constants/StyleConstants";
 export default StyleSheet.create({
   titleContainer: {
     flex: 1,
+    width: '100%',
     alignItems: 'center',
     padding: 20,
     marginTop: 50,

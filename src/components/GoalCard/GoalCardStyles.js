@@ -11,6 +11,10 @@ export default StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 30,
   },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   graphic: {
     width: 160,
     left: 25,
@@ -45,4 +49,27 @@ export default StyleSheet.create({
     position: 'absolute',
     top: 0,
   },
+  stepCardTitle: {
+    width: '100%',
+    marginVertical: 20,
+    fontSize: 20,
+    color: styleConstants.dark_text
+  },
+  sleepCardTitle: {
+    marginVertical: 20,
+    fontSize: 20,
+    fontWeight: '600',
+    color: styleConstants.light_text
+  },
+  cardBody: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  cardSegment: {
+    flex: 1,
+    backgroundColor: 'red',
+    marginHorizontal: 20,
+    height: 200,
+    width: 200,
+  }
 });
