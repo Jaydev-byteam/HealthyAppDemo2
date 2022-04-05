@@ -6,8 +6,7 @@ export default StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: 'center',
-    padding: 20,
-    marginTop: 50,
+    marginVertical: 50,
   },
   logo: {
     flex: 1,

@@ -46,7 +46,7 @@ export default function GoalsScreenMain({navigation}) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName={'Goals Dashboard Test Test Test'} showIcon={false} />
+        <PageTitle pageName={'Goals Dashboard'} showIcon={false} />
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Step Goals'}
