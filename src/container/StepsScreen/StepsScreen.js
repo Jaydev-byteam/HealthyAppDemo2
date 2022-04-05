@@ -13,7 +13,6 @@ import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
 
-
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [currentSteps, setCurrentSteps] = useState(0);
@@ -27,10 +26,9 @@ export default function StepsScreen() {
     }
   };
 
-  const updateCurrentSteps = (newSteps) => {
+  const updateCurrentSteps = newSteps => {
     setCurrentSteps(newSteps);
-  }
-
+  };
 
   useEffect(() => {
     (async () => {
@@ -42,7 +40,7 @@ export default function StepsScreen() {
 
   useEffect(() => {
     (async () => {
-      await MDHealthKitManager.RNCurrentStepCount(async (value) => {
+      await MDHealthKitManager.RNCurrentStepCount(async value => {
         if (value === null || value === undefined || isNaN(value)) {
           await updateCurrentSteps(0);
         }
@@ -55,7 +53,6 @@ export default function StepsScreen() {
     })();
   }, []);
 
-
   console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
@@ -64,9 +61,7 @@ export default function StepsScreen() {
         <Text style={styles.goalAmount}>
           Goal: {stepsGoalObject.goals.dailyStepGoal.toLocaleString()} steps/day
         </Text>
-        <Text style={styles.dailySteps}>
-          Daily Steps: {currentSteps}
-        </Text>
+        <Text style={styles.dailySteps}>Daily Steps: {currentSteps}</Text>
         {/*<Text style={styles.dailySteps}>*/}
         {/*  Total Last 10 days:{' '}*/}
         {/*  {stepsGoalObject.scores.ten_day_steps.toLocaleString()}*/}
