@@ -18,6 +18,6 @@ export default StyleSheet.create({
   titleText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: styleConstants.light_text,
+    color: styleConstants.dark_text,
   },
 });

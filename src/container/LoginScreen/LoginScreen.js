@@ -31,7 +31,9 @@ export default function LoginScreen({navigation}) {
       <KeyboardAwareScrollView
         style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
-        <PageTitle />
+        <PageTitle
+          showIcon={false}
+        />
         <InputField
           placeholder={'Email'}
           onChangeText={text => setEmail(text)}
