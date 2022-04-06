@@ -14,13 +14,13 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     borderRadius: 10,
-    padding: 10,
+    padding: 20,
   },
   goalHeadline: {
-    color: styleConstants.light_text,
-    fontWeight: '700',
+    // color: styleConstants.light_text,
+    // fontWeight: '700',
     justifyContent: 'center',
-    fontSize: 30,
+    // fontSize: 30,
   },
   goalSubhead: {
     fontWeight: '700',
@@ -33,6 +33,11 @@ export default StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     fontSize: 30,
+  },
+  cardDivider: {
+    height: '50%',
+    borderRightWidth: 2,
+    borderRightColor: styleConstants.dark_background,
   },
   dailySleep: {
     color: styleConstants.light_text,

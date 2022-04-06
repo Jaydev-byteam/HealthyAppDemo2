@@ -58,10 +58,12 @@ export default function SleepScreen({navigation, user}) {
         <View style={styles.titleCard}>
           <View style={styles.goalHeadline}>
             <Text style={styles.goalSubhead}>Bedtime</Text>
-            <Text style={styles.goalAmount}>
-              {bedtime}
-            </Text>
-
+            <Text style={styles.goalAmount}>{bedtime}</Text>
+          </View>
+          <View style={styles.cardDivider} />
+          <View style={styles.goalHeadline}>
+            <Text style={styles.goalSubhead}>Time To Sleep</Text>
+            <Text style={styles.goalAmount}>{minutesToHours(sleepDuration)}</Text>
           </View>
         </View>
         <View style={styles.card}>
