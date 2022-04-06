@@ -4,14 +4,35 @@ import {styleConstants} from '../../_constants/StyleConstants';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: styleConstants.background_color,
+    backgroundColor: styleConstants.dark_background,
+    paddingHorizontal: 15,
+  },
+  titleCard: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: styleConstants.card_sleep,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 10,
+  },
+  goalHeadline: {
+    color: styleConstants.light_text,
+    fontWeight: '700',
+    justifyContent: 'center',
+    fontSize: 30,
+  },
+  goalSubhead: {
+    fontWeight: '700',
+    color: styleConstants.step_divider,
+    fontSize: 14,
+    textAlign: "center",
   },
   goalAmount: {
-    color: styleConstants.subhead_text,
-    fontWeight: 'bold',
+    color: styleConstants.light_text,
+    fontWeight: '700',
     textAlign: 'center',
-    fontSize: 18,
-    marginBottom: 6,
+    fontSize: 30,
   },
   dailySleep: {
     color: styleConstants.light_text,
