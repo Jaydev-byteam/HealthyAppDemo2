@@ -62,7 +62,7 @@ export default StyleSheet.create({
     // position: 'absolute',
     width: 150,
     left: 0,
-    bottom: 80,
+    bottom: 75,
     alignItems: 'center',
   },
   progressText: {

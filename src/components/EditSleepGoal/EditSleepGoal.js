@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './EditSleepGoalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import BasicButton from '../BasicButton/BasicButton';
@@ -22,7 +22,10 @@ export default function EditSleepGoal({
   const [showPicker, setShowPicker] = useState(false);
 
   console.log('In EditSleepGoal, newBed string is: ', newBedtime);
-  console.log('In EditSleepGoal, newBed object is: ', timeStringToDate(newBedtime));
+  console.log(
+    'In EditSleepGoal, newBed object is: ',
+    timeStringToDate(newBedtime),
+  );
 
   const addToGoal = () => {
     if (newGoal + 15 <= 720) {
@@ -45,15 +48,36 @@ export default function EditSleepGoal({
       updateBedtime(newBedtime);
     }
     setShowPicker(!showPicker);
-  }
+  };
 
   const updateGoal = () => {
-    console.log('In updateGoal, newGoal is:', newGoal)
+    console.log('In updateGoal, newGoal is:', newGoal);
     updateSleep(newGoal);
-  }
+  };
 
   return (
-    <View style={styles.container}>
+    <>
+      <View style={styles.sleepEdit}>
+        <TouchableOpacity style={styles.minButton} onPress={subtractFromGoal}>
+          <Icon name={'minus'} size={16} color={'white'} />
+        </TouchableOpacity>
+        <View>
+          <Text style={styles.editText}>Edit Time To Sleep</Text>
+          <Text style={styles.sleepGoal}>{minutesToHours(newGoal)}</Text>
+        </View>
+        <TouchableOpacity style={styles.addButton} onPress={addToGoal}>
+          <Icon name={'plus'} size={16} color={'white'} />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.sleepEdit}>
+        <View>
+          <Text style={styles.editText}>Edit Bedtime</Text>
+          <Text style={styles.sleepGoal}>{newBedtime}</Text>
+        </View>
+        <TouchableOpacity style={styles.bedtimeButton}>
+          <Text style={styles.buttonTitle}>CHOOSE BEDTIME</Text>
+        </TouchableOpacity>
+      </View>
       <Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>
       <Text style={styles.bedtime}>{currentBedtime}</Text>
 
@@ -78,14 +102,20 @@ export default function EditSleepGoal({
         How much sleep do you need to feel rested?
       </Text>
       <View style={styles.editBar}>
-        <Icon.Button name={'minus'} style={styles.button} onPress={subtractFromGoal}/>
+        <Icon.Button
+          name={'minus'}
+          style={styles.button}
+          onPress={subtractFromGoal}
+        />
         <Text style={styles.note}>{minutesToHours(newGoal)}</Text>
-        <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>
-
+        <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal} />
       </View>
-      {(newGoal !== currentGoal) &&
-        <BasicButton buttonText={'Submit New Goal'} onPressButton={updateGoal} />
-      }
-    </View>
+      {newGoal !== currentGoal && (
+        <BasicButton
+          buttonText={'Submit New Goal'}
+          onPressButton={updateGoal}
+        />
+      )}
+    </>
   );
 }
