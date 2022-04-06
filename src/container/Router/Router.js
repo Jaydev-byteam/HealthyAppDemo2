@@ -51,7 +51,7 @@ export default function Router({isSignedIn}) {
                         headerTransparent: true,
                         headerTitle: '',
                         headerBackTitle: '',
-                        headerTintColor: 'white',
+                        headerTintColor: 'black',
                       }}>
                       <GoalsStack.Screen name="GoalsMain" component={GoalsScreenMain} />
                       <GoalsStack.Screen name="Steps" component={StepsScreen} />
