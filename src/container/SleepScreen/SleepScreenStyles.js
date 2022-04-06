@@ -11,16 +11,14 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: styleConstants.card_sleep,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 10,
     padding: 20,
   },
   goalHeadline: {
-    // color: styleConstants.light_text,
-    // fontWeight: '700',
+    flex: 1,
     justifyContent: 'center',
-    // fontSize: 30,
   },
   goalSubhead: {
     fontWeight: '700',

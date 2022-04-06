@@ -25,10 +25,7 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   goalHeadline: {
-    color: styleConstants.progress_color,
-    fontWeight: 'bold',
     justifyContent: 'center',
-    fontSize: 30,
   },
   goalSubhead: {
     fontWeight: '600',
