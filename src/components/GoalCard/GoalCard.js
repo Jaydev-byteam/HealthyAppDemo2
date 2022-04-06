@@ -19,10 +19,8 @@ export default function GoalCard({
     goalTitle === 'Step Goals'
       ? styleConstants.dark_text
       : styleConstants.light_text;
-  const subheadText =
-    goalTitle === 'Step Goals' ? 'Steps Today' : 'Sleep Today';
-  const subheadTextTwo =
-    goalTitle === 'Step Goals' ? 'daily steps goal' : 'sleep duration goal';
+  const subheadText = goalTitle === 'Step Goals' ? 'Steps Today' : 'Sleep Today';
+  const subheadTextTwo = goalTitle === 'Step Goals' ? 'daily steps goal' : 'sleep duration goal';
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View
@@ -65,7 +63,7 @@ export default function GoalCard({
                     : styles.sleepTextColor,
                 ]}>
                 {goalTitle === 'Step Goals'
-                  ? (goalAmount * goalProgress).toLocaleString('en-US')
+                  ? (goalAmount*goalProgress).toLocaleString('en-US')
                   : goalProgress * 100 + '%'}
               </Text>
               <Text
@@ -96,7 +94,7 @@ export default function GoalCard({
                   : styles.sleepTextColor,
               ]}>
               {goalTitle === 'Step Goals'
-                ? goalAmount.toLocaleString('en-US')
+                ? (goalAmount).toLocaleString('en-US')
                 : goalAmount}
             </Text>
             <Text
@@ -108,16 +106,21 @@ export default function GoalCard({
               ]}>
               {subheadTextTwo}
             </Text>
-            {goalTitle === 'Sleep Goals' && (
+            {(goalTitle === 'Sleep Goals' &&
               <>
-                <Text style={[styles.goalAmount, styles.sleepTextColor]}>
-                  {bedtime}
-                </Text>
-                <Text style={[styles.goalSubhead, styles.sleepSubhead]}>
-                  Bedtime
-                </Text>
-              </>
-            )}
+            <Text
+              style={[
+                styles.goalAmount,
+                   styles.sleepTextColor,
+              ]}>
+              {bedtime}
+            </Text>
+            <Text
+              style={[
+                styles.goalSubhead,
+               styles.sleepSubhead,
+              ]}>Bedtime</Text>
+            </>)}
           </View>
         </View>
 

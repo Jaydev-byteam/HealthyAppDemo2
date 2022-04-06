@@ -5,20 +5,74 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: styleConstants.base_background,
+    paddingHorizontal: 15,
   },
   titleCard: {
     flex: 1,
     flexDirection: "row",
     backgroundColor: styleConstants.light_background,
-    justifyContent: "center",
+    justifyContent: "space-between",
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 10,
   },
 
-  goalAmount: {
-    color: styleConstants.subhead_text,
+  cardLogo: {
+    width: 70,
+    height: 70,
+    margin: 20,
+    borderRadius: 35,
+    resizeMode: 'contain',
+  },
+  goalHeadline: {
+    color: styleConstants.progress_color,
     fontWeight: 'bold',
+    justifyContent: "center",
+    fontSize: 30,
+  },
+  goalSubhead: {
+    fontWeight: 'bold',
+    color: styleConstants.subhead_text,
+  },
+  goalAmount: {
+    color: styleConstants.progress_color,
+    fontWeight: '700',
     textAlign: 'center',
-    fontSize: 18,
-    marginBottom: 6,
+    fontSize: 30,
+  },
+
+  centerSection: {
+    flex: 1,
+    flexDirection: "row",
+    marginVertical: 15,
+  },
+  leftCard: {
+    flex: 1,
+    backgroundColor: styleConstants.light_background,
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 20,
+    marginRight: 7.5,
+  },
+
+  leftCardTitle: {
+    fontWeight: '700',
+    fontSize: 14,
+  },
+  cardInfo: {
+    // position: 'absolute',
+    width: 150,
+    left: 0,
+    bottom: 80,
+    alignItems: 'center',
+  },
+  rightCard: {
+    flex: 1,
+    backgroundColor: styleConstants.light_background,
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 10,
+    marginLeft: 7.5,
   },
   dailySteps: {
     color: styleConstants.light_text,
@@ -26,19 +80,21 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 14,
   },
-  card: {
-    flex: 1,
-    alignItems: 'center',
-    alignSelf: 'center',
-    height: 200,
-    width: 200,
-    marginVertical: 20,
-  },
+  // card: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   alignSelf: 'center',
+  //   height: 200,
+  //   width: 200,
+  //   marginVertical: 20,
+  // },
   progress: {
-    height: 160,
-    width: 160,
-    position: 'absolute',
-    top: 0,
+    flex: 1,
+    height: 130,
+    width: 130,
+    // position: 'absolute',
+    top: 16,
+
   },
   logo: {
     width: 120,

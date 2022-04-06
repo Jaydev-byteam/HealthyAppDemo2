@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
 
 export default StyleSheet.create({
   card: {
@@ -39,28 +39,26 @@ export default StyleSheet.create({
     left: 0,
     bottom: 80,
     alignItems: 'center',
-
   },
   goalSubhead: {
     marginBottom: 10,
     fontWeight: 'bold',
   },
   stepSubhead: {
-    color: styleConstants.subhead_text
+    color: styleConstants.subhead_text,
   },
   sleepSubhead: {
-    color: styleConstants.sleep_subhead
+    color: styleConstants.sleep_subhead,
   },
   goalAmount: {
-    // color: styleConstants.dark_text,
     fontWeight: 'bold',
     fontSize: 24,
   },
   sleepTextColor: {
-    color: styleConstants.light_text
+    color: styleConstants.light_text,
   },
   stepTextColor: {
-    color: styleConstants.dark_text
+    color: styleConstants.dark_text,
   },
   progress: {
     flex: 1,
@@ -74,18 +72,17 @@ export default StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
     fontWeight: '600',
-    color: styleConstants.dark_text
+    color: styleConstants.dark_text,
   },
   sleepCardTitle: {
     marginTop: 20,
     fontSize: 20,
     fontWeight: '600',
-    color: styleConstants.light_text
+    color: styleConstants.light_text,
   },
   cardBody: {
     flex: 1,
     flexDirection: 'row',
-
   },
   cardSegment: {
     flex: 1,
@@ -93,10 +90,10 @@ export default StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 10,
     marginBottom: 30,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   cardSegmentRight: {
-    alignItems: "center"
+    alignItems: 'center',
   },
   cardDivider: {
     height: '50%',
