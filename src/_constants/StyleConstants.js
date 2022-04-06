@@ -1,6 +1,6 @@
 export const styleConstants = {
   button_background: '#785BFA',
-  light_text: 'white',
+  light_text: '#FFFFFF',
   dark_text: '#1D1D1F',
   blue_text: '#785BFA',
   background_color: '#550096',

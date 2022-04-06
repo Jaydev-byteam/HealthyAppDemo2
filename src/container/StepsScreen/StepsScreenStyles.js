@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
 
 export default StyleSheet.create({
   container: {
@@ -9,9 +9,9 @@ export default StyleSheet.create({
   },
   titleCard: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     backgroundColor: styleConstants.light_background,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 10,
     padding: 10,
@@ -27,7 +27,7 @@ export default StyleSheet.create({
   goalHeadline: {
     color: styleConstants.progress_color,
     fontWeight: 'bold',
-    justifyContent: "center",
+    justifyContent: 'center',
     fontSize: 30,
   },
   goalSubhead: {
@@ -43,7 +43,7 @@ export default StyleSheet.create({
 
   centerSection: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     marginVertical: 15,
   },
   leftCard: {
@@ -55,10 +55,10 @@ export default StyleSheet.create({
     padding: 20,
     marginRight: 7.5,
   },
-
   leftCardTitle: {
     fontWeight: '700',
     fontSize: 14,
+    textAlign: 'center',
   },
   cardInfo: {
     // position: 'absolute',
@@ -68,28 +68,48 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   progressText: {
-    fontWeight: "700",
+    fontWeight: '700',
     fontSize: 26,
     color: styleConstants.dark_text,
   },
   goalSubhead: {
-    marginBottom: 10,
+
     fontWeight: '600',
     color: styleConstants.subhead_text,
   },
   rightCard: {
     flex: 1,
-    backgroundColor: styleConstants.light_background,
+    justifyContent: 'space-evenly',
+    backgroundColor: styleConstants.card_secondary,
     alignItems: 'center',
     borderRadius: 10,
-    padding: 10,
+    padding: 20,
     marginLeft: 7.5,
+  },
+  rightCardTitle: {
+    fontWeight: '700',
+    fontSize: 14,
+    color: styleConstants.light_text,
+    textAlign: 'center',
+  },
+  rightInfo: {
+    marginTop: 20,
+  },
+  rightCardSubhead: {
+    fontWeight: '600',
+    color: styleConstants.light_text,
+    textAlign: "center",
   },
   dailySteps: {
     color: styleConstants.light_text,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 14,
+  },
+  weeklyAverage: {
+    fontWeight: '700',
+    fontSize: 32,
+    color: styleConstants.light_text,
   },
   // card: {
   //   flex: 1,
@@ -105,14 +125,11 @@ export default StyleSheet.create({
     width: 130,
     // position: 'absolute',
     top: 16,
-
   },
   logo: {
-    width: 120,
-    height: 120,
-    marginTop: 20,
-    borderRadius: 60,
+    width: 110,
+    height: 110,
+    borderRadius: 55,
     resizeMode: 'contain',
   },
-
 });

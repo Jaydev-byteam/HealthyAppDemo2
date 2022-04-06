@@ -97,6 +97,15 @@ export default function StepsScreen() {
             <Text style={styles.rightCardTitle}>
               7 Day Average Step Count
             </Text>
+            <View style={styles.rightInfo}>
+              <Text style={styles.weeklyAverage}>
+                {stepsGoalObject.scores.average_steps.toLocaleString()}
+              </Text>
+              <Text style={styles.rightCardSubhead}>
+                steps
+              </Text>
+            </View>
+            <Image style={styles.cardLogo} source={images.stepsIcon} />
           </View>
         </View>
 
@@ -114,10 +123,10 @@ export default function StepsScreen() {
         {/*  />*/}
         {/*  <Image style={styles.logo} source={images.stepsIcon} />*/}
         {/*</View>*/}
-        <Text style={styles.dailySteps}>
-          {stepsGoalObject.scores.average_steps.toLocaleString()} steps/day
-        </Text>
-        <Text style={styles.goalAmount}>(Average of last 7 days)</Text>
+        {/*<Text style={styles.dailySteps}>*/}
+        {/*  {stepsGoalObject.scores.average_steps.toLocaleString()} steps/day*/}
+        {/*</Text>*/}
+        {/*<Text style={styles.goalAmount}>(Average of last 7 days)</Text>*/}
         <WeeklyTable weeklyResult={stepsGoalObject.scores.days_of_the_week} />
         <EditGoal currentGoal={stepsGoal} updateSteps={setStepsGoal} />
       </KeyboardAwareScrollView>
