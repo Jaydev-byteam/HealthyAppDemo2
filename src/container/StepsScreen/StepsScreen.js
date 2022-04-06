@@ -82,8 +82,16 @@ export default function StepsScreen() {
               strokeWidth={10}
             />
             <View style={styles.cardInfo}>
-              <Text style={styles.goalAmount}></Text>
+              <Text style={styles.progressText}>
+                {currentSteps.toLocaleString('en-US')}
+              </Text>
+              <Text style={styles.goalSubhead}>
+                Steps Today
+              </Text>
             </View>
+            <Text style={styles.goalSubhead}>
+              {currentSteps*100/stepsGoalObject.goals.dailyStepGoal}% complete
+            </Text>
           </View>
           <View style={styles.rightCard}>
             <Text style={styles.rightCardTitle}>

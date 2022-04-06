@@ -48,6 +48,7 @@ export default StyleSheet.create({
   },
   leftCard: {
     flex: 1,
+    justifyContent: 'space-around',
     backgroundColor: styleConstants.light_background,
     alignItems: 'center',
     borderRadius: 10,
@@ -65,6 +66,16 @@ export default StyleSheet.create({
     left: 0,
     bottom: 80,
     alignItems: 'center',
+  },
+  progressText: {
+    fontWeight: "700",
+    fontSize: 26,
+    color: styleConstants.dark_text,
+  },
+  goalSubhead: {
+    marginBottom: 10,
+    fontWeight: '600',
+    color: styleConstants.subhead_text,
   },
   rightCard: {
     flex: 1,
