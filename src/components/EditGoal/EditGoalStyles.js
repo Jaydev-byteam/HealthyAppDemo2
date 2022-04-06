@@ -30,9 +30,29 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'none',
   },
+  minButton: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: styleConstants.progress_color,
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+
+  },
+  addButton: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: styleConstants.plus_button,
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+
+  },
   minusButton: {
     backgroundColor: styleConstants.progress_color,
-    borderRadius: 20,
+    borderRadius: 30,
   },
   plusButton: {
     backgroundColor: styleConstants.plus_button,
