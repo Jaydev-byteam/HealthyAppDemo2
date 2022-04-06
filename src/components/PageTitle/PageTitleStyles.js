@@ -17,7 +17,12 @@ export default StyleSheet.create({
   },
   titleText: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: styleConstants.dark_text,
+  },
+  sleepTitleText: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: styleConstants.light_text,
   },
 });

@@ -13,16 +13,6 @@ import { getSleepGoal, getSleepScores, getStepsScores } from "../../database/Fir
 import {minutesToHours, bedtimeString, timeStringToDate} from "../../_utilities/UtilityFunctions";
 import { sleepGoalObject } from "../../_constants/EmptyObjectConstants";
 
-// const weeklyAveSleep = 450;
-// // define a hardcoded bedtime as a Date object with current date, set time to 10:30 PM
-// let bedtime = new Date();
-// bedtime.setHours(22, 30);
-// // define hardcoded data for the sleep minutes
-// const sleepGoal = 480;
-// const dailySleep = 450;
-// const successWeek = [false, true, false, true, false, true, false];
-
-
 export default function SleepScreen({navigation, user}) {
   const [dataLoaded, setDataLoaded] = useState(false);
 
