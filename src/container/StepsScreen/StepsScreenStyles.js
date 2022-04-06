@@ -31,7 +31,7 @@ export default StyleSheet.create({
     fontSize: 30,
   },
   goalSubhead: {
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: styleConstants.subhead_text,
   },
   goalAmount: {
@@ -40,7 +40,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
   },
-
   centerSection: {
     flex: 1,
     flexDirection: 'row',
@@ -72,11 +71,7 @@ export default StyleSheet.create({
     fontSize: 26,
     color: styleConstants.dark_text,
   },
-  goalSubhead: {
 
-    fontWeight: '600',
-    color: styleConstants.subhead_text,
-  },
   rightCard: {
     flex: 1,
     justifyContent: 'space-evenly',

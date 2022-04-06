@@ -11,7 +11,7 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: styleConstants.card_sleep,
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     borderRadius: 10,
     padding: 20,
@@ -36,8 +36,67 @@ export default StyleSheet.create({
   },
   cardDivider: {
     height: '50%',
-    borderRightWidth: 2,
+    borderRightWidth: 1,
     borderRightColor: styleConstants.dark_background,
+  },
+  centerSection: {
+    flex: 1,
+    flexDirection: 'row',
+    marginVertical: 15,
+
+  },
+  leftCard: {
+    flex: 1,
+    justifyContent: 'space-around',
+    backgroundColor: styleConstants.card_sleep,
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 20,
+    marginRight: 7.5,
+  },
+  leftCardTitle: {
+    fontWeight: '700',
+    fontSize: 14,
+    textAlign: 'center',
+    color: styleConstants.light_text
+  },
+  cardInfo: {
+    // position: 'absolute',
+    width: 150,
+    left: 0,
+    bottom: 80,
+    alignItems: 'center',
+  },
+  progressText: {
+    fontWeight: '700',
+    fontSize: 26,
+    color: styleConstants.light_text,
+  },
+  rightCard: {
+    flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: styleConstants.card_sleep,
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 20,
+    marginLeft: 7.5,
+  },
+  rightCardTitle: {
+    fontWeight: '700',
+    fontSize: 14,
+    textAlign: 'center',
+    color: styleConstants.light_text,
+  },
+
+  rightCardSubhead: {
+    fontWeight: '600',
+    color: styleConstants.light_text,
+    textAlign: "center",
+  },
+  weeklyAverage: {
+    fontWeight: '700',
+    fontSize: 32,
+    color: styleConstants.light_text,
   },
   dailySleep: {
     color: styleConstants.light_text,
@@ -54,16 +113,18 @@ export default StyleSheet.create({
     marginVertical: 20,
   },
   progress: {
-    height: 160,
-    width: 160,
-    position: 'absolute',
-    top: 0,
+    flex: 1,
+    height: 130,
+    width: 130,
+    // position: 'absolute',
+    top: 16,
   },
-  logo: {
-    width: 120,
-    height: 120,
-    marginTop: 20,
-    borderRadius: 60,
+  cardLogo: {
+    width: 70,
+    height: 70,
+
+    borderRadius: 35,
     resizeMode: 'contain',
   },
+
 });
