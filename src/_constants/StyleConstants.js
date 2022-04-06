@@ -23,4 +23,5 @@ export const styleConstants = {
   icon_color: '#708090',
   step_divider: '#DADADA',
   sleep_divider: '#0A0643',
+  plus_button: '#113BA6',
 };

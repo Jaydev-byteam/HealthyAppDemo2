@@ -27,15 +27,23 @@ export default function EditGoal({currentGoal, updateSteps}) {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}>Adjust Your Steps Goal</Text>
+        <Icon.Button name={'minus'} style={styles.minusButton} onPress={subtractFromGoal}/>
+        <View>
+          <Text style={styles.editText}>Edit Daily Steps Goal</Text>
+          <Text style={styles.stepsGoal}>{newGoal.toLocaleString()}</Text>
+        </View>
+
+
+        <Icon.Button name={'plus'} style={styles.plusButton} onPress={addToGoal}/>
+
       </View>
-      <View style={styles.editBar}>
-        <Icon.Button name={'minus'} style={styles.button} onPress={subtractFromGoal}/>
-        <Text style={styles.note}>{newGoal.toLocaleString()} Steps</Text>
-        <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>
-      </View>
+      {/*<View style={styles.editBar}>*/}
+      {/*  <Icon.Button name={'minus'} style={styles.minusButton} onPress={subtractFromGoal}/>*/}
+      {/*  <Text style={styles.note}>{newGoal.toLocaleString()} Steps</Text>*/}
+      {/*  <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>*/}
+      {/*</View>*/}
       {(newGoal !== currentGoal) &&
-        <BasicButton buttonText={'Submit New Goal'} onPressButton={onFinalPress} />
+        <BasicButton style={styles.submitButton} buttonText={'SAVE EDITS'} onPressButton={onFinalPress} />
       }
     </>
   );

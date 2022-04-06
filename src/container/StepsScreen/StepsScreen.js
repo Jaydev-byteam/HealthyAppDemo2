@@ -127,7 +127,7 @@ export default function StepsScreen() {
         {/*  {stepsGoalObject.scores.average_steps.toLocaleString()} steps/day*/}
         {/*</Text>*/}
         {/*<Text style={styles.goalAmount}>(Average of last 7 days)</Text>*/}
-        <WeeklyTable weeklyResult={stepsGoalObject.scores.days_of_the_week} />
+        {/*<WeeklyTable weeklyResult={stepsGoalObject.scores.days_of_the_week} />*/}
         <EditGoal currentGoal={stepsGoal} updateSteps={setStepsGoal} />
       </KeyboardAwareScrollView>
     </View>
