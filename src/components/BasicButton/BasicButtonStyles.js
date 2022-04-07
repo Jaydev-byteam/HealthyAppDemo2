@@ -18,10 +18,10 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   sleepButton: {
-    backgroundColor: styleConstants.progress_color,
+    backgroundColor: styleConstants.card_sleep,
     marginLeft: 15,
     marginRight: 15,
-    marginVertical: 20,
+    marginVertical: 10,
     height: 50,
     borderRadius: 10,
     alignItems: 'center',

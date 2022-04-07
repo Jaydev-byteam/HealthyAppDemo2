@@ -26,6 +26,7 @@ export default function EditSleepGoal({
     'In EditSleepGoal, newBed object is: ',
     timeStringToDate(newBedtime),
   );
+  console.log('In EditSleepGoal, showPicker is:', showPicker);
 
   const addToGoal = () => {
     if (newGoal + 15 <= 720) {
@@ -45,7 +46,7 @@ export default function EditSleepGoal({
   const bedtimePress = () => {
     if (showPicker) {
       console.log('In bedtime press, newBed is: ', newBedtime);
-      updateBedtime(newBedtime);
+      setNewBedtime(newBedtime);
     }
     setShowPicker(!showPicker);
   };
@@ -53,6 +54,7 @@ export default function EditSleepGoal({
   const updateGoal = () => {
     console.log('In updateGoal, newGoal is:', newGoal);
     updateSleep(newGoal);
+    updateBedtime(newBedtime);
   };
 
   return (
@@ -69,24 +71,31 @@ export default function EditSleepGoal({
           <Icon name={'plus'} size={16} color={'white'} />
         </TouchableOpacity>
       </View>
+      {((newGoal !== currentGoal) || (newBedtime !== currentBedtime)) && (
+        <BasicButton
+          buttonText={'Submit New Goals'}
+          onPressButton={updateGoal}
+          sleep={true}
+        />
+      )}
       <View style={styles.sleepEdit}>
         <View>
           <Text style={styles.editText}>Edit Bedtime</Text>
           <Text style={styles.sleepGoal}>{newBedtime}</Text>
         </View>
-        <TouchableOpacity style={styles.bedtimeButton}>
-          <Text style={styles.buttonTitle}>CHOOSE BEDTIME</Text>
+        <TouchableOpacity style={styles.bedtimeButton} onPress={bedtimePress}>
+          <Text style={styles.buttonTitle}>{!showPicker ? 'CHOOSE BEDTIME' : 'CLOSE PICKER'}</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>
-      <Text style={styles.bedtime}>{currentBedtime}</Text>
+      {/*<Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>*/}
+      {/*<Text style={styles.bedtime}>{currentBedtime}</Text>*/}
 
-      <BasicButton
-        buttonText={showPicker ? 'Save New Bedtime' : 'Change Bedtime'}
-        onPressButton={bedtimePress}
-      />
+      {/*<BasicButton*/}
+      {/*  buttonText={showPicker ? 'Save New Bedtime' : 'Change Bedtime'}*/}
+      {/*  onPressButton={bedtimePress}*/}
+      {/*/>*/}
 
-      {showPicker && (
+      {showPicker &&  (
         <View style={styles.timePicker}>
           <RNDateTimePicker
             value={timeStringToDate(newBedtime)}
@@ -98,24 +107,19 @@ export default function EditSleepGoal({
           />
         </View>
       )}
-      <Text style={styles.title}>
-        How much sleep do you need to feel rested?
-      </Text>
-      <View style={styles.editBar}>
-        <Icon.Button
-          name={'minus'}
-          style={styles.button}
-          onPress={subtractFromGoal}
-        />
-        <Text style={styles.note}>{minutesToHours(newGoal)}</Text>
-        <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal} />
-      </View>
-      {newGoal !== currentGoal && (
-        <BasicButton
-          buttonText={'Submit New Goal'}
-          onPressButton={updateGoal}
-        />
-      )}
+      {/*<Text style={styles.title}>*/}
+      {/*  How much sleep do you need to feel rested?*/}
+      {/*</Text>*/}
+      {/*<View style={styles.editBar}>*/}
+      {/*  <Icon.Button*/}
+      {/*    name={'minus'}*/}
+      {/*    style={styles.button}*/}
+      {/*    onPress={subtractFromGoal}*/}
+      {/*  />*/}
+      {/*  <Text style={styles.note}>{minutesToHours(newGoal)}</Text>*/}
+      {/*  <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal} />*/}
+      {/*</View>*/}
+
     </>
   );
 }

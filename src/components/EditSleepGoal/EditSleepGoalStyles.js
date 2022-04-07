@@ -85,8 +85,8 @@ export default StyleSheet.create({
     width: 300,
   },
   timePicker: {
-    marginTop: 30,
-    borderRadius: 20,
+    alignItems: 'center',
+    marginTop: 10,
   },
   editBar: {
     flex: 1,
