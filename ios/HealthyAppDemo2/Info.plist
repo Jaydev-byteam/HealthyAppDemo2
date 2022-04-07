@@ -5,37 +5,6 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>
-		<string>Karla-Bold.ttf</string>
-		<string>Karla-BoldItalic.ttf</string>
-		<string>Karla-ExtraBold.ttf</string>
-		<string>Karla-ExtraBoldItalic.ttf</string>
-		<string>Karla-ExtraLight.ttf</string>
-		<string>Karla-ExtraLightItalic.ttf</string>
-		<string>Karla-Italic-VariableFont_wght.ttf</string>
-		<string>Karla-Italic.ttf</string>
-		<string>Karla-Light.ttf</string>
-		<string>Karla-LightItalic.ttf</string>
-		<string>Karla-Medium.ttf</string>
-		<string>Karla-MediumItalic.ttf</string>
-		<string>Karla-Regular.ttf</string>
-		<string>Karla-SemiBold.ttf</string>
-		<string>Karla-SemiBoldItalic.ttf</string>
-		<string>Karla-VariableFont_wght.ttf</string>
-		<string>AntDesign.ttf</string>
-		<string>Entypo.ttf</string>
-		<string>EvilIcons.ttf</string>
-		<string>Feather.ttf</string>
-		<string>FontAwesome5_Brands.ttf</string>
-		<string>FontAwesome5_Regular.ttf</string>
-		<string>FontAwesome5_Solid.ttf</string>
-		<string>Fontisto.ttf</string>
-		<string>Foundation.ttf</string>
-		<string>Ionicons.ttf</string>
-		<string>MaterialCommunityIcons.ttf</string>
-		<string>MaterialIcons.ttf</string>
-		<string>Octicons.ttf</string>
-		<string>SimpleLineIcons.ttf</string>
-		<string>Zocial.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -77,7 +46,7 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Healthy App would like to access your step count.</string>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
