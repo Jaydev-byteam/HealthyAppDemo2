@@ -57,18 +57,6 @@ export default StyleSheet.create({
   plusButton: {
     backgroundColor: styleConstants.plus_button,
   },
-  bedtimeButton: {
-    height: 40,
-    width: 100,
-    borderRadius: 20,
-    backgroundColor: styleConstants.card_sleep,
-    borderRadius: 30,
-  },
-  buttonTitle: {
-    color: styleConstants.light_text,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
   note: {
     color: styleConstants.light_text,
     fontWeight: 'bold',

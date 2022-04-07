@@ -87,14 +87,6 @@ export default function EditSleepGoal({
           <Text style={styles.buttonTitle}>{!showPicker ? 'CHOOSE BEDTIME' : 'CLOSE PICKER'}</Text>
         </TouchableOpacity>
       </View>
-      {/*<Text style={styles.title}>What Time Do You Usually Go To Bed?</Text>*/}
-      {/*<Text style={styles.bedtime}>{currentBedtime}</Text>*/}
-
-      {/*<BasicButton*/}
-      {/*  buttonText={showPicker ? 'Save New Bedtime' : 'Change Bedtime'}*/}
-      {/*  onPressButton={bedtimePress}*/}
-      {/*/>*/}
-
       {showPicker &&  (
         <View style={styles.timePicker}>
           <RNDateTimePicker
@@ -107,19 +99,6 @@ export default function EditSleepGoal({
           />
         </View>
       )}
-      {/*<Text style={styles.title}>*/}
-      {/*  How much sleep do you need to feel rested?*/}
-      {/*</Text>*/}
-      {/*<View style={styles.editBar}>*/}
-      {/*  <Icon.Button*/}
-      {/*    name={'minus'}*/}
-      {/*    style={styles.button}*/}
-      {/*    onPress={subtractFromGoal}*/}
-      {/*  />*/}
-      {/*  <Text style={styles.note}>{minutesToHours(newGoal)}</Text>*/}
-      {/*  <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal} />*/}
-      {/*</View>*/}
-
     </>
   );
 }

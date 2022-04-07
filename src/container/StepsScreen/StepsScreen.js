@@ -62,7 +62,7 @@ export default function StepsScreen() {
           <Image style={styles.cardLogo} source={images.stepsIcon} />
           <View style={styles.goalHeadline}>
             <Text style={styles.goalAmount}>
-              {stepsGoalObject.goals.dailyStepGoal.toLocaleString()}
+              {stepsGoal.toLocaleString()}
             </Text>
             <Text style={styles.goalSubhead}>daily steps goal</Text>
           </View>
@@ -95,7 +95,7 @@ export default function StepsScreen() {
           </View>
           <View style={styles.rightCard}>
             <Text style={styles.rightCardTitle}>
-              7 Day Average Step Count
+              10-Day Average Step Count
             </Text>
             <View style={styles.rightInfo}>
               <Text style={styles.weeklyAverage}>
@@ -108,26 +108,6 @@ export default function StepsScreen() {
             <Image style={styles.cardLogo} source={images.stepsIcon} />
           </View>
         </View>
-
-        {/*<Text style={styles.dailySteps}>*/}
-        {/*  Total Last 10 days:{' '}*/}
-        {/*  {stepsGoalObject.scores.ten_day_steps.toLocaleString()}*/}
-        {/*</Text>*/}
-        {/*<View style={styles.card}>*/}
-        {/*  <ProgressCircle*/}
-        {/*    style={styles.progress}*/}
-        {/*    progress={stepsGoalObject.scores.score / 100}*/}
-        {/*    progressColor={styleConstants.progress_color}*/}
-        {/*    backgroundColor={'none'}*/}
-        {/*    strokeWidth={12}*/}
-        {/*  />*/}
-        {/*  <Image style={styles.logo} source={images.stepsIcon} />*/}
-        {/*</View>*/}
-        {/*<Text style={styles.dailySteps}>*/}
-        {/*  {stepsGoalObject.scores.average_steps.toLocaleString()} steps/day*/}
-        {/*</Text>*/}
-        {/*<Text style={styles.goalAmount}>(Average of last 7 days)</Text>*/}
-        {/*<WeeklyTable weeklyResult={stepsGoalObject.scores.days_of_the_week} />*/}
         <EditGoal currentGoal={stepsGoal} updateSteps={setStepsGoal} />
       </KeyboardAwareScrollView>
     </View>

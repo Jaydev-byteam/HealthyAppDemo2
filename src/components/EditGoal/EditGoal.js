@@ -38,11 +38,6 @@ export default function EditGoal({currentGoal, updateSteps}) {
           <Icon name={'plus'} size={16} color={'white'} />
         </TouchableOpacity>
       </View>
-      {/*<View style={styles.editBar}>*/}
-      {/*  <Icon.Button name={'minus'} style={styles.minusButton} onPress={subtractFromGoal}/>*/}
-      {/*  <Text style={styles.note}>{newGoal.toLocaleString()} Steps</Text>*/}
-      {/*  <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>*/}
-      {/*</View>*/}
       {newGoal !== currentGoal && (
         <BasicButton
           style={styles.submitButton}
