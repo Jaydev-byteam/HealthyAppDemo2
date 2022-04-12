@@ -1,20 +1,14 @@
-import { StyleSheet } from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {StyleSheet} from 'react-native';
+import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: styleConstants.background_color,
+    backgroundColor: styleConstants.base_background,
   },
 
-  logo: {
-    flex: 1,
-    height: 120,
-    width: 90,
-    alignSelf: "center",
-    margin: 30
-  },
   input: {
     height: 48,
     borderRadius: 5,
@@ -24,7 +18,7 @@ export default StyleSheet.create({
     marginBottom: 10,
     marginLeft: 30,
     marginRight: 30,
-    paddingLeft: 16
+    paddingLeft: 16,
   },
 
   footerView: {
@@ -35,16 +29,16 @@ export default StyleSheet.create({
   footerText: {
     fontSize: 16,
     color: styleConstants.subhead_text,
-    fontWeight: 'bold'
+    fontFamily: fontConstants.button,
   },
   footerLink: {
-    color: styleConstants.light_text,
-    fontWeight: 'bold',
+    color: styleConstants.button_background,
+    fontFamily: fontConstants.button,
     fontSize: 16,
   },
   validationView: {
     flex: 1,
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 30,
@@ -52,11 +46,13 @@ export default StyleSheet.create({
   },
   success: {
     color: styleConstants.success_color,
-    fontSize: 14,
+    fontSize: 15,
+    fontFamily: fontConstants.subtext,
     marginBottom: 10,
   },
   error: {
     color: styleConstants.error_color,
-    fontSize: 14
+    fontSize: 15,
+    fontFamily: fontConstants.subtext,
   },
-})
+});

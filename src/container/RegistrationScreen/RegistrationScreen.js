@@ -65,25 +65,29 @@ export default function RegistrationScreen({navigation}) {
       <KeyboardAwareScrollView
         style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
-        <PageTitle />
+        <PageTitle showIcon={false}/>
         <InputField
+          style={styles.input}
           placeholder={'Nickname'}
           onChangeText={text => setNickname(text)}
           value={nickname}
         />
         <InputField
+          style={styles.input}
           placeholder={'Email'}
           onChangeText={text => setEmail(text)}
           value={email}
           keyboardType="email-address"
         />
         <InputField
+          style={styles.input}
           placeholder="Password"
           onChangeText={text => setPassword(text)}
           value={password}
           secureTextEntry
         />
         <InputField
+          style={styles.input}
           placeholder="Confirm Password"
           onChangeText={text => setConfirmPassword(text)}
           value={confirmPassword}
