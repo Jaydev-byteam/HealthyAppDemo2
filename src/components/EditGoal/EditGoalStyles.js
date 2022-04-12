@@ -40,7 +40,6 @@ export default StyleSheet.create({
     width: 40,
     borderRadius: 20,
   },
-
   submitButton: {
     backgroundColor: styleConstants.step_divider,
     color: styleConstants.progress_color,
