@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from "../../_constants/FontConstants";
 
 export default StyleSheet.create({
   container: {
@@ -13,7 +14,7 @@ export default StyleSheet.create({
   },
   editText: {
     color: styleConstants.subhead_text,
-    fontWeight: '600',
+    fontFamily: fontConstants.subtext,
     fontSize: 12,
     textAlign: 'center',
   },
@@ -56,11 +57,7 @@ export default StyleSheet.create({
   plusButton: {
     backgroundColor: styleConstants.plus_button,
   },
-  note: {
-    color: styleConstants.light_text,
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
+
   submitButton: {
     backgroundColor: styleConstants.step_divider,
     color: styleConstants.progress_color,
