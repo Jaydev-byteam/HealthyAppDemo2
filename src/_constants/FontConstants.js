@@ -3,4 +3,5 @@ export const fontConstants = {
   button: 'Karla-Bold',
   subtext: 'Karla-SemiBold',
   currentGoal: 'Karla-Bold',
+  cardTitle: 'Karla-SemiBold',
 };
