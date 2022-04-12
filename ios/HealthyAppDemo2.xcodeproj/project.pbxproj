@@ -14,6 +14,22 @@
 		52810B5C2FEB9F7ED128C655 /* libPods-HealthyAppDemo2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6B3B91623C52D17FCAC54C /* libPods-HealthyAppDemo2.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		824BA65927D66E4D00403FF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */; };
+		825827552805CE69000B2010 /* Karla-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */; };
+		825827562805CE69000B2010 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */; };
+		825827652805CE7F000B2010 /* Karla-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827572805CE7F000B2010 /* Karla-Medium.ttf */; };
+		825827662805CE7F000B2010 /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827582805CE7F000B2010 /* Karla-Regular.ttf */; };
+		825827672805CE7F000B2010 /* Karla-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827592805CE7F000B2010 /* Karla-ExtraLight.ttf */; };
+		825827682805CE7F000B2010 /* Karla-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8258275A2805CE7F000B2010 /* Karla-ExtraLightItalic.ttf */; };
+		825827692805CE7F000B2010 /* Karla-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8258275B2805CE7F000B2010 /* Karla-SemiBold.ttf */; };
+		8258276A2805CE7F000B2010 /* Karla-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8258275C2805CE7F000B2010 /* Karla-MediumItalic.ttf */; };
+		8258276B2805CE7F000B2010 /* Karla-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8258275D2805CE7F000B2010 /* Karla-ExtraBoldItalic.ttf */; };
+		8258276C2805CE7F000B2010 /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8258275E2805CE7F000B2010 /* Karla-Bold.ttf */; };
+		8258276D2805CE7F000B2010 /* Karla-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8258275F2805CE7F000B2010 /* Karla-BoldItalic.ttf */; };
+		8258276E2805CE7F000B2010 /* Karla-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827602805CE7F000B2010 /* Karla-Italic.ttf */; };
+		8258276F2805CE7F000B2010 /* Karla-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827612805CE7F000B2010 /* Karla-ExtraBold.ttf */; };
+		825827702805CE7F000B2010 /* Karla-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827622805CE7F000B2010 /* Karla-SemiBoldItalic.ttf */; };
+		825827712805CE7F000B2010 /* Karla-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827632805CE7F000B2010 /* Karla-LightItalic.ttf */; };
+		825827722805CE7F000B2010 /* Karla-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827642805CE7F000B2010 /* Karla-Light.ttf */; };
 		825FEA3527F230B300D5EAC3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825FEA3427F230B300D5EAC3 /* HealthKit.framework */; };
 		825FEA3827F2336700D5EAC3 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FEA3727F2336700D5EAC3 /* HealthKitManager.swift */; };
 		825FEA3B27F2366400D5EAC3 /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 825FEA3A27F2366400D5EAC3 /* HealthKitManager.m */; };
@@ -46,6 +62,22 @@
 		6B20BD34047A6F7C38A2A7EF /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HealthyAppDemo2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		825827572805CE7F000B2010 /* Karla-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Medium.ttf"; sourceTree = "<group>"; };
+		825827582805CE7F000B2010 /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		825827592805CE7F000B2010 /* Karla-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-ExtraLight.ttf"; sourceTree = "<group>"; };
+		8258275A2805CE7F000B2010 /* Karla-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		8258275B2805CE7F000B2010 /* Karla-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-SemiBold.ttf"; sourceTree = "<group>"; };
+		8258275C2805CE7F000B2010 /* Karla-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-MediumItalic.ttf"; sourceTree = "<group>"; };
+		8258275D2805CE7F000B2010 /* Karla-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		8258275E2805CE7F000B2010 /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
+		8258275F2805CE7F000B2010 /* Karla-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-BoldItalic.ttf"; sourceTree = "<group>"; };
+		825827602805CE7F000B2010 /* Karla-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic.ttf"; sourceTree = "<group>"; };
+		825827612805CE7F000B2010 /* Karla-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-ExtraBold.ttf"; sourceTree = "<group>"; };
+		825827622805CE7F000B2010 /* Karla-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		825827632805CE7F000B2010 /* Karla-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-LightItalic.ttf"; sourceTree = "<group>"; };
+		825827642805CE7F000B2010 /* Karla-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Light.ttf"; sourceTree = "<group>"; };
 		825FEA3327F230B300D5EAC3 /* HealthyAppDemo2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HealthyAppDemo2.entitlements; path = HealthyAppDemo2/HealthyAppDemo2.entitlements; sourceTree = "<group>"; };
 		825FEA3427F230B300D5EAC3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		825FEA3627F2336600D5EAC3 /* HealthyAppDemo2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HealthyAppDemo2-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -136,6 +168,22 @@
 		824BA65A27DFDF9F00403FF7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				8258275E2805CE7F000B2010 /* Karla-Bold.ttf */,
+				8258275F2805CE7F000B2010 /* Karla-BoldItalic.ttf */,
+				825827612805CE7F000B2010 /* Karla-ExtraBold.ttf */,
+				8258275D2805CE7F000B2010 /* Karla-ExtraBoldItalic.ttf */,
+				825827592805CE7F000B2010 /* Karla-ExtraLight.ttf */,
+				8258275A2805CE7F000B2010 /* Karla-ExtraLightItalic.ttf */,
+				825827602805CE7F000B2010 /* Karla-Italic.ttf */,
+				825827642805CE7F000B2010 /* Karla-Light.ttf */,
+				825827632805CE7F000B2010 /* Karla-LightItalic.ttf */,
+				825827572805CE7F000B2010 /* Karla-Medium.ttf */,
+				8258275C2805CE7F000B2010 /* Karla-MediumItalic.ttf */,
+				825827582805CE7F000B2010 /* Karla-Regular.ttf */,
+				8258275B2805CE7F000B2010 /* Karla-SemiBold.ttf */,
+				825827622805CE7F000B2010 /* Karla-SemiBoldItalic.ttf */,
+				825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */,
+				825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */,
 				8297597E27E109DC00384C94 /* FontAwesome.ttf */,
 			);
 			name = Fonts;
@@ -286,9 +334,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8258276C2805CE7F000B2010 /* Karla-Bold.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				8258276E2805CE7F000B2010 /* Karla-Italic.ttf in Resources */,
+				825827712805CE7F000B2010 /* Karla-LightItalic.ttf in Resources */,
+				825827692805CE7F000B2010 /* Karla-SemiBold.ttf in Resources */,
+				8258276D2805CE7F000B2010 /* Karla-BoldItalic.ttf in Resources */,
+				825827682805CE7F000B2010 /* Karla-ExtraLightItalic.ttf in Resources */,
+				825827652805CE7F000B2010 /* Karla-Medium.ttf in Resources */,
+				8258276B2805CE7F000B2010 /* Karla-ExtraBoldItalic.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8258276A2805CE7F000B2010 /* Karla-MediumItalic.ttf in Resources */,
 				824BA65927D66E4D00403FF7 /* GoogleService-Info.plist in Resources */,
+				825827672805CE7F000B2010 /* Karla-ExtraLight.ttf in Resources */,
+				825827722805CE7F000B2010 /* Karla-Light.ttf in Resources */,
+				8258276F2805CE7F000B2010 /* Karla-ExtraBold.ttf in Resources */,
+				825827662805CE7F000B2010 /* Karla-Regular.ttf in Resources */,
+				825827552805CE69000B2010 /* Karla-Italic-VariableFont_wght.ttf in Resources */,
+				825827702805CE7F000B2010 /* Karla-SemiBoldItalic.ttf in Resources */,
+				825827562805CE69000B2010 /* Karla-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

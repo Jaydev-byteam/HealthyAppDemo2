@@ -16,6 +16,7 @@ export default StyleSheet.create({
     margin: 10,
   },
   titleText: {
+    fontFamily: 'Karla-Bold',
     fontSize: 24,
     fontWeight: '700',
     color: styleConstants.dark_text,
