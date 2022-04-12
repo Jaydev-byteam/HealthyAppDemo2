@@ -6,8 +6,6 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     borderRadius: 10,
-    // height: 170,
-    // width: 160,
     marginHorizontal: 10,
     marginBottom: 30,
   },
@@ -26,7 +24,6 @@ export default StyleSheet.create({
     left: 25,
   },
   logo: {
-    // flex: 1,
     width: 90,
     height: 90,
     marginTop: 15,
@@ -34,7 +31,6 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   cardInfo: {
-    // position: 'absolute',
     width: 150,
     left: 0,
     bottom: 80,
@@ -64,7 +60,6 @@ export default StyleSheet.create({
     flex: 1,
     height: 130,
     width: 130,
-    // position: 'absolute',
     top: 16,
     left: 8,
   },
@@ -86,7 +81,6 @@ export default StyleSheet.create({
   },
   cardSegment: {
     flex: 1,
-    // backgroundColor: 'red',
     marginHorizontal: 10,
     marginTop: 10,
     marginBottom: 30,

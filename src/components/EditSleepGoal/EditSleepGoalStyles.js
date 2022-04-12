@@ -25,7 +25,6 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   minButton: {
-    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: styleConstants.card_sleep,
@@ -35,7 +34,6 @@ export default StyleSheet.create({
 
   },
   addButton: {
-    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: styleConstants.dark_background,

@@ -57,7 +57,6 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   cardInfo: {
-    // position: 'absolute',
     width: 150,
     left: 0,
     bottom: 80,
@@ -103,14 +102,6 @@ export default StyleSheet.create({
     fontSize: 32,
     color: styleConstants.light_text,
   },
-  // card: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   alignSelf: 'center',
-  //   height: 200,
-  //   width: 200,
-  //   marginVertical: 20,
-  // },
   progress: {
     flex: 1,
     height: 130,

@@ -24,7 +24,7 @@ export default StyleSheet.create({
     fontWeight: '700',
     color: styleConstants.step_divider,
     fontSize: 14,
-    textAlign: "center",
+    textAlign: 'center',
   },
   goalAmount: {
     color: styleConstants.light_text,
@@ -41,7 +41,6 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     marginVertical: 15,
-
   },
   leftCard: {
     flex: 1,
@@ -56,10 +55,9 @@ export default StyleSheet.create({
     fontWeight: '700',
     fontSize: 14,
     textAlign: 'center',
-    color: styleConstants.light_text
+    color: styleConstants.light_text,
   },
   cardInfo: {
-    // position: 'absolute',
     width: 150,
     left: 0,
     bottom: 75,
@@ -89,7 +87,7 @@ export default StyleSheet.create({
   rightCardSubhead: {
     fontWeight: '600',
     color: styleConstants.light_text,
-    textAlign: "center",
+    textAlign: 'center',
   },
   weeklyAverage: {
     fontWeight: '700',
@@ -114,15 +112,12 @@ export default StyleSheet.create({
     flex: 1,
     height: 130,
     width: 130,
-    // position: 'absolute',
     top: 16,
   },
   cardLogo: {
     width: 70,
     height: 70,
-
     borderRadius: 35,
     resizeMode: 'contain',
   },
-
 });

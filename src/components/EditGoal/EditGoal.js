@@ -3,6 +3,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './EditGoalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import BasicButton from '../BasicButton/BasicButton';
+import {plusIcon, minusIcon} from '../../_constants/IconConstants';
 
 export default function EditGoal({currentGoal, updateSteps}) {
   const [newGoal, setNewGoal] = useState(currentGoal);
@@ -28,14 +29,14 @@ export default function EditGoal({currentGoal, updateSteps}) {
     <>
       <View style={styles.container}>
         <TouchableOpacity style={styles.minButton} onPress={subtractFromGoal}>
-          <Icon name={'minus'} size={16} color={'white'} />
+          {minusIcon}
         </TouchableOpacity>
         <View>
           <Text style={styles.editText}>Edit Daily Steps Goal</Text>
           <Text style={styles.stepsGoal}>{newGoal.toLocaleString()}</Text>
         </View>
         <TouchableOpacity style={styles.addButton} onPress={addToGoal}>
-          <Icon name={'plus'} size={16} color={'white'} />
+          {plusIcon}
         </TouchableOpacity>
       </View>
       {newGoal !== currentGoal && (

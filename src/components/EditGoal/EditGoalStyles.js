@@ -41,7 +41,6 @@ export default StyleSheet.create({
 
   },
   addButton: {
-    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: styleConstants.plus_button,

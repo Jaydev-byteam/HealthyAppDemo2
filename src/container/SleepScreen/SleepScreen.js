@@ -63,59 +63,40 @@ export default function SleepScreen({navigation, user}) {
           <View style={styles.cardDivider} />
           <View style={styles.goalHeadline}>
             <Text style={styles.goalSubhead}>Time To Sleep</Text>
-            <Text style={styles.goalAmount}>{minutesToHours(sleepDuration)}</Text>
+            <Text style={styles.goalAmount}>
+              {minutesToHours(sleepDuration)}
+            </Text>
           </View>
         </View>
 
         <View style={styles.centerSection}>
           <View style={styles.leftCard}>
-            <Text style={styles.leftCardTitle}>
-              Daily Sleep Progress
-            </Text>
+            <Text style={styles.leftCardTitle}>Daily Sleep Progress</Text>
             <ProgressCircle
               style={styles.progress}
-              progress={sleepGoalObject.scores.score/100}
+              progress={sleepGoalObject.scores.score / 100}
               progressColor={styleConstants.progress_color_alt}
               backgroundColor={styleConstants.progress_bg_alt}
               strokeWidth={10}
             />
             <View style={styles.cardInfo}>
-              <Text style={styles.goalSubhead}>
-                Quality
-              </Text>
+              <Text style={styles.goalSubhead}>Quality</Text>
               <Text style={styles.progressText}>
                 {sleepGoalObject.scores.score}%
               </Text>
-
             </View>
           </View>
           <View style={styles.rightCard}>
-            <Text style={styles.rightCardTitle}>
-              10-day Average Sleep Time
-            </Text>
+            <Text style={styles.rightCardTitle}>10-day Average Sleep Time</Text>
 
-              <Text style={styles.weeklyAverage}>
-                {minutesToHours(sleepGoalObject.scores.average_sleep)}
-              </Text>
+            <Text style={styles.weeklyAverage}>
+              {minutesToHours(sleepGoalObject.scores.average_sleep)}
+            </Text>
 
             <Image style={styles.cardLogo} source={images.sleepTime} />
           </View>
         </View>
-        {/*<View style={styles.card}>*/}
-        {/*  <ProgressCircle*/}
-        {/*    style={styles.progress}*/}
-        {/*    progress={sleepGoalObject.scores.score / 100}*/}
-        {/*    progressColor={styleConstants.progress_color}*/}
-        {/*    backgroundColor={'none'}*/}
-        {/*    strokeWidth={12}*/}
-        {/*  />*/}
-        {/*  <Image style={styles.logo} source={images.sleepTime} />*/}
-        {/*</View>*/}
-        {/*<Text style={styles.dailySleep}>*/}
-        {/*  {minutesToHours(sleepGoalObject.scores.average_sleep)} hours/night*/}
-        {/*</Text>*/}
-        {/*<Text style={styles.goalAmount}>(Average of last 7 days)</Text>*/}
-        {/*<WeeklyTable weeklyResult={sleepGoalObject.scores.days_of_the_week} />*/}
+
         <EditSleepGoal
           currentGoal={sleepDuration}
           currentBedtime={bedtime}
