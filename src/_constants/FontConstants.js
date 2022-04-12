@@ -1,6 +1,6 @@
 export const fontConstants = {
-  title: 'Karla-Bold',
-  button: 'Karla-Regular',
+  title: 'Inter-Bold',
+  button: 'Karla-Bold',
   subtext: 'Karla-SemiBold',
   currentGoal: 'Karla-Bold',
 };

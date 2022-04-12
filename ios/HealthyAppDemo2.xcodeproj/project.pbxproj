@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		52810B5C2FEB9F7ED128C655 /* libPods-HealthyAppDemo2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6B3B91623C52D17FCAC54C /* libPods-HealthyAppDemo2.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		823577A928060FBD00E09892 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 823577A828060FBD00E09892 /* Inter-Bold.ttf */; };
 		824BA65927D66E4D00403FF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */; };
 		825827552805CE69000B2010 /* Karla-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */; };
 		825827562805CE69000B2010 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */; };
@@ -61,6 +62,7 @@
 		4936D775E280C0BB2BC8A67A /* Pods-HealthyAppDemo2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyAppDemo2.debug.xcconfig"; path = "Target Support Files/Pods-HealthyAppDemo2/Pods-HealthyAppDemo2.debug.xcconfig"; sourceTree = "<group>"; };
 		6B20BD34047A6F7C38A2A7EF /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HealthyAppDemo2/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		823577A828060FBD00E09892 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		824BA65A27DFDF9F00403FF7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				823577A828060FBD00E09892 /* Inter-Bold.ttf */,
 				8258275E2805CE7F000B2010 /* Karla-Bold.ttf */,
 				8258275F2805CE7F000B2010 /* Karla-BoldItalic.ttf */,
 				825827612805CE7F000B2010 /* Karla-ExtraBold.ttf */,
@@ -340,6 +343,7 @@
 				825827712805CE7F000B2010 /* Karla-LightItalic.ttf in Resources */,
 				825827692805CE7F000B2010 /* Karla-SemiBold.ttf in Resources */,
 				8258276D2805CE7F000B2010 /* Karla-BoldItalic.ttf in Resources */,
+				823577A928060FBD00E09892 /* Inter-Bold.ttf in Resources */,
 				825827682805CE7F000B2010 /* Karla-ExtraLightItalic.ttf in Resources */,
 				825827652805CE7F000B2010 /* Karla-Medium.ttf in Resources */,
 				8258276B2805CE7F000B2010 /* Karla-ExtraBoldItalic.ttf in Resources */,
