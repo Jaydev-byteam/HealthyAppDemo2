@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import { styleConstants } from "../../_constants/StyleConstants";
+import {fontConstants} from "../../_constants/FontConstants";
 
 export default StyleSheet.create({
   defaultButton: {
@@ -15,7 +16,7 @@ export default StyleSheet.create({
   buttonTitle: {
     color: styleConstants.light_text,
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: fontConstants.button,
   },
   sleepButton: {
     backgroundColor: styleConstants.card_sleep,

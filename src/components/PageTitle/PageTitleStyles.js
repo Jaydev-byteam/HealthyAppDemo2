@@ -22,8 +22,8 @@ export default StyleSheet.create({
     color: styleConstants.dark_text,
   },
   sleepTitleText: {
+    fontFamily: fontConstants.title,
     fontSize: 24,
-    fontWeight: '700',
     color: styleConstants.light_text,
   },
 });
