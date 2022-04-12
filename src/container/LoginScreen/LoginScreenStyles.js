@@ -4,8 +4,7 @@ import { styleConstants } from "../../_constants/StyleConstants";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: styleConstants.background_color,
+    backgroundColor: styleConstants.base_background,
   },
   logo: {
     flex: 1,
@@ -28,7 +27,7 @@ export default StyleSheet.create({
   footerView: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 20,
+    marginVertical: 20,
   },
   footerText: {
     fontSize: 16,
@@ -36,7 +35,7 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   footerLink: {
-    color: styleConstants.light_text,
+    color: styleConstants.blue_text,
     fontWeight: 'bold',
     fontSize: 16,
   },

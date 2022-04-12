@@ -57,3 +57,5 @@ export const timeStringToDate = timeString => {
   newDate.setHours(hours, minutes);
   return newDate;
 };
+
+// helper function

@@ -4,7 +4,7 @@ import { styleConstants } from "../../_constants/StyleConstants";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: styleConstants.background_color,
+    marginHorizontal: "3%",
+    backgroundColor: styleConstants.base_background,
   },
 });

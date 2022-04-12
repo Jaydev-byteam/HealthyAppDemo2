@@ -4,9 +4,9 @@ import { styleConstants } from "../../_constants/StyleConstants";
 export default StyleSheet.create({
   titleContainer: {
     flex: 1,
+    width: '100%',
     alignItems: 'center',
-    padding: 20,
-    marginTop: 50,
+    marginVertical: 50,
   },
   logo: {
     flex: 1,
@@ -17,7 +17,12 @@ export default StyleSheet.create({
   },
   titleText: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
+    color: styleConstants.dark_text,
+  },
+  sleepTitleText: {
+    fontSize: 24,
+    fontWeight: '700',
     color: styleConstants.light_text,
   },
 });

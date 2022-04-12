@@ -58,29 +58,56 @@ export default function StepsScreen() {
     <View style={styles.container}>
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Hit Daily Steps'} showIcon={false} />
-        <Text style={styles.goalAmount}>
-          Goal: {stepsGoalObject.goals.dailyStepGoal.toLocaleString()} steps/day
-        </Text>
-        <Text style={styles.dailySteps}>Daily Steps: {currentSteps}</Text>
-        {/*<Text style={styles.dailySteps}>*/}
-        {/*  Total Last 10 days:{' '}*/}
-        {/*  {stepsGoalObject.scores.ten_day_steps.toLocaleString()}*/}
-        {/*</Text>*/}
-        <View style={styles.card}>
-          <ProgressCircle
-            style={styles.progress}
-            progress={stepsGoalObject.scores.score / 100}
-            progressColor={styleConstants.progress_color}
-            backgroundColor={'none'}
-            strokeWidth={12}
-          />
-          <Image style={styles.logo} source={images.stepsIcon} />
+        <View style={styles.titleCard}>
+          <Image style={styles.cardLogo} source={images.stepsIcon} />
+          <View style={styles.goalHeadline}>
+            <Text style={styles.goalAmount}>
+              {stepsGoal.toLocaleString()}
+            </Text>
+            <Text style={styles.goalSubhead}>daily steps goal</Text>
+          </View>
+
+          <Image style={styles.cardLogo} source={images.stepsIcon} />
         </View>
-        <Text style={styles.dailySteps}>
-          {stepsGoalObject.scores.average_steps.toLocaleString()} steps/day
-        </Text>
-        <Text style={styles.goalAmount}>(Average of last 7 days)</Text>
-        <WeeklyTable weeklyResult={stepsGoalObject.scores.days_of_the_week} />
+        <View style={styles.centerSection}>
+          <View style={styles.leftCard}>
+            <Text style={styles.leftCardTitle}>
+              Daily Step Total
+            </Text>
+            <ProgressCircle
+              style={styles.progress}
+              progress={currentSteps/stepsGoalObject.goals.dailyStepGoal}
+              progressColor={styleConstants.progress_color}
+              backgroundColor={styleConstants.progress_bg}
+              strokeWidth={10}
+            />
+            <View style={styles.cardInfo}>
+              <Text style={styles.progressText}>
+                {currentSteps.toLocaleString('en-US')}
+              </Text>
+              <Text style={styles.goalSubhead}>
+                Steps Today
+              </Text>
+            </View>
+            <Text style={styles.goalSubhead}>
+              {currentSteps*100/stepsGoalObject.goals.dailyStepGoal}% complete
+            </Text>
+          </View>
+          <View style={styles.rightCard}>
+            <Text style={styles.rightCardTitle}>
+              10-Day Average Step Count
+            </Text>
+            <View style={styles.rightInfo}>
+              <Text style={styles.weeklyAverage}>
+                {stepsGoalObject.scores.average_steps.toLocaleString()}
+              </Text>
+              <Text style={styles.rightCardSubhead}>
+                steps
+              </Text>
+            </View>
+            <Image style={styles.cardLogo} source={images.stepsIcon} />
+          </View>
+        </View>
         <EditGoal currentGoal={stepsGoal} updateSteps={setStepsGoal} />
       </KeyboardAwareScrollView>
     </View>

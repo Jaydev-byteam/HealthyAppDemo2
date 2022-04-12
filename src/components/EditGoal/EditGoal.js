@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './EditGoalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import BasicButton from "../BasicButton/BasicButton";
+import BasicButton from '../BasicButton/BasicButton';
+import {plusIcon, minusIcon} from '../../_constants/IconConstants';
 
 export default function EditGoal({currentGoal, updateSteps}) {
   const [newGoal, setNewGoal] = useState(currentGoal);
@@ -21,22 +22,30 @@ export default function EditGoal({currentGoal, updateSteps}) {
     }
   };
   const onFinalPress = () => {
-    console.log('In onFinalPress, newGoal is:', newGoal)
+    console.log('In onFinalPress, newGoal is:', newGoal);
     updateSteps(newGoal);
-  }
+  };
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}>Adjust Your Steps Goal</Text>
+        <TouchableOpacity style={styles.minButton} onPress={subtractFromGoal}>
+          {minusIcon}
+        </TouchableOpacity>
+        <View>
+          <Text style={styles.editText}>Edit Daily Steps Goal</Text>
+          <Text style={styles.stepsGoal}>{newGoal.toLocaleString()}</Text>
+        </View>
+        <TouchableOpacity style={styles.addButton} onPress={addToGoal}>
+          {plusIcon}
+        </TouchableOpacity>
       </View>
-      <View style={styles.editBar}>
-        <Icon.Button name={'minus'} style={styles.button} onPress={subtractFromGoal}/>
-        <Text style={styles.note}>{newGoal.toLocaleString()} Steps</Text>
-        <Icon.Button name={'plus'} style={styles.button} onPress={addToGoal}/>
-      </View>
-      {(newGoal !== currentGoal) &&
-        <BasicButton buttonText={'Submit New Goal'} onPressButton={onFinalPress} />
-      }
+      {newGoal !== currentGoal && (
+        <BasicButton
+          style={styles.submitButton}
+          buttonText={'SAVE EDITS'}
+          onPressButton={onFinalPress}
+        />
+      )}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from "react";
+import {useEffect, useState} from 'react';
 import {View, Text, Image} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -8,20 +8,21 @@ import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
 import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditSleepGoal from '../../components/EditSleepGoal/EditSleepGoal';
-import { styleConstants } from "../../_constants/StyleConstants";
-import { getSleepGoal, getSleepScores, getStepsScores } from "../../database/FirebaseGet";
-import {minutesToHours, bedtimeString, timeStringToDate} from "../../_utilities/UtilityFunctions";
-import { sleepGoalObject } from "../../_constants/EmptyObjectConstants";
-
-// const weeklyAveSleep = 450;
-// // define a hardcoded bedtime as a Date object with current date, set time to 10:30 PM
-// let bedtime = new Date();
-// bedtime.setHours(22, 30);
-// // define hardcoded data for the sleep minutes
-// const sleepGoal = 480;
-// const dailySleep = 450;
-// const successWeek = [false, true, false, true, false, true, false];
-
+import {styleConstants} from '../../_constants/StyleConstants';
+import {
+  getSleepGoal,
+  getSleepScores,
+  getStepsScores,
+} from '../../database/FirebaseGet';
+import {
+  minutesToHours,
+  bedtimeString,
+  timeStringToDate,
+} from '../../_utilities/UtilityFunctions';
+import {
+  sleepGoalObject,
+  stepsGoalObject,
+} from '../../_constants/EmptyObjectConstants';
 
 export default function SleepScreen({navigation, user}) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -32,7 +33,9 @@ export default function SleepScreen({navigation, user}) {
     }
   };
   // define state variable for the sleep amount objective
-  const [sleepDuration, setSleepDuration] = useState(sleepGoalObject.goals.sleep_duration);
+  const [sleepDuration, setSleepDuration] = useState(
+    sleepGoalObject.goals.sleep_duration,
+  );
   // define state variable for the bedtime
   const [bedtime, setBedtime] = useState(sleepGoalObject.goals.sleep_bedtime);
   // convert bedtime string into a date object that can be modified
@@ -52,25 +55,48 @@ export default function SleepScreen({navigation, user}) {
     <View style={styles.container}>
       <KeyboardAwareScrollView>
         <PageTitle pageName={'Sleep More'} showIcon={false} />
-        <Text style={styles.goalAmount}>Bedtime: {bedtime}</Text>
-        <Text style={styles.goalAmount}>
-          Goal: {minutesToHours(sleepDuration)} hours/night
-        </Text>
-        <View style={styles.card}>
-          <ProgressCircle
-            style={styles.progress}
-            progress={sleepGoalObject.scores.score / 100}
-            progressColor={styleConstants.progress_color}
-            backgroundColor={'none'}
-            strokeWidth={12}
-          />
-          <Image style={styles.logo} source={images.sleepTime} />
+        <View style={styles.titleCard}>
+          <View style={styles.goalHeadline}>
+            <Text style={styles.goalSubhead}>Bedtime</Text>
+            <Text style={styles.goalAmount}>{bedtime}</Text>
+          </View>
+          <View style={styles.cardDivider} />
+          <View style={styles.goalHeadline}>
+            <Text style={styles.goalSubhead}>Time To Sleep</Text>
+            <Text style={styles.goalAmount}>
+              {minutesToHours(sleepDuration)}
+            </Text>
+          </View>
         </View>
-        <Text style={styles.dailySleep}>
-          {minutesToHours(sleepGoalObject.scores.average_sleep)} hours/night
-        </Text>
-        <Text style={styles.goalAmount}>(Average of last 7 days)</Text>
-        <WeeklyTable weeklyResult={sleepGoalObject.scores.days_of_the_week} />
+
+        <View style={styles.centerSection}>
+          <View style={styles.leftCard}>
+            <Text style={styles.leftCardTitle}>Daily Sleep Progress</Text>
+            <ProgressCircle
+              style={styles.progress}
+              progress={sleepGoalObject.scores.score / 100}
+              progressColor={styleConstants.progress_color_alt}
+              backgroundColor={styleConstants.progress_bg_alt}
+              strokeWidth={10}
+            />
+            <View style={styles.cardInfo}>
+              <Text style={styles.goalSubhead}>Quality</Text>
+              <Text style={styles.progressText}>
+                {sleepGoalObject.scores.score}%
+              </Text>
+            </View>
+          </View>
+          <View style={styles.rightCard}>
+            <Text style={styles.rightCardTitle}>10-day Average Sleep Time</Text>
+
+            <Text style={styles.weeklyAverage}>
+              {minutesToHours(sleepGoalObject.scores.average_sleep)}
+            </Text>
+
+            <Image style={styles.cardLogo} source={images.sleepTime} />
+          </View>
+        </View>
+
         <EditSleepGoal
           currentGoal={sleepDuration}
           currentBedtime={bedtime}

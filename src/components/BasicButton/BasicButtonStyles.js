@@ -2,13 +2,13 @@ import {StyleSheet} from 'react-native';
 import { styleConstants } from "../../_constants/StyleConstants";
 
 export default StyleSheet.create({
-  button: {
-    backgroundColor: styleConstants.button_background,
-    marginLeft: 60,
-    marginRight: 60,
-    marginTop: 20,
-    height: 48,
-    borderRadius: 30,
+  defaultButton: {
+    backgroundColor: styleConstants.progress_color,
+    marginLeft: 15,
+    marginRight: 15,
+    marginVertical: 20,
+    height: 50,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -17,4 +17,15 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  sleepButton: {
+    backgroundColor: styleConstants.card_sleep,
+    marginLeft: 15,
+    marginRight: 15,
+    marginVertical: 10,
+    height: 50,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
 });

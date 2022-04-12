@@ -67,7 +67,10 @@ export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName={greeting} />
+        <PageTitle
+          pageName={greeting}
+          showIcon={false}
+        />
         <Text style={styles.accountInfo}>
           Current email: {fire_auth.currentUser.email}
         </Text>
