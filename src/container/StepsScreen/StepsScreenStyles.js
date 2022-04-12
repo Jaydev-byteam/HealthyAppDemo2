@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   container: {
@@ -28,12 +29,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   goalSubhead: {
-    fontWeight: '600',
+    fontFamily: fontConstants.subtext,
     color: styleConstants.subhead_text,
   },
   goalAmount: {
     color: styleConstants.progress_color,
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     textAlign: 'center',
     fontSize: 30,
   },
@@ -52,7 +53,7 @@ export default StyleSheet.create({
     marginRight: 7.5,
   },
   leftCardTitle: {
-    fontWeight: '700',
+    fontFamily: fontConstants.button,
     fontSize: 14,
     textAlign: 'center',
   },
@@ -63,7 +64,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   progressText: {
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     fontSize: 26,
     color: styleConstants.dark_text,
   },
@@ -78,7 +79,7 @@ export default StyleSheet.create({
     marginLeft: 7.5,
   },
   rightCardTitle: {
-    fontWeight: '700',
+    fontFamily: fontConstants.button,
     fontSize: 14,
     color: styleConstants.light_text,
     textAlign: 'center',
@@ -87,18 +88,12 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   rightCardSubhead: {
-    fontWeight: '600',
-    color: styleConstants.light_text,
-    textAlign: "center",
-  },
-  dailySteps: {
+    fontFamily: fontConstants.subtext,
     color: styleConstants.light_text,
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 14,
   },
   weeklyAverage: {
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     fontSize: 32,
     color: styleConstants.light_text,
   },
@@ -106,13 +101,6 @@ export default StyleSheet.create({
     flex: 1,
     height: 130,
     width: 130,
-    // position: 'absolute',
     top: 16,
-  },
-  logo: {
-    width: 110,
-    height: 110,
-    borderRadius: 55,
-    resizeMode: 'contain',
   },
 });
