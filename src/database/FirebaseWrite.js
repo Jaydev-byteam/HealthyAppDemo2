@@ -38,3 +38,19 @@ export const tenDaySteps = async stepsData => {
     console.error(`Error updating ten-day steps ${err}`);
   }
 };
+
+export const changeStepGoal = async newStepGoal => {
+  try {
+    await fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('steps')
+      .set({
+        dailyStepGoal: newStepGoal,
+      });
+    console.log('Firestore updated with new daily step goal: ', newStepGoal);
+  } catch (err) {
+    console.error('Error updating daily step goal: ', err);
+  }
+};

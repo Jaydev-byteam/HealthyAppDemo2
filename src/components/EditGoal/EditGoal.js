@@ -4,6 +4,7 @@ import styles from './EditGoalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import BasicButton from '../BasicButton/BasicButton';
 import {plusIcon, minusIcon} from '../../_constants/IconConstants';
+import {changeStepGoal} from "../../database/FirebaseWrite";
 
 export default function EditGoal({currentGoal, updateSteps}) {
   const [newGoal, setNewGoal] = useState(currentGoal);
@@ -24,6 +25,7 @@ export default function EditGoal({currentGoal, updateSteps}) {
   const onFinalPress = () => {
     console.log('In onFinalPress, newGoal is:', newGoal);
     updateSteps(newGoal);
+    changeStepGoal(newGoal);
   };
   return (
     <>
