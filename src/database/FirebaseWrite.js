@@ -54,3 +54,20 @@ export const changeStepGoal = async newStepGoal => {
     console.error('Error updating daily step goal: ', err);
   }
 };
+
+export const changeSleepGoal = async (newSleepGoal, newBedtime) => {
+  try {
+    await fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('sleep')
+      .set({
+        sleep_duration: newSleepGoal,
+        sleep_bedtime: newBedtime,
+      });
+    console.log('Firestore updated with new sleep duration goal:', newSleepGoal);
+  } catch (err) {
+    console.error('Error updating sleep duration goal:', err);
+  }
+};
