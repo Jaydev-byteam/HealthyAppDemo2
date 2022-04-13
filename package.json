@@ -22,6 +22,7 @@
     "react-native": "0.67.3",
     "react-native-easy-grid": "^0.2.2",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-permissions": "^3.3.1",
     "react-native-safe-area-context": "^4.1.2",
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
@@ -43,6 +44,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": ["assets/fonts"]
+    "assets": [
+      "assets/fonts"
+    ]
   }
 }

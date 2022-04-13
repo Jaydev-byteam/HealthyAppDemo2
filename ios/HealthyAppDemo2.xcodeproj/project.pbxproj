@@ -14,6 +14,11 @@
 		52810B5C2FEB9F7ED128C655 /* libPods-HealthyAppDemo2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6B3B91623C52D17FCAC54C /* libPods-HealthyAppDemo2.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		823577A928060FBD00E09892 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 823577A828060FBD00E09892 /* Inter-Bold.ttf */; };
+		823577B4280751D300E09892 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823577B2280751D200E09892 /* FirebaseManager.swift */; };
+		823577B82807523C00E09892 /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 823577B62807523C00E09892 /* HealthKitManager.m */; };
+		823577B92807523C00E09892 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823577B72807523C00E09892 /* HealthKitManager.swift */; };
+		823577BC2807553800E09892 /* HSLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823577BA2807553800E09892 /* HSLocationManager.swift */; };
+		823577BD2807553800E09892 /* HSLocationTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823577BB2807553800E09892 /* HSLocationTracking.swift */; };
 		824BA65927D66E4D00403FF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */; };
 		825827552805CE69000B2010 /* Karla-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */; };
 		825827562805CE69000B2010 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */; };
@@ -32,8 +37,6 @@
 		825827712805CE7F000B2010 /* Karla-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827632805CE7F000B2010 /* Karla-LightItalic.ttf */; };
 		825827722805CE7F000B2010 /* Karla-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827642805CE7F000B2010 /* Karla-Light.ttf */; };
 		825FEA3527F230B300D5EAC3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825FEA3427F230B300D5EAC3 /* HealthKit.framework */; };
-		825FEA3827F2336700D5EAC3 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FEA3727F2336700D5EAC3 /* HealthKitManager.swift */; };
-		825FEA3B27F2366400D5EAC3 /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 825FEA3A27F2366400D5EAC3 /* HealthKitManager.m */; };
 		9924FE29863D5CB2B9BDC05E /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B20BD34047A6F7C38A2A7EF /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,14 @@
 		6B20BD34047A6F7C38A2A7EF /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HealthyAppDemo2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		823577A828060FBD00E09892 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		823577B2280751D200E09892 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseManager.swift; path = HealthyAppDemo2/FirebaseManager/FirebaseManager.swift; sourceTree = "<group>"; };
+		823577B3280751D200E09892 /* FirebaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirebaseManager.h; path = HealthyAppDemo2/FirebaseManager/FirebaseManager.h; sourceTree = "<group>"; };
+		823577B5280751F300E09892 /* HealthyAppDemo2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HealthyAppDemo2-Bridging-Header.h"; path = "HealthyAppDemo2/HealthyAppDemo2-Bridging-Header.h"; sourceTree = "<group>"; };
+		823577B62807523C00E09892 /* HealthKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthKitManager.m; path = HealthyAppDemo2/HealthKitManager/HealthKitManager.m; sourceTree = "<group>"; };
+		823577B72807523C00E09892 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitManager.swift; path = HealthyAppDemo2/HealthKitManager/HealthKitManager.swift; sourceTree = "<group>"; };
+		823577BA2807553800E09892 /* HSLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HSLocationManager.swift; path = HealthyAppDemo2/LocationManager/HSLocationManager.swift; sourceTree = "<group>"; };
+		823577BB2807553800E09892 /* HSLocationTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HSLocationTracking.swift; path = HealthyAppDemo2/LocationManager/HSLocationTracking.swift; sourceTree = "<group>"; };
+		823577BE280755D300E09892 /* HSLocationTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HSLocationTracking.h; path = HealthyAppDemo2/LocationManager/HSLocationTracking.h; sourceTree = "<group>"; };
 		824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -82,9 +93,6 @@
 		825827642805CE7F000B2010 /* Karla-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Light.ttf"; sourceTree = "<group>"; };
 		825FEA3327F230B300D5EAC3 /* HealthyAppDemo2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HealthyAppDemo2.entitlements; path = HealthyAppDemo2/HealthyAppDemo2.entitlements; sourceTree = "<group>"; };
 		825FEA3427F230B300D5EAC3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		825FEA3627F2336600D5EAC3 /* HealthyAppDemo2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HealthyAppDemo2-Bridging-Header.h"; sourceTree = "<group>"; };
-		825FEA3727F2336700D5EAC3 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
-		825FEA3A27F2366400D5EAC3 /* HealthKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthKitManager.m; sourceTree = "<group>"; };
 		8297597E27E109DC00384C94 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		DA6B3B91623C52D17FCAC54C /* libPods-HealthyAppDemo2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HealthyAppDemo2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA21493543F4EB79CA368379 /* Pods-HealthyAppDemo2-HealthyAppDemo2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyAppDemo2-HealthyAppDemo2Tests.release.xcconfig"; path = "Target Support Files/Pods-HealthyAppDemo2-HealthyAppDemo2Tests/Pods-HealthyAppDemo2-HealthyAppDemo2Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +151,8 @@
 		13B07FAE1A68108700A75B9A /* HealthyAppDemo2 */ = {
 			isa = PBXGroup;
 			children = (
+				823577AB2807463D00E09892 /* LocationManager */,
+				823577AA2807463000E09892 /* FirebaseManager */,
 				825FEA3927F2361A00D5EAC3 /* HealthKitManager */,
 				825FEA3327F230B300D5EAC3 /* HealthyAppDemo2.entitlements */,
 				824BA65A27DFDF9F00403FF7 /* Fonts */,
@@ -152,6 +162,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				823577B5280751F300E09892 /* HealthyAppDemo2-Bridging-Header.h */,
 			);
 			name = HealthyAppDemo2;
 			sourceTree = "<group>";
@@ -165,6 +176,25 @@
 				6B20BD34047A6F7C38A2A7EF /* libPods-HealthyAppDemo2-HealthyAppDemo2Tests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		823577AA2807463000E09892 /* FirebaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				823577B3280751D200E09892 /* FirebaseManager.h */,
+				823577B2280751D200E09892 /* FirebaseManager.swift */,
+			);
+			name = FirebaseManager;
+			sourceTree = "<group>";
+		};
+		823577AB2807463D00E09892 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				823577BA2807553800E09892 /* HSLocationManager.swift */,
+				823577BB2807553800E09892 /* HSLocationTracking.swift */,
+				823577BE280755D300E09892 /* HSLocationTracking.h */,
+			);
+			name = LocationManager;
 			sourceTree = "<group>";
 		};
 		824BA65A27DFDF9F00403FF7 /* Fonts */ = {
@@ -195,9 +225,8 @@
 		825FEA3927F2361A00D5EAC3 /* HealthKitManager */ = {
 			isa = PBXGroup;
 			children = (
-				825FEA3627F2336600D5EAC3 /* HealthyAppDemo2-Bridging-Header.h */,
-				825FEA3727F2336700D5EAC3 /* HealthKitManager.swift */,
-				825FEA3A27F2366400D5EAC3 /* HealthKitManager.m */,
+				823577B62807523C00E09892 /* HealthKitManager.m */,
+				823577B72807523C00E09892 /* HealthKitManager.swift */,
 			);
 			name = HealthKitManager;
 			sourceTree = "<group>";
@@ -536,10 +565,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823577BD2807553800E09892 /* HSLocationTracking.swift in Sources */,
+				823577B4280751D300E09892 /* FirebaseManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				825FEA3B27F2366400D5EAC3 /* HealthKitManager.m in Sources */,
-				825FEA3827F2336700D5EAC3 /* HealthKitManager.swift in Sources */,
+				823577B82807523C00E09892 /* HealthKitManager.m in Sources */,
+				823577B92807523C00E09892 /* HealthKitManager.swift in Sources */,
+				823577BC2807553800E09892 /* HSLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +647,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HealthyAppDemo2/HealthyAppDemo2.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GZZWC4KL2P;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HealthyAppDemo2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -628,7 +661,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HealthyAppDemoTwo;
 				PRODUCT_NAME = HealthyAppDemo2;
-				SWIFT_OBJC_BRIDGING_HEADER = "HealthyAppDemo2-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthyAppDemo2/HealthyAppDemo2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -643,6 +676,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HealthyAppDemo2/HealthyAppDemo2.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GZZWC4KL2P;
 				INFOPLIST_FILE = HealthyAppDemo2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,7 +689,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HealthyAppDemoTwo;
 				PRODUCT_NAME = HealthyAppDemo2;
-				SWIFT_OBJC_BRIDGING_HEADER = "HealthyAppDemo2-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthyAppDemo2/HealthyAppDemo2-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -694,7 +728,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -760,7 +794,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
