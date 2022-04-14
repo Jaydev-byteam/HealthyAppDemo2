@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   sleepEdit: {
@@ -14,14 +15,14 @@ export default StyleSheet.create({
   },
   editText: {
     color: styleConstants.subhead_text,
-    fontWeight: '600',
+    fontFamily: fontConstants.subtext,
     fontSize: 12,
     textAlign: 'center',
   },
   sleepGoal: {
     color: styleConstants.dark_background,
     fontSize: 30,
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     textAlign: 'center',
   },
   minButton: {
@@ -31,7 +32,6 @@ export default StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20,
-
   },
   addButton: {
     justifyContent: 'center',
@@ -49,34 +49,7 @@ export default StyleSheet.create({
   buttonTitle: {
     color: styleConstants.light_text,
     fontSize: 12,
-    fontWeight: 'bold',
-  },
-  title: {
-    color: styleConstants.light_text,
-    fontWeight: 'bold',
-    fontSize: 16,
-    marginVertical: 5,
-  },
-  bedtime: {
-    color: styleConstants.light_text,
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginVertical: 5,
-  },
-  editBar: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'none',
-  },
-  button: {
-    backgroundColor: styleConstants.background_color,
-  },
-  note: {
-    color: styleConstants.light_text,
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontFamily: fontConstants.button,
   },
   datePicker: {
     backgroundColor: styleConstants.light_background,
@@ -85,20 +58,5 @@ export default StyleSheet.create({
   timePicker: {
     alignItems: 'center',
     marginTop: 10,
-  },
-  editBar: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'none',
-  },
-  button: {
-    backgroundColor: styleConstants.background_color,
-  },
-  note: {
-    color: styleConstants.light_text,
-    fontWeight: 'bold',
-    fontSize: 16,
   },
 });

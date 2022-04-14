@@ -35,6 +35,7 @@ export default function LoginScreen({navigation}) {
           showIcon={false}
         />
         <InputField
+          style={styles.input}
           placeholder={'Email'}
           onChangeText={text => setEmail(text)}
           value={email}

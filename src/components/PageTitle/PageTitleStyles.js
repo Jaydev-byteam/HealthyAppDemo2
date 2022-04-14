@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   titleContainer: {
@@ -16,13 +17,13 @@ export default StyleSheet.create({
     margin: 10,
   },
   titleText: {
+    fontFamily: fontConstants.title,
     fontSize: 24,
-    fontWeight: '700',
     color: styleConstants.dark_text,
   },
   sleepTitleText: {
+    fontFamily: fontConstants.title,
     fontSize: 24,
-    fontWeight: '700',
     color: styleConstants.light_text,
   },
 });

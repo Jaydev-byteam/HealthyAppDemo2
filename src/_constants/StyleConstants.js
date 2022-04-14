@@ -3,7 +3,7 @@ export const styleConstants = {
   light_text: '#FFFFFF',
   dark_text: '#1D1D1F',
   blue_text: '#785BFA',
-  background_color: '#550096',
+  betteryou_background: '#550096',
   base_background: '#F2F2F2',
   light_background: '#FFFFFF',
   dark_background: '#0A0643',

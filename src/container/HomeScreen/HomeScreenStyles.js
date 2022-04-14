@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   container: {
@@ -7,22 +8,12 @@ export default StyleSheet.create({
     marginHorizontal: '3%',
     backgroundColor: styleConstants.base_background,
   },
-  input: {
-    height: 48,
-    borderRadius: 5,
-    overflow: 'hidden',
-    backgroundColor: styleConstants.input_background,
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 30,
-    marginRight: 30,
-    paddingLeft: 16,
-  },
+
   accountInfo: {
     color: styleConstants.blue_text,
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontFamily: fontConstants.subtext,
     marginBottom: 10,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 });

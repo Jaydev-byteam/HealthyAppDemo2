@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from "../../_constants/FontConstants";
 
 export default StyleSheet.create({
   container: {
@@ -21,14 +22,14 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   goalSubhead: {
-    fontWeight: '700',
+    fontFamily: fontConstants.button,
     color: styleConstants.step_divider,
     fontSize: 14,
     textAlign: 'center',
   },
   goalAmount: {
     color: styleConstants.light_text,
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     textAlign: 'center',
     fontSize: 30,
   },
@@ -52,7 +53,7 @@ export default StyleSheet.create({
     marginRight: 7.5,
   },
   leftCardTitle: {
-    fontWeight: '700',
+    fontFamily: fontConstants.button,
     fontSize: 14,
     textAlign: 'center',
     color: styleConstants.light_text,
@@ -64,7 +65,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   progressText: {
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     fontSize: 26,
     color: styleConstants.light_text,
   },
@@ -78,36 +79,18 @@ export default StyleSheet.create({
     marginLeft: 7.5,
   },
   rightCardTitle: {
-    fontWeight: '700',
+    fontFamily: fontConstants.button,
     fontSize: 14,
     textAlign: 'center',
     color: styleConstants.light_text,
   },
 
-  rightCardSubhead: {
-    fontWeight: '600',
-    color: styleConstants.light_text,
-    textAlign: 'center',
-  },
   weeklyAverage: {
-    fontWeight: '700',
+    fontFamily: fontConstants.currentGoal,
     fontSize: 32,
     color: styleConstants.light_text,
   },
-  dailySleep: {
-    color: styleConstants.light_text,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  card: {
-    flex: 1,
-    alignItems: 'center',
-    alignSelf: 'center',
-    height: 200,
-    width: 200,
-    marginVertical: 20,
-  },
+
   progress: {
     flex: 1,
     height: 130,

@@ -1,17 +1,11 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
+import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: styleConstants.base_background,
-  },
-  logo: {
-    flex: 1,
-    height: 90,
-    width: 90,
-    alignSelf: 'center',
-    margin: 10,
   },
   input: {
     height: 48,
@@ -32,11 +26,11 @@ export default StyleSheet.create({
   footerText: {
     fontSize: 16,
     color: styleConstants.subhead_text,
-    fontWeight: 'bold'
+    fontFamily: fontConstants.button,
   },
   footerLink: {
     color: styleConstants.blue_text,
-    fontWeight: 'bold',
+    fontFamily: fontConstants.button,
     fontSize: 16,
   },
 });

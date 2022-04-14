@@ -6,7 +6,6 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './SleepScreenStyles';
 import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
-import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditSleepGoal from '../../components/EditSleepGoal/EditSleepGoal';
 import {styleConstants} from '../../_constants/StyleConstants';
 import {

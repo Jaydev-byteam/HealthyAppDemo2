@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {styleConstants} from '../../_constants/StyleConstants';
+import { fontConstants } from "../../_constants/FontConstants";
 
 export default StyleSheet.create({
   card: {
@@ -15,30 +16,11 @@ export default StyleSheet.create({
   sleepCard: {
     backgroundColor: styleConstants.card_sleep,
   },
-  cardTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  graphic: {
-    width: 160,
-    left: 25,
-  },
-  logo: {
-    width: 90,
-    height: 90,
-    marginTop: 15,
-    borderRadius: 45,
-    resizeMode: 'contain',
-  },
   cardInfo: {
     width: 150,
     left: 0,
     bottom: 80,
     alignItems: 'center',
-  },
-  goalSubhead: {
-    marginBottom: 10,
-    fontWeight: 'bold',
   },
   stepSubhead: {
     color: styleConstants.subhead_text,
@@ -47,7 +29,7 @@ export default StyleSheet.create({
     color: styleConstants.sleep_subhead,
   },
   goalAmount: {
-    fontWeight: 'bold',
+    fontFamily: fontConstants.currentGoal,
     fontSize: 24,
   },
   sleepTextColor: {
@@ -66,14 +48,8 @@ export default StyleSheet.create({
   cardTitle: {
     marginTop: 20,
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: fontConstants.cardTitle,
     color: styleConstants.dark_text,
-  },
-  sleepCardTitle: {
-    marginTop: 20,
-    fontSize: 20,
-    fontWeight: '600',
-    color: styleConstants.light_text,
   },
   cardBody: {
     flex: 1,
