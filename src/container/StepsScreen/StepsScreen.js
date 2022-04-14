@@ -36,7 +36,7 @@ export default function StepsScreen() {
       await getStepsScores();
       isDataLoaded();
     })();
-  }, [dataLoaded]);
+  }, [dataLoaded, stepsGoal]);
 
   useEffect(() => {
     (async () => {
@@ -76,7 +76,7 @@ export default function StepsScreen() {
             </Text>
             <ProgressCircle
               style={styles.progress}
-              progress={currentSteps/stepsGoalObject.goals.dailyStepGoal}
+              progress={currentSteps/stepsGoal}
               progressColor={styleConstants.progress_color}
               backgroundColor={styleConstants.progress_bg}
               strokeWidth={10}
@@ -90,7 +90,7 @@ export default function StepsScreen() {
               </Text>
             </View>
             <Text style={styles.goalSubhead}>
-              {currentSteps*100/stepsGoalObject.goals.dailyStepGoal}% complete
+              {Math.round(currentSteps*100/stepsGoal)}% complete
             </Text>
           </View>
           <View style={styles.rightCard}>

@@ -3,14 +3,13 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
-
-
+import {askLocation} from '../../_utilities/PermissionUtilties';
 
 // importing custom dumb components
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import InputField from '../../components/InputField/InputField';
-import { MDHealthKitManager } from "../../_utilities/HealthKit";
+import {MDHealthKitManager} from '../../_utilities/HealthKit';
 
 export default function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
@@ -26,14 +25,21 @@ export default function LoginScreen({navigation}) {
     });
   };
 
+  const onAuthPress = () => {
+    MDHealthKitManager.requestAuthorization();
+    askLocation();
+  };
+
+  const onSettingsPress = () => {
+    MDHealthKitManager.openApplicationSettings();
+  };
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
         style={{flex: 1, width: '100%'}}
         keyboardShouldPersistTaps="always">
-        <PageTitle
-          showIcon={false}
-        />
+        <PageTitle showIcon={false} />
         <InputField
           style={styles.input}
           placeholder={'Email'}
@@ -58,8 +64,9 @@ export default function LoginScreen({navigation}) {
         </View>
         <BasicButton
           buttonText={'Allow Permissions'}
-          onPressButton={() => MDHealthKitManager.requestAuthorization()}
+          onPressButton={onAuthPress}
         />
+        <BasicButton buttonText={'Settings'} onPressButton={onSettingsPress} />
       </KeyboardAwareScrollView>
     </View>
   );

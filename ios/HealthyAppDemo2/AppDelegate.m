@@ -1,5 +1,8 @@
 #import "AppDelegate.h"
 #import <Firebase.h>
+#import "FirebaseManager.h"
+#import "HSLocationTracking.h"
+#import "HealthyAppDemo2-Swift.h"
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -12,6 +15,7 @@
 #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
+
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
@@ -51,6 +55,36 @@ static void InitializeFlipper(UIApplication *application) {
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application{
+    FirebaseManager *firebaseManager = [FirebaseManager new];
+    [firebaseManager addPickup: @"unlock"];
+}
+
+- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application{
+  FirebaseManager *firebaseManager = [FirebaseManager new];
+  [firebaseManager addPickup: @"lock"];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+  HSLocationTracking *hsLocationManager = [HSLocationTracking new];
+  [hsLocationManager stopLocationTracking];
+}
+  
+
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+  HSLocationTracking *hsLocationManager = [HSLocationTracking new];
+  [hsLocationManager startLocationTracking];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application{
+  HSLocationTracking *hsLocationManager = [HSLocationTracking new];
+  [hsLocationManager stopLocationTracking];
+}
+
+
+
+
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {

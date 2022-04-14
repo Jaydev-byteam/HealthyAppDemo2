@@ -28,6 +28,18 @@ class HealthKitManager: NSObject {
     }
   }
   
+  @objc func openApplicationSettings() {
+    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+     return
+    }
+    DispatchQueue.main.async {
+     if UIApplication.shared.canOpenURL(settingsUrl) {
+      UIApplication.shared.open(settingsUrl, completionHandler: { (_) in
+      })
+     }
+    }
+   }
+  
   @objc
   func getCurrentDay() -> Date {
     let now = Date()

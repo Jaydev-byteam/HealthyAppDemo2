@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import BasicButton from '../BasicButton/BasicButton';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
+import { changeSleepGoal, changeStepGoal } from "../../database/FirebaseWrite";
 
 export default function EditSleepGoal({
   currentGoal,
@@ -55,6 +56,7 @@ export default function EditSleepGoal({
     console.log('In updateGoal, newGoal is:', newGoal);
     updateSleep(newGoal);
     updateBedtime(newBedtime);
+    changeSleepGoal(newGoal, newBedtime);
   };
 
   return (
