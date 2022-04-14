@@ -22,6 +22,7 @@ import {
   sleepGoalObject,
   stepsGoalObject,
 } from '../../_constants/EmptyObjectConstants';
+import {askLocation} from "../../_utilities/PermissionUtilties";
 
 export default function SleepScreen({navigation, user}) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -47,6 +48,10 @@ export default function SleepScreen({navigation, user}) {
       isDataLoaded();
     })();
   }, [dataLoaded]);
+
+  useEffect(() => {
+    askLocation();
+  }, []);
 
   console.log('In SleepScreen, goals object is:', sleepGoalObject);
   console.log('In SleepScreen goal score is:', sleepGoalObject.scores.score);
