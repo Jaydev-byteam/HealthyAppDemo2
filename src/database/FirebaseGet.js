@@ -60,8 +60,7 @@ export const getTodaysSteps = async () => {
       console.log('in getTodaysSteps catch block');
       logError(error.stack);
     });
-
-;}
+};
 
 export const getSleepGoal = async () => {
   await fstore
@@ -117,4 +116,22 @@ export const getUserNickname = async () => {
     .catch(e => {
       logError('error getting user nickname', e.stack);
     });
+};
+
+export const stepGoalListener = async (changeHandler) => {
+  try {
+    return fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('steps')
+      .onSnapshot(snapshot => {
+        if (snapshot !== null && !snapshot.empty) {
+          console.log('In stepGoalListener, snapshot is:', snapshot.data());
+          changeHandler(snapshot.data().dailyStepGoal);
+        }
+      });
+  } catch (e) {
+    logError('error listening to step goals', e.message);
+  }
 };

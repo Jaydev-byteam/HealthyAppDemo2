@@ -6,12 +6,13 @@ import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
 import {fire_auth, fstore} from '../../database/FirebaseDefault';
-import {minutesToHours} from "../../_utilities/UtilityFunctions";
+import {minutesToHours} from '../../_utilities/UtilityFunctions';
 import {
   getStepsGoal,
   getStepsScores,
   getSleepGoal,
   getSleepScores,
+  stepGoalListener,
 } from '../../database/FirebaseGet';
 import {
   stepsGoalObject,
@@ -20,6 +21,9 @@ import {
 
 export default function GoalsScreenMain({navigation}) {
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [dailyStepGoal, setDailyStepGoal] = useState(
+    stepsGoalObject.goals.dailyStepGoal,
+  );
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
@@ -31,6 +35,11 @@ export default function GoalsScreenMain({navigation}) {
     }
   };
 
+  const refreshStepGoal = (newGoal) => {
+    console.log('In refreshStepGoal with newGoal:', newGoal);
+    setDailyStepGoal(newGoal);
+  };
+
   useEffect(() => {
     (async () => {
       await getStepsGoal();
@@ -40,9 +49,18 @@ export default function GoalsScreenMain({navigation}) {
       isDataLoaded();
       console.log('In useEffect, dataLoaded is:', dataLoaded);
     })();
-  }, [dataLoaded, stepsGoalObject]);
+  }, [dataLoaded]);
 
-  console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject );
+  useEffect(() => {
+
+    const unsubscribe = stepGoalListener(refreshStepGoal);
+    return () => {
+      unsubscribe();
+    }
+
+  }, []);
+
+  console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -50,7 +68,7 @@ export default function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.stepsIcon}
           goalTitle={'Step Goals'}
-          goalAmount={stepsGoalObject.goals.dailyStepGoal}
+          goalAmount={dailyStepGoal}
           goalUnit={'steps/day'}
           goalProgress={stepsGoalObject.scores.score / 100}
           onPress={() => navigateToPage('Steps')}
