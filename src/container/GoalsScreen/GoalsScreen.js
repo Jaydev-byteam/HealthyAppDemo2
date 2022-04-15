@@ -40,7 +40,7 @@ export default function GoalsScreenMain({navigation}) {
       isDataLoaded();
       console.log('In useEffect, dataLoaded is:', dataLoaded);
     })();
-  }, [dataLoaded]);
+  }, [dataLoaded, stepsGoalObject]);
 
   console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject );
   return (
