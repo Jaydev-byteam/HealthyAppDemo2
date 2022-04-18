@@ -28,7 +28,7 @@ export const userObject = {
 
 export const sleepGoalObject = {
   goals: {
-    sleep_bedtime: '',
+    sleep_bedtime: '10:00 PM',
     sleep_duration: 480,
   },
   scores: {
