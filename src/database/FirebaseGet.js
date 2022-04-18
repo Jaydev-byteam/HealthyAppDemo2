@@ -145,7 +145,7 @@ export const bedtimeGoalListener = async (changeHandler) => {
       .doc('sleep')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log('In sleepGoalListener, snapshot is:', snapshot.data());
+          console.log('In bedtimeGoalListener, snapshot is:', snapshot.data());
           changeHandler(snapshot.data().sleep_bedtime);
         }
       })
@@ -153,3 +153,21 @@ export const bedtimeGoalListener = async (changeHandler) => {
     logError('error listening to bedtime goals', e.message);
   }
 }
+
+export const sleepDurationGoalListener = async (changeHandler) => {
+  try {
+    return fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('sleep')
+      .onSnapshot(snapshot => {
+        if (snapshot !== null && !snapshot.empty) {
+          console.log('In sleepDurationGoalListener, snapshot is:', snapshot.data());
+          changeHandler(snapshot.data().sleep_duration);
+        }
+      })
+  } catch (e) {
+    logError('error listening to sleep duration goals', e.message);
+  }
+ }

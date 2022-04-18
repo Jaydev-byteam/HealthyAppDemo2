@@ -14,6 +14,7 @@ import {
   getSleepScores,
   stepGoalListener,
   bedtimeGoalListener,
+  sleepDurationGoalListener,
 } from '../../database/FirebaseGet';
 import {
   stepsGoalObject,
@@ -25,7 +26,12 @@ export default function GoalsScreenMain({navigation}) {
   const [dailyStepGoal, setDailyStepGoal] = useState(
     stepsGoalObject.goals.dailyStepGoal,
   );
-  const [bedtimeGoal, setBedtimeGoal] = useState(sleepGoalObject.goals.sleep_bedtime);
+  const [bedtimeGoal, setBedtimeGoal] = useState(
+    sleepGoalObject.goals.sleep_bedtime,
+  );
+  const [sleepDurationGoal, setSleepDurationGoal] = useState(
+    sleepGoalObject.goals.sleep_duration,
+  );
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
@@ -37,15 +43,20 @@ export default function GoalsScreenMain({navigation}) {
     }
   };
 
-  const refreshStepGoal = (newGoal) => {
+  const refreshStepGoal = newGoal => {
     console.log('In refreshStepGoal with newGoal:', newGoal);
     setDailyStepGoal(newGoal);
   };
 
-  const refreshBedtime = (newGoal) => {
+  const refreshBedtime = newGoal => {
     console.log('In refreshBedtime with newGoal:', newGoal);
     setBedtimeGoal(newGoal);
-  }
+  };
+
+  const refreshSleepDurationGoal = newGoal => {
+    console.log('In refreshSleepDurationGoal with newGoal:', newGoal);
+    setSleepDurationGoal(newGoal);
+  };
 
   useEffect(() => {
     (async () => {
@@ -59,14 +70,16 @@ export default function GoalsScreenMain({navigation}) {
   }, [dataLoaded]);
 
   useEffect(() => {
-
     const stepUnsubscribe = stepGoalListener(refreshStepGoal);
     const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
+    const sleepDurationUnsubscribe = sleepDurationGoalListener(
+      refreshSleepDurationGoal
+    );
     return () => {
       stepUnsubscribe();
       bedtimeUnsubscribe();
-    }
-
+      sleepDurationUnsubscribe();
+    };
   }, []);
 
   console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject);
@@ -85,7 +98,7 @@ export default function GoalsScreenMain({navigation}) {
         <GoalCard
           image={images.sleepTime}
           goalTitle={'Sleep Goals'}
-          goalAmount={minutesToHours(sleepGoalObject.goals.sleep_duration)}
+          goalAmount={minutesToHours(sleepDurationGoal)}
           goalUnit={'hours/day'}
           goalProgress={sleepGoalObject.scores.score / 100}
           bedtime={bedtimeGoal}
