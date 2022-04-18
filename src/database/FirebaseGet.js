@@ -135,3 +135,21 @@ export const stepGoalListener = async (changeHandler) => {
     logError('error listening to step goals', e.message);
   }
 };
+
+export const bedtimeGoalListener = async (changeHandler) => {
+  try {
+    return fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('sleep')
+      .onSnapshot(snapshot => {
+        if (snapshot !== null && !snapshot.empty) {
+          console.log('In sleepGoalListener, snapshot is:', snapshot.data());
+          changeHandler(snapshot.data().sleep_bedtime);
+        }
+      })
+  } catch (e) {
+    logError('error listening to bedtime goals', e.message);
+  }
+}

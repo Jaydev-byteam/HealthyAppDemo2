@@ -13,6 +13,7 @@ import {
   getSleepGoal,
   getSleepScores,
   stepGoalListener,
+  bedtimeGoalListener,
 } from '../../database/FirebaseGet';
 import {
   stepsGoalObject,
@@ -24,6 +25,7 @@ export default function GoalsScreenMain({navigation}) {
   const [dailyStepGoal, setDailyStepGoal] = useState(
     stepsGoalObject.goals.dailyStepGoal,
   );
+  const [bedtimeGoal, setBedtimeGoal] = useState(sleepGoalObject.goals.sleep_bedtime);
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
@@ -40,6 +42,11 @@ export default function GoalsScreenMain({navigation}) {
     setDailyStepGoal(newGoal);
   };
 
+  const refreshBedtime = (newGoal) => {
+    console.log('In refreshBedtime with newGoal:', newGoal);
+    setBedtimeGoal(newGoal);
+  }
+
   useEffect(() => {
     (async () => {
       await getStepsGoal();
@@ -53,9 +60,11 @@ export default function GoalsScreenMain({navigation}) {
 
   useEffect(() => {
 
-    const unsubscribe = stepGoalListener(refreshStepGoal);
+    const stepUnsubscribe = stepGoalListener(refreshStepGoal);
+    const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
     return () => {
-      unsubscribe();
+      stepUnsubscribe();
+      bedtimeUnsubscribe();
     }
 
   }, []);
@@ -79,7 +88,7 @@ export default function GoalsScreenMain({navigation}) {
           goalAmount={minutesToHours(sleepGoalObject.goals.sleep_duration)}
           goalUnit={'hours/day'}
           goalProgress={sleepGoalObject.scores.score / 100}
-          bedtime={sleepGoalObject.goals.sleep_bedtime}
+          bedtime={bedtimeGoal}
           onPress={() => navigateToPage('Sleep')}
         />
       </KeyboardAwareScrollView>
