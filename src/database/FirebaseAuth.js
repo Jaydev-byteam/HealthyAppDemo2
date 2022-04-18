@@ -140,11 +140,11 @@ export const createNewUser = (email, password, nickname) => {
         nickname,
       };
       addUserToFirestore(data);
-      // createStepGoalsCollection(data.id);
-      // createSleepGoalsCollection(data.id);
-      // createStepsScoresCollection(data.id);
-      // createSleepScoresCollection(data.id);
-      // createStepsCollections(data.id);
+      createStepGoalsCollection(data.id);
+      createSleepGoalsCollection(data.id);
+      createStepsScoresCollection(data.id);
+      createSleepScoresCollection(data.id);
+      createStepsCollections(data.id);
       loginNewUser(email, password);
     })
     .catch(error => {
