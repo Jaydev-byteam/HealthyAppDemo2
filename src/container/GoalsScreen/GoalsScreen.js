@@ -15,6 +15,7 @@ import {
   stepGoalListener,
   bedtimeGoalListener,
   sleepDurationGoalListener,
+  goalListener,
 } from '../../database/FirebaseGet';
 import {
   stepsGoalObject,
@@ -32,6 +33,21 @@ export default function GoalsScreenMain({navigation}) {
   const [sleepDurationGoal, setSleepDurationGoal] = useState(
     sleepGoalObject.goals.sleep_duration,
   );
+
+  const [goalObject, setGoalObject] = useState({
+    steps: {
+      dailyStepGoal: stepsGoalObject.goals.dailyStepGoal,
+    },
+    sleep: {
+      sleep_duration: sleepGoalObject.goals.sleep_duration,
+      sleep_bedtime: sleepGoalObject.goals.sleep_bedtime,
+    },
+  });
+
+  const refreshGoals = newGoalObject => {
+    console.log('In refresh goals with newGoalObject:', newGoalObject);
+    setGoalObject(newGoalObject);
+  };
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
@@ -69,18 +85,27 @@ export default function GoalsScreenMain({navigation}) {
     })();
   }, [dataLoaded]);
 
+  // useEffect(() => {
+  //   const stepUnsubscribe = stepGoalListener(refreshStepGoal);
+  //   const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
+  //   const sleepDurationUnsubscribe = sleepDurationGoalListener(
+  //     refreshSleepDurationGoal
+  //   );
+  //   const subscriber = goalListener(refreshGoals);
+  //   return () => {
+  //     stepUnsubscribe();
+  //     bedtimeUnsubscribe();
+  //     sleepDurationUnsubscribe();
+  //     subscriber();
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const stepUnsubscribe = stepGoalListener(refreshStepGoal);
-    const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
-    const sleepDurationUnsubscribe = sleepDurationGoalListener(
-      refreshSleepDurationGoal
-    );
+    const subscriber = goalListener(refreshGoals);
     return () => {
-      stepUnsubscribe();
-      bedtimeUnsubscribe();
-      sleepDurationUnsubscribe();
+      subscriber();
     };
-  }, []);
+  });
 
   console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject);
   return (

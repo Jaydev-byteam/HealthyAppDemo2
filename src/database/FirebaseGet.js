@@ -118,7 +118,7 @@ export const getUserNickname = async () => {
     });
 };
 
-export const stepGoalListener = async (changeHandler) => {
+export const stepGoalListener = async changeHandler => {
   try {
     return fstore
       .collection('users')
@@ -136,7 +136,7 @@ export const stepGoalListener = async (changeHandler) => {
   }
 };
 
-export const bedtimeGoalListener = async (changeHandler) => {
+export const bedtimeGoalListener = async changeHandler => {
   try {
     return fstore
       .collection('users')
@@ -148,13 +148,13 @@ export const bedtimeGoalListener = async (changeHandler) => {
           console.log('In bedtimeGoalListener, snapshot is:', snapshot.data());
           changeHandler(snapshot.data().sleep_bedtime);
         }
-      })
+      });
   } catch (e) {
     logError('error listening to bedtime goals', e.message);
   }
-}
+};
 
-export const sleepDurationGoalListener = async (changeHandler) => {
+export const sleepDurationGoalListener = async changeHandler => {
   try {
     return fstore
       .collection('users')
@@ -163,11 +163,31 @@ export const sleepDurationGoalListener = async (changeHandler) => {
       .doc('sleep')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log('In sleepDurationGoalListener, snapshot is:', snapshot.data());
+          console.log(
+            'In sleepDurationGoalListener, snapshot is:',
+            snapshot.data(),
+          );
           changeHandler(snapshot.data().sleep_duration);
         }
-      })
+      });
   } catch (e) {
     logError('error listening to sleep duration goals', e.message);
   }
- }
+};
+
+export const goalListener = async changeHandler => {
+  try {
+    return fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .onSnapshot(snapshot => {
+        if (snapshot !== null && !snapshot.empty) {
+          console.log('In GoalListener, snapshot is:', snapshot);
+          changeHandler(snapshot);
+        }
+      });
+  } catch (e) {
+    logError('error listening to sleep duration goals', e.message);
+  }
+};

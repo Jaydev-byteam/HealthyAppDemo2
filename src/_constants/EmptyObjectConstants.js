@@ -9,6 +9,16 @@ export const EmptySleepGoalObject = {
   sleep_duration: 480,
 };
 
+export const emptyGoalObject = {
+  steps: {
+    dailyStepGoal: 0,
+  },
+  sleep: {
+    sleep_duration: 480,
+    sleep_bedtime: '10:00 PM',
+  },
+};
+
 export const stepsGoalObject = {
   goals: {dailyStepGoal: 0},
   scores: {
