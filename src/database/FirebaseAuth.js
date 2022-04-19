@@ -6,14 +6,15 @@ import {
   tenDayStepsObject,
   emptyGoalObject,
 } from '../_constants/EmptyObjectConstants';
+import logError from 'react-native/Libraries/Utilities/logError';
 
 const addUserToFirestore = (email, nickname) => {
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
-    .set({email, nickname, id: fire_auth.currentUser.uid})
+    .set({email, nickname, id: fire_auth.currentUser.uid}, {merge: true})
     .then(() => {
-      console.log('New user added to firestore with email:', data.email);
+      console.log('New user added to firestore with email:', email);
     })
     .catch(error => {
       console.log('Error adding new user to firestore:', error);
@@ -26,7 +27,7 @@ const loginNewUser = (email, password) => {
   });
 };
 
-const createSleepGoalsCollection = id => {
+const createSleepGoalsCollection = () => {
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
@@ -34,14 +35,17 @@ const createSleepGoalsCollection = id => {
     .doc('sleep')
     .set(emptyGoalObject.sleep)
     .then(() => {
-      console.log('Default sleep goals added to firestore for user id:', id);
+      console.log(
+        'Default sleep goals added to firestore for user id:',
+        fire_auth.currentUser.uid,
+      );
     })
     .catch(error => {
       console.log('Error adding sleep goals collection to firestore', error);
     });
 };
 
-const createStepGoalsCollection = id => {
+const createStepGoalsCollection = () => {
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
@@ -49,14 +53,17 @@ const createStepGoalsCollection = id => {
     .doc('steps')
     .set(emptyGoalObject.steps)
     .then(() => {
-      console.log('Default steps goals added to firestore for user id:', id);
+      console.log(
+        'Default steps goals added to firestore for user id:',
+        fire_auth.currentUser.uid,
+      );
     })
     .catch(error => {
       console.log('Error adding steps goals collection to firestore', error);
     });
 };
 
-const createSleepScoresCollection = id => {
+const createSleepScoresCollection = () => {
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
@@ -64,7 +71,10 @@ const createSleepScoresCollection = id => {
     .doc('sleep')
     .set(sleepGoalObject.scores)
     .then(() => {
-      console.log('Default sleep scores added to firestore for user id:', id);
+      console.log(
+        'Default sleep scores added to firestore for user id:',
+        fire_auth.currentUser.uid,
+      );
     })
     .catch(error => {
       console.log(
@@ -74,7 +84,7 @@ const createSleepScoresCollection = id => {
     });
 };
 
-const createStepsScoresCollection = id => {
+const createStepsScoresCollection = () => {
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
@@ -82,7 +92,10 @@ const createStepsScoresCollection = id => {
     .doc('steps')
     .set(stepsGoalObject.scores)
     .then(() => {
-      console.log('Default steps scores added to firestore for user id:', id);
+      console.log(
+        'Default steps scores added to firestore for user id:',
+        fire_auth.currentUser.uid,
+      );
     })
     .catch(error => {
       console.log(
@@ -92,7 +105,7 @@ const createStepsScoresCollection = id => {
     });
 };
 
-const createStepsCollections = id => {
+const createStepsCollections = () => {
   fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
@@ -102,7 +115,7 @@ const createStepsCollections = id => {
     .then(() => {
       console.log(
         'Current_day_steps collection added to firestore for user:',
-        id,
+        fire_auth.currentUser.uid,
       );
     })
     .catch(error => {
@@ -120,7 +133,7 @@ const createStepsCollections = id => {
     .then(() => {
       console.log(
         'Current_day_steps collection added to firestore for user:',
-        id,
+        fire_auth.currentUser.uid,
       );
     })
     .catch(error => {
@@ -131,24 +144,17 @@ const createStepsCollections = id => {
     });
 };
 
-export const createNewUser = (email, password, nickname) => {
-  fire_auth
-    .createUserWithEmailAndPassword(email, password)
-    .then(response => {
-      const data = {
-        id: response.user.uid,
-        email,
-        nickname,
-      };
-      addUserToFirestore(email, nickname);
-      loginNewUser(email, password);
-      createStepGoalsCollection();
-      createSleepGoalsCollection();
-      createStepsScoresCollection();
-      createSleepScoresCollection();
-      createStepsCollections();
-    })
-    .catch(error => {
-      console.log('In createNewUser error in creation:', error);
-    });
+export const createNewUser = async (email, password, nickname) => {
+  try {
+    await fire_auth.createUserWithEmailAndPassword(email, password);
+    await addUserToFirestore(email, nickname);
+    await loginNewUser(email, password);
+    await createStepGoalsCollection();
+    await createSleepGoalsCollection();
+    await createStepsScoresCollection();
+    await createSleepScoresCollection();
+    await createStepsCollections();
+  } catch (error) {
+    logError('Error in createNewUser:', error);
+  }
 };
