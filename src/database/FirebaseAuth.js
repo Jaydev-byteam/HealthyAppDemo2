@@ -4,13 +4,14 @@ import {
   sleepGoalObject,
   currentDayStepsObject,
   tenDayStepsObject,
+  emptyGoalObject,
 } from '../_constants/EmptyObjectConstants';
 
-const addUserToFirestore = data => {
+const addUserToFirestore = (email, nickname) => {
   fstore
     .collection('users')
-    .doc(data.id)
-    .set(data)
+    .doc(fire_auth.currentUser.uid)
+    .set({email, nickname, id: fire_auth.currentUser.uid})
     .then(() => {
       console.log('New user added to firestore with email:', data.email);
     })
@@ -28,10 +29,10 @@ const loginNewUser = (email, password) => {
 const createSleepGoalsCollection = id => {
   fstore
     .collection('users')
-    .doc(id)
+    .doc(fire_auth.currentUser.uid)
     .collection('goals')
     .doc('sleep')
-    .set(sleepGoalObject.goals)
+    .set(emptyGoalObject.sleep)
     .then(() => {
       console.log('Default sleep goals added to firestore for user id:', id);
     })
@@ -43,10 +44,10 @@ const createSleepGoalsCollection = id => {
 const createStepGoalsCollection = id => {
   fstore
     .collection('users')
-    .doc(id)
+    .doc(fire_auth.currentUser.uid)
     .collection('goals')
     .doc('steps')
-    .set(stepsGoalObject.goals)
+    .set(emptyGoalObject.steps)
     .then(() => {
       console.log('Default steps goals added to firestore for user id:', id);
     })
@@ -58,7 +59,7 @@ const createStepGoalsCollection = id => {
 const createSleepScoresCollection = id => {
   fstore
     .collection('users')
-    .doc(id)
+    .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('sleep')
     .set(sleepGoalObject.scores)
@@ -76,7 +77,7 @@ const createSleepScoresCollection = id => {
 const createStepsScoresCollection = id => {
   fstore
     .collection('users')
-    .doc(id)
+    .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('steps')
     .set(stepsGoalObject.scores)
@@ -94,7 +95,7 @@ const createStepsScoresCollection = id => {
 const createStepsCollections = id => {
   fstore
     .collection('users')
-    .doc(id)
+    .doc(fire_auth.currentUser.uid)
     .collection('current_day_steps')
     .doc('starter')
     .set(currentDayStepsObject)
@@ -112,7 +113,7 @@ const createStepsCollections = id => {
     });
   fstore
     .collection('users')
-    .doc(id)
+    .doc(fire_auth.currentUser.uid)
     .collection('ten_day_steps')
     .doc('starter')
     .set(tenDayStepsObject)
@@ -139,13 +140,13 @@ export const createNewUser = (email, password, nickname) => {
         email,
         nickname,
       };
-      addUserToFirestore(data);
-      createStepGoalsCollection(data.id);
-      createSleepGoalsCollection(data.id);
-      createStepsScoresCollection(data.id);
-      createSleepScoresCollection(data.id);
-      createStepsCollections(data.id);
+      addUserToFirestore(email, nickname);
       loginNewUser(email, password);
+      createStepGoalsCollection();
+      createSleepGoalsCollection();
+      createStepsScoresCollection();
+      createSleepScoresCollection();
+      createStepsCollections();
     })
     .catch(error => {
       console.log('In createNewUser error in creation:', error);

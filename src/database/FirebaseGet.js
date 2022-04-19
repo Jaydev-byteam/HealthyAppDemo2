@@ -183,8 +183,8 @@ export const goalListener = async changeHandler => {
       .collection('goals')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log('In GoalListener, snapshot is:', snapshot);
-          changeHandler(snapshot);
+          console.log('In GoalListener, snapshot is:', snapshot.data());
+          changeHandler(snapshot.data());
         }
       });
   } catch (e) {

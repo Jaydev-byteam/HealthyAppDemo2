@@ -85,27 +85,27 @@ export default function GoalsScreenMain({navigation}) {
     })();
   }, [dataLoaded]);
 
+  useEffect(() => {
+    const stepUnsubscribe = stepGoalListener(refreshStepGoal);
+    const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
+    const sleepDurationUnsubscribe = sleepDurationGoalListener(
+      refreshSleepDurationGoal
+    );
+    // const subscriber = goalListener(refreshGoals);
+    return () => {
+      stepUnsubscribe();
+      bedtimeUnsubscribe();
+      sleepDurationUnsubscribe();
+      // subscriber();
+    };
+  }, []);
+
   // useEffect(() => {
-  //   const stepUnsubscribe = stepGoalListener(refreshStepGoal);
-  //   const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
-  //   const sleepDurationUnsubscribe = sleepDurationGoalListener(
-  //     refreshSleepDurationGoal
-  //   );
   //   const subscriber = goalListener(refreshGoals);
   //   return () => {
-  //     stepUnsubscribe();
-  //     bedtimeUnsubscribe();
-  //     sleepDurationUnsubscribe();
   //     subscriber();
   //   };
-  // }, []);
-
-  useEffect(() => {
-    const subscriber = goalListener(refreshGoals);
-    return () => {
-      subscriber();
-    };
-  });
+  // });
 
   console.log('In Goals Screen, stepsGoalObject is: ', stepsGoalObject);
   return (
