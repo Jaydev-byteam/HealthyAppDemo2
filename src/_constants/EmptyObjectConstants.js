@@ -20,6 +20,7 @@ export const emptyGoalObject = {
 };
 
 export const stepsGoalObject = {
+  id: 'steps',
   goals: {dailyStepGoal: 0},
   scores: {
     average_steps: 0,
@@ -37,6 +38,7 @@ export const userObject = {
 };
 
 export const sleepGoalObject = {
+  id: 'sleep',
   goals: {
     sleep_bedtime: '10:00 PM',
     sleep_duration: 480,
@@ -47,6 +49,12 @@ export const sleepGoalObject = {
     days_of_the_week: [false, false, false, false, false, false, false],
   },
 };
+
+export const goalList = [
+  stepsGoalObject,
+  sleepGoalObject,
+];
+
 
 export const currentDayStepsObject = {
   data: 0,

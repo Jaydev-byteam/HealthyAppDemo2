@@ -3,9 +3,59 @@ import {
   stepsGoalObject,
   userObject,
   sleepGoalObject,
+  goalList,
 } from '../_constants/EmptyObjectConstants';
 
 import logError from 'react-native/Libraries/Utilities/logError';
+
+const getGoalScores = async () => {
+  await fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('scores')
+    .get()
+    .then(docSnap => {
+      docSnap.docs.forEach(doc => {
+        if (doc.exists) {
+          goalList.forEach(goal => {
+            if (doc.id === goal.id) {
+              goal.scores = doc.data();
+            }
+          });
+        }
+      });
+    })
+    .catch(error => {
+      logError(error);
+    });
+};
+
+const getGoalValues = async () => {
+  await fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('goals')
+    .get()
+    .then(docSnap => {
+      docSnap.docs.forEach(doc => {
+        if (doc.exists) {
+          goalList.forEach(goal => {
+            if (doc.id === goal.id) {
+              goal.goals = doc.data();
+            }
+          });
+        }
+      });
+    })
+    .catch(error => {
+      logError(error);
+    });
+};
+
+export const getGoalsFromFirestore = async () => {
+  await getGoalScores();
+  await getGoalValues();
+};
 
 export const getStepsGoal = async () => {
   await fstore
@@ -184,7 +234,7 @@ export const goalListener = async changeHandler => {
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
           console.log('In GoalListener, snapshot is:', snapshot.data());
-          changeHandler(snapshot.data());
+          changeHandler();
         }
       });
   } catch (e) {

@@ -16,6 +16,7 @@ import {
   bedtimeGoalListener,
   sleepDurationGoalListener,
   goalListener,
+  getGoalsFromFirestore,
 } from '../../database/FirebaseGet';
 import {
   stepsGoalObject,
@@ -76,10 +77,11 @@ export default function GoalsScreenMain({navigation}) {
 
   useEffect(() => {
     (async () => {
-      await getStepsGoal();
-      await getStepsScores();
-      await getSleepGoal();
-      await getSleepScores();
+      // await getStepsGoal();
+      // await getStepsScores();
+      // await getSleepGoal();
+      // await getSleepScores();
+      await getGoalsFromFirestore();
       isDataLoaded();
       console.log('In useEffect, dataLoaded is:', dataLoaded);
     })();
