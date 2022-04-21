@@ -55,6 +55,7 @@ const getGoalValues = async () => {
 export const getGoalsFromFirestore = async () => {
   await getGoalScores();
   await getGoalValues();
+  return goalList;
 };
 
 export const getStepsGoal = async () => {
@@ -239,5 +240,37 @@ export const goalListener = async changeHandler => {
       });
   } catch (e) {
     logError('error listening to sleep duration goals', e.message);
+  }
+};
+
+export const fbaseGoalsListener = async (changeHandler) => {
+  try {
+    return fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .onSnapshot((snapshot) => {
+        if (snapshot !== null && !snapshot.empty) {
+          changeHandler();
+        }
+      });
+  } catch (err) {
+    logError('Error listening to firebase gaols', err.message);
+  }
+};
+
+export const fbaseScoresListener = async (changeHandler) => {
+  try {
+    return fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('scores')
+      .onSnapshot((snapshot) => {
+        if (snapshot !== null && !snapshot.empty) {
+          changeHandler();
+        }
+      });
+  } catch (err) {
+    logError('Error listening to firebase gaols', err.message);
   }
 };
