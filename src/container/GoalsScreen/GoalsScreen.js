@@ -157,7 +157,7 @@ export default function GoalsScreenMain({navigation}) {
           goalTitle={'Step Goals'}
           goalAmount={displayGoals[0].goals.dailyStepGoal}
           goalUnit={'steps/day'}
-          goalProgress={displayGoals[0].scores.score / 100}
+          goalProgress={displayGoals[0].scores.average_steps / displayGoals[0].goals.dailyStepGoal}
           onPress={() => navigateToPage('Steps')}
         />
         <GoalCard

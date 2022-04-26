@@ -20,7 +20,7 @@ export default function GoalCard({
       ? styleConstants.dark_text
       : styleConstants.light_text;
   const subheadText =
-    goalTitle === 'Step Goals' ? '10-Day Step Avg' : 'Sleep Quality';
+    goalTitle === 'Step Goals' ? '10-Day Avg' : 'Sleep Quality';
   const subheadTextTwo =
     goalTitle === 'Step Goals' ? 'daily steps goal' : 'sleep duration goal';
   return (
