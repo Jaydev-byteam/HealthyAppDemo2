@@ -89,34 +89,39 @@ class HealthKitManager: NSObject {
   // function to grab array of last ten days step counts and pass to React Native app
   @objc
   func RNTenDayStepCount(_ getHKTenDayTotSteps: @escaping RCTResponseSenderBlock) {
-    let predicate = HKQuery.predicateForSamples(
-      withStart: getTenDaysBefore(),
-      end: getCurrentDay(),
-      options: .strictStartDate)
-    var stepsHolder = [String]()
-    let query = HKStatisticsCollectionQuery(quantityType: stepType,
-                                            quantitySamplePredicate: predicate,
-                                            options: [.cumulativeSum, .separateBySource],
-                                            anchorDate: getStartOfDay(),
-                                            intervalComponents: DateComponents(day: 1))
-    query.initialResultsHandler = { query, results, error in
-      guard let statsCollection = results else {
-        // Perform proper error handling here...
-        getHKTenDayTotSteps([])
-        print("Error in fetching ten day step array with error:\(error?.localizedDescription ?? "UnknownError")")
-        return
+    DispatchQueue.main.async {
+      let predicate = HKQuery.predicateForSamples(
+        withStart: self.getTenDaysBefore(),
+        end: self.getCurrentDay(),
+        options: .strictStartDate)
+      var stepsHolder = [String]()
+      let query = HKStatisticsCollectionQuery(quantityType: self.stepType,
+                                              quantitySamplePredicate: predicate,
+                                              options: [.cumulativeSum, .separateBySource],
+                                              anchorDate: self.getStartOfDay(),
+                                              intervalComponents: DateComponents(day: 1))
+      query.initialResultsHandler = { query, results, error in
+        guard let statsCollection = results else {
+          // Perform proper error handling here...
+          getHKTenDayTotSteps([])
+          print("Error in fetching ten day step array with error:\(error?.localizedDescription ?? "UnknownError")")
+          return
+        }
+        dump(statsCollection)
+        for source in (statsCollection.sources()) {
+          print("in RNTDSC, source is:")
+          print(source.name)
+          results?.enumerateStatistics(from: self.getTenDaysBefore(), to: self.getCurrentDay(), with: { (result, _) in
+            stepsHolder.append("\(result.startDate) = \(result.sumQuantity(for: source)?.doubleValue(for: HKUnit.count()) ?? 0)")
+          })
+        }
+          print("in RNTenDayStepCount, stepsHolder is:")
+          print(stepsHolder)
+          getHKTenDayTotSteps([stepsHolder])
       }
-      dump(statsCollection)
-      for source in (statsCollection.sources()) {
-        results?.enumerateStatistics(from: self.getTenDaysBefore(), to: self.getCurrentDay(), with: { (result, _) in
-          stepsHolder.append("\(result.startDate) = \(result.sumQuantity(for: source)?.doubleValue(for: HKUnit.count()) ?? 0)")
-        })
-      }
-        print("in RNTenDayStepCount, stepsHolder is:")
-        print(stepsHolder)
-        getHKTenDayTotSteps([stepsHolder])
+      self.healthStore.execute(query)
     }
-    healthStore.execute(query)
+    
   }
   
   

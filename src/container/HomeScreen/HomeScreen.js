@@ -64,6 +64,7 @@ export default function HomeScreen(props) {
   }, [dataLoaded]);
 
   console.log('Home screen nickname:', userObject.nickname);
+  console.log('On home screen, user is:', fire_auth.currentUser.uid);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

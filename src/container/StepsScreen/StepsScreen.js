@@ -53,6 +53,10 @@ export default function StepsScreen() {
     })();
   }, []);
 
+  useEffect(() => {
+    MDHealthKitManager.requestAuthorization();
+  }, []);
+
   console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>

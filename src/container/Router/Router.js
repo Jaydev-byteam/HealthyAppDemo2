@@ -55,7 +55,7 @@ export default function Router({isSignedIn}) {
                       }}>
                       <GoalsStack.Screen name="GoalsMain" component={GoalsScreenMain} />
                       <GoalsStack.Screen name="Steps" component={StepsScreen} />
-                      <GoalsStack.Screen name="Sleep" component={SleepScreen} />
+                      <GoalsStack.Screen name="Sleep" component={SleepScreen} options={{headerTintColor: '#fff'}}/>
                     </GoalsStack.Navigator>
                   )}
                   options={{

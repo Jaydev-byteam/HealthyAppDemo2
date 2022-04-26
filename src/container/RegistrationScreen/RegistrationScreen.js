@@ -33,31 +33,7 @@ export default function RegistrationScreen({navigation}) {
       return;
     }
     createNewUser(email, password, nickname);
-    // fire_auth
-    //   .createUserWithEmailAndPassword(email, password)
-    //   .then(response => {
-    //     console.log('In create user Registration screen, response is:', response)
-    //     const uid = response.user.uid;
-    //     const data = {
-    //       id: uid,
-    //       email,
-    //       nickname,
-    //     };
-    //     const usersRef = fstore.collection('users');
-    //     console.log(usersRef);
-    //     usersRef
-    //       .doc(uid)
-    //       .set(data)
-    //       .then(() => {
-    //         console.log('usersRef added:', usersRef);
-    //       })
-    //       .catch(error => {
-    //         alert(error);
-    //       });
-    //   })
-    //   .catch(error => {
-    //     alert(error);
-    //   });
+
   };
 
   return (

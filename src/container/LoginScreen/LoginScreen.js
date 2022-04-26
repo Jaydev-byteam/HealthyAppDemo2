@@ -62,10 +62,6 @@ export default function LoginScreen({navigation}) {
             </Text>
           </Text>
         </View>
-        <BasicButton
-          buttonText={'Allow Permissions'}
-          onPressButton={onAuthPress}
-        />
         <BasicButton buttonText={'Settings'} onPressButton={onSettingsPress} />
       </KeyboardAwareScrollView>
     </View>
