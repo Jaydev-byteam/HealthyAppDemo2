@@ -20,7 +20,7 @@ export default function GoalCard({
       ? styleConstants.dark_text
       : styleConstants.light_text;
   const subheadText =
-    goalTitle === 'Step Goals' ? 'Steps Progress' : 'Sleep Quality';
+    goalTitle === 'Step Goals' ? '10-Day Step Avg' : 'Sleep Quality';
   const subheadTextTwo =
     goalTitle === 'Step Goals' ? 'daily steps goal' : 'sleep duration goal';
   return (
@@ -65,7 +65,7 @@ export default function GoalCard({
                     : styles.sleepTextColor,
                 ]}>
                 {goalTitle === 'Step Goals'
-                  ? (goalAmount * goalProgress).toLocaleString('en-US')
+                  ? Math.round(goalAmount * goalProgress).toLocaleString('en-US')
                   : goalProgress * 100 + '%'}
               </Text>
               <Text
