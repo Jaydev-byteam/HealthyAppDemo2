@@ -94,7 +94,9 @@ export default function StepsScreen() {
               </Text>
             </View>
             <Text style={styles.goalSubhead}>
-              {Math.round(currentSteps*100/stepsGoal)}% complete
+              {Math.round(currentSteps*100/stepsGoal) >= 100 ?
+              100 :
+                Math.round(currentSteps*100/stepsGoal)}% complete
             </Text>
           </View>
           <View style={styles.rightCard}>
@@ -103,7 +105,7 @@ export default function StepsScreen() {
             </Text>
             <View style={styles.rightInfo}>
               <Text style={styles.weeklyAverage}>
-                {stepsGoalObject.scores.average_steps.toLocaleString()}
+                {Math.round(stepsGoalObject.scores.average_steps).toLocaleString()}
               </Text>
               <Text style={styles.rightCardSubhead}>
                 steps

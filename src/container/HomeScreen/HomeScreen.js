@@ -6,7 +6,10 @@ import {getUserNickname} from '../../database/FirebaseGet';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {userObject} from '../../_constants/EmptyObjectConstants';
 import {AppState} from 'react-native';
-import {getHKCurrDaySteps, getHKTenDayTotSteps} from "../../_utilities/HealthKitSteps";
+import {
+  getHKCurrDaySteps,
+  getHKTenDayTotSteps,
+} from '../../_utilities/HealthKitSteps';
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -68,10 +71,7 @@ export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle
-          pageName={greeting}
-          showIcon={false}
-        />
+        <PageTitle pageName={greeting} showIcon={false} />
         <Text style={styles.accountInfo}>
           Current email: {fire_auth.currentUser.email}
         </Text>
