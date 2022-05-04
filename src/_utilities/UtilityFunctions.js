@@ -27,19 +27,30 @@ export const bedtimeString = bedtimeDate => {
   let hours = bedtimeDate.getHours();
   let minutes = bedtimeDate.getMinutes();
   let minText = '';
+  let hoursText = '';
   let ampm = 'PM';
-  if (hours < 12) {
+  // convert hours value to the appropriate string to display
+  if (hours === 0) {
     ampm = 'AM';
+    hoursText = '12';
+  } else if (hours < 12) {
+    ampm = 'AM';
+    hoursText = hours.toString();
+  } else if (hours === 12) {
+    ampm = 'PM';
+    hoursText = '12';
   } else {
     hours -= 12;
+    hoursText = hours.toString();
   }
+
   // minutes string needs to be in a 2-digit format
   if (minutes < 10) {
     minText = '0' + minutes.toString();
   } else {
     minText = minutes.toString();
   }
-  return hours.toString() + ':' + minText + ' ' + ampm;
+  return hoursText + ':' + minText + ' ' + ampm;
 };
 
 // helper function to convert bedtime string into a date object usable by the RNDatePicker
@@ -51,7 +62,10 @@ export const timeStringToDate = timeString => {
   let hours = parseInt(hoursMinutes[0]);
   let minutes = parseInt(hoursMinutes[1]);
   let newDate = new Date();
-  if (timeArray[1] === 'PM') {
+  if (timeArray[1] === 'AM' && hours === 12) {
+    hours = 0;
+  }
+  if (timeArray[1] === 'PM' && hours > 12) {
     hours += 12;
   }
   newDate.setHours(hours, minutes);
