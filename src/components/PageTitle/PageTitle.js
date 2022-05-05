@@ -3,7 +3,7 @@ import {Image, Text, View} from 'react-native';
 import styles from './PageTitleStyles';
 
 // Creating a component for a page title and the logo. First component build
-export default function PageTitle({pageName = 'Healthy App', showIcon = true, onSleep= false}) {
+export default function PageTitle({pageName = 'BetterHealth', showIcon = true, onSleep= false}) {
   return (
     <View style={styles.titleContainer}>
       <Text style={pageName === 'Sleep More' ? styles.sleepTitleText : styles.titleText}>{pageName}</Text>
