@@ -5,6 +5,8 @@ import {
   currentDayStepsObject,
   tenDayStepsObject,
   emptyGoalObject,
+  emptyStepsGoalObject,
+  emptySleepGoalObject
 } from '../_constants/EmptyObjectConstants';
 import logError from 'react-native/Libraries/Utilities/logError';
 
@@ -54,8 +56,8 @@ const createStepGoalsCollection = () => {
     .set(emptyGoalObject.steps)
     .then(() => {
       console.log(
-        'Default steps goals added to firestore for user id:',
-        fire_auth.currentUser.uid,
+        'Default steps goals added to firestore for new user:',
+        emptyGoalObject.steps,
       );
     })
     .catch(error => {
@@ -69,11 +71,11 @@ const createSleepScoresCollection = () => {
     .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('sleep')
-    .set(sleepGoalObject.scores)
+    .set(emptySleepGoalObject.scores)
     .then(() => {
       console.log(
-        'Default sleep scores added to firestore for user id:',
-        fire_auth.currentUser.uid,
+        'Default sleep scores added to firestore for new user:',
+        emptySleepGoalObject.scores,
       );
     })
     .catch(error => {
@@ -90,11 +92,11 @@ const createStepsScoresCollection = () => {
     .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('steps')
-    .set(stepsGoalObject.scores)
+    .set(emptyStepsGoalObject.scores)
     .then(() => {
       console.log(
-        'Default steps scores added to firestore for user id:',
-        fire_auth.currentUser.uid,
+        'Default steps scores added to firestore for new user:',
+        emptyStepsGoalObject.scores,
       );
     })
     .catch(error => {

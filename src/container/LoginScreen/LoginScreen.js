@@ -4,6 +4,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
 import {askLocation} from '../../_utilities/PermissionUtilties';
+import {stepsGoalObject, sleepGoalObject} from "../../_constants/EmptyObjectConstants";
 
 // importing custom dumb components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -34,6 +35,7 @@ export default function LoginScreen({navigation}) {
     MDHealthKitManager.openApplicationSettings();
   };
 
+  console.log('In Login Screen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
