@@ -9,6 +9,14 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
   },
 
+  cardLogo: {
+    width: 70,
+    height: 70,
+    margin: 20,
+    borderRadius: 35,
+    resizeMode: 'contain',
+  },
+
   mainCard: {
     flex: 1,
     backgroundColor: styleConstants.light_background,
@@ -23,7 +31,5 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 21,
   },
-
-
 
 });

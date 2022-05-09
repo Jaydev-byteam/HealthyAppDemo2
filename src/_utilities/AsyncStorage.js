@@ -1,6 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * ASYNC STORAGE
  */
+
+export const ONBOARDING_COMPLETE_KEY = 'onboarding-complete-key';
 
 export const saveToAsyncStorage = async (keyword, value) => {
   try {

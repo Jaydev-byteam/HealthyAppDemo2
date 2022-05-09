@@ -27,10 +27,10 @@ export default function Router({isSignedIn}) {
         initialRouteName={'Login'}
         screenOptions={{headerShown: false}}>
         {isSignedIn ? (
-          <PostSplashNavigator />
-          // <Stack.Screen name="Home">
-          //   {props => (
-          //     <ComboStackNavigator {...props} />
+
+           <Stack.Screen name="Home">
+             {props => (
+               <PostSplashNavigator {...props} />
               // commenting out previous code to be replaced by ComboStackNavigator
               // <Tab.Navigator screenOptions={{headerShown: false}}>
               //   <Tab.Screen
@@ -73,8 +73,8 @@ export default function Router({isSignedIn}) {
               //     }}
               //   />
               // </Tab.Navigator>
-          //   )}
-          // </Stack.Screen>
+             )}
+          </Stack.Screen>
         ) : (
           <>
             <Stack.Screen name="Login" component={LoginScreen} />

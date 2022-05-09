@@ -3,11 +3,17 @@ import {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {fire_auth} from '../../database/FirebaseDefault';
 import logError from 'react-native/Libraries/Utilities/logError';
-import createStackNavigator from 'react-native-screens/createNativeStackNavigator';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import ComboStackNavigator from '../ComboStackNavigator/ComboStackNavigator';
 
 import SetStepsGoal from '../SetStepsGoal/SetStepsGoal';
+
+import {
+  ONBOARDING_COMPLETE_KEY,
+  retrieveFromAsyncStorage,
+  saveToAsyncStorage,
+} from '../../_utilities/AsyncStorage';
 
 export const PostSplashNavigator = () => {
   const [initialRouteName, setInitialRouteName] = useState('Main');
@@ -16,7 +22,7 @@ export const PostSplashNavigator = () => {
   useEffect(() => {
     const getIsOnboardingComplete = async () => {
       try {
-        let isOnboardingComplete = await AsyncStorage.getItem(
+        let isOnboardingComplete = await retrieveFromAsyncStorage(
           ONBOARDING_COMPLETE_KEY,
         );
         // if the key doesn't exist, then the user hasn't completed onboarding
@@ -26,7 +32,7 @@ export const PostSplashNavigator = () => {
             id: fire_auth.currentUser.uid,
             completed: false,
           });
-          AsyncStorage.setItem(ONBOARDING_COMPLETE_KEY, onboardingData);
+          await saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, onboardingData);
           isOnboardingComplete = onboardingData;
         }
         return JSON.parse(isOnboardingComplete);
@@ -55,7 +61,7 @@ export const PostSplashNavigator = () => {
   }, []);
 
   console.log('In PostSplashNavigator');
-  const Stack = createStackNavigator();
+  const Stack = createNativeStackNavigator();
   return (
     <>
       {isLoading ? null : (

@@ -6,12 +6,22 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import styles from './SetStepsGoalStyles';
 import images from '../../../assets/images';
+import {
+  ONBOARDING_COMPLETE_KEY,
+  saveToAsyncStorage,
+} from '../../_utilities/AsyncStorage';
+import {fire_auth} from '../../database/FirebaseDefault';
 
 export default function SetStepsGoal({navigation}) {
   const [currentSteps, setCurrentSteps] = useState(5000);
 
-  const navigateToPage = pageRoute => {
-    navigation.navigate(pageRoute);
+  const onNextButton = () => {
+    console.log('Navigate to main fired');
+    saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
+      id: fire_auth.currentUser.uid,
+      completed: true,
+    });
+    navigation.navigate('Main');
   };
 
   console.log('In SetStepsGoal');
@@ -25,10 +35,7 @@ export default function SetStepsGoal({navigation}) {
             How many steps would you like to get each day?
           </Text>
         </View>
-        <BasicButton
-          buttonText="Next"
-          onPressButton={navigateToPage('Main')}
-        />
+        <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>
     </View>
   );
