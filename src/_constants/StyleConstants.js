@@ -25,4 +25,5 @@ export const styleConstants = {
   step_divider: '#DADADA',
   sleep_divider: '#0A0643',
   plus_button: '#113BA6',
+  dashboard_subhead: '#2E3233',
 };

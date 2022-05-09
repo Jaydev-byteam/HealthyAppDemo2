@@ -7,6 +7,8 @@ import createStackNavigator from 'react-native-screens/createNativeStackNavigato
 
 import ComboStackNavigator from '../ComboStackNavigator/ComboStackNavigator';
 
+import SetStepsGoal from '../SetStepsGoal/SetStepsGoal';
+
 export const PostSplashNavigator = () => {
   const [initialRouteName, setInitialRouteName] = useState('Main');
   const [isLoading, setIsLoading] = useState(true);
@@ -45,13 +47,14 @@ export const PostSplashNavigator = () => {
           !isOnboardingComplete.completed ||
           fire_auth.currentUser.uid !== isOnboardingComplete.id
         ) {
-          setInitialRouteName('SetGoal');
+          setInitialRouteName('SetStepsGoal');
         }
         setIsLoading(false);
       });
     }
   }, []);
 
+  console.log('In PostSplashNavigator');
   const Stack = createStackNavigator();
   return (
     <>
@@ -63,11 +66,9 @@ export const PostSplashNavigator = () => {
             headerShown: false,
           }}>
           <>
-            <Stack.Screen name="SetGoal" component={setGoal} />
+            <Stack.Screen name="SetStepsGoal" component={SetStepsGoal} />
             <Stack.Screen name="Main">
-              {props => (
-                <ComboStackNavigator {...props} />
-              )}
+              {props => <ComboStackNavigator {...props} />}
             </Stack.Screen>
           </>
         </Stack.Navigator>

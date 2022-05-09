@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ComboStackNavigator from "../ComboStackNavigator/ComboStackNavigator";
+import { PostSplashNavigator } from "../PostSplashNavigator/PostSplashNavigator";
 import LoginScreen from '../LoginScreen/LoginScreen';
 import RegistrationScreen from '../RegistrationScreen/RegistrationScreen';
 import HomeScreen from '../HomeScreen/HomeScreen';
@@ -19,16 +20,17 @@ export default function Router({isSignedIn}) {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   const GoalsStack = createNativeStackNavigator();
-
+  console.log('In Router');
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={'Login'}
         screenOptions={{headerShown: false}}>
         {isSignedIn ? (
-          <Stack.Screen name="Home">
-            {props => (
-              <ComboStackNavigator {...props} />
+          <PostSplashNavigator />
+          // <Stack.Screen name="Home">
+          //   {props => (
+          //     <ComboStackNavigator {...props} />
               // commenting out previous code to be replaced by ComboStackNavigator
               // <Tab.Navigator screenOptions={{headerShown: false}}>
               //   <Tab.Screen
@@ -71,8 +73,8 @@ export default function Router({isSignedIn}) {
               //     }}
               //   />
               // </Tab.Navigator>
-            )}
-          </Stack.Screen>
+          //   )}
+          // </Stack.Screen>
         ) : (
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
