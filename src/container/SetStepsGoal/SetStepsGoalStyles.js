@@ -10,10 +10,10 @@ export default StyleSheet.create({
   },
 
   cardLogo: {
-    width: 70,
-    height: 70,
-    margin: 20,
-    borderRadius: 35,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    margin: 10,
     resizeMode: 'contain',
   },
 
@@ -29,6 +29,7 @@ export default StyleSheet.create({
     color: styleConstants.dashboard_subhead,
     fontFamily: fontConstants.title,
     textAlign: 'center',
+    marginHorizontal: 30,
     fontSize: 21,
   },
 

@@ -4,6 +4,7 @@ import {View, Text, Image} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
+import EditGoal from "../../components/EditGoal/EditGoal";
 import styles from './SetStepsGoalStyles';
 import images from '../../../assets/images';
 import {
@@ -34,6 +35,7 @@ export default function SetStepsGoal({navigation}) {
           <Text style={styles.goalQuery}>
             How many steps would you like to get each day?
           </Text>
+          <EditGoal currentGoal={currentSteps} updateSteps={setCurrentSteps} />
         </View>
         <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>

@@ -104,7 +104,7 @@ export default function StepsScreen() {
               </Text>
               <Text style={styles.rightCardSubhead}>steps</Text>
             </View>
-            <Image style={styles.cardLogo} source={images.stepsIcon} />
+            <Image style={styles.cardLogo} source={images.stepsIconReverse} />
           </View>
         </View>
         <EditGoal currentGoal={stepsGoal} updateSteps={setStepsGoal} />
