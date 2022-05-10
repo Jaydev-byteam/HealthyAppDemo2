@@ -6,6 +6,9 @@ const Images = {
   stepsIcon: require('./steps-icon.png'),
   stepsIconReverse: require('./steps-icon-reverse.png'),
   sleepTime: require('./sleep-icon.png'),
+  stepsGraphic: require('./proven-goals-steps-graphic.png'),
+  sleepGraphic: require('./proven-goals-sleep-graphic.png'),
+
 };
 
 module.exports = Images;
