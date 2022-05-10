@@ -7,4 +7,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: styleConstants.base_background,
     paddingHorizontal: 15,
+    alignItems: 'center',
   },
+
+  permissions: {
+    fontFamily: fontConstants.title,
+    fontSize: 24,
+    color: styleConstants.dark_text,
+  },
+});

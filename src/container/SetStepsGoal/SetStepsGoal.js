@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
@@ -12,8 +12,8 @@ import {
   saveToAsyncStorage,
 } from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
-import {changeStepGoal} from "../../database/FirebaseWrite";
-import { minusIcon, plusIcon } from "../../_constants/IconConstants";
+import {changeStepGoal} from '../../database/FirebaseWrite';
+import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 
 export default function SetStepsGoal({navigation}) {
   const [stepsGoal, setStepsGoal] = useState(5000);
@@ -27,20 +27,20 @@ export default function SetStepsGoal({navigation}) {
   };
   const subtractFromGoal = () => {
     if (stepsGoal - 500 >= 0) {
-      setStepsGoal(newGoal - 500);
+      setStepsGoal(stepsGoal - 500);
     } else {
       alert('Minimum daily steps goal is 0.');
     }
   };
 
   const onNextButton = () => {
-    console.log('Navigate to main fired');
-    saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-      id: fire_auth.currentUser.uid,
-      completed: true,
-    });
+    console.log('Navigate to steps permission fired');
+    // saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
+    //   id: fire_auth.currentUser.uid,
+    //   completed: true,
+    // });
     changeStepGoal(stepsGoal);
-    navigation.navigate('Main');
+    navigation.navigate('StepsPermission');
   };
 
   console.log('In SetStepsGoal');
@@ -54,7 +54,9 @@ export default function SetStepsGoal({navigation}) {
             How many steps would you like to get each day?
           </Text>
           <View style={styles.goalAdjust}>
-            <TouchableOpacity style={styles.minButton} onPress={subtractFromGoal}>
+            <TouchableOpacity
+              style={styles.minButton}
+              onPress={subtractFromGoal}>
               {minusIcon}
             </TouchableOpacity>
             <View>
