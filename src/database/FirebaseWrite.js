@@ -92,3 +92,21 @@ export const changeSleepDurationGoal = async newSleepDurationGoal => {
     console.error('Error updating sleep duration during onboarding:', err);
   }
 };
+
+export const changeBedtimeGoal = async newBedtime => {
+  try {
+    await fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('sleep')
+      .set(
+        {
+          sleep_bedtime: newBedtime,
+        },
+        {merge: true},
+      );
+  } catch (err) {
+    console.error('Error updating sleep duration during onboarding:', err);
+  }
+};

@@ -33,6 +33,7 @@ export default StyleSheet.create({
     marginVertical: 15,
     fontSize: 24,
   },
+
   goalAdjust: {
     flex: 1,
     // backgroundColor: 'green',
@@ -86,6 +87,16 @@ export default StyleSheet.create({
     height: 180,
     width: 317,
     resizeMode: 'contain',
+  },
+  sleepEdit: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: styleConstants.light_background,
+    borderRadius: 10,
+    padding: 10,
+    marginVertical: 10,
   },
 
 });

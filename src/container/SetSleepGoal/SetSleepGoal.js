@@ -14,7 +14,6 @@ import {
 import {fire_auth} from '../../database/FirebaseDefault';
 import {
   changeSleepDurationGoal,
-  changeStepGoal,
 } from '../../database/FirebaseWrite';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 import {minutesToHours} from '../../_utilities/UtilityFunctions';
