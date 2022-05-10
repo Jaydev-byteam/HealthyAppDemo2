@@ -31,9 +31,9 @@ export default function LoginScreen({navigation}) {
     askLocation();
   };
 
-  const onSettingsPress = () => {
-    MDHealthKitManager.openApplicationSettings();
-  };
+  // const onSettingsPress = () => {
+  //   MDHealthKitManager.openApplicationSettings();
+  // };
 
   console.log('In Login Screen, stepsGoalObject is:', stepsGoalObject);
   return (
@@ -64,7 +64,7 @@ export default function LoginScreen({navigation}) {
             </Text>
           </Text>
         </View>
-        <BasicButton buttonText={'Settings'} onPressButton={onSettingsPress} />
+        {/*<BasicButton buttonText={'Settings'} onPressButton={onSettingsPress} />*/}
       </KeyboardAwareScrollView>
     </View>
   );
