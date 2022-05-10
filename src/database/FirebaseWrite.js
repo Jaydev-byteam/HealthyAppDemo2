@@ -66,8 +66,29 @@ export const changeSleepGoal = async (newSleepGoal, newBedtime) => {
         sleep_duration: newSleepGoal,
         sleep_bedtime: newBedtime,
       });
-    console.log('Firestore updated with new sleep duration goal:', newSleepGoal);
+    console.log(
+      'Firestore updated with new sleep duration goal:',
+      newSleepGoal,
+    );
   } catch (err) {
     console.error('Error updating sleep duration goal:', err);
+  }
+};
+
+export const changeSleepDurationGoal = async newSleepDurationGoal => {
+  try {
+    await fstore
+      .collection('users')
+      .doc(fire_auth.currentUser.uid)
+      .collection('goals')
+      .doc('sleep')
+      .set(
+        {
+          sleep_duration: newSleepDurationGoal,
+        },
+        {merge: true},
+      );
+  } catch (err) {
+    console.error('Error updating sleep duration during onboarding:', err);
   }
 };
