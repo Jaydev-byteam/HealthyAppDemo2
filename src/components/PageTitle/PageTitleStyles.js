@@ -20,6 +20,7 @@ export default StyleSheet.create({
     fontFamily: fontConstants.title,
     fontSize: 24,
     color: styleConstants.dark_text,
+    textAlign: 'center',
   },
   sleepTitleText: {
     fontFamily: fontConstants.title,
