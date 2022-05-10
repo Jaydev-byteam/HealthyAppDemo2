@@ -36,12 +36,12 @@ export default function SetBedtimeGoal({navigation}) {
 
   const onNextButton = async () => {
     console.log('Navigate to main fired');
-    await saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-      id: fire_auth.currentUser.uid,
-      completed: true,
-    });
+    // await saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
+    //   id: fire_auth.currentUser.uid,
+    //   completed: true,
+    // });
     await changeBedtimeGoal(bedtime);
-    navigation.navigate('Main');
+    navigation.navigate('LocationPermission');
   };
   console.log('In SetBedtimeGoal');
   return (

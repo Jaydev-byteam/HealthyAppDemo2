@@ -15,8 +15,9 @@ import {
   saveToAsyncStorage,
 } from '../../_utilities/AsyncStorage';
 import StepsPermissionScreen from '../StepsPermissionScreen/StepsPermissionScreen';
-import SetSleepGoal from "../SetSleepGoal/SetSleepGoal";
-import SetBedtimeGoal from "../SetBedtimeGoal/SetBedtimeGoal";
+import SetSleepGoal from '../SetSleepGoal/SetSleepGoal';
+import SetBedtimeGoal from '../SetBedtimeGoal/SetBedtimeGoal';
+import LocationPermissionScreen from '../LocationPermissionScreen/LocationPermission';
 
 export const PostSplashNavigator = () => {
   const [initialRouteName, setInitialRouteName] = useState('Main');
@@ -82,6 +83,10 @@ export const PostSplashNavigator = () => {
             />
             <Stack.Screen name="SetSleepGoal" component={SetSleepGoal} />
             <Stack.Screen name="SetBedtimeGoal" component={SetBedtimeGoal} />
+            <Stack.Screen
+              name="LocationPermission"
+              component={LocationPermissionScreen}
+            />
             <Stack.Screen name="Main">
               {props => <ComboStackNavigator {...props} />}
             </Stack.Screen>
