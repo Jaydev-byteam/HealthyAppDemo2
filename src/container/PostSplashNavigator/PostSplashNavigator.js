@@ -18,6 +18,7 @@ import StepsPermissionScreen from '../StepsPermissionScreen/StepsPermissionScree
 import SetSleepGoal from '../SetSleepGoal/SetSleepGoal';
 import SetBedtimeGoal from '../SetBedtimeGoal/SetBedtimeGoal';
 import LocationPermissionScreen from '../LocationPermissionScreen/LocationPermission';
+import SettingsRequest from "../SettingsRequest/SettingsRequest";
 
 export const PostSplashNavigator = () => {
   const [initialRouteName, setInitialRouteName] = useState('Main');
@@ -87,6 +88,7 @@ export const PostSplashNavigator = () => {
               name="LocationPermission"
               component={LocationPermissionScreen}
             />
+            <Stack.Screen name="SettingsRequest" component={SettingsRequest} />
             <Stack.Screen name="Main">
               {props => <ComboStackNavigator {...props} />}
             </Stack.Screen>

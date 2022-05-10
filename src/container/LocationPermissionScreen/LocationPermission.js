@@ -21,12 +21,12 @@ export default function LocationPermissionScreen({navigation}) {
   };
 
   const onNextButton = () => {
-    console.log('Navigate to main fired');
-    saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-      id: fire_auth.currentUser.uid,
-      completed: true,
-    });
-    navigation.navigate('Main');
+    console.log('Navigate to settings request fired');
+    // saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
+    //   id: fire_auth.currentUser.uid,
+    //   completed: true,
+    // });
+    navigation.navigate('SettingsRequest');
   };
 
   return (
