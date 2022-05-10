@@ -19,19 +19,19 @@ export default StyleSheet.create({
 
   mainCard: {
     flex: 1,
-    backgroundColor: styleConstants.light_background,
+    backgroundColor: styleConstants.card_sleep,
     alignItems: 'center',
     borderRadius: 10,
     padding: 10,
   },
 
   goalQuery: {
-    color: styleConstants.dashboard_subhead,
+    color: styleConstants.light_text,
     fontFamily: fontConstants.title,
     textAlign: 'center',
     marginHorizontal: 30,
     marginVertical: 15,
-    fontSize: 21,
+    fontSize: 24,
   },
   goalAdjust: {
     flex: 1,
@@ -39,7 +39,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: styleConstants.light_background,
+    backgroundColor: styleConstants.card_sleep,
     borderRadius: 10,
     padding: 10,
     marginVertical: 10,
@@ -48,7 +48,7 @@ export default StyleSheet.create({
   minButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: styleConstants.progress_color,
+    backgroundColor: styleConstants.sleep_divider,
     height: 40,
     width: 40,
     borderRadius: 20,
@@ -58,7 +58,7 @@ export default StyleSheet.create({
   addButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: styleConstants.plus_button,
+    backgroundColor: styleConstants.sleep_divider,
     height: 40,
     width: 40,
     borderRadius: 20,
