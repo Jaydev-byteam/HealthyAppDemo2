@@ -4,7 +4,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
-import RNDateTimePicker from "@react-native-community/datetimepicker";
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 
 import styles from './SetBedtimeGoalStyles';
 import images from '../../../assets/images';
@@ -13,23 +13,34 @@ import {
   saveToAsyncStorage,
 } from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
-import {
-  changeBedtimeGoal,
-} from '../../database/FirebaseWrite';
+import {changeBedtimeGoal} from '../../database/FirebaseWrite';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
-import {minutesToHours, timeStringToDate, bedtimeString} from '../../_utilities/UtilityFunctions';
+import {
+  minutesToHours,
+  timeStringToDate,
+  bedtimeString,
+} from '../../_utilities/UtilityFunctions';
 
 export default function SetBedtimeGoal({navigation}) {
   // initialize state variable for the goal bedtime
-  const [bedtime, setBedtime] = useState("10:00 PM");
+  const [bedtime, setBedtime] = useState('10:00 PM');
+  // state variable to show bedtime picker
+  const [showPicker, setShowPicker] = useState(false);
 
-  const onNextButton = () => {
+  const bedtimePress = () => {
+    if (showPicker) {
+      console.log('Bedtime selected:', bedtime);
+    }
+    setShowPicker(!showPicker);
+  }
+
+  const onNextButton = async () => {
     console.log('Navigate to main fired');
-    saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
+    await saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
       id: fire_auth.currentUser.uid,
       completed: true,
     });
-    changeBedtimeGoal(bedtime);
+    await changeBedtimeGoal(bedtime);
     navigation.navigate('Main');
   };
   console.log('In SetBedtimeGoal');
@@ -45,13 +56,17 @@ export default function SetBedtimeGoal({navigation}) {
           <View style={styles.sleepEdit}>
             <View>
               <Text style={styles.editText}>Edit Bedtime</Text>
-              <Text style={styles.sleepGoal}>{newBedtime}</Text>
+              <Text style={styles.sleepGoal}>{bedtime}</Text>
             </View>
-            <TouchableOpacity style={styles.bedtimeButton} onPress={bedtimePress}>
-              <Text style={styles.buttonTitle}>{!showPicker ? 'CHOOSE BEDTIME' : 'CLOSE PICKER'}</Text>
+            <TouchableOpacity
+              style={styles.bedtimeButton}
+              onPress={bedtimePress}>
+              <Text style={styles.buttonTitle}>
+                {!showPicker ? 'CHOOSE BEDTIME' : 'CLOSE PICKER'}
+              </Text>
             </TouchableOpacity>
           </View>
-          {showPicker &&  (
+          {showPicker && (
             <View style={styles.timePicker}>
               <RNDateTimePicker
                 value={timeStringToDate(bedtime)}

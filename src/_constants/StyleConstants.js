@@ -26,4 +26,5 @@ export const styleConstants = {
   sleep_divider: '#0A0643',
   plus_button: '#113BA6',
   dashboard_subhead: '#2E3233',
+  dark_card_text: '#000000',
 };

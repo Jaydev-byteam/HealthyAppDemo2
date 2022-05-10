@@ -65,13 +65,13 @@ export default StyleSheet.create({
     marginLeft: 50,
   },
   sleepGoal: {
-    color: styleConstants.progress_color,
+    color: styleConstants.light_text,
     fontSize: 30,
     fontFamily: fontConstants.currentGoal,
     textAlign: 'center',
   },
   editText: {
-    color: styleConstants.subhead_text,
+    color: styleConstants.dark_card_text,
     fontFamily: fontConstants.subtext,
     fontSize: 12,
     textAlign: 'center',

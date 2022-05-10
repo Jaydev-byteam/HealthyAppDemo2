@@ -38,12 +38,12 @@ export default function SetSleepGoal({navigation}) {
 
   const onNextButton = () => {
     console.log('Navigate to main fired');
-    saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-      id: fire_auth.currentUser.uid,
-      completed: true,
-    });
+    // saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
+    //   id: fire_auth.currentUser.uid,
+    //   completed: true,
+    // });
     changeSleepDurationGoal(sleepGoal);
-    navigation.navigate('Main');
+    navigation.navigate('SetBedtimeGoal');
   };
   console.log('In SetSleepGoal');
   return (
