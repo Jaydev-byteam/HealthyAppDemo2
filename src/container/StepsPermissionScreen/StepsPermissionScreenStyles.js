@@ -10,8 +10,10 @@ export default StyleSheet.create({
   },
 
   permissions: {
+    marginVertical: 150,
     fontFamily: fontConstants.title,
     fontSize: 24,
     color: styleConstants.dark_text,
+    textAlign: "center",
   },
 });

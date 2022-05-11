@@ -36,7 +36,9 @@ export default function StepsPermissionScreen({navigation}) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName="Please enable Apple HealthKit Permissions so BetterHealth can track your steps progress on your phone." />
+        <Text style={styles.permissions}>
+          Please enable Apple HealthKit Permissions so BetterHealth can track your steps progress on your phone.
+        </Text>
         <BasicButton
           buttonText="Enable HealthKit Permissions"
           onPressButton={permissionPress}
