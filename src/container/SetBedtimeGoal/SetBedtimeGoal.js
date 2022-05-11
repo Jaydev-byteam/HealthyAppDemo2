@@ -23,8 +23,12 @@ import {
 import StepperFooter from "../../components/StepperFooter/StepperFooter";
 
 export default function SetBedtimeGoal({navigation}) {
+  // create a date at 10 PM for initialization purposes
+  const defaultDate = timeStringToDate("10:00 PM");
   // initialize state variable for the goal bedtime
   const [bedtime, setBedtime] = useState('10:00 PM');
+  // initialize state variable for the bedtime date object
+  const [bedtimeDate, setBedtimeDate] = useState(defaultDate)
   // state variable to show bedtime picker
   const [showPicker, setShowPicker] = useState(false);
 
@@ -74,11 +78,15 @@ export default function SetBedtimeGoal({navigation}) {
           {showPicker && (
             <View style={styles.timePicker}>
               <RNDateTimePicker
-                value={timeStringToDate(bedtime)}
+
+                value={bedtimeDate}
                 mode="time"
                 display="spinner"
                 minuteInterval={15}
-                onChange={(event, value) => setBedtime(bedtimeString(value))}
+                onChange={(event, value) => {
+                  setBedtime(bedtimeString(value));
+                  setBedtimeDate(value);
+                }}
                 style={styles.datePicker}
               />
             </View>

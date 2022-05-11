@@ -4,7 +4,7 @@ import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
   defaultButton: {
-    backgroundColor: styleConstants.progress_color,
+    backgroundColor: styleConstants.button_background,
     marginLeft: 15,
     marginRight: 15,
     marginVertical: 20,

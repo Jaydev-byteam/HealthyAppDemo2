@@ -21,6 +21,7 @@ export default function LoginScreen({navigation}) {
   };
 
   const onLoginPress = () => {
+    console.log('Login fired with email and password', email, password);
     fire_auth.signInWithEmailAndPassword(email, password).catch(error => {
       alert(error);
     });

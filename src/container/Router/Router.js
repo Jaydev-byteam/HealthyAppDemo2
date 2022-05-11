@@ -7,6 +7,7 @@ import ComboStackNavigator from "../ComboStackNavigator/ComboStackNavigator";
 import { PostSplashNavigator } from "../PostSplashNavigator/PostSplashNavigator";
 import LoginScreen from '../LoginScreen/LoginScreen';
 import RegistrationScreen from '../RegistrationScreen/RegistrationScreen';
+import SplashPage from "../SplashPage/SplashPage";
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {styleConstants} from '../../_constants/StyleConstants';
@@ -24,7 +25,7 @@ export default function Router({isSignedIn}) {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={'Login'}
+        initialRouteName={'SplashPage'}
         screenOptions={{headerShown: false}}>
         {isSignedIn ? (
 
@@ -77,6 +78,7 @@ export default function Router({isSignedIn}) {
           </Stack.Screen>
         ) : (
           <>
+            <Stack.Screen name="SplashPage" component={SplashPage} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Registration" component={RegistrationScreen} />
           </>

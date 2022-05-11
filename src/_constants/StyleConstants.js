@@ -1,5 +1,5 @@
 export const styleConstants = {
-  button_background: '#785BFA',
+  button_background: '#3268F5',
   light_text: '#FFFFFF',
   dark_text: '#1D1D1F',
   blue_text: '#785BFA',
@@ -27,4 +27,5 @@ export const styleConstants = {
   plus_button: '#113BA6',
   dashboard_subhead: '#2E3233',
   dark_card_text: '#000000',
+  splash_subhead: '#6D7278',
 };

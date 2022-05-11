@@ -70,14 +70,14 @@ export default function HomeScreen(props) {
   }, [dataLoaded]);
 
   console.log('Home screen nickname:', userObject.nickname);
-  console.log('On home screen, user is:', fire_auth.currentUser.uid);
+  // console.log('On home screen, user is:', fire_auth.currentUser.uid);
   console.log('Steps goal object is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
         <PageTitle pageName={greeting} showIcon={false} />
         <Text style={styles.accountInfo}>
-          Current email: {fire_auth.currentUser.email}
+          Current email: {fire_auth.currentUser ? fire_auth.currentUser.email : ''}
         </Text>
         <BasicButton buttonText={'Log out'} onPressButton={onLogoutPress} />
       </KeyboardAwareScrollView>

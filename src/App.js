@@ -12,6 +12,8 @@ export default function App() {
 
   // handle user state change
   const onAuthStateChangedListener = user => {
+    console.log('onAuthStateChangedListener fired');
+    setUser(user);
     setIsSignedIn(!!user);
     if (loading) {
       setLoading(false);
@@ -25,7 +27,7 @@ export default function App() {
   if (loading) {
     return <></>;
   }
-
+  console.log('In App, user is:', user);
   return (
     <>
       <Router isSignedIn={isSignedIn} />

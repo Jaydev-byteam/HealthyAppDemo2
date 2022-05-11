@@ -9,6 +9,7 @@ const Images = {
   stepsGraphic: require('./proven-goals-steps-graphic.png'),
   sleepGraphic: require('./proven-goals-sleep-graphic.png'),
   locationPermission: require('./step-goal-setup-enable-permisions.png'),
+  splashGraphic: require('./welcome-graphic.png'),
 
 };
 

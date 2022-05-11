@@ -33,9 +33,9 @@ export default StyleSheet.create({
     marginVertical: 15,
     fontSize: 24,
   },
+
   goalAdjust: {
     flex: 1,
-    // backgroundColor: 'green',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
