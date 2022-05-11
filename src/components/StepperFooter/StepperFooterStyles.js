@@ -6,8 +6,8 @@ import {fontConstants} from '../../_constants/FontConstants';
 export default StyleSheet.create({
   footerButton: {
     backgroundColor: styleConstants.progress_color,
-    marginLeft: 40,
-    marginRight: 20,
+    marginLeft: 30,
+    marginRight: 30,
     paddingHorizontal: 20,
     marginVertical: 20,
     height: 40,
@@ -16,10 +16,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-  dummyButton: {
-    visibility: 'hidden',
-    marginLeft: 20,
-    marginRight: 40,
+  prevButton: {
+    marginLeft: 30,
+    marginRight: 30,
     paddingHorizontal: 20,
     marginVertical: 20,
     height: 40,
@@ -27,6 +26,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  prevSmallText: {
+    fontSize: 22,
+    fontFamily: fontConstants.button,
+    textAlign: 'center',
+    color: styleConstants.base_background,
+  },
+
 
   smallText: {
     fontSize: 22,
@@ -48,7 +55,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 20,
   },
 
 });
