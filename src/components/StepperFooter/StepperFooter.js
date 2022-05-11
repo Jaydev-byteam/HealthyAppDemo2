@@ -75,6 +75,12 @@ const StepperFooter = ({onPrevPress, onNextPress, position}) => (
         style={styles.paginationDot}
         size={getIconSize(4, position)}
       />
+      <Icon
+        name={'circle'}
+        color={getIconColor(5, position)}
+        style={styles.paginationDot}
+        size={getIconSize(5, position)}
+      />
     </View>
     <TouchableOpacity
       style={styles.footerButton}

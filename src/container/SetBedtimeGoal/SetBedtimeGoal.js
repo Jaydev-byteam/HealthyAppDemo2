@@ -20,6 +20,7 @@ import {
   timeStringToDate,
   bedtimeString,
 } from '../../_utilities/UtilityFunctions';
+import StepperFooter from "../../components/StepperFooter/StepperFooter";
 
 export default function SetBedtimeGoal({navigation}) {
   // initialize state variable for the goal bedtime
@@ -43,6 +44,10 @@ export default function SetBedtimeGoal({navigation}) {
     await changeBedtimeGoal(bedtime);
     navigation.navigate('LocationPermission');
   };
+
+  const onPrevButton = () => {
+    navigation.navigate('SetSleepGoal');
+  }
   console.log('In SetBedtimeGoal');
   return (
     <View style={styles.container}>
@@ -96,8 +101,8 @@ export default function SetBedtimeGoal({navigation}) {
             <Image source={images.sleepGraphic} style={styles.sleepImage} />
           </View>
         </View>
-        <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>
+      <StepperFooter position={3} onNextPress={onNextButton} onPrevPress={onPrevButton} />
     </View>
   );
 }

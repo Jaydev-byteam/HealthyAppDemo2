@@ -14,6 +14,7 @@ import {
 } from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
 import {askLocation} from '../../_utilities/PermissionUtilties';
+import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function LocationPermissionScreen({navigation}) {
   const permissionPress = () => {
@@ -29,6 +30,10 @@ export default function LocationPermissionScreen({navigation}) {
     navigation.navigate('SettingsRequest');
   };
 
+  const onPrevButton = () => {
+    navigation.navigate('SetBedtimeGoal');
+  };
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -41,8 +46,12 @@ export default function LocationPermissionScreen({navigation}) {
           source={images.locationPermission}
           style={styles.locationImage}
         />
-        <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>
+      <StepperFooter
+        position={4}
+        onNextPress={onNextButton}
+        onPrevPress={onPrevButton}
+      />
     </View>
   );
 }

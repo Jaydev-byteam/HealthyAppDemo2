@@ -12,12 +12,10 @@ import {
   saveToAsyncStorage,
 } from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
-import {
-  changeSleepDurationGoal,
-} from '../../database/FirebaseWrite';
+import {changeSleepDurationGoal} from '../../database/FirebaseWrite';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 import {minutesToHours} from '../../_utilities/UtilityFunctions';
-import StepperFooter from "../../components/StepperFooter/StepperFooter";
+import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function SetSleepGoal({navigation}) {
   const [sleepGoal, setSleepGoal] = useState(480);
@@ -79,7 +77,11 @@ export default function SetSleepGoal({navigation}) {
           </View>
         </View>
       </KeyboardAwareScrollView>
-      <StepperFooter position={2} onNextPress={onNextButton} onPrevPress={onPrevButton} />
+      <StepperFooter
+        position={2}
+        onNextPress={onNextButton}
+        onPrevPress={onPrevButton}
+      />
     </View>
   );
 }
