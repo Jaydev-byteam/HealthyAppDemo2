@@ -32,4 +32,7 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     marginVertical: 40,
   },
+  loginButton: {
+    backgroundColor: styleConstants.button_alt
+  },
 });

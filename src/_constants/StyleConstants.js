@@ -28,4 +28,5 @@ export const styleConstants = {
   dashboard_subhead: '#2E3233',
   dark_card_text: '#000000',
   splash_subhead: '#6D7278',
+  button_alt: '#DADADA',
 };

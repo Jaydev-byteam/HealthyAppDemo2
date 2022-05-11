@@ -5,11 +5,16 @@ import BasicButton from '../../components/BasicButton/BasicButton';
 
 import styles from './SplashPageStyles';
 import images from '../../../assets/images';
+import { styleConstants } from "../../_constants/StyleConstants";
 
 export default function SplashPage({navigation}) {
   const getStartedPress = () => {
     navigation.navigate('Registration');
   };
+  const signInPress = () => {
+    navigation.navigate('Login');
+  };
+  console.log('In Splash Page');
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -20,6 +25,7 @@ export default function SplashPage({navigation}) {
           buttonText={'Get Started'}
           onPressButton={getStartedPress}
         />
+        <BasicButton buttonText={'Sign In'} onPressButton={signInPress} alt={true} />
       </KeyboardAwareScrollView>
     </View>
   );
