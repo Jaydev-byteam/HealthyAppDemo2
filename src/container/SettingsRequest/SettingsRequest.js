@@ -34,8 +34,7 @@ export default function SettingsRequest({navigation}) {
         <PageTitle pageName="One Last Thing!" />
         <Text style={styles.request}>
           BetterHealth needs location access at all times to track your phone
-          use during your sleep interval. Apple doesn't allow us to request this
-          access directly.
+          use during your sleep interval.
         </Text>
         <BasicButton
           buttonText="Open Your Settings"
