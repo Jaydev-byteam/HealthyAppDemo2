@@ -14,7 +14,7 @@ import {
 import {fire_auth} from '../../database/FirebaseDefault';
 import {changeStepGoal} from '../../database/FirebaseWrite';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
-import StepperFooter from "../../components/StepperFooter/StepperFooter";
+import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function SetStepsGoal({navigation}) {
   const [stepsGoal, setStepsGoal] = useState(5000);
@@ -72,9 +72,8 @@ export default function SetStepsGoal({navigation}) {
             <Image source={images.stepsGraphic} style={styles.stepsImage} />
           </View>
         </View>
-        <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>
-      <StepperFooter position={0} text='Next' onPress={onNextButton} />
+      <StepperFooter position={0} onNextPress={onNextButton} />
     </View>
   );
 }

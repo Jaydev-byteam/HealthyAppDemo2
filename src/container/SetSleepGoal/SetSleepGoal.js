@@ -17,6 +17,7 @@ import {
 } from '../../database/FirebaseWrite';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 import {minutesToHours} from '../../_utilities/UtilityFunctions';
+import StepperFooter from "../../components/StepperFooter/StepperFooter";
 
 export default function SetSleepGoal({navigation}) {
   const [sleepGoal, setSleepGoal] = useState(480);
@@ -45,6 +46,10 @@ export default function SetSleepGoal({navigation}) {
     changeSleepDurationGoal(sleepGoal);
     navigation.navigate('SetBedtimeGoal');
   };
+  const onPrevButton = () => {
+    navigation.navigate('StepsPermission');
+  };
+
   console.log('In SetSleepGoal');
   return (
     <View style={styles.container}>
@@ -73,8 +78,8 @@ export default function SetSleepGoal({navigation}) {
             <Image source={images.sleepGraphic} style={styles.sleepImage} />
           </View>
         </View>
-        <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>
+      <StepperFooter position={2} onNextPress={onNextButton} onPrevPress={onPrevButton} />
     </View>
   );
 }

@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 import {styleConstants} from '../../_constants/StyleConstants';
 import {fontConstants} from '../../_constants/FontConstants';
 
-
 export default StyleSheet.create({
   footerButton: {
     backgroundColor: styleConstants.progress_color,
@@ -16,7 +15,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-  prevButton: {
+  hiddenButton: {
+    visibility: 'hidden',
     marginLeft: 30,
     marginRight: 30,
     paddingHorizontal: 20,
@@ -27,19 +27,18 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-  prevSmallText: {
-    fontSize: 22,
-    fontFamily: fontConstants.button,
-    textAlign: 'center',
-    color: styleConstants.base_background,
-  },
-
-
   smallText: {
     fontSize: 22,
     fontFamily: fontConstants.button,
     textAlign: 'center',
     color: styleConstants.light_text,
+  },
+
+  hiddenText: {
+    fontSize: 22,
+    fontFamily: fontConstants.button,
+    textAlign: 'center',
+    color: styleConstants.base_background,
   },
 
   paginationContainer: {
@@ -57,5 +56,4 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-
 });

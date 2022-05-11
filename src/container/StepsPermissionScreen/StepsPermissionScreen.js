@@ -13,6 +13,7 @@ import {
   saveToAsyncStorage,
 } from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
+import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function StepsPermissionScreen({navigation}) {
   const permissionPress = () => {
@@ -28,6 +29,10 @@ export default function StepsPermissionScreen({navigation}) {
     navigation.navigate('SetSleepGoal');
   };
 
+  const onPrevButton = () => {
+    navigation.navigate('SetStepsGoal');
+  };
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -36,8 +41,12 @@ export default function StepsPermissionScreen({navigation}) {
           buttonText="Enable HealthKit Permissions"
           onPressButton={permissionPress}
         />
-        <BasicButton buttonText="Next" onPressButton={onNextButton} />
       </KeyboardAwareScrollView>
+      <StepperFooter
+        position={1}
+        onNextPress={onNextButton}
+        onPrevPress={onPrevButton}
+      />
     </View>
   );
 }
