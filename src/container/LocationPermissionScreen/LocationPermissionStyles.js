@@ -10,9 +10,11 @@ export default StyleSheet.create({
   },
 
   permissions: {
+    marginVertical: 100,
     fontFamily: fontConstants.title,
     fontSize: 24,
     color: styleConstants.dark_text,
+    textAlign: "center",
   },
 
   locationImage: {
@@ -20,5 +22,6 @@ export default StyleSheet.create({
     height: 200,
     width: 352,
     resizeMode: 'contain',
+    marginBottom: 30,
   },
 });

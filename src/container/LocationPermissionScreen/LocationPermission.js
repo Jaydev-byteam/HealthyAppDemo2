@@ -37,14 +37,16 @@ export default function LocationPermissionScreen({navigation}) {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
-        <PageTitle pageName="Please enable Location Services so BetterHealth can track progress on your phone." />
-        <BasicButton
-          buttonText="Enable Location Services"
-          onPressButton={permissionPress}
-        />
+        <Text style={styles.permissions}>
+          Please enable Location Services so BetterHealth can track progress on your phone.
+        </Text>
         <Image
           source={images.locationPermission}
           style={styles.locationImage}
+        />
+        <BasicButton
+          buttonText="Enable Location Services"
+          onPressButton={permissionPress}
         />
       </KeyboardAwareScrollView>
       <StepperFooter
