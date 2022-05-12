@@ -5,8 +5,8 @@ import {fontConstants} from '../../_constants/FontConstants';
 export default StyleSheet.create({
   footerButton: {
     backgroundColor: styleConstants.progress_color,
-    marginLeft: 20,
-    marginRight: 30,
+    marginLeft: 25,
+    marginRight: 25,
     paddingHorizontal: 20,
     marginVertical: 20,
     height: 40,
@@ -17,8 +17,8 @@ export default StyleSheet.create({
 
   hiddenButton: {
     visibility: 'hidden',
-    marginLeft: 30,
-    marginRight: 20,
+    marginLeft: 25,
+    marginRight: 25,
     paddingHorizontal: 20,
     marginVertical: 20,
     height: 40,

@@ -4,10 +4,10 @@ import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
     cardLogo: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    margin: 10,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 20,
     resizeMode: 'contain',
   },
 
@@ -17,6 +17,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     padding: 10,
+    marginVertical: 5,
   },
 
   stepColor: {
@@ -24,13 +25,16 @@ export default StyleSheet.create({
   },
 
   sleepColor: {
-    backgroundColor: styleConstants.dark_background,
+    backgroundColor: styleConstants.card_sleep,
   },
 
   titleBar: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    marginTop: 10,
+    paddingRight: 30,
   },
 
   stepTitle: {

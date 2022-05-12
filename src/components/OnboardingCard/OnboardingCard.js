@@ -12,7 +12,7 @@ export default function OnboardingCard({goalType}) {
         goalType === 'steps' ? styles.stepColor : styles.sleepColor,
       ]}>
       <View style={styles.titleBar}>
-        <Image style={styles.cardLogo} source={images.stepsIcon} />
+        <Image style={styles.cardLogo} source={goalType === 'steps' ? images.stepsIcon: images.sleepIcon} />
         <Text
           style={goalType === 'steps' ? styles.stepTitle : styles.sleepTitle}>
           {goalType === 'steps'
