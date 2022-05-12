@@ -5,4 +5,5 @@ export const fontConstants = {
   currentGoal: 'Karla-Bold',
   cardTitle: 'Karla-SemiBold',
   input: 'Karla-Regular',
+  extraBold: 'Karla-ExtraBold',
 };

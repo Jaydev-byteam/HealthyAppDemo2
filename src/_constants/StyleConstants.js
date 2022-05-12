@@ -29,4 +29,5 @@ export const styleConstants = {
   dark_card_text: '#000000',
   splash_subhead: '#6D7278',
   button_alt: '#DADADA',
+  onboard_title: '#2E3233',
 };
