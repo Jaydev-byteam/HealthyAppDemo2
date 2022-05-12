@@ -4,7 +4,7 @@ import {View, Text, Image} from 'react-native';
 import styles from './OnboardingCardStyles';
 import images from '../../../assets/images';
 
-export default function OnboardingCard(goalType) {
+export default function OnboardingCard({goalType}) {
   return (
     <View
       style={[
@@ -20,8 +20,8 @@ export default function OnboardingCard(goalType) {
             : 'Getting More Sleep'}
         </Text>
       </View>
-      <View style={styles.stepsGoalGraphic}>
-        <Image source={images.stepsGraphic} style={styles.stepsImage} />
+      <View style={styles.goalGraphic}>
+        <Image source={goalType === 'steps' ? images.stepsGraphic : images.sleepGraphic} style={styles.goalImage} />
       </View>
     </View>
   );

@@ -18,7 +18,8 @@ import StepsPermissionScreen from '../StepsPermissionScreen/StepsPermissionScree
 import SetSleepGoal from '../SetSleepGoal/SetSleepGoal';
 import SetBedtimeGoal from '../SetBedtimeGoal/SetBedtimeGoal';
 import LocationPermissionScreen from '../LocationPermissionScreen/LocationPermission';
-import SettingsRequest from "../SettingsRequest/SettingsRequest";
+import SettingsRequest from '../SettingsRequest/SettingsRequest';
+import OnboardIntro from '../OnboardIntro/OnboardIntro';
 
 export const PostSplashNavigator = () => {
   const [initialRouteName, setInitialRouteName] = useState('Main');
@@ -58,7 +59,7 @@ export const PostSplashNavigator = () => {
           !isOnboardingComplete.completed ||
           fire_auth.currentUser.uid !== isOnboardingComplete.id
         ) {
-          setInitialRouteName('SetStepsGoal');
+          setInitialRouteName('OnboardIntro');
         }
         setIsLoading(false);
       });
@@ -77,6 +78,7 @@ export const PostSplashNavigator = () => {
             headerShown: false,
           }}>
           <>
+            <Stack.Screen name="OnboardIntro" component={OnboardIntro} />
             <Stack.Screen name="SetStepsGoal" component={SetStepsGoal} />
             <Stack.Screen
               name="StepsPermission"
