@@ -6,9 +6,10 @@ import {
   tenDayStepsObject,
   emptyGoalObject,
   emptyStepsGoalObject,
-  emptySleepGoalObject
+  emptySleepGoalObject,
 } from '../_constants/EmptyObjectConstants';
 import logError from 'react-native/Libraries/Utilities/logError';
+import { Alert } from "react-native";
 
 const addUserToFirestore = (email, nickname) => {
   fstore
@@ -149,7 +150,7 @@ const createStepsCollections = () => {
 export const createNewUser = async (email, password, nickname) => {
   try {
     await fire_auth.createUserWithEmailAndPassword(email, password);
-    await loginNewUser(email, password);
+    // await loginNewUser(email, password);
     await addUserToFirestore(email, nickname);
     await createStepGoalsCollection();
     await createSleepGoalsCollection();
@@ -157,6 +158,17 @@ export const createNewUser = async (email, password, nickname) => {
     await createSleepScoresCollection();
     await createStepsCollections();
   } catch (error) {
-    logError('Error in createNewUser:', error);
+    const {code, message, stack} = error;
+    if (code === 'auth/weak-password') {
+      Alert.alert('The password is too weak.');
+    }
+    if (code === 'auth/invalid-email') {
+      Alert.alert('The email address is incorrectly formatted.');
+    } else if (code === 'auth/email-already-in-use') {
+      Alert.alert('The email is already in use.');
+    } else {
+      logError('Error in registerUser', stack);
+    }
+    console.log(`error code: ${code}\n message: ${message}\n stack: ${stack}`);
   }
 };
