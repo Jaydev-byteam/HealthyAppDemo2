@@ -149,8 +149,8 @@ const createStepsCollections = () => {
 export const createNewUser = async (email, password, nickname) => {
   try {
     await fire_auth.createUserWithEmailAndPassword(email, password);
-    await addUserToFirestore(email, nickname);
     await loginNewUser(email, password);
+    await addUserToFirestore(email, nickname);
     await createStepGoalsCollection();
     await createSleepGoalsCollection();
     await createStepsScoresCollection();
