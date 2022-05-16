@@ -78,7 +78,7 @@ export default function SetBedtimeGoal({navigation}) {
           {showPicker && (
             <View style={styles.timePicker}>
               <RNDateTimePicker
-
+                themeVariant="light"
                 value={bedtimeDate}
                 mode="time"
                 display="spinner"

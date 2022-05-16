@@ -92,6 +92,7 @@ export default function EditSleepGoal({
       {showPicker &&  (
         <View style={styles.timePicker}>
           <RNDateTimePicker
+            themeVariant="light"
             value={timeStringToDate(newBedtime)}
             mode="time"
             display="spinner"
