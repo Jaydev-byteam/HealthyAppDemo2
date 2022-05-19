@@ -22,10 +22,6 @@ export default function StepsPermissionScreen({navigation}) {
 
   const onNextButton = () => {
     console.log('Navigate to setSleepGoal fired');
-    // saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-    //   id: fire_auth.currentUser.uid,
-    //   completed: true,
-    // });
     navigation.navigate('SetSleepGoal');
   };
 

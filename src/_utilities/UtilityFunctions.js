@@ -72,4 +72,14 @@ export const timeStringToDate = timeString => {
   return newDate;
 };
 
-// helper function
+export const log = message => {
+  if (__DEV__) {
+    console.log(message);
+  }
+};
+
+export const logError = (message, error) => {
+  if (__DEV__) {
+    console.log(message, JSON.stringify(error, null, 2));
+  }
+}

@@ -75,6 +75,7 @@ export const emptySleepGoalObject = {
   scores: {
     average_sleep: 480,
     score: 100,
+    days_of_the_week: [true, true, true, true, true, true, true],
   },
 };
 
@@ -86,6 +87,7 @@ export const emptyStepsGoalObject = {
     score: 0,
     daily_steps: 0,
     ten_day_steps: 0,
+    days_of_the_week: [false, false, false, false, false, false, false],
   },
 };
 

@@ -20,15 +20,15 @@ import {
   timeStringToDate,
   bedtimeString,
 } from '../../_utilities/UtilityFunctions';
-import StepperFooter from "../../components/StepperFooter/StepperFooter";
+import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function SetBedtimeGoal({navigation}) {
   // create a date at 10 PM for initialization purposes
-  const defaultDate = timeStringToDate("10:00 PM");
+  const defaultDate = timeStringToDate('10:00 PM');
   // initialize state variable for the goal bedtime
   const [bedtime, setBedtime] = useState('10:00 PM');
   // initialize state variable for the bedtime date object
-  const [bedtimeDate, setBedtimeDate] = useState(defaultDate)
+  const [bedtimeDate, setBedtimeDate] = useState(defaultDate);
   // state variable to show bedtime picker
   const [showPicker, setShowPicker] = useState(false);
 
@@ -37,21 +37,17 @@ export default function SetBedtimeGoal({navigation}) {
       console.log('Bedtime selected:', bedtime);
     }
     setShowPicker(!showPicker);
-  }
+  };
 
   const onNextButton = async () => {
     console.log('Navigate to main fired');
-    // await saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-    //   id: fire_auth.currentUser.uid,
-    //   completed: true,
-    // });
     await changeBedtimeGoal(bedtime);
     navigation.navigate('LocationPermission');
   };
 
   const onPrevButton = () => {
     navigation.navigate('SetSleepGoal');
-  }
+  };
   console.log('In SetBedtimeGoal');
   return (
     <View style={styles.container}>
@@ -91,26 +87,16 @@ export default function SetBedtimeGoal({navigation}) {
               />
             </View>
           )}
-          {/*<View style={styles.goalAdjust}>*/}
-          {/*  <TouchableOpacity*/}
-          {/*    style={styles.minButton}*/}
-          {/*    onPress={subtractFromGoal}>*/}
-          {/*    {minusIcon}*/}
-          {/*  </TouchableOpacity>*/}
-          {/*  <View>*/}
-          {/*    <Text style={styles.editText}>Time to Sleep</Text>*/}
-          {/*    <Text style={styles.sleepGoal}>{minutesToHours(sleepGoal)}</Text>*/}
-          {/*  </View>*/}
-          {/*  <TouchableOpacity style={styles.addButton} onPress={addToGoal}>*/}
-          {/*    {plusIcon}*/}
-          {/*  </TouchableOpacity>*/}
-          {/*</View>*/}
           <View style={styles.sleepGoalGraphic}>
             <Image source={images.sleepGraphic} style={styles.sleepImage} />
           </View>
         </View>
       </KeyboardAwareScrollView>
-      <StepperFooter position={3} onNextPress={onNextButton} onPrevPress={onPrevButton} />
+      <StepperFooter
+        position={3}
+        onNextPress={onNextButton}
+        onPrevPress={onPrevButton}
+      />
     </View>
   );
 }

@@ -36,10 +36,6 @@ export default function SetStepsGoal({navigation}) {
 
   const onNextButton = () => {
     console.log('Navigate to steps permission fired');
-    // saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-    //   id: fire_auth.currentUser.uid,
-    //   completed: true,
-    // });
     changeStepGoal(stepsGoal);
     navigation.navigate('StepsPermission');
   };
