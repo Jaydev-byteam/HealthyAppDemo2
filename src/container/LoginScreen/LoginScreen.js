@@ -3,8 +3,12 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
+import {loginNewUser} from '../../database/FirebaseAuth';
 import {askLocation} from '../../_utilities/PermissionUtilties';
-import {stepsGoalObject, sleepGoalObject} from "../../_constants/EmptyObjectConstants";
+import {
+  stepsGoalObject,
+  sleepGoalObject,
+} from '../../_constants/EmptyObjectConstants';
 
 // importing custom dumb components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -21,10 +25,7 @@ export default function LoginScreen({navigation}) {
   };
 
   const onLoginPress = () => {
-    console.log('Login fired with email and password', email, password);
-    fire_auth.signInWithEmailAndPassword(email, password).catch(error => {
-      alert(error);
-    });
+    loginNewUser(email, password);
   };
 
   const onAuthPress = () => {

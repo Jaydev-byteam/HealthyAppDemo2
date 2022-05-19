@@ -9,7 +9,7 @@ import {
   emptySleepGoalObject,
 } from '../_constants/EmptyObjectConstants';
 import logError from 'react-native/Libraries/Utilities/logError';
-import { Alert } from "react-native";
+import {Alert} from 'react-native';
 
 const addUserToFirestore = (email, nickname) => {
   fstore
@@ -24,10 +24,41 @@ const addUserToFirestore = (email, nickname) => {
     });
 };
 
-const loginNewUser = (email, password) => {
-  fire_auth.signInWithEmailAndPassword(email, password).catch(error => {
-    alert(error);
-  });
+export const loginNewUser = async (email, password) => {
+  console.log('Login fired with email and password', email, password);
+  if (email === '' || null) {
+    Alert.alert(
+      'Missing email/password',
+      'Please enter your email and password.',
+    );
+  } else if (password === '' || null) {
+    Alert.alert(
+      'Missing email/password',
+      'Please enter your email and password.',
+    );
+  } else {
+    try {
+      return await fire_auth.signInWithEmailAndPassword(email.trim(), password);
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const errorStack = error.stack;
+      if (errorCode === 'auth/wrong-password') {
+        Alert.alert('Invalid password. Please try again.');
+      } else if (errorCode === 'auth/invalid-email') {
+        Alert.alert('Invalid email. Please try again.');
+      } else if (errorCode === 'auth/user-not-found') {
+        Alert.alert('An account with that email does not exist.');
+      } else if (errorCode === 'auth/too-many-requests') {
+        Alert.alert(
+          'Access to this account has been temporarily disabled due to many failed login attempts.',
+        );
+      }
+      console.log(
+        `error code: ${errorCode}\n message: ${errorMessage}\n stack: ${errorStack}`,
+      );
+    }
+  }
 };
 
 const createSleepGoalsCollection = () => {
