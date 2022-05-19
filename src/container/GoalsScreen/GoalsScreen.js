@@ -25,6 +25,7 @@ import {
   stepsGoalObject,
   sleepGoalObject,
   goalList,
+  emptyGoalList,
 } from '../../_constants/EmptyObjectConstants';
 
 export default function GoalsScreenMain({navigation}) {
@@ -49,7 +50,7 @@ export default function GoalsScreenMain({navigation}) {
   //   },
   // });
 
-  const [displayGoals, setDisplayGoals] = useState(goalList);
+  const [displayGoals, setDisplayGoals] = useState(emptyGoalList);
 
 
   // const refreshGoals = newGoalObject => {
@@ -148,6 +149,7 @@ export default function GoalsScreenMain({navigation}) {
   // });
 
   console.log('In Goals Screen, display goals are: ', displayGoals);
+  console.log('In Goals Screen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

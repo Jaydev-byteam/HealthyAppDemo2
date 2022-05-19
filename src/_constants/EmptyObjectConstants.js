@@ -11,7 +11,7 @@ export const EmptySleepGoalObject = {
 
 export const emptyGoalObject = {
   steps: {
-    dailyStepGoal: 0,
+    dailyStepGoal: 5000,
   },
   sleep: {
     sleep_duration: 480,
@@ -21,13 +21,12 @@ export const emptyGoalObject = {
 
 export const stepsGoalObject = {
   id: 'steps',
-  goals: {dailyStepGoal: 0},
+  goals: {dailyStepGoal: 2000},
   scores: {
     average_steps: 0,
     score: 0,
     daily_steps: 0,
     ten_day_steps: 0,
-    days_of_the_week: [false, false, false, false, false, false, false],
   },
 };
 
@@ -46,7 +45,6 @@ export const sleepGoalObject = {
   scores: {
     average_sleep: 0,
     score: 0,
-    days_of_the_week: [false, false, false, false, false, false, false],
   },
 };
 
@@ -63,7 +61,38 @@ export const currentDayStepsObject = {
 };
 
 export const tenDayStepsObject = {
-  data: [],
+  data: ["2022-01-01T00:00+0000 = 0.0"],
   iso: "2022-01-01T00:00+0000",
   unix: 1640995200,
-}
+};
+
+export const emptySleepGoalObject = {
+  id: 'sleep',
+  goals: {
+    sleep_bedtime: '10:00 PM',
+    sleep_duration: 480,
+  },
+  scores: {
+    average_sleep: 480,
+    score: 100,
+    days_of_the_week: [true, true, true, true, true, true, true],
+  },
+};
+
+export const emptyStepsGoalObject = {
+  id: 'steps',
+  goals: {dailyStepGoal: 2000},
+  scores: {
+    average_steps: 0,
+    score: 0,
+    daily_steps: 0,
+    ten_day_steps: 0,
+    days_of_the_week: [false, false, false, false, false, false, false],
+  },
+};
+
+export const emptyGoalList = [
+  emptyStepsGoalObject,
+  emptySleepGoalObject,
+];
+

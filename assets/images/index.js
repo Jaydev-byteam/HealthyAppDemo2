@@ -3,8 +3,14 @@
 const Images = {
   cityBackground: require('./cityBackground.jpeg'),
   fuzzyBackground: require('./fuzzyAbstractBackground.jpeg'),
-  stepsIcon: require('./stepsIcon2.jpeg'),
-  sleepTime: require('./sleep-icon2.png'),
-}
+  stepsIcon: require('./steps-icon.png'),
+  stepsIconReverse: require('./steps-icon-reverse.png'),
+  sleepIcon: require('./sleep-icon.png'),
+  stepsGraphic: require('./proven-goals-steps-graphic.png'),
+  sleepGraphic: require('./proven-goals-sleep-graphic.png'),
+  locationPermission: require('./step-goal-setup-enable-permisions.png'),
+  splashGraphic: require('./welcome-graphic.png'),
+
+};
 
 module.exports = Images;

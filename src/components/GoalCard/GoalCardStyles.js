@@ -22,6 +22,13 @@ export default StyleSheet.create({
     bottom: 80,
     alignItems: 'center',
   },
+  cardLogo: {
+    width: 50,
+    height: 50,
+    margin: 10,
+    borderRadius: 25,
+    resizeMode: 'contain',
+  },
   stepSubhead: {
     color: styleConstants.subhead_text,
   },
@@ -30,13 +37,16 @@ export default StyleSheet.create({
   },
   goalAmount: {
     fontFamily: fontConstants.currentGoal,
-    fontSize: 24,
+    fontSize: 28,
   },
   sleepTextColor: {
     color: styleConstants.light_text,
   },
   stepTextColor: {
     color: styleConstants.dark_text,
+  },
+  stepGoalTextColor: {
+    color: styleConstants.progress_color,
   },
   progress: {
     flex: 1,

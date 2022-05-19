@@ -97,7 +97,7 @@ export default function SleepScreen({navigation, user}) {
               {minutesToHours(sleepGoalObject.scores.average_sleep)}
             </Text>
 
-            <Image style={styles.cardLogo} source={images.sleepTime} />
+            <Image style={styles.cardLogo} source={images.sleepIcon} />
           </View>
         </View>
 

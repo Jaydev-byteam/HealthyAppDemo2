@@ -67,22 +67,16 @@ static void InitializeFlipper(UIApplication *application) {
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application{
-  HSLocationTracking *hsLocationManager = [HSLocationTracking new];
-  [hsLocationManager stopLocationTracking];
+  [self stopObservingLocation];
 }
-  
 
 - (void)applicationDidEnterBackground:(UIApplication *)application{
-  HSLocationTracking *hsLocationManager = [HSLocationTracking new];
-  [hsLocationManager startLocationTracking];
+  [self observeLocation];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application{
-  HSLocationTracking *hsLocationManager = [HSLocationTracking new];
-  [hsLocationManager stopLocationTracking];
+  [self stopObservingLocation];
 }
-
-
 
 
 

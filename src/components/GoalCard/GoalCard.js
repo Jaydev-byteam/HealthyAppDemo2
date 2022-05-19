@@ -65,7 +65,9 @@ export default function GoalCard({
                     : styles.sleepTextColor,
                 ]}>
                 {goalTitle === 'Step Goals'
-                  ? Math.round(goalAmount * goalProgress).toLocaleString('en-US')
+                  ? Math.round(goalAmount * goalProgress).toLocaleString(
+                      'en-US',
+                    )
                   : goalProgress * 100 + '%'}
               </Text>
               <Text
@@ -88,11 +90,17 @@ export default function GoalCard({
             ]}
           />
           <View style={[styles.cardSegment, styles.cardSegmentRight]}>
+            <Image
+              style={styles.cardLogo}
+              source={
+                goalTitle === 'Step Goals' ? images.stepsIcon : images.sleepIcon
+              }
+            />
             <Text
               style={[
                 styles.goalAmount,
                 goalTitle === 'Step Goals'
-                  ? styles.stepTextColor
+                  ? styles.stepGoalTextColor
                   : styles.sleepTextColor,
               ]}>
               {goalTitle === 'Step Goals'

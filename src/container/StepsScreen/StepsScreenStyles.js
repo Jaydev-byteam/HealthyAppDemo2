@@ -96,6 +96,7 @@ export default StyleSheet.create({
     fontFamily: fontConstants.currentGoal,
     fontSize: 32,
     color: styleConstants.light_text,
+    textAlign: 'center',
   },
   progress: {
     flex: 1,

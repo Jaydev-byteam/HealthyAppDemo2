@@ -19,6 +19,7 @@
 		823577BC2807553800E09892 /* HSLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823577BA2807553800E09892 /* HSLocationManager.swift */; };
 		823577BD2807553800E09892 /* HSLocationTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823577BB2807553800E09892 /* HSLocationTracking.swift */; };
 		824BA65927D66E4D00403FF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */; };
+		824EE7D82833F49E00DDBDAE /* AppDelegate+SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824EE7D72833F49D00DDBDAE /* AppDelegate+SwiftExtension.swift */; };
 		825827552805CE69000B2010 /* Karla-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */; };
 		825827562805CE69000B2010 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */; };
 		825827652805CE7F000B2010 /* Karla-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825827572805CE7F000B2010 /* Karla-Medium.ttf */; };
@@ -75,6 +76,7 @@
 		823577BB2807553800E09892 /* HSLocationTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HSLocationTracking.swift; path = HealthyAppDemo2/LocationManager/HSLocationTracking.swift; sourceTree = "<group>"; };
 		823577BE280755D300E09892 /* HSLocationTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HSLocationTracking.h; path = HealthyAppDemo2/LocationManager/HSLocationTracking.h; sourceTree = "<group>"; };
 		824BA65827D66E4D00403FF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		824EE7D72833F49D00DDBDAE /* AppDelegate+SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SwiftExtension.swift"; sourceTree = "<group>"; };
 		825827532805CE68000B2010 /* Karla-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		825827542805CE68000B2010 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		825827572805CE7F000B2010 /* Karla-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Medium.ttf"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				823577B5280751F300E09892 /* HealthyAppDemo2-Bridging-Header.h */,
+				824EE7D72833F49D00DDBDAE /* AppDelegate+SwiftExtension.swift */,
 			);
 			name = HealthyAppDemo2;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824EE7D82833F49E00DDBDAE /* AppDelegate+SwiftExtension.swift in Sources */,
 				823577BD2807553800E09892 /* HSLocationTracking.swift in Sources */,
 				823577B4280751D300E09892 /* FirebaseManager.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
@@ -592,7 +596,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -622,7 +625,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = HealthyAppDemo2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -731,7 +733,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -797,7 +799,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

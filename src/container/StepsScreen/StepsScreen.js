@@ -65,9 +65,7 @@ export default function StepsScreen() {
         <View style={styles.titleCard}>
           <Image style={styles.cardLogo} source={images.stepsIcon} />
           <View style={styles.goalHeadline}>
-            <Text style={styles.goalAmount}>
-              {stepsGoal.toLocaleString()}
-            </Text>
+            <Text style={styles.goalAmount}>{stepsGoal.toLocaleString()}</Text>
             <Text style={styles.goalSubhead}>daily steps goal</Text>
           </View>
 
@@ -75,12 +73,10 @@ export default function StepsScreen() {
         </View>
         <View style={styles.centerSection}>
           <View style={styles.leftCard}>
-            <Text style={styles.leftCardTitle}>
-              Daily Step Total
-            </Text>
+            <Text style={styles.leftCardTitle}>Daily Step Total</Text>
             <ProgressCircle
               style={styles.progress}
-              progress={currentSteps/stepsGoal}
+              progress={currentSteps / stepsGoal}
               progressColor={styleConstants.progress_color}
               backgroundColor={styleConstants.progress_bg}
               strokeWidth={10}
@@ -89,29 +85,26 @@ export default function StepsScreen() {
               <Text style={styles.progressText}>
                 {currentSteps.toLocaleString('en-US')}
               </Text>
-              <Text style={styles.goalSubhead}>
-                Steps Today
-              </Text>
+              <Text style={styles.goalSubhead}>Steps Today</Text>
             </View>
             <Text style={styles.goalSubhead}>
-              {Math.round(currentSteps*100/stepsGoal) >= 100 ?
-              100 :
-                Math.round(currentSteps*100/stepsGoal)}% complete
+              {Math.round((currentSteps * 100) / stepsGoal) >= 100
+                ? 100
+                : Math.round((currentSteps * 100) / stepsGoal)}
+              % complete
             </Text>
           </View>
           <View style={styles.rightCard}>
-            <Text style={styles.rightCardTitle}>
-              10-Day Average Step Count
-            </Text>
+            <Text style={styles.rightCardTitle}>10-Day Average Step Count</Text>
             <View style={styles.rightInfo}>
               <Text style={styles.weeklyAverage}>
-                {Math.round(stepsGoalObject.scores.average_steps).toLocaleString()}
+                {Math.round(
+                  stepsGoalObject.scores.average_steps,
+                ).toLocaleString()}
               </Text>
-              <Text style={styles.rightCardSubhead}>
-                steps
-              </Text>
+              <Text style={styles.rightCardSubhead}>steps</Text>
             </View>
-            <Image style={styles.cardLogo} source={images.stepsIcon} />
+            <Image style={styles.cardLogo} source={images.stepsIconReverse} />
           </View>
         </View>
         <EditGoal currentGoal={stepsGoal} updateSteps={setStepsGoal} />

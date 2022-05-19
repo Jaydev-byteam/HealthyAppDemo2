@@ -5,8 +5,11 @@ import {
   currentDayStepsObject,
   tenDayStepsObject,
   emptyGoalObject,
+  emptyStepsGoalObject,
+  emptySleepGoalObject,
 } from '../_constants/EmptyObjectConstants';
 import logError from 'react-native/Libraries/Utilities/logError';
+import {Alert} from 'react-native';
 
 const addUserToFirestore = (email, nickname) => {
   fstore
@@ -21,10 +24,41 @@ const addUserToFirestore = (email, nickname) => {
     });
 };
 
-const loginNewUser = (email, password) => {
-  fire_auth.signInWithEmailAndPassword(email, password).catch(error => {
-    alert(error);
-  });
+export const loginNewUser = async (email, password) => {
+  console.log('Login fired with email and password', email, password);
+  if (email === '' || null) {
+    Alert.alert(
+      'Missing email/password',
+      'Please enter your email and password.',
+    );
+  } else if (password === '' || null) {
+    Alert.alert(
+      'Missing email/password',
+      'Please enter your email and password.',
+    );
+  } else {
+    try {
+      return await fire_auth.signInWithEmailAndPassword(email.trim(), password);
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const errorStack = error.stack;
+      if (errorCode === 'auth/wrong-password') {
+        Alert.alert('Invalid password. Please try again.');
+      } else if (errorCode === 'auth/invalid-email') {
+        Alert.alert('Invalid email. Please try again.');
+      } else if (errorCode === 'auth/user-not-found') {
+        Alert.alert('An account with that email does not exist.');
+      } else if (errorCode === 'auth/too-many-requests') {
+        Alert.alert(
+          'Access to this account has been temporarily disabled due to many failed login attempts.',
+        );
+      }
+      console.log(
+        `error code: ${errorCode}\n message: ${errorMessage}\n stack: ${errorStack}`,
+      );
+    }
+  }
 };
 
 const createSleepGoalsCollection = () => {
@@ -54,8 +88,8 @@ const createStepGoalsCollection = () => {
     .set(emptyGoalObject.steps)
     .then(() => {
       console.log(
-        'Default steps goals added to firestore for user id:',
-        fire_auth.currentUser.uid,
+        'Default steps goals added to firestore for new user:',
+        emptyGoalObject.steps,
       );
     })
     .catch(error => {
@@ -69,11 +103,11 @@ const createSleepScoresCollection = () => {
     .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('sleep')
-    .set(sleepGoalObject.scores)
+    .set(emptySleepGoalObject.scores)
     .then(() => {
       console.log(
-        'Default sleep scores added to firestore for user id:',
-        fire_auth.currentUser.uid,
+        'Default sleep scores added to firestore for new user:',
+        emptySleepGoalObject.scores,
       );
     })
     .catch(error => {
@@ -90,11 +124,11 @@ const createStepsScoresCollection = () => {
     .doc(fire_auth.currentUser.uid)
     .collection('scores')
     .doc('steps')
-    .set(stepsGoalObject.scores)
+    .set(emptyStepsGoalObject.scores)
     .then(() => {
       console.log(
-        'Default steps scores added to firestore for user id:',
-        fire_auth.currentUser.uid,
+        'Default steps scores added to firestore for new user:',
+        emptyStepsGoalObject.scores,
       );
     })
     .catch(error => {
@@ -147,14 +181,25 @@ const createStepsCollections = () => {
 export const createNewUser = async (email, password, nickname) => {
   try {
     await fire_auth.createUserWithEmailAndPassword(email, password);
+    // await loginNewUser(email, password);
     await addUserToFirestore(email, nickname);
-    await loginNewUser(email, password);
     await createStepGoalsCollection();
     await createSleepGoalsCollection();
     await createStepsScoresCollection();
     await createSleepScoresCollection();
     await createStepsCollections();
   } catch (error) {
-    logError('Error in createNewUser:', error);
+    const {code, message, stack} = error;
+    if (code === 'auth/weak-password') {
+      Alert.alert('The password is too weak.');
+    }
+    if (code === 'auth/invalid-email') {
+      Alert.alert('The email address is incorrectly formatted.');
+    } else if (code === 'auth/email-already-in-use') {
+      Alert.alert('The email is already in use.');
+    } else {
+      logError('Error in registerUser', stack);
+    }
+    console.log(`error code: ${code}\n message: ${message}\n stack: ${stack}`);
   }
 };
