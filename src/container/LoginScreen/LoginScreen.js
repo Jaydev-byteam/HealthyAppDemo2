@@ -3,7 +3,7 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
-import {loginNewUser} from '../../database/FirebaseAuth';
+import { checkForDelete, loginNewUser } from "../../database/FirebaseAuth";
 import {askLocation} from '../../_utilities/PermissionUtilties';
 import {
   stepsGoalObject,
@@ -25,8 +25,9 @@ export default function LoginScreen({navigation}) {
     navigation.navigate('Registration');
   };
 
-  const onLoginPress = () => {
-    loginNewUser(email, password);
+  const onLoginPress = async () => {
+    await loginNewUser(email, password);
+    await checkForDelete();
   };
 
   const onAuthPress = () => {
@@ -38,7 +39,6 @@ export default function LoginScreen({navigation}) {
   //   MDHealthKitManager.openApplicationSettings();
   // };
 
-  console.log('In Login Screen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView

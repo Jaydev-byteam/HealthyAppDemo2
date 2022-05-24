@@ -24,6 +24,21 @@ const addUserToFirestore = (email, nickname) => {
     });
 };
 
+export const checkForDelete = async () => {
+  console.log('In checkForDelete');
+  const deleteUser = await fstore
+    .collection('account_to_delete')
+    .doc(fire_auth.currentUser.uid)
+    .get();
+  console.log('deleteUser object is:', deleteUser);
+  if (deleteUser.exists) {
+    await fstore
+      .collection('account_to_delete')
+      .doc(fire_auth.currentUser.uid)
+      .delete();
+  }
+};
+
 export const loginNewUser = async (email, password) => {
   console.log('Login fired with email and password', email, password);
   if (email === '' || null) {
