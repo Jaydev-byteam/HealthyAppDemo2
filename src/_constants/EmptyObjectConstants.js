@@ -5,7 +5,7 @@ export const EmptyStepsGoalObject = {
 };
 
 export const EmptySleepGoalObject = {
-  sleep_bedtime: "10:00 PM",
+  sleep_bedtime: '10:00 PM',
   sleep_duration: 480,
 };
 
@@ -48,21 +48,17 @@ export const sleepGoalObject = {
   },
 };
 
-export const goalList = [
-  stepsGoalObject,
-  sleepGoalObject,
-];
-
+export const goalList = [stepsGoalObject, sleepGoalObject];
 
 export const currentDayStepsObject = {
   data: 0,
-  iso: "2022-01-01T00:00+0000",
+  iso: '2022-01-01T00:00+0000',
   unix: 1640995200,
 };
 
 export const tenDayStepsObject = {
-  data: ["2022-01-01T00:00+0000 = 0.0"],
-  iso: "2022-01-01T00:00+0000",
+  data: ['2022-01-01T00:00+0000 = 0.0'],
+  iso: '2022-01-01T00:00+0000',
   unix: 1640995200,
 };
 
@@ -91,8 +87,4 @@ export const emptyStepsGoalObject = {
   },
 };
 
-export const emptyGoalList = [
-  emptyStepsGoalObject,
-  emptySleepGoalObject,
-];
-
+export const emptyGoalList = [emptyStepsGoalObject, emptySleepGoalObject];

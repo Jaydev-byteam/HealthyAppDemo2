@@ -1,5 +1,6 @@
 import {fire_auth, fstore} from './FirebaseDefault';
 import dayjs from 'dayjs';
+import {log, logError} from '../_utilities/UtilityFunctions';
 
 export const unixTimeStamp = () => dayjs().unix(); // seconds
 export const unixTimeStampMilliseconds = () => dayjs().valueOf(); // milliseconds for backend
@@ -108,5 +109,26 @@ export const changeBedtimeGoal = async newBedtime => {
       );
   } catch (err) {
     console.error('Error updating sleep duration during onboarding:', err);
+  }
+};
+
+// function to add a document to the account_to_delete collection
+export const add2DayCheck = async () => {
+  try {
+    await fstore
+      .collection('account_to_delete')
+      .doc(fire_auth.currentUser.uid)
+      .set(
+        {
+          timestamp: unixTimeStampMilliseconds(),
+        },
+        {merge: true},
+      );
+    // once the document is added, sign the user out
+    fire_auth.signOut().then(() => {
+      console.log('User signed out with info:', fire_auth.currentUser);
+    });
+  } catch (err) {
+    console.error('Error posting to account_to_delete:', err);
   }
 };

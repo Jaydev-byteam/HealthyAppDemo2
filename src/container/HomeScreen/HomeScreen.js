@@ -18,6 +18,7 @@ import {
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import logError from 'react-native/Libraries/Utilities/logError';
+import DeleteAccountButton from '../../components/DeleteAccountButton/DeleteAccountButton';
 
 export default function HomeScreen(props) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -77,9 +78,11 @@ export default function HomeScreen(props) {
       <KeyboardAwareScrollView>
         <PageTitle pageName={greeting} showIcon={false} />
         <Text style={styles.accountInfo}>
-          Current email: {fire_auth.currentUser ? fire_auth.currentUser.email : ''}
+          Current email:{' '}
+          {fire_auth.currentUser ? fire_auth.currentUser.email : ''}
         </Text>
         <BasicButton buttonText={'Log out'} onPressButton={onLogoutPress} />
+        <DeleteAccountButton />
       </KeyboardAwareScrollView>
     </View>
   );

@@ -53,6 +53,7 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [self registerForPushNotifications];
   return YES;
 }
 
@@ -76,6 +77,7 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (void)applicationWillTerminate:(UIApplication *)application{
   [self stopObservingLocation];
+  [self appTerminatedNotification];
 }
 
 

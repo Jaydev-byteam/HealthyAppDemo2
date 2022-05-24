@@ -14,6 +14,7 @@ import {
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import InputField from '../../components/InputField/InputField';
+
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
 
 export default function LoginScreen({navigation}) {
@@ -66,7 +67,6 @@ export default function LoginScreen({navigation}) {
             </Text>
           </Text>
         </View>
-        {/*<BasicButton buttonText={'Settings'} onPressButton={onSettingsPress} />*/}
       </KeyboardAwareScrollView>
     </View>
   );
