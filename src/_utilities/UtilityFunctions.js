@@ -82,4 +82,4 @@ export const logError = (message, error) => {
   if (__DEV__) {
     console.log(message, JSON.stringify(error, null, 2));
   }
-}
+};

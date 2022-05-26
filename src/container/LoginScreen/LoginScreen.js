@@ -3,7 +3,7 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
-import {loginNewUser} from '../../database/FirebaseAuth';
+import { checkForDelete, loginNewUser } from "../../database/FirebaseAuth";
 import {askLocation} from '../../_utilities/PermissionUtilties';
 import {
   stepsGoalObject,
@@ -14,6 +14,7 @@ import {
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import InputField from '../../components/InputField/InputField';
+
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
 
 export default function LoginScreen({navigation}) {
@@ -24,8 +25,9 @@ export default function LoginScreen({navigation}) {
     navigation.navigate('Registration');
   };
 
-  const onLoginPress = () => {
-    loginNewUser(email, password);
+  const onLoginPress = async () => {
+    await loginNewUser(email, password);
+    await checkForDelete();
   };
 
   const onAuthPress = () => {
@@ -37,7 +39,6 @@ export default function LoginScreen({navigation}) {
   //   MDHealthKitManager.openApplicationSettings();
   // };
 
-  console.log('In Login Screen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
@@ -66,7 +67,6 @@ export default function LoginScreen({navigation}) {
             </Text>
           </Text>
         </View>
-        {/*<BasicButton buttonText={'Settings'} onPressButton={onSettingsPress} />*/}
       </KeyboardAwareScrollView>
     </View>
   );
