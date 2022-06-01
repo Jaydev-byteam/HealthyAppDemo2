@@ -3,7 +3,7 @@ import {styleConstants} from '../../_constants/StyleConstants';
 import {fontConstants} from '../../_constants/FontConstants';
 
 export default StyleSheet.create({
-    cardLogo: {
+  cardLogo: {
     width: 40,
     height: 40,
     borderRadius: 20,
@@ -13,7 +13,6 @@ export default StyleSheet.create({
 
   mainCard: {
     flex: 1,
-    // backgroundColor: styleConstants.light_background,
     alignItems: 'center',
     borderRadius: 10,
     padding: 10,

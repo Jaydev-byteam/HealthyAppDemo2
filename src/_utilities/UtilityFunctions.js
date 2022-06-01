@@ -20,10 +20,7 @@ export const minutesToHours = minutes => {
 // helper function to convert bedtime date object to HH:MM AM/PM string
 export const bedtimeString = bedtimeDate => {
   // define hours and minutes
-  console.log(
-    'In bedtimeString, date inputted to the function is:',
-    bedtimeDate,
-  );
+  log('In bedtimeString, date inputted to the function is:', bedtimeDate);
   let hours = bedtimeDate.getHours();
   let minutes = bedtimeDate.getMinutes();
   let minText = '';

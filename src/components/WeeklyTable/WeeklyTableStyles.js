@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
-import { styleConstants } from "../../_constants/StyleConstants";
+import {styleConstants} from '../../_constants/StyleConstants';
 
 export default StyleSheet.create({
   table: {
-    marginVertical: 20
+    marginVertical: 20,
   },
   column: {
     width: 50,

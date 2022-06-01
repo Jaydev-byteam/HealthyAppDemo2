@@ -4,15 +4,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './StepperFooterStyles';
 import {styleConstants} from '../../_constants/StyleConstants';
 
-// Create a function to determine whether the previous button is hidden
-// const isButtonHidden = position => {
-//   const defaultStyle = [styles.footerButton];
-//   if (position === 0) {
-//     defaultStyle.push({visibility: 'hidden'});
-//   }
-//   return defaultStyle;
-// };
-
 const getIconSize = (position, currentPosition) =>
   position === currentPosition ? 15 : 10;
 

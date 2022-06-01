@@ -9,13 +9,6 @@ export default function WeeklyTable({weeklyResult}) {
   const marks = weeklyResult.map(day => (day ? '*' : ''));
 
   return (
-    // <View style={styles.container}>
-    //   <Table borderStyle={styles.table}>
-    //     <Row data={daysOfTheWeek} style={styles.head} textStyle={styles.text}/>
-    //     <Row data={marks} textStyle={styles.text}/>
-    //   </Table>
-    // </View>
-
     <Grid style={styles.table}>
       {daysOfTheWeek.map((day, index) => (
         <Col style={styles.column}>

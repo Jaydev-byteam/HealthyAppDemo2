@@ -12,7 +12,10 @@ export default function OnboardingCard({goalType}) {
         goalType === 'steps' ? styles.stepColor : styles.sleepColor,
       ]}>
       <View style={styles.titleBar}>
-        <Image style={styles.cardLogo} source={goalType === 'steps' ? images.stepsIcon: images.sleepIcon} />
+        <Image
+          style={styles.cardLogo}
+          source={goalType === 'steps' ? images.stepsIcon : images.sleepIcon}
+        />
         <Text
           style={goalType === 'steps' ? styles.stepTitle : styles.sleepTitle}>
           {goalType === 'steps'
@@ -21,8 +24,13 @@ export default function OnboardingCard({goalType}) {
         </Text>
       </View>
       <View style={styles.goalGraphic}>
-        <Image source={goalType === 'steps' ? images.stepsGraphic : images.sleepGraphic} style={styles.goalImage} />
+        <Image
+          source={
+            goalType === 'steps' ? images.stepsGraphic : images.sleepGraphic
+          }
+          style={styles.goalImage}
+        />
       </View>
     </View>
   );
-};
+}
