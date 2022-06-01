@@ -22,7 +22,7 @@ import {
   sleepGoalObject,
   stepsGoalObject,
 } from '../../_constants/EmptyObjectConstants';
-import {askLocation} from "../../_utilities/PermissionUtilties";
+import {askLocation} from "../../_utilities/PermissionUtilities";
 
 export default function SleepScreen({navigation, user}) {
   const [dataLoaded, setDataLoaded] = useState(false);

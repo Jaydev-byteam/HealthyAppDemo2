@@ -2,18 +2,13 @@ import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {View, Text, Image} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 
 import styles from './LocationPermissionStyles';
 import images from '../../../assets/images';
+import {log, logError} from "../../_utilities/UtilityFunctions";
 
-import {
-  ONBOARDING_COMPLETE_KEY,
-  saveToAsyncStorage,
-} from '../../_utilities/AsyncStorage';
-import {fire_auth} from '../../database/FirebaseDefault';
-import {askLocation} from '../../_utilities/PermissionUtilties';
+import {askLocation} from '../../_utilities/PermissionUtilities';
 import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function LocationPermissionScreen({navigation}) {
@@ -22,11 +17,7 @@ export default function LocationPermissionScreen({navigation}) {
   };
 
   const onNextButton = () => {
-    console.log('Navigate to settings request fired');
-    // saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
-    //   id: fire_auth.currentUser.uid,
-    //   completed: true,
-    // });
+    log('Navigate to settings request fired');
     navigation.navigate('SettingsRequest');
   };
 

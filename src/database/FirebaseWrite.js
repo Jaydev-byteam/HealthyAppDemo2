@@ -17,9 +17,9 @@ export const updateCurrentSteps = async stepsData => {
         unix: unixTimeStamp(),
         data: stepsData,
       });
-    console.log('Firestore updated with current step data value: ', stepsData);
+    log('Firestore updated with current step data value: ', stepsData);
   } catch (err) {
-    console.error(`Error updating current steps ${err}`);
+    logError(`Error updating current steps ${err}`);
   }
 };
 
@@ -34,9 +34,9 @@ export const tenDaySteps = async stepsData => {
         unix: unixTimeStamp(),
         data: stepsData,
       });
-    console.log('Firestore updated with ten day step data value: ', stepsData);
+    log('Firestore updated with ten day step data value: ', stepsData);
   } catch (err) {
-    console.error(`Error updating ten-day steps ${err}`);
+    logError(`Error updating ten-day steps ${err}`);
   }
 };
 
@@ -50,9 +50,9 @@ export const changeStepGoal = async newStepGoal => {
       .set({
         dailyStepGoal: newStepGoal,
       });
-    console.log('Firestore updated with new daily step goal: ', newStepGoal);
+    log('Firestore updated with new daily step goal: ', newStepGoal);
   } catch (err) {
-    console.error('Error updating daily step goal: ', err);
+    logError('Error updating daily step goal: ', err);
   }
 };
 
@@ -67,12 +67,9 @@ export const changeSleepGoal = async (newSleepGoal, newBedtime) => {
         sleep_duration: newSleepGoal,
         sleep_bedtime: newBedtime,
       });
-    console.log(
-      'Firestore updated with new sleep duration goal:',
-      newSleepGoal,
-    );
+    log('Firestore updated with new sleep duration goal:', newSleepGoal);
   } catch (err) {
-    console.error('Error updating sleep duration goal:', err);
+    logError('Error updating sleep duration goal:', err);
   }
 };
 
@@ -90,7 +87,7 @@ export const changeSleepDurationGoal = async newSleepDurationGoal => {
         {merge: true},
       );
   } catch (err) {
-    console.error('Error updating sleep duration during onboarding:', err);
+    logError('Error updating sleep duration during onboarding:', err);
   }
 };
 
@@ -108,7 +105,7 @@ export const changeBedtimeGoal = async newBedtime => {
         {merge: true},
       );
   } catch (err) {
-    console.error('Error updating sleep duration during onboarding:', err);
+    logError('Error updating sleep duration during onboarding:', err);
   }
 };
 
@@ -126,9 +123,9 @@ export const add2DayCheck = async () => {
       );
     // once the document is added, sign the user out
     fire_auth.signOut().then(() => {
-      console.log('User signed out with info:', fire_auth.currentUser);
+      log('User signed out with info:', fire_auth.currentUser);
     });
   } catch (err) {
-    console.error('Error posting to account_to_delete:', err);
+    logError('Error posting to account_to_delete:', err);
   }
 };

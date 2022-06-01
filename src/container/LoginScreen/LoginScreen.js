@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
-import {fstore, fire_auth} from '../../database/FirebaseDefault';
-import { checkForDelete, loginNewUser } from "../../database/FirebaseAuth";
-import {askLocation} from '../../_utilities/PermissionUtilties';
-import {
-  stepsGoalObject,
-  sleepGoalObject,
-} from '../../_constants/EmptyObjectConstants';
+import {checkForDelete, loginNewUser} from '../../database/FirebaseAuth';
+import {askLocation} from '../../_utilities/PermissionUtilities';
 
 // importing custom dumb components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -34,10 +29,6 @@ export default function LoginScreen({navigation}) {
     MDHealthKitManager.requestAuthorization();
     askLocation();
   };
-
-  // const onSettingsPress = () => {
-  //   MDHealthKitManager.openApplicationSettings();
-  // };
 
   return (
     <View style={styles.container}>
