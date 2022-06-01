@@ -115,7 +115,6 @@ export default function GoalsScreenMain({navigation}) {
 
   useFocusEffect(
     useCallback(() => {
-
       const refreshGoalsData = async () => {
         const goals = await getGoalsFromFirestore();
         console.log('in useEffect, refreshGoalsData firing with new goals:', goals);

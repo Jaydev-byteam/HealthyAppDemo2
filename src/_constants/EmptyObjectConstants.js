@@ -33,7 +33,7 @@ export const stepsGoalObject = {
 export const userObject = {
   email: '',
   id: '',
-  nickname: 'Healthy App User',
+  nickname: 'BetterHealth User',
 };
 
 export const sleepGoalObject = {
