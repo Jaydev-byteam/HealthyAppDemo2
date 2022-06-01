@@ -7,12 +7,9 @@ import BasicButton from '../../components/BasicButton/BasicButton';
 
 import styles from './SetStepsGoalStyles';
 import images from '../../../assets/images';
-import {
-  ONBOARDING_COMPLETE_KEY,
-  saveToAsyncStorage,
-} from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
 import {changeStepGoal} from '../../database/FirebaseWrite';
+import {log} from '../../_utilities/UtilityFunctions';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
@@ -35,12 +32,12 @@ export default function SetStepsGoal({navigation}) {
   };
 
   const onNextButton = () => {
-    console.log('Navigate to steps permission fired');
+    log('Navigate to steps permission fired');
     changeStepGoal(stepsGoal);
     navigation.navigate('StepsPermission');
   };
 
-  console.log('In SetStepsGoal');
+  log('In SetStepsGoal');
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

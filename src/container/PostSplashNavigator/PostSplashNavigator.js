@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {fire_auth} from '../../database/FirebaseDefault';
-import logError from 'react-native/Libraries/Utilities/logError';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import ComboStackNavigator from '../ComboStackNavigator/ComboStackNavigator';
@@ -66,7 +66,7 @@ export const PostSplashNavigator = () => {
     }
   }, []);
 
-  console.log('In PostSplashNavigator');
+  log('In PostSplashNavigator');
   const Stack = createNativeStackNavigator();
   return (
     <>

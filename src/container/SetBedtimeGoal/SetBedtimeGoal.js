@@ -8,12 +8,9 @@ import RNDateTimePicker from '@react-native-community/datetimepicker';
 
 import styles from './SetBedtimeGoalStyles';
 import images from '../../../assets/images';
-import {
-  ONBOARDING_COMPLETE_KEY,
-  saveToAsyncStorage,
-} from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
 import {changeBedtimeGoal} from '../../database/FirebaseWrite';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 import {
   minutesToHours,
@@ -34,13 +31,13 @@ export default function SetBedtimeGoal({navigation}) {
 
   const bedtimePress = () => {
     if (showPicker) {
-      console.log('Bedtime selected:', bedtime);
+      log('Bedtime selected:', bedtime);
     }
     setShowPicker(!showPicker);
   };
 
   const onNextButton = async () => {
-    console.log('Navigate to main fired');
+    log('Navigate to main fired');
     await changeBedtimeGoal(bedtime);
     navigation.navigate('LocationPermission');
   };
@@ -48,7 +45,7 @@ export default function SetBedtimeGoal({navigation}) {
   const onPrevButton = () => {
     navigation.navigate('SetSleepGoal');
   };
-  console.log('In SetBedtimeGoal');
+  log('In SetBedtimeGoal');
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

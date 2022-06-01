@@ -35,7 +35,6 @@ export default StyleSheet.create({
   },
   goalAdjust: {
     flex: 1,
-    // backgroundColor: 'green',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -88,5 +87,4 @@ export default StyleSheet.create({
     width: 317,
     resizeMode: 'contain',
   },
-
 });

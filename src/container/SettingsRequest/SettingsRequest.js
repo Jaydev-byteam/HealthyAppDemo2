@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {useState, useEffect} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
+import {log} from '../../_utilities/UtilityFunctions';
 
 import styles from './SettingsRequestStyles';
 
@@ -20,7 +20,7 @@ export default function SettingsRequest({navigation}) {
   };
 
   const onNextButton = () => {
-    console.log('Navigate to main fired');
+    log('Navigate to main fired');
     saveToAsyncStorage(ONBOARDING_COMPLETE_KEY, {
       id: fire_auth.currentUser.uid,
       completed: true,

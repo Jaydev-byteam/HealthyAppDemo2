@@ -7,10 +7,11 @@ import {PostSplashNavigator} from '../PostSplashNavigator/PostSplashNavigator';
 import LoginScreen from '../LoginScreen/LoginScreen';
 import RegistrationScreen from '../RegistrationScreen/RegistrationScreen';
 import SplashPage from '../SplashPage/SplashPage';
+import {log} from '../../_utilities/UtilityFunctions';
 
 export default function Router({isSignedIn}) {
   const Stack = createNativeStackNavigator();
-  console.log('In Router');
+  log('In Router');
   return (
     <NavigationContainer>
       <Stack.Navigator

@@ -3,13 +3,14 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
-import {stepsGoalObject} from "../../_constants/EmptyObjectConstants";
+import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {
   lowercaseTest,
   uppercaseTest,
   specialsTest,
 } from '../../_utilities/RegexFunctions';
 import {createNewUser} from '../../database/FirebaseAuth';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -28,7 +29,7 @@ export default function RegistrationScreen({navigation}) {
   };
 
   const onRegisterPress = () => {
-    console.log(
+    log(
       'onRegisterPress active with email/pw/nickname: ',
       email,
       password,
@@ -41,7 +42,6 @@ export default function RegistrationScreen({navigation}) {
     createNewUser(email, password, nickname);
   };
 
-  // console.log('In Registration Screen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView

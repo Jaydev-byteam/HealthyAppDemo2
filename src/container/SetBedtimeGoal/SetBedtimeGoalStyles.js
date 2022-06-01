@@ -36,7 +36,6 @@ export default StyleSheet.create({
 
   goalAdjust: {
     flex: 1,
-    // backgroundColor: 'green',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -92,11 +91,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // backgroundColor: 'green',
     backgroundColor: styleConstants.card_sleep,
     borderRadius: 10,
     padding: 20,
     marginVertical: 10,
   },
-
 });
