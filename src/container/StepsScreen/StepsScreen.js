@@ -6,12 +6,12 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './StepsScreenStyles';
 import {ProgressCircle} from 'react-native-svg-charts';
 import images from '../../../assets/images';
-import WeeklyTable from '../../components/WeeklyTable/WeeklyTable';
 import EditGoal from '../../components/EditGoal/EditGoal';
 import {styleConstants} from '../../_constants/StyleConstants';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
 import {getStepsGoal, getStepsScores} from '../../database/FirebaseGet';
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
+import {log} from '../../_utilities/UtilityFunctions';
 
 export default function StepsScreen() {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -57,7 +57,7 @@ export default function StepsScreen() {
     MDHealthKitManager.requestAuthorization();
   }, []);
 
-  console.log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
+  log('In StepsScreen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

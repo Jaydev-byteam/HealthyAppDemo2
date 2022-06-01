@@ -6,7 +6,7 @@ import {
   goalList,
 } from '../_constants/EmptyObjectConstants';
 
-import logError from 'react-native/Libraries/Utilities/logError';
+import {log, logError} from '../_utilities/UtilityFunctions';
 
 const getGoalScores = async () => {
   await fstore
@@ -67,12 +67,12 @@ export const getStepsGoal = async () => {
     .get()
     .then(docSnapshot => {
       if (docSnapshot.exists) {
-        console.log('in getStepsGoal, doc data is:', docSnapshot.data());
+        log('in getStepsGoal, doc data is:', docSnapshot.data());
         stepsGoalObject.goals = docSnapshot.data();
       }
     })
     .catch(error => {
-      logError(error.stack);
+      logError(error);
     });
 };
 
@@ -85,12 +85,12 @@ export const getStepsScores = async () => {
     .get()
     .then(docSnapshot => {
       if (docSnapshot.exists) {
-        console.log('in getStepsScores, doc data is:', docSnapshot.data());
+        log('in getStepsScores, doc data is:', docSnapshot.data());
         stepsGoalObject.scores = docSnapshot.data();
       }
     })
     .catch(error => {
-      logError(error.stack);
+      logError(error);
     });
 };
 
@@ -104,12 +104,12 @@ export const getTodaysSteps = async () => {
     .get()
     .then(docSnapshot => {
       if (docSnapshot.exists) {
-        console.log('in getTodaysSteps, doc data is:', docSnapshot.data());
+        log('in getTodaysSteps, doc data is:', docSnapshot.data());
       }
     })
     .catch(error => {
-      console.log('in getTodaysSteps catch block');
-      logError(error.stack);
+      log('in getTodaysSteps catch block');
+      logError(error);
     });
 };
 
@@ -122,12 +122,12 @@ export const getSleepGoal = async () => {
     .get()
     .then(docSnapshot => {
       if (docSnapshot.exists) {
-        console.log('in getSleepGoal, doc data is:', docSnapshot.data());
+        log('in getSleepGoal, doc data is:', docSnapshot.data());
         sleepGoalObject.goals = docSnapshot.data();
       }
     })
     .catch(error => {
-      logError(error.stack);
+      logError(error);
     });
 };
 
@@ -140,12 +140,12 @@ export const getSleepScores = async () => {
     .get()
     .then(docSnapshot => {
       if (docSnapshot.exists) {
-        console.log('in getSleepScores, doc data is:', docSnapshot.data());
+        log('in getSleepScores, doc data is:', docSnapshot.data());
         sleepGoalObject.scores = docSnapshot.data();
       }
     })
     .catch(error => {
-      logError(error.stack);
+      logError(error);
     });
 };
 
@@ -156,16 +156,13 @@ export const getUserNickname = async () => {
     .get()
     .then(doc => {
       if (doc !== null && doc.exists) {
-        console.log(
-          'in getUserNickname, doc data nickname is:',
-          doc.data().nickname,
-        );
+        log('in getUserNickname, doc data nickname is:', doc.data().nickname);
         userObject.nickname = doc.data().nickname;
-        console.log('in getUserNickname, userObject is:', userObject.nickname);
+        log('in getUserNickname, userObject is:', userObject.nickname);
       }
     })
     .catch(e => {
-      logError('error getting user nickname', e.stack);
+      logError('error getting user nickname', e);
     });
 };
 
@@ -178,12 +175,12 @@ export const stepGoalListener = async changeHandler => {
       .doc('steps')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log('In stepGoalListener, snapshot is:', snapshot.data());
+          log('In stepGoalListener, snapshot is:', snapshot.data());
           changeHandler(snapshot.data().dailyStepGoal);
         }
       });
   } catch (e) {
-    logError('error listening to step goals', e.message);
+    logError('error listening to step goals', e);
   }
 };
 
@@ -196,12 +193,12 @@ export const bedtimeGoalListener = async changeHandler => {
       .doc('sleep')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log('In bedtimeGoalListener, snapshot is:', snapshot.data());
+          log('In bedtimeGoalListener, snapshot is:', snapshot.data());
           changeHandler(snapshot.data().sleep_bedtime);
         }
       });
   } catch (e) {
-    logError('error listening to bedtime goals', e.message);
+    logError('error listening to bedtime goals', e);
   }
 };
 
@@ -214,15 +211,12 @@ export const sleepDurationGoalListener = async changeHandler => {
       .doc('sleep')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log(
-            'In sleepDurationGoalListener, snapshot is:',
-            snapshot.data(),
-          );
+          log('In sleepDurationGoalListener, snapshot is:', snapshot.data());
           changeHandler(snapshot.data().sleep_duration);
         }
       });
   } catch (e) {
-    logError('error listening to sleep duration goals', e.message);
+    logError('error listening to sleep duration goals', e);
   }
 };
 
@@ -234,43 +228,43 @@ export const goalListener = async changeHandler => {
       .collection('goals')
       .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
-          console.log('In GoalListener, snapshot is:', snapshot.data());
+          log('In GoalListener, snapshot is:', snapshot.data());
           changeHandler();
         }
       });
   } catch (e) {
-    logError('error listening to sleep duration goals', e.message);
+    logError('error listening to sleep duration goals', e);
   }
 };
 
-export const fbaseGoalsListener = async (changeHandler) => {
+export const fbaseGoalsListener = async changeHandler => {
   try {
     return fstore
       .collection('users')
       .doc(fire_auth.currentUser.uid)
       .collection('goals')
-      .onSnapshot((snapshot) => {
+      .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
           changeHandler();
         }
       });
   } catch (err) {
-    logError('Error listening to firebase gaols', err.message);
+    logError('Error listening to firebase gaols', err);
   }
 };
 
-export const fbaseScoresListener = async (changeHandler) => {
+export const fbaseScoresListener = async changeHandler => {
   try {
     return fstore
       .collection('users')
       .doc(fire_auth.currentUser.uid)
       .collection('scores')
-      .onSnapshot((snapshot) => {
+      .onSnapshot(snapshot => {
         if (snapshot !== null && !snapshot.empty) {
           changeHandler();
         }
       });
   } catch (err) {
-    logError('Error listening to firebase gaols', err.message);
+    logError('Error listening to firebase gaols', err);
   }
 };
