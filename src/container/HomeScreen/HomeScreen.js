@@ -13,6 +13,7 @@ import {
   getHKCurrDaySteps,
   getHKTenDayTotSteps,
 } from '../../_utilities/HealthKitSteps';
+import {log} from '../../_utilities/UtilityFunctions';
 
 // import custom components
 import PageTitle from '../../components/PageTitle/PageTitle';
@@ -32,7 +33,7 @@ export default function HomeScreen(props) {
       appState.current.match(/inactive|background/) &&
       nextAppState === 'active'
     ) {
-      console.log('Healthy App has come to the foreground!');
+      log('Healthy App has come to the foreground!');
       try {
         getHKCurrDaySteps();
         getHKTenDayTotSteps();
@@ -42,7 +43,7 @@ export default function HomeScreen(props) {
     }
     appState.current = nextAppState;
     setAppStateVisible(appState.current);
-    console.log(`AppState, ${appStateVisible}`);
+    log(`AppState, ${appStateVisible}`);
   };
   const isDataLoaded = () => {
     if (!dataLoaded) {
@@ -51,7 +52,7 @@ export default function HomeScreen(props) {
   };
   const onLogoutPress = () => {
     fire_auth.signOut().then(() => {
-      console.log('User signed out with info:', fire_auth.currentUser);
+      log('User signed out with info:', fire_auth.currentUser);
     });
   };
   // app open event handler
@@ -70,9 +71,8 @@ export default function HomeScreen(props) {
     })();
   }, [dataLoaded]);
 
-  console.log('Home screen nickname:', userObject.nickname);
-  // console.log('On home screen, user is:', fire_auth.currentUser.uid);
-  console.log('Steps goal object is:', stepsGoalObject);
+  log('Home screen nickname:', userObject.nickname);
+  log('Steps goal object is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

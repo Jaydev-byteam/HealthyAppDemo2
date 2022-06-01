@@ -16,7 +16,7 @@ import {
   stepsGoalObject,
   emptyGoalList,
 } from '../../_constants/EmptyObjectConstants';
-import {log, logError} from "../../_utilities/UtilityFunctions";
+import {log, logError} from '../../_utilities/UtilityFunctions';
 
 export default function GoalsScreenMain({navigation}) {
   const [dataLoaded, setDataLoaded] = useState(false);
