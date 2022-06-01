@@ -10,7 +10,7 @@ export default function App() {
 
   // handle user state change
   const onAuthStateChangedListener = user => {
-    console.log('onAuthStateChangedListener fired');
+    log('onAuthStateChangedListener fired');
     setUser(user);
     setIsSignedIn(!!user);
     if (loading) {

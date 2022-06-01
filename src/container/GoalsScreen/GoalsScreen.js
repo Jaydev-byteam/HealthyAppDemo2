@@ -42,7 +42,7 @@ export default function GoalsScreenMain({navigation}) {
   // refresh goals data
   const refreshGoalsData = async () => {
     const goals = await getGoalsFromFirestore();
-    console.log('refreshGoalsData firing with new goals:', goals);
+    log('refreshGoalsData firing with new goals:', goals);
     await setDisplayGoals(goals);
   };
 

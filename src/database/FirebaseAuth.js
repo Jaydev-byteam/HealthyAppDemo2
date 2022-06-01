@@ -215,6 +215,6 @@ export const createNewUser = async (email, password, nickname) => {
     } else {
       logError('Error in registerUser', stack);
     }
-    console.log(`error code: ${code}\n message: ${message}\n stack: ${stack}`);
+    logError(`error code: ${code}\n message: ${message}\n stack: ${stack}`);
   }
 };
