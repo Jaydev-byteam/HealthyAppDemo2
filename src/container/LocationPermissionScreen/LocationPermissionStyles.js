@@ -7,6 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: styleConstants.base_background,
     paddingHorizontal: 15,
+    // alignItems: 'center',
   },
 
   permissions: {
