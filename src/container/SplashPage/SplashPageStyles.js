@@ -8,7 +8,6 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: styleConstants.light_background,
-    // padding: 30,
   },
   splashTitle: {
     fontFamily: fontConstants.title,
@@ -23,7 +22,6 @@ export default StyleSheet.create({
     fontSize: 18,
     color: styleConstants.splash_subhead,
     textAlign: 'center',
-
   },
   image: {
     flex: 1,
@@ -33,6 +31,6 @@ export default StyleSheet.create({
     marginVertical: 40,
   },
   loginButton: {
-    backgroundColor: styleConstants.button_alt
+    backgroundColor: styleConstants.button_alt,
   },
 });

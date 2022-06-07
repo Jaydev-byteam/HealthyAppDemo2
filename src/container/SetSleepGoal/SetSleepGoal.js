@@ -7,14 +7,11 @@ import BasicButton from '../../components/BasicButton/BasicButton';
 
 import styles from './SetSleepGoalStyles';
 import images from '../../../assets/images';
-import {
-  ONBOARDING_COMPLETE_KEY,
-  saveToAsyncStorage,
-} from '../../_utilities/AsyncStorage';
 import {fire_auth} from '../../database/FirebaseDefault';
 import {changeSleepDurationGoal} from '../../database/FirebaseWrite';
 import {minusIcon, plusIcon} from '../../_constants/IconConstants';
 import {minutesToHours} from '../../_utilities/UtilityFunctions';
+import {log} from '../../_utilities/UtilityFunctions';
 import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function SetSleepGoal({navigation}) {
@@ -36,7 +33,7 @@ export default function SetSleepGoal({navigation}) {
   };
 
   const onNextButton = () => {
-    console.log('Navigate to main fired');
+    log('Navigate to main fired');
     changeSleepDurationGoal(sleepGoal);
     navigation.navigate('SetBedtimeGoal');
   };
@@ -44,7 +41,7 @@ export default function SetSleepGoal({navigation}) {
     navigation.navigate('StepsPermission');
   };
 
-  console.log('In SetSleepGoal');
+  log('In SetSleepGoal');
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

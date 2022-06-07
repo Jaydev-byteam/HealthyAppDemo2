@@ -22,7 +22,8 @@ import {
   sleepGoalObject,
   stepsGoalObject,
 } from '../../_constants/EmptyObjectConstants';
-import {askLocation} from "../../_utilities/PermissionUtilties";
+import {askLocation} from '../../_utilities/PermissionUtilities';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 
 export default function SleepScreen({navigation, user}) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -53,8 +54,8 @@ export default function SleepScreen({navigation, user}) {
     askLocation();
   }, []);
 
-  console.log('In SleepScreen, goals object is:', sleepGoalObject);
-  console.log('In SleepScreen goal score is:', sleepGoalObject.scores.score);
+  log('In SleepScreen, goals object is:', sleepGoalObject);
+  log('In SleepScreen goal score is:', sleepGoalObject.scores.score);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>

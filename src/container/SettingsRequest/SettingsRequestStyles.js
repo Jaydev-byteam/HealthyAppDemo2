@@ -10,20 +10,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   request: {
-    textAlign: "center",
+    textAlign: 'center',
     fontFamily: fontConstants.cardTitle,
     fontSize: 18,
   },
-  // permissions: {
-  //   fontFamily: fontConstants.title,
-  //   fontSize: 24,
-  //   color: styleConstants.dark_text,
-  // },
-  //
-  // locationImage: {
-  //   flex: 1,
-  //   height: 200,
-  //   width: 352,
-  //   resizeMode: 'contain',
-  // },
 });

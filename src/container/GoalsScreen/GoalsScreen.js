@@ -1,62 +1,27 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {useFocusEffect} from "@react-navigation/native";
+import {useFocusEffect} from '@react-navigation/native';
 import {View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './GoalsScreenStyles';
 import GoalCard from '../../components/GoalCard/GoalCard';
 import images from '../../../assets/images/';
-import {fire_auth, fstore} from '../../database/FirebaseDefault';
 import {minutesToHours} from '../../_utilities/UtilityFunctions';
 import {
-  getStepsGoal,
-  getStepsScores,
-  getSleepGoal,
-  getSleepScores,
-  stepGoalListener,
-  bedtimeGoalListener,
-  sleepDurationGoalListener,
-  goalListener,
   getGoalsFromFirestore,
   fbaseScoresListener,
   fbaseGoalsListener,
 } from '../../database/FirebaseGet';
 import {
   stepsGoalObject,
-  sleepGoalObject,
-  goalList,
   emptyGoalList,
 } from '../../_constants/EmptyObjectConstants';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 
 export default function GoalsScreenMain({navigation}) {
   const [dataLoaded, setDataLoaded] = useState(false);
-  // const [dailyStepGoal, setDailyStepGoal] = useState(
-  //   stepsGoalObject.goals.dailyStepGoal,
-  // );
-  // const [bedtimeGoal, setBedtimeGoal] = useState(
-  //   sleepGoalObject.goals.sleep_bedtime,
-  // );
-  // const [sleepDurationGoal, setSleepDurationGoal] = useState(
-  //   sleepGoalObject.goals.sleep_duration,
-  // );
-  //
-  // const [goalObject, setGoalObject] = useState({
-  //   steps: {
-  //     dailyStepGoal: stepsGoalObject.goals.dailyStepGoal,
-  //   },
-  //   sleep: {
-  //     sleep_duration: sleepGoalObject.goals.sleep_duration,
-  //     sleep_bedtime: sleepGoalObject.goals.sleep_bedtime,
-  //   },
-  // });
 
   const [displayGoals, setDisplayGoals] = useState(emptyGoalList);
-
-
-  // const refreshGoals = newGoalObject => {
-  //   console.log('In refresh goals with newGoalObject:', newGoalObject);
-  //   setGoalObject(newGoalObject);
-  // };
 
   const navigateToPage = pageRoute => {
     navigation.navigate(pageRoute);
@@ -74,25 +39,10 @@ export default function GoalsScreenMain({navigation}) {
     }
   };
 
-  // const refreshStepGoal = newGoal => {
-  //   console.log('In refreshStepGoal with newGoal:', newGoal);
-  //   setDailyStepGoal(newGoal);
-  // };
-  //
-  // const refreshBedtime = newGoal => {
-  //   console.log('In refreshBedtime with newGoal:', newGoal);
-  //   setBedtimeGoal(newGoal);
-  // };
-  //
-  // const refreshSleepDurationGoal = newGoal => {
-  //   console.log('In refreshSleepDurationGoal with newGoal:', newGoal);
-  //   setSleepDurationGoal(newGoal);
-  // };
-
   // refresh goals data
   const refreshGoalsData = async () => {
     const goals = await getGoalsFromFirestore();
-    console.log('refreshGoalsData firing with new goals:', goals);
+    log('refreshGoalsData firing with new goals:', goals);
     await setDisplayGoals(goals);
   };
 
@@ -103,13 +53,9 @@ export default function GoalsScreenMain({navigation}) {
 
   useEffect(() => {
     (async () => {
-      // await getStepsGoal();
-      // await getStepsScores();
-      // await getSleepGoal();
-      // await getSleepScores();
       await refreshGoalsData();
       isDataLoaded();
-      console.log('In useEffect, dataLoaded is:', dataLoaded);
+      log('In useEffect, dataLoaded is:', dataLoaded);
     })();
   }, [dataLoaded]);
 
@@ -117,7 +63,7 @@ export default function GoalsScreenMain({navigation}) {
     useCallback(() => {
       const refreshGoalsData = async () => {
         const goals = await getGoalsFromFirestore();
-        console.log('in useEffect, refreshGoalsData firing with new goals:', goals);
+        log('in useEffect, refreshGoalsData firing with new goals:', goals);
         await setDisplayGoals(goals);
         setDataLoaded(false);
       };
@@ -125,30 +71,8 @@ export default function GoalsScreenMain({navigation}) {
     }, []),
   );
 
-  // useEffect(() => {
-  //   const stepUnsubscribe = stepGoalListener(refreshStepGoal);
-  //   const bedtimeUnsubscribe = bedtimeGoalListener(refreshBedtime);
-  //   const sleepDurationUnsubscribe = sleepDurationGoalListener(
-  //     refreshSleepDurationGoal
-  //   );
-  //   // const subscriber = goalListener(refreshGoals);
-  //   return () => {
-  //     stepUnsubscribe();
-  //     bedtimeUnsubscribe();
-  //     sleepDurationUnsubscribe();
-  //     // subscriber();
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const subscriber = goalListener(refreshGoals);
-  //   return () => {
-  //     subscriber();
-  //   };
-  // });
-
-  console.log('In Goals Screen, display goals are: ', displayGoals);
-  console.log('In Goals Screen, stepsGoalObject is:', stepsGoalObject);
+  log('In Goals Screen, display goals are: ', displayGoals);
+  log('In Goals Screen, stepsGoalObject is:', stepsGoalObject);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -158,7 +82,10 @@ export default function GoalsScreenMain({navigation}) {
           goalTitle={'Step Goals'}
           goalAmount={displayGoals[0].goals.dailyStepGoal}
           goalUnit={'steps/day'}
-          goalProgress={displayGoals[0].scores.average_steps / displayGoals[0].goals.dailyStepGoal}
+          goalProgress={
+            displayGoals[0].scores.average_steps /
+            displayGoals[0].goals.dailyStepGoal
+          }
           onPress={() => navigateToPage('Steps')}
         />
         <GoalCard

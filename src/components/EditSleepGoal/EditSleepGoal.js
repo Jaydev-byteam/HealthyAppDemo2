@@ -5,7 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import BasicButton from '../BasicButton/BasicButton';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
-import { changeSleepGoal, changeStepGoal } from "../../database/FirebaseWrite";
+import {changeSleepGoal, changeStepGoal} from '../../database/FirebaseWrite';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 
 export default function EditSleepGoal({
   currentGoal,
@@ -22,12 +23,9 @@ export default function EditSleepGoal({
   // state variable to show bedtime picker
   const [showPicker, setShowPicker] = useState(false);
 
-  console.log('In EditSleepGoal, newBed string is: ', newBedtime);
-  console.log(
-    'In EditSleepGoal, newBed object is: ',
-    timeStringToDate(newBedtime),
-  );
-  console.log('In EditSleepGoal, showPicker is:', showPicker);
+  log('In EditSleepGoal, newBed string is: ', newBedtime);
+  log('In EditSleepGoal, newBed object is: ', timeStringToDate(newBedtime));
+  log('In EditSleepGoal, showPicker is:', showPicker);
 
   const addToGoal = () => {
     if (newGoal + 15 <= 720) {
@@ -46,14 +44,14 @@ export default function EditSleepGoal({
 
   const bedtimePress = () => {
     if (showPicker) {
-      console.log('In bedtime press, newBed is: ', newBedtime);
+      log('In bedtime press, newBed is: ', newBedtime);
       setNewBedtime(newBedtime);
     }
     setShowPicker(!showPicker);
   };
 
   const updateGoal = () => {
-    console.log('In updateGoal, newGoal is:', newGoal);
+    log('In updateGoal, newGoal is:', newGoal);
     updateSleep(newGoal);
     updateBedtime(newBedtime);
     changeSleepGoal(newGoal, newBedtime);
@@ -73,7 +71,7 @@ export default function EditSleepGoal({
           <Icon name={'plus'} size={16} color={'white'} />
         </TouchableOpacity>
       </View>
-      {((newGoal !== currentGoal) || (newBedtime !== currentBedtime)) && (
+      {(newGoal !== currentGoal || newBedtime !== currentBedtime) && (
         <BasicButton
           buttonText={'Submit New Goals'}
           onPressButton={updateGoal}
@@ -86,10 +84,12 @@ export default function EditSleepGoal({
           <Text style={styles.sleepGoal}>{newBedtime}</Text>
         </View>
         <TouchableOpacity style={styles.bedtimeButton} onPress={bedtimePress}>
-          <Text style={styles.buttonTitle}>{!showPicker ? 'CHOOSE BEDTIME' : 'CLOSE PICKER'}</Text>
+          <Text style={styles.buttonTitle}>
+            {!showPicker ? 'CHOOSE BEDTIME' : 'CLOSE PICKER'}
+          </Text>
         </TouchableOpacity>
       </View>
-      {showPicker &&  (
+      {showPicker && (
         <View style={styles.timePicker}>
           <RNDateTimePicker
             themeVariant="light"

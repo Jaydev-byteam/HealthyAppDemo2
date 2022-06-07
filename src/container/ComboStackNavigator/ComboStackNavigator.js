@@ -7,11 +7,12 @@ import {styleConstants} from '../../_constants/StyleConstants';
 import GoalsScreenMain from '../GoalsScreen/GoalsScreen';
 import StepsScreen from '../StepsScreen/StepsScreen';
 import SleepScreen from '../SleepScreen/SleepScreen';
+import {log, logError} from '../../_utilities/UtilityFunctions';
 
 export default function ComboStackNavigator(props) {
   const GoalsStack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
-  console.log('In ComboStackNavigator');
+  log('In ComboStackNavigator');
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen

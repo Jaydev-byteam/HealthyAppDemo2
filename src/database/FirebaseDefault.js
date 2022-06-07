@@ -1,4 +1,4 @@
-// import crashylytics from '@react-native-firebase/crashlytics';
+// import crashlytics from '@react-native-firebase/crashlytics';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 // import functions from '@react-native-firebase/functions';
@@ -8,7 +8,7 @@ import firestore from '@react-native-firebase/firestore';
  * Firebase default entry point
  * */
 
-// export const fire_crash = crashylytics();
+// export const fire_crash = crashlytics();
 export const fstore = firestore();
 // export const cloud_functions = functions();
 export const fire_auth = auth();
