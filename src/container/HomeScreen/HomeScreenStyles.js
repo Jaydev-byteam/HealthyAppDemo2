@@ -5,6 +5,7 @@ import {fontConstants} from '../../_constants/FontConstants';
 export default StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-around',
     marginHorizontal: '3%',
     backgroundColor: styleConstants.base_background,
   },
@@ -13,7 +14,7 @@ export default StyleSheet.create({
     color: styleConstants.blue_text,
     fontSize: 18,
     fontFamily: fontConstants.subtext,
-    marginBottom: 10,
+    marginBottom: 140,
     textAlign: 'center',
   },
 });
