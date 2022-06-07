@@ -16,15 +16,6 @@ export default function ComboStackNavigator(props) {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
-        name="Account"
-        children={() => <HomeScreen {...props} />}
-        options={{
-          tabBarIcon: ({size, color}) => (
-            <Icon name={'home'} color={styleConstants.icon_color} size={30} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Goals"
         children={() => (
           <GoalsStack.Navigator
@@ -47,6 +38,15 @@ export default function ComboStackNavigator(props) {
         options={{
           tabBarIcon: ({size, color}) => (
             <Icon name={'star'} color={styleConstants.icon_color} size={30} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Account"
+        children={() => <HomeScreen {...props} />}
+        options={{
+          tabBarIcon: ({size, color}) => (
+            <Icon name={'home'} color={styleConstants.icon_color} size={30} />
           ),
         }}
       />

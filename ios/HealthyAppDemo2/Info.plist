@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -38,15 +38,15 @@
 		</dict>
 	</dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Healthy App would like to access your step count.</string>
+	<string>BetterHealth would like to access your step count.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Healthy App would like to access your step count.</string>
+	<string>BetterHealth would like to access your step count.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Healthy App uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
+	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Healthy App uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
+	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Healthy App uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
+	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Bold.ttf</string>
@@ -79,8 +79,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
