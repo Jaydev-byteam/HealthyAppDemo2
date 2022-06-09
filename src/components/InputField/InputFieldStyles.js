@@ -16,5 +16,8 @@ export default StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     paddingLeft: 16,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });

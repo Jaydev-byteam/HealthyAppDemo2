@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import styles from './GoalsScreenStyles';
