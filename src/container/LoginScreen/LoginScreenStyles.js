@@ -18,20 +18,9 @@ export default StyleSheet.create({
     backgroundColor: styleConstants.input_background,
     marginLeft: 15,
     marginRight: 15,
-    paddingLeft: 0,
-  },
-
-  input: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 48,
-    borderRadius: 10,
-    overflow: 'hidden',
-    backgroundColor: styleConstants.input_background,
     marginTop: 10,
     marginBottom: 10,
   },
-
   eyeButton: {
     marginRight: 10,
   },

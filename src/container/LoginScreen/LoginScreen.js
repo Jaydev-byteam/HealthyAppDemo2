@@ -45,7 +45,6 @@ export default function LoginScreen({navigation}) {
         keyboardShouldPersistTaps="always">
         <PageTitle showIcon={false} />
         <InputField
-          style={styles.input}
           placeholder={'Email'}
           onChangeText={text => setEmail(text)}
           value={email}
@@ -53,7 +52,6 @@ export default function LoginScreen({navigation}) {
         />
         <View style={styles.inputContainer}>
           <InputField
-            style={styles.input}
             marginLeft={0}
             placeholder={'Password'}
             onChangeText={text => setPassword(text)}
