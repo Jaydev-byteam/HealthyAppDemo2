@@ -7,16 +7,33 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: styleConstants.base_background,
   },
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 48,
+    borderRadius: 10,
+    overflow: 'hidden',
+    backgroundColor: styleConstants.input_background,
+    marginLeft: 15,
+    marginRight: 15,
+    paddingLeft: 0,
+  },
+
   input: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
     height: 48,
     borderRadius: 10,
     overflow: 'hidden',
     backgroundColor: styleConstants.input_background,
     marginTop: 10,
     marginBottom: 10,
-    marginLeft: 30,
-    marginRight: 30,
-    paddingLeft: 16,
+  },
+
+  eyeButton: {
+    marginRight: 10,
   },
   footerView: {
     flex: 1,
