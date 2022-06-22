@@ -52,7 +52,7 @@ export default function LoginScreen({navigation}) {
         />
         <View style={styles.inputContainer}>
           <InputField
-            marginLeft={0}
+            style={styles.passwordInput}
             placeholder={'Password'}
             onChangeText={text => setPassword(text)}
             value={password}

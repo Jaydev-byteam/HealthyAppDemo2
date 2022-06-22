@@ -21,6 +21,9 @@ export default StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
+  passwordInput: {
+    marginLeft: 0,
+  },
   eyeButton: {
     marginRight: 10,
   },

@@ -8,7 +8,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: styleConstants.base_background,
   },
-
   inputContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -23,11 +22,12 @@ export default StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
-
+  passwordInput: {
+    marginLeft: 0,
+  },
   eyeButton: {
     marginRight: 10,
   },
-
   footerView: {
     flex: 1,
     alignItems: 'center',
