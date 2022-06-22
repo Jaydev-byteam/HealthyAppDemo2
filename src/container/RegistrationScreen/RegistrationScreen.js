@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Text, TextInput, TouchableOpacity, View, Pressable} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './RegistrationScreenStyles';
 import {fstore, fire_auth} from '../../database/FirebaseDefault';
 import {stepsGoalObject} from '../../_constants/EmptyObjectConstants';
@@ -17,6 +18,9 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import InputField from '../../components/InputField/InputField';
 
+// import hook to toggle password visibility
+import {useTogglePasswordVisibility} from '../../_hooks/useTogglePasswordVisibility';
+
 export default function RegistrationScreen({navigation}) {
   // establish the state variables for registration
   const [nickname, setNickname] = useState('');
@@ -24,6 +28,9 @@ export default function RegistrationScreen({navigation}) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [hidePass, setHidePass] = useState(false);
+
+  const {passwordVisibility, rightIcon, handlePasswordVisibility} =
+    useTogglePasswordVisibility();
 
   const onFooterLinkPress = () => {
     navigation.navigate('Login');
@@ -52,32 +59,45 @@ export default function RegistrationScreen({navigation}) {
         keyboardShouldPersistTaps="always">
         <PageTitle showIcon={false} />
         <InputField
-          style={styles.input}
           placeholder={'Nickname'}
           onChangeText={text => setNickname(text)}
           value={nickname}
         />
         <InputField
-          style={styles.input}
           placeholder={'Email'}
           onChangeText={text => setEmail(text)}
           value={email}
           keyboardType="email-address"
         />
-        <InputField
-          style={styles.input}
-          placeholder="Password"
-          onChangeText={text => setPassword(text)}
-          value={password}
-          secureTextEntry
-        />
-        <InputField
-          style={styles.input}
-          placeholder="Confirm Password"
-          onChangeText={text => setConfirmPassword(text)}
-          value={confirmPassword}
-          secureTextEntry
-        />
+        <View style={styles.inputContainer}>
+          <InputField
+            isPassword
+            placeholder={"Password"}
+            onChangeText={text => setPassword(text)}
+            value={password}
+            secureTextEntry={passwordVisibility}
+          />
+          <Pressable
+            style={styles.eyeButton}
+            onPress={handlePasswordVisibility}>
+            <Icon name={rightIcon} size={22} color={'#708090'} />
+          </Pressable>
+        </View>
+        <View style={styles.inputContainer}>
+          <InputField
+            isPassword
+            placeholder="Confirm Password"
+            onChangeText={text => setConfirmPassword(text)}
+            value={confirmPassword}
+            secureTextEntry={passwordVisibility}
+          />
+          <Pressable
+            style={styles.eyeButton}
+            onPress={handlePasswordVisibility}>
+            <Icon name={rightIcon} size={22} color={'#708090'} />
+          </Pressable>
+        </View>
+
         <View style={styles.validationView}>
           <Text style={password.length < 8 ? styles.error : styles.success}>
             Password must be at least 8 characters long.

@@ -8,19 +8,23 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: styleConstants.base_background,
   },
-
-  input: {
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     height: 48,
-    borderRadius: 5,
+    borderRadius: 10,
     overflow: 'hidden',
     backgroundColor: styleConstants.input_background,
+    marginLeft: 15,
+    marginRight: 15,
     marginTop: 10,
     marginBottom: 10,
-    marginLeft: 30,
-    marginRight: 30,
-    paddingLeft: 16,
   },
-
+  eyeButton: {
+    marginRight: 10,
+  },
   footerView: {
     flex: 1,
     alignItems: 'center',

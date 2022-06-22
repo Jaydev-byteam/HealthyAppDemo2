@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Pressable} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './LoginScreenStyles';
+
+import Icon from "react-native-vector-icons/FontAwesome";
 import {checkForDelete, loginNewUser} from '../../database/FirebaseAuth';
 import {askLocation} from '../../_utilities/PermissionUtilities';
 
@@ -12,9 +14,15 @@ import InputField from '../../components/InputField/InputField';
 
 import {MDHealthKitManager} from '../../_utilities/HealthKit';
 
+// import hook to toggle password visibility
+import {useTogglePasswordVisibility} from '../../_hooks/useTogglePasswordVisibility';
+
 export default function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const {passwordVisibility, rightIcon, handlePasswordVisibility} =
+    useTogglePasswordVisibility();
 
   const onFooterLinkPress = () => {
     navigation.navigate('Registration');
@@ -37,18 +45,27 @@ export default function LoginScreen({navigation}) {
         keyboardShouldPersistTaps="always">
         <PageTitle showIcon={false} />
         <InputField
-          style={styles.input}
           placeholder={'Email'}
           onChangeText={text => setEmail(text)}
           value={email}
           keyboardType={'email-address'}
         />
-        <InputField
-          placeholder={'Password'}
-          onChangeText={text => setPassword(text)}
-          value={password}
-          secureTextEntry
-        />
+        <View style={styles.inputContainer}>
+          <InputField
+            isPassword
+            placeholder={'Password'}
+            onChangeText={text => setPassword(text)}
+            value={password}
+            secureTextEntry={passwordVisibility}
+            enablesReturnKeyAutomatically
+          />
+          <Pressable
+            style={styles.eyeButton}
+            onPress={handlePasswordVisibility}>
+            <Icon name={rightIcon} size={22} color={'#708090'} />
+          </Pressable>
+        </View>
+
         <BasicButton buttonText="Log in" onPressButton={onLoginPress} />
         <View style={styles.footerView}>
           <Text style={styles.footerText}>
