@@ -6,7 +6,7 @@ export default function InputField(props) {
   return (
     <TextInput
       {...props}
-      style={styles.input}
+      style={[styles.input, props.isPassword && styles.password]}
       placeholderTextColor="#aaaaaa"
       underlineColorAndroid="transparent"
       autoCapitalize="none"

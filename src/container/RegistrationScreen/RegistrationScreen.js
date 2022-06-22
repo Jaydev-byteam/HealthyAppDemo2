@@ -71,7 +71,7 @@ export default function RegistrationScreen({navigation}) {
         />
         <View style={styles.inputContainer}>
           <InputField
-            style={styles.passwordInput}
+            isPassword
             placeholder={"Password"}
             onChangeText={text => setPassword(text)}
             value={password}
@@ -85,7 +85,7 @@ export default function RegistrationScreen({navigation}) {
         </View>
         <View style={styles.inputContainer}>
           <InputField
-            style={styles.passwordInput}
+            isPassword
             placeholder="Confirm Password"
             onChangeText={text => setConfirmPassword(text)}
             value={confirmPassword}
