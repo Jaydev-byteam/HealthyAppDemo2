@@ -39,6 +39,15 @@ export default function GoalCard({
           ]}>
           {goalTitle}
         </Text>
+        <Text
+          style={[
+            styles.cardSubtitle,
+            goalTitle === 'Step Goals'
+              ? styles.stepTextColor
+              : styles.sleepTextColor,
+          ]}>
+          Tap for more goal info
+        </Text>
         <View style={styles.cardBody}>
           <View style={styles.cardSegment}>
             <ProgressCircle

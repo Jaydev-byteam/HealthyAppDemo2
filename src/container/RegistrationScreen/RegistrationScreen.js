@@ -23,6 +23,7 @@ export default function RegistrationScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [hidePass, setHidePass] = useState(false);
 
   const onFooterLinkPress = () => {
     navigation.navigate('Login');
@@ -41,6 +42,8 @@ export default function RegistrationScreen({navigation}) {
     }
     createNewUser(email, password, nickname);
   };
+
+  // create a function to handle password visibility change
 
   return (
     <View style={styles.container}>

@@ -61,6 +61,12 @@ export default StyleSheet.create({
     fontFamily: fontConstants.cardTitle,
     color: styleConstants.dark_text,
   },
+  cardSubtitle: {
+    marginTop: 10,
+    fontSize: 14,
+    fontFamily: fontConstants.cardTitle,
+    color: styleConstants.dark_text,
+  },
   cardBody: {
     flex: 1,
     flexDirection: 'row',

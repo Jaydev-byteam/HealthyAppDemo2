@@ -62,7 +62,7 @@ export const timeStringToDate = timeString => {
   if (timeArray[1] === 'AM' && hours === 12) {
     hours = 0;
   }
-  if (timeArray[1] === 'PM' && hours > 12) {
+  if (timeArray[1] === 'PM' && hours < 12) {
     hours += 12;
   }
   newDate.setHours(hours, minutes);

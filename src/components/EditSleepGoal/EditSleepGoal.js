@@ -24,7 +24,10 @@ export default function EditSleepGoal({
   const [showPicker, setShowPicker] = useState(false);
 
   log('In EditSleepGoal, newBed string is: ', newBedtime);
-  log('In EditSleepGoal, newBed object is: ', timeStringToDate(newBedtime));
+  log(
+    'In EditSleepGoal, newBed object is: ',
+    timeStringToDate(newBedtime),
+  );
   log('In EditSleepGoal, showPicker is:', showPicker);
 
   const addToGoal = () => {

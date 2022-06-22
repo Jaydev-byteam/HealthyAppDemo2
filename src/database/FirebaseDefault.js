@@ -8,6 +8,11 @@ import firestore from '@react-native-firebase/firestore';
  * Firebase default entry point
  * */
 
+// if (__DEV__) {
+//   console.log('Debug mode activated!');
+//   firestore().useEmulator('localhost', 8080)
+// }
+
 // export const fire_crash = crashlytics();
 export const fstore = firestore();
 // export const cloud_functions = functions();

@@ -20,6 +20,8 @@ import {
 import StepperFooter from '../../components/StepperFooter/StepperFooter';
 
 export default function SetBedtimeGoal({navigation}) {
+  // test logging variables
+  const dummyVar = 'Chet Breakfast'
   // create a date at 10 PM for initialization purposes
   const defaultDate = timeStringToDate('10:00 PM');
   // initialize state variable for the goal bedtime
@@ -45,7 +47,7 @@ export default function SetBedtimeGoal({navigation}) {
   const onPrevButton = () => {
     navigation.navigate('SetSleepGoal');
   };
-  log('In SetBedtimeGoal');
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
