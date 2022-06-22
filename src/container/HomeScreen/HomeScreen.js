@@ -21,6 +21,9 @@ import BasicButton from '../../components/BasicButton/BasicButton';
 import logError from 'react-native/Libraries/Utilities/logError';
 import DeleteAccountButton from '../../components/DeleteAccountButton/DeleteAccountButton';
 
+// import Firebase write function
+import {appOpenDoc} from '../../database/FirebaseWrite';
+
 export default function HomeScreen(props) {
   const [dataLoaded, setDataLoaded] = useState(false);
   const appState = useRef(AppState.currentState);
@@ -37,6 +40,7 @@ export default function HomeScreen(props) {
       try {
         getHKCurrDaySteps();
         getHKTenDayTotSteps();
+        await appOpenDoc();
       } catch (e) {
         logError('error: ', e.stack);
       }
