@@ -129,3 +129,19 @@ export const add2DayCheck = async () => {
     logError('Error posting to account_to_delete:', err);
   }
 };
+
+// function to add an app open to the database
+
+export const appOpenDoc = async () => {
+  await fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('app_open')
+    .add({
+      open_timestamp: timeStampISO(),
+      unix_time: unixTimeStampMilliseconds(),
+    })
+    .catch((error) => {
+      log(`error in recording app open: ${error.message}`);
+    });
+};
