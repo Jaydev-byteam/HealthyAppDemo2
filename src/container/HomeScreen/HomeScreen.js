@@ -36,7 +36,7 @@ export default function HomeScreen(props) {
       appState.current.match(/inactive|background/) &&
       nextAppState === 'active'
     ) {
-      log('Healthy App has come to the foreground!');
+      log('Better Health has come to the foreground!');
       try {
         getHKCurrDaySteps();
         getHKTenDayTotSteps();

@@ -42,11 +42,11 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>BetterHealth would like to access your step count.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
+	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Better Health, please select Always Allow.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
+	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Better Health, please select Always Allow.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Healthy App, please select Always Allow.</string>
+	<string>BetterHealth uses location services to adequately collect information for your Sleep goal, location-based goals, and keeping app-based goal information up to date. To get the most from Better Health, please select Always Allow.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Bold.ttf</string>

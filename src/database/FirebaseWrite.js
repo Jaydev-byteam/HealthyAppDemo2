@@ -141,7 +141,7 @@ export const appOpenDoc = async () => {
       open_timestamp: timeStampISO(),
       unix_time: unixTimeStampMilliseconds(),
     })
-    .catch((error) => {
+    .catch(error => {
       log(`error in recording app open: ${error.message}`);
     });
 };
