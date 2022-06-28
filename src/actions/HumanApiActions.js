@@ -1,12 +1,13 @@
 import {fstore, fire_auth} from '../database/FirebaseDefault';
 import {log} from '../_utilities/UtilityFunctions';
 
+// Define several variables to be used in the Human API-related Firestore functions
 export let hapiID = '';
 export let accessToken = '';
 export let refreshToken = '';
 
 export function getHapiTokens() {
-  const unsubscribe = fstore
+  fstore
     .collection('users')
     .doc(fire_auth.currentUser.uid)
     .collection('human_api')
@@ -23,30 +24,24 @@ export function getHapiTokens() {
         log(`error getting data: ${error}`);
       },
     );
-  return () => unsubscribe();
 }
 
-export const hapiAuthRecord = (accessTkn, refreshTkn, userID) => {
-  fire_auth.onAuthStateChanged(user => {
-    if (user) {
-      fstore
-        .collection('users')
-        .doc(fire_auth.currentUser.uid)
-        .collection('human_api')
-        .doc('human_api')
-        .set(
-          {
-            token: accessTkn,
-            userid: userID,
-            refresh: refreshTkn,
-          },
-          {merge: true},
-        )
-        .catch(error => {
-          log(error.stack);
-        });
-    }
-  });
+export const hapiAuthRecord = (sessionTkn, userID) => {
+  fstore
+    .collection('users')
+    .doc(fire_auth.currentUser.uid)
+    .collection('human_api')
+    .doc('human_api')
+    .set(
+      {
+        token: sessionTkn,
+        userid: userID,
+      },
+      {merge: true},
+    )
+    .catch(error => {
+      log(error.stack);
+    });
 };
 
 export const hapiActivities = (res, time) => {
