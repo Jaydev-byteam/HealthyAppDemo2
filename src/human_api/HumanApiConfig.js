@@ -16,41 +16,35 @@ const userSessionRequestBody = {
   client_secret: hapiClientSecret,
 };
 
-const getUserSessionToken = () => {
+const getUserSessionToken = async () => {
   userSessionRequestBody.type = 'session';
   console.log(userSessionRequestBody);
-  fetch(hapiAuthUrl, {
+  const response = await fetch(hapiAuthUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(userSessionRequestBody),
-  })
-    .then(response => response.json())
-    .then(sessionTokenData => {
-      console.log(sessionTokenData);
-      hapiAuthRecord(sessionTokenData.session_token, sessionTokenData.human_id);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+  });
+  const sessionTokenData = response.json();
+  await hapiAuthRecord(
+    sessionTokenData.session_token,
+    sessionTokenData.human_id,
+  );
 };
 
-const getUserIdToken = () => {
+const getUserIdToken = async () => {
   userSessionRequestBody.type = 'id';
   console.log(userSessionRequestBody);
-  fetch(hapiAuthUrl, {
+  const response = await fetch(hapiAuthUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(userSessionRequestBody),
-  })
-    .then(response => response.json())
-    .then(idTokenData => {
-      console.log(idTokenData);
-      hapiAuthRecord(idTokenData.id_token);
-    });
+  });
+  const idTokenData = response.json();
+  await hapiAuthRecord(idTokenData.id_token);
 };
 
 const accessTokenRequestBody = {
@@ -60,20 +54,18 @@ const accessTokenRequestBody = {
   client_secret: hapiClientSecret,
 };
 
-export const fetchHumanApiData = accessToken => {
+export const fetchHumanApiData = async accessToken => {
   const today = dayjs().format();
   let headers = {
     Authorization: 'Bearer ' + accessToken,
     Accept: 'application/json',
   };
   let url = 'https://api.humanapi.co/v1/human/activities/summaries';
-  fetch(url, {
+  const response = await fetch(url, {
     method: 'GET',
     headers: headers,
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      hapiActivities(data, today);
-    });
+  });
+  const data = response.json();
+  console.log('Data fetched from humanAPI is:', data);
+  await hapiActivities(data, today);
 };
